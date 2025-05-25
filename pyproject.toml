@@ -1,0 +1,33 @@
+[project]
+name = "thesis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.6.0",
+    "bert-score>=0.3.13",
+    "datasets>=3.5.0",
+    "pandas>=2.2.3",
+    "sentencepiece>=0.2.0",
+    "transformers>=4.51.1",
+    "wget>=3.2",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "CPY001",         # missing copyright
+    "T201",           # using print
+    "TD002",          # missing author in TODO
+    "TD003",          # missing issue link for TODO
+]
+
+[dependency-groups]
+dev = []
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
