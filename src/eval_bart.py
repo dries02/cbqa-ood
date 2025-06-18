@@ -4,6 +4,9 @@ from qadataset import QADataset
 from torch.utils.data import DataLoader
 from transformers import BartForConditionalGeneration, BartTokenizer
 
+import torch
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 def interact(model: BartForConditionalGeneration, tokenizer: BartTokenizer) -> None:
     """Interact with the model."""
@@ -26,9 +29,10 @@ def evaluate(model: BartForConditionalGeneration, tokenizer: BartTokenizer, data
     with torch.no_grad():
         for batch in dataloader:
             # Move inputs to the right device
-            input_ids = batch["input_ids"]
-            attention_mask = batch["attention_mask"]
-            labels = batch["labels"]
+            batch = {k: v.to(device) for k, v in batch.items()}
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            labels = batch["labels"].to(device)
 
             # Generate predictions greedily
             pred_ids = model.generate(**batch, max_length=32)
@@ -50,8 +54,8 @@ def evaluate(model: BartForConditionalGeneration, tokenizer: BartTokenizer, data
     # perhaps also add F1 and other metrics... maybe separate it from the inference
 
 def main() -> None:
-    model = BartForConditionalGeneration.from_pretrained("models/nq")
-    tokenizer = BartTokenizer.from_pretrained("models/nq")
+    model = BartForConditionalGeneration.from_pretrained("models/nq-bnn")
+    tokenizer = BartTokenizer.from_pretrained("models/nq-bnn")
     train_df = pd.read_parquet("data/webquestions/webq-train.parquet").head(100)
     dataset = QADataset(train_df, tokenizer)
     dataloader = DataLoader(dataset, batch_size=1)

@@ -11,19 +11,19 @@ from transformers import BartForConditionalGeneration, BartTokenizer
 def entropy(model, tokenizer, question: str):
     model.eval()
     with torch.no_grad():
-            tok_q = tokenizer(question, max_length=64, truncation=True, padding="max_length", return_tensors="pt")
+        tok_q = tokenizer(question, max_length=64, truncation=True, padding="max_length", return_tensors="pt")
 
-            gen = model.generate(**tok_q, max_length=32, output_scores=True, return_dict_in_generate=True)
+        gen = model.generate(**tok_q, max_length=32, output_scores=True, return_dict_in_generate=True)
 
-            scores = torch.stack(gen.scores, dim=1).squeeze(0)  # remove batch dim
-            eps = 1e-12
-            probs = softmax(scores, dim=-1).clamp(min=eps)      # no log(0)
-            ent_per_tok = -(probs * probs.log()).sum(dim=-1)
-            ent = ent_per_tok.mean().item()
-            decoded = tokenizer.batch_decode(gen.sequences, skip_special_tokens=True, clean_up_tokenization_spaces=True)
+        scores = torch.stack(gen.scores, dim=1).squeeze(0)  # remove batch dim
+        eps = 1e-12
+        probs = softmax(scores, dim=-1).clamp(min=eps)      # no log(0)
+        ent_per_tok = -(probs * probs.log()).sum(dim=-1)
+        ent = ent_per_tok.mean().item()
+        decoded = tokenizer.batch_decode(gen.sequences, skip_special_tokens=True, clean_up_tokenization_spaces=True)
 
-            print(ent)
-            print("Generated answer:", decoded[0])
+        print(ent)
+        print("Generated answer:", decoded[0])
 
 
 def mc_dropout(model: BartForConditionalGeneration, tokenizer: BartTokenizer, question: str, n_samples: int = 100):
@@ -58,8 +58,8 @@ def store(question: str, answers: list[str], score: float) -> None:
         f.write(f"\nFrobenius: {score:.3f}")
 
 def main() -> None:
-    model = BartForConditionalGeneration.from_pretrained("models/nq")
-    tokenizer = BartTokenizer.from_pretrained("models/nq")
+    model = BartForConditionalGeneration.from_pretrained("models/nq-bnn")
+    tokenizer = BartTokenizer.from_pretrained("models/nq-bnn")
 
     question = "who is kobe bryant?"
     answers = mc_dropout(model, tokenizer, question)
