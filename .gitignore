@@ -10,8 +10,12 @@ wheels/
 .venv
 
 # other
-QA-Overlap
+QA-Overlap/
 models/
 data/
 *.safetensors
 *.parquet
+what*
+who*
+eval
+ssh_*

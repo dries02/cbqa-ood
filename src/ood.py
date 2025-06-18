@@ -1,5 +1,9 @@
+from pathlib import Path
+
 import torch
+from sbertdemo import frob
 from torch.nn.functional import softmax
+from tqdm import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
 
 
@@ -30,24 +34,39 @@ def mc_dropout(model: BartForConditionalGeneration, tokenizer: BartTokenizer, qu
         p.requires_grad = False
 
     enc = tokenizer(question, return_tensors="pt", max_length=64, truncation=True, padding="max_length")
-    all_logits = []
+    # all_logits = []
+    answers = []
     with torch.no_grad():
-         for _ in range(n_samples):
+         for _ in tqdm(range(n_samples)):
+            # gen = model.generate(**enc, max_length=32)
             gen = model.generate(**enc, max_length=32, output_scores=True, return_dict_in_generate=True)
-            logits = torch.stack(gen.scores, dim=1).squeeze(0)
-            all_logits.append(logits)
+            # logits = torch.stack(gen.scores, dim=1).squeeze(0)
+            # all_logits.append(logits)
             decoded = tokenizer.batch_decode(gen.sequences, skip_special_tokens=True, clean_up_tokenization_spaces=True)
-            print(decoded[0])
+            # print(decoded[0])
+            answers.append(decoded[0])
 
+    return answers
+
+def store(question: str, answers: list[str], score: float) -> None:
+    outname = Path("mc-answers") / question.replace(" ", "").removesuffix("?")
+    with Path.open(outname, "w") as f:
+        f.write(f"Question: {question}\n")
+        for answer in answers:
+            f.write(answer + "\n")
+
+        f.write(f"\nFrobenius: {score:.3f}")
 
 def main() -> None:
     model = BartForConditionalGeneration.from_pretrained("models/nq")
     tokenizer = BartTokenizer.from_pretrained("models/nq")
 
-    mc_dropout(model, tokenizer, input())
-    # while (question := input("? ")) != "q":
-        # entropy(model, tokenizer, question)
-    # mc_dropout(model, tokenizer, question)
+    question = "who is kobe bryant?"
+    answers = mc_dropout(model, tokenizer, question)
+    score = frob(answers)
+
+
+    store(question, answers, score)
 
 
 if __name__ == "__main__":

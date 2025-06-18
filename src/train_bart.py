@@ -4,21 +4,23 @@ from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
 
-from src.data.qadataset import QADataset
-from src.eval.eval_bart import evaluate
+from eval_bart import evaluate
+from flipoutbart import FlipoutBart
+from qadataset import QADataset
 
-N_EPOCHS = 30
-BATCH_SIZE = 8
+N_EPOCHS = 15
+BATCH_SIZE = 4
 
 
 def train(model: BartForConditionalGeneration, dataloader: DataLoader) -> None:
     """Fit the model on the training set."""
-    optimizer = AdamW(
-        model.parameters(),
-        lr=1e-5,
-        weight_decay=0.01,
-        eps=1e-8,
-    )
+    for p in model.model.parameters():
+        p.requires_grad = False
+
+    optimizer = AdamW([
+        {"params": model.lm_head.mu_weight,  "lr": 5e-3, "weight_decay": 0.0},
+        {"params": model.lm_head.rho_weight, "lr": 1e-3, "weight_decay": 0.0},
+    ])
 
     for epoch in tqdm(range(1, N_EPOCHS+1), desc="Epochs"):
         model.train()
@@ -27,6 +29,7 @@ def train(model: BartForConditionalGeneration, dataloader: DataLoader) -> None:
         loop = tqdm(dataloader, desc=f"Epoch {epoch}/{N_EPOCHS}")
         for batch in loop:
             outputs = model(**batch)
+
             loss = outputs.loss
 
             optimizer.zero_grad()                     # clear out old gradients
@@ -41,10 +44,10 @@ def train(model: BartForConditionalGeneration, dataloader: DataLoader) -> None:
 def experiment(
         model: BartForConditionalGeneration,
         tokenizer: BartTokenizer,
+        train_df: pd.DataFrame,
         output_dir: str | None = None,
     ) -> None:
 
-    train_df = pd.read_parquet("data/webquestions/webq-train.parquet").head()
     dataset = QADataset(train_df, tokenizer)
     dataloader = DataLoader(dataset, shuffle=True, batch_size=BATCH_SIZE)
 
@@ -56,11 +59,24 @@ def experiment(
     evaluate(model, tokenizer, dataloader)
 
 
+def train_bnn():
+    train_df = pd.read_parquet("data/webquestions/webq-train.parquet").head(100)
+
+    model = FlipoutBart.from_pretrained("facebook/bart-base")
+    tokenizer = BartTokenizer.from_pretrained("facebook/bart-base")
+
+    experiment(model, tokenizer, train_df, "models/nq-bnn")
+
+
 def main() -> None:
+    train_df = pd.read_parquet("data/webquestions/webq-train.parquet").head(100)
+
     model = BartForConditionalGeneration.from_pretrained("facebook/bart-base")
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-base")
-    experiment(model, tokenizer, "models/nq")
+
+    experiment(model, tokenizer, train_df, "models/nq")
 
 
 if __name__ == "__main__":
-    main()
+    train_bnn()
+    # main()

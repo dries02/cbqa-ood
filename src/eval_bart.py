@@ -1,9 +1,8 @@
 import pandas as pd
 import torch
+from qadataset import QADataset
 from torch.utils.data import DataLoader
 from transformers import BartForConditionalGeneration, BartTokenizer
-
-from qadataset import QADataset
 
 
 def interact(model: BartForConditionalGeneration, tokenizer: BartTokenizer) -> None:
