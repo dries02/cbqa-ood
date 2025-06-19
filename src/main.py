@@ -37,19 +37,6 @@ def main() -> None:
     train_df["frob"] = train_df["question"].apply(lambda q: frob(generate_predictions(model, tokenizer, q, batch_size)))
     print(train_df["frob"].describe())
 
-    # questions = [
-    #     "what is padua italy?",
-    #     "what is calabria italy?",
-    # ]
-
-    # batch_size = 20
-
-    # # for question in train_df["question"]:
-    # for question in questions:
-    #     answers = generate_predictions(model, tokenizer, question, batch_size)
-    #     uncertainty = frob(answers)
-    #     print(f"question: {question}\nanswers: {answers}\nnorm: {uncertainty}\n")
-
 
 if __name__ == "__main__":
     main()

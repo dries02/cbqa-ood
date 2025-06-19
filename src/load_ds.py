@@ -14,4 +14,9 @@ def load_webq(path: str) -> None:
     print(pd.read_parquet(path).head())
 
 
-load_webq("data/webquestions/webq-train.parquet")
+def main():
+    load_webq("data/webquestions/webq-train.parquet")
+
+
+if __name__ == "__main__":
+    main()
