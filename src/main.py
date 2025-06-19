@@ -1,10 +1,10 @@
-from flipoutbart import FlipoutBart
-
 import matplotlib.pyplot as plt
 import pandas as pd
 import torch
-from sbertdemo import frob
 from transformers import BartForConditionalGeneration, BartTokenizer
+
+from flipoutbart import FlipoutBart
+from sbertdemo import frob
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -22,16 +22,7 @@ def generate_predictions(model: BartForConditionalGeneration, tokenizer: BartTok
     batch = {k: v.to(device) for k, v in batch.items()}
 
     pred_ids = model.generate(**batch, max_length=32)
-    predictions = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
-
-    return predictions
-
-
-
-def compute_uncertainty(model: BartForConditionalGeneration, tokenizer: BartTokenizer, question: str) -> float:
-    """Compute entropy of ..."""
-    # predictions = 
-    return frob(generate_predictions(model, tokenizer, question))
+    return tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
 
 
 def main() -> None:
@@ -42,6 +33,7 @@ def main() -> None:
     tokenizer = BartTokenizer.from_pretrained("models/nq-bnn")
 
     batch_size = 10
+                                            # this is terrible
     train_df["frob"] = train_df["question"].apply(lambda q: frob(generate_predictions(model, tokenizer, q, batch_size)))
     print(train_df["frob"].describe())
 
