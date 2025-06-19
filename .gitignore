@@ -15,8 +15,4 @@ models/
 data/
 *.safetensors
 *.parquet
-what*
-who*
-eval
 ssh_*
-out*

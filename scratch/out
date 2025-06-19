@@ -1,0 +1,600 @@
+Question: what is the oregon ducks 2012 football schedule?
+Ground truth: ['University of Oregon']
+Predicted: ['St. Vincent – St. Mary High School', 'Tennessee Agricultural Museum', 'Seattle Seahawks', 'Daegu Baseball Stadium', 'Daisy Duck', "Fisherman's Wharf", 'St. Vincent – St. Mary High School', 'Super Bowl XXXVIII', 'Daegu Baseball Stadium', 'Daegu Baseball Stadium', 'St. Vincent – St. Mary High School', 'Super Bowl XV', 'Wrigley Field', 'Super Bowl XV', "Fisherman's Wharf", 'Steel-string acoustic guitar', 'Wrigley Field', 'St. Vincent – St. Mary High School', "Fisherman's Wharf", 'Daegu Baseball Stadium', "Fisherman's Wharf", 'Daegu Baseball Stadium', "Fisherman's Wharf", 'Steel-string acoustic guitar', 'Daegu Baseball Stadium', 'Super Bowl XV', "Fisherman's Wharf", 'Woorabinda', 'Tennessee Titans', '2012 NFL season']
+Uncertainty: 0.621 (frob)
+Label: far-ood
+
+Question: who plays ken barlow in coronation street?
+Ground truth: ['Tony Warren']
+Predicted: ['Lamar Sally', 'Lager', 'Lager', 'Lager', 'Len McGregor', 'Lonnie Clary', 'Lager', 'Lonnie Clary', 'Lager', 'Lager', 'Lager', 'Glide the tourist', 'Glen Dale', 'Lager', 'Lonnie Clary', 'Lendale', 'Lager', 'Lonnie Clary', 'Glen Close', 'Lager', 'Lager', 'Lrey Parker', 'Lager', 'Lirsten Dunst', 'Lager', 'Coyoacán', 'Lager', 'Lonnie Clary', 'Lager', 'Lager']
+Uncertainty: 0.520 (frob)
+Label: far-ood
+
+Question: what happened after mr. sugihara died?
+Ground truth: ['Yaotsu']
+Predicted: ['Surprise Attack!', 'Surprise Attack!', 'Surprise Attack!', 'Surprise bombings', 'Surprisevation', 'Surprise Attack!', 'Surprise Attack!', 'Surprise Attack!', 'Myocardial infarction', 'Surprise Attack!', 'Surprise Attack!', 'Surprise Attack!', 'Surprise Attack!', 'Survation', 'Surprise Attack!', 'Surprise Attack!', 'Surprise Attack!', 'Firearm', 'Myocardial infarction', 'Surprise Attack!', 'Myocardial infarction', 'Surprise Attack!', 'Survation', 'Surprise Attack!', 'Surprise Attack!', 'Myocardial infarction', 'Suricide', 'Surprise Attack!', 'Surprise Attack!', 'Surprise Failure']
+Uncertainty: 0.415 (frob)
+Label: far-ood
+
+Question: who did mozart write his four horn concertos for?
+Ground truth: ['wolfgang amadeus mozart used story by pierre beaumarchais']
+Predicted: ['Paul Fusco', 'Waxhaws', 'Philip II of Spain', 'Waxhaws', 'Roo Hoover Tower', 'Waxhaws', "Regent's Park", 'Firearm', 'Inventor', 'Raymond Felton', 'Woorabinda', 'Las Vegas shooting', 'Paul Fusco', 'Firearm', 'Woorabinda', 'Paul Fusco', 'Franco', 'Waxhaws', 'Franco', 'Rose Jackson: The Trial and Triumph of the King of Pop', 'Inventor', 'Woorabinda', 'Waxhaws', 'Franco', 'Roush Fenway Racing', 'Wermoen', 'Woorabinda', 'Paul Fusco', 'Waxhaws', 'Explorer']
+Uncertainty: 0.606 (frob)
+Label: far-ood
+
+Question: where is jamarcus russell from?
+Ground truth: ['Mobile']
+Predicted: [' Garder.', 'Glendale', 'San Francisco', 'San Francisco', 'Glen Dale', 'Glen Dale', 'San Francisco', 'San Francisco', 'Glen Dale', 'San Francisco', 'San Francisco', 'Glendale', 'San Francisco', 'Glendale', 'Glen Dale', 'San Francisco', 'Glen Dale', 'Glendale', 'San Francisco', 'San Lucas', 'San Francisco', 'San Francisco', 'Glendale', 'Glen Dale', 'San Francisco', 'Seattle', 'San Francisco', 'Colombia', 'San Francisco', 'San Lucas']
+Uncertainty: 0.447 (frob)
+Label: far-ood
+
+Question: where was george washington carver from?
+Ground truth: ['Diamond']
+Predicted: ['United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America', 'United States of America']
+Uncertainty: 0.000 (frob)
+Label: far-ood
+
+Question: what else did ben franklin invent?
+Ground truth: ['Lightning rod', 'Franklin stove', 'Bifocals', 'Glass harmonica']
+Predicted: ['Lightning rod', 'Lightning rod', 'Lightning rod', 'Bifocals', 'Franklin stove', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Phonograph', 'Lightning rod', 'Lightning rod', 'Franklin stove', 'Bifocals', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Phonograph', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Lightning rod', 'Phonograph', 'Phonograph', 'Lightning rod', 'Phonograph', 'Lightning rod']
+Uncertainty: 0.363 (frob)
+Label: in
+
+Question: who was richard nixon married to?
+Ground truth: ['Pat Nixon']
+Predicted: ['Richard Nixon', 'Richard Nixon', 'Henry Ford', 'Richard Nixon', 'ixon Ford', 'Richard Ford', 'Richard Nixon', 'Richard Nixon', 'Watergate scandal', 'Richard Nixon', 'Henry Ford', 'Watergate scandal', 'Richard Nixon', 'Richard Nixon', 'Richard Nixon', 'Richard Ford', 'Henry Kissinger', 'Henry Ford', 'Richard Nixon', 'Richard Nixon', 'Richard Nixon', 'Watergate Newman', 'Richard Nixon', 'Henry Ford', 'Richard Nixon', 'Richard Nixon', 'Richard Nixon', 'ixonide and Preying Blackstock', 'Richard Nixon', 'Richard Nixon']
+Uncertainty: 0.399 (frob)
+Label: far-ood
+
+Question: what country did germany invade first in ww1?
+Ground truth: ['Belgium']
+Predicted: ['Germany', 'Germany', 'Germany', 'Germany', 'Germany', 'Germany', 'Germany', 'Germany', 'Germany', 'France', 'Spain', 'Germany', 'Germany', 'France', 'Germany', 'France', 'Germany', 'France', 'France', 'Spain', 'Germany', 'Germany', 'Germany', ' invade Iraq', 'Germany', 'Germany', 'Spain', 'Germany', 'Spain', 'Germany']
+Uncertainty: 0.238 (frob)
+Label: near-ood
+
+Question: what is the best sandals resort in st lucia?
+Ground truth: ['Micoud Quarter', 'Choiseul Quarter', 'Praslin Quarter', 'Vieux Fort Quarter', 'Castries Quarter', 'Laborie Quarter', 'Gros Islet Quarter', 'Anse la Raye Quarter', 'Dauphin Quarter', 'Dennery Quarter']
+Predicted: [' sandie Oosterwaal', 'George MacDonald', 'Woorabinda', 'George McFly', 'George sand', 'Waxhaws', 'George McFly', 'George F. L. Charles Airport', 'Waxhaws', 'George sandal', "Fisherman's Wharf", 'George sand', 'Woorabinda', 'George McFly', 'George D. L. Charles Airport', 'Inland Ocean', 'George D. L. Charles Airport', 'George R. Brown Convention Center', 'Woorabinda', 'George D.C.', ' sandal', 'Woorabinda', 'Inagua', 'Incohen County', 'George R. Brown Convention Center', 'George McFly', ' sandie Dingle', 'George McFly', 'Woorahuku', 'George D.C.']
+Uncertainty: 0.614 (frob)
+Label: far-ood
+
+Question: who is governor of ohio 2011?
+Ground truth: ['John Kasich']
+Predicted: ['Rick Scott', 'Rick Scott', 'Rick Scott', 'Yoshihiko Noda', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Jason Segel', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Gerald Ford', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Nancy Juvonen', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Rick Scott', 'Mandy Patinkin']
+Uncertainty: 0.292 (frob)
+Label: far-ood
+
+Question: where is the fukushima daiichi nuclear plant located?
+Ground truth: ['Japan', 'Okuma']
+Predicted: ['Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Vermont', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Japan', 'Operation Grapple', 'Japan', 'Vietnam Island', 'Japan']
+Uncertainty: 0.217 (frob)
+Label: in
+
+Question: who is the minority leader of the house of representatives now?
+Ground truth: ['Nancy Pelosi']
+Predicted: ['Ronald Ebens', 'Nancy Pelosi', 'Darlene Mowry', 'Dilma Rousseff', 'Daryl Sabara', 'Nancy Pelosi', 'Ronald Weasley', 'Dilma Rousseff', 'Dmitry Medvedev', 'Ronald Weasley', 'Ronald Weasley', 'Dilma Rousseff', 'Daryl Sabara', 'Daryl Sabara', 'Ronald Pelosi', 'Dilma Rousseff', 'Ronald Ebens', 'Ronald Weasley', 'Daryl Sabara', 'Kim Il-sung', 'Ronald Ebens', 'Daryl Sabara', 'Danity Kane', 'Ronald Pelosi', 'Kim Jong-un', 'Kim Jong-un', 'Ronald Weasley', 'Xi Jinping', 'Shinzō Abe', 'Nancy Pelosi']
+Uncertainty: 0.579 (frob)
+Label: in
+
+Question: what did st augustine do?
+Ground truth: ['Physician', 'Writer', 'Philosopher']
+Predicted: ['Steel-string acoustic guitar', ' augmentation', ' augerson', 'Spring Valley', 'Corriere della Sera', 'United States Secretary of State', 'American football player', 'Roman Reloaded', 'Executioner', 'Archician', ' augial arts', ' auglicanism', 'Spring Valley State Senator', 'Lawyer', 'Richmond County', ' auger', 'Singer', "Children's rights", 'Actor', 'Executioner', 'Businessperson', ' augmentation', 'Richmond County', 'American football player', ' auger', 'Executioner', 'Saint Petersburg State Senator', ' august', ' augar', ' august']
+Uncertainty: 0.616 (frob)
+Label: near-ood
+
+Question: who is keyshia cole dad?
+Ground truth: ['Leon Cole']
+Predicted: ['Jackie Simmons', 'Daniel Gibson', 'Matthew Broderick', 'Chris Pine', 'Jack McBrayer', 'Daniel Gibson', 'Jack McBrayer', 'Jack Coleman', 'Jack Coleman', 'Collegiate School', 'Daniel Gibson', 'David Burtka', 'Christopher Emmanuel Paul II', 'Bergamo', 'Daniel Gibson', 'Daniel Gibson', 'Daniel Gibson', 'Swizz Beatz', 'Jackie Harris', 'Chason Schirmer', ' co-developed turtle', 'Jackie Simmons', 'William J. Fallon', 'Jackie Harris', 'Gibson Bay', 'Daniel Gibson', 'Bob Williams', 'Jack Coleman', 'Daniel Gibson', 'Jack Coleman']
+Uncertainty: 0.486 (frob)
+Label: far-ood
+
+Question: where did edgar allan poe died?
+Ground truth: ['Baltimore']
+Predicted: ['Rome', 'Ridgewood', 'Rome', 'Rome', 'Rome', 'Ridgewood', 'Tagg Island', 'Atlanta', 'Touro', 'Paris', 'Ridgewood', 'Rome', 'Rome', 'Rome', 'Trombone', 'Ridgewood', 'Rome', 'Rome', 'Rome', 'Ridgewood', 'Ridgewood', 'Rome', 'Tenskwatawa', 'Rome', 'Ingham County', 'Edmonton', 'Mediterranean Sea', 'Ridgewood', 'Ridgewood', 'Ridgewood']
+Uncertainty: 0.476 (frob)
+Label: near-ood
+
+Question: when did charles goodyear invented rubber?
+Ground truth: ["During the early 1830's he began inventing, filing six patents between 1830 and 1834, and during this period became interested in rubber, which he tried - unsuccessfully - to use in some of his mechanical inventions."]
+Predicted: ['6th March 2006', 'Woorabinda', '3/4/1929', 'Erin Everly', '1995 Summer Olympics', '6th March 2006', '1995 World Series', '1995 Ford Finals', 'Classical', 'Woorabinda', 'Wright Model B', 'Come Clean', 'Woorabinda', 'Woorabinda', 'Woorabinda', 'Classical conditioning', 'Woorabinda', '3/4/1829', '1995', '1996 Summer Olympics', 'Erin Brockovich', 'Woorabinda', '6th March 2006', 'Classical', 'Classical conditioning', '6th March 2006', '1995 World Series', '1996 Summer Olympics', '1995 World Series', 'Erin Everly']
+Uncertainty: 0.661 (frob)
+Label: far-ood
+
+Question: what to do today in atlanta with kids?
+Ground truth: ['Atlanta History Center', 'Atlanta Cyclorama & Civil War Museum', 'Atlanta Ballet', 'Fernbank Museum of Natural History', 'Woodruff Arts Center', 'Zoo Atlanta', 'Atlanta Symphony Orchestra', 'Centennial Olympic Park', 'Martin Luther King, Jr., National Historic Site', 'Fernbank Science Center']
+Predicted: ['Black American West Museum & Heritage Center', 'Hoover Tower', 'Waxhaws', 'XHVG-FM', 'Black American West Museum & Heritage Center', 'Hoover Tower', 'Hoover Tower', 'Wooruku', 'Waxhaws', 'Hoover Tower', 'Woorabinda', 'Wright Model B', 'Waxhaws', 'XHoover', 'Him/Herself', 'Black American West Museum & Heritage Center', 'George H. W. Bush', 'Woorabinda', 'Woorabinda', 'Hoover Tower', 'George H. W. Bush', 'George H. W. Bush', 'Lincoln Park Zoo', 'XHim/Herself', 'Waxhaws', 'Woorabinda', 'Hoover Tower', 'XHVG-FM', 'Black American West', 'Black American West Museum']
+Uncertainty: 0.644 (frob)
+Label: far-ood
+
+Question: who did france surrender to in ww2?
+Ground truth: ['Germany']
+Predicted: ['Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea', 'Mediterranean Sea']
+Uncertainty: 0.000 (frob)
+Label: near-ood
+
+Question: what electorate does anna bligh represent?
+Ground truth: ['Electoral district of South Brisbane']
+Predicted: ['Ontario', 'Tennessee gubernatorial system', 'Australian Labor Party', 'National Socialist Party', 'Member of Congress', 'Ontario', 'Ontario', 'Ontario', 'Ontario', 'California gubernatorial recall election', 'Tennessee gubernatorial recall election', 'Republican Party', 'Member of Congress', 'Tennessee', 'Member of Congress', 'Tennessee Agricultural Museum', 'New York City Senator', 'Queens', 'Illinois Republican Party', 'Tennessee gubernatorial recall election', 'National Socialist Party', 'Ontario', 'Actor', 'California gubernatorial recall election', 'Renminbi', 'Ontario', 'Australian Labor Party', 'Arnold Schwarzenegger', 'Ontario', 'Ontario']
+Uncertainty: 0.611 (frob)
+Label: far-ood
+
+Question: what channel is the usa pageant on?
+Ground truth: ['us']
+Predicted: ['XHVG-FM', 'Chocolate Factory Universe', 'XHVG-FM', 'Miss America 1921', 'Marlins Park', 'Chocolate Springs Universe', 'Miss America', 'MTV', 'Mountain Time Zone', 'Mountain Time Zone', 'Chad Hurley', 'Miss America', 'Miss America 1921', 'Chocolate Shop', 'Chocolate Factory Universe', 'Meadows Park', 'Miss America 1921', 'Mountain Time Zone', 'Miss America 1921', 'XHVG-FM', 'Miss America', 'Miss America', 'MTV', 'Miss America 1921', 'XHVG-FM', 'Chocolate Factory Universe', 'XHVG-FM', 'Miles', 'Miss America 1921', 'Miss America 1921']
+Uncertainty: 0.616 (frob)
+Label: far-ood
+
+Question: what are some of the traditions of islam?
+Ground truth: ['Zakāt', 'Salah', 'Hajj', 'Islamic dietary laws', 'Mosque Carpet', 'Jihad', 'Sawm', 'Halal food', 'Shahada', 'Adab']
+Predicted: ['Buddhism', 'Buddhism', 'Allah', 'Buddhism', 'Muhammad', 'Buddhism', 'Silversmith', 'Allah', 'Buddhism', 'Buddhism', 'Buddhism', 'Babylon', 'Buddhism', 'Buddhism', 'Buddhism', 'Bailar', 'Bobsleigh', 'Bobsleigh', 'Buddha', 'Bobsleigh', 'Buddhism', 'Buddhism', 'Babar', 'Buddhism', 'Buddhism', 'Buddhism', 'Allah', 'Abrahamic religions', 'Babar', 'Bail Organa']
+Uncertainty: 0.472 (frob)
+Label: far-ood
+
+Question: what is the australian dollar called?
+Ground truth: ['Australian dollar']
+Predicted: ['Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar']
+Uncertainty: 0.000 (frob)
+Label: in
+
+Question: what timezone is sweden?
+Ground truth: ['Central European Time']
+Predicted: ['Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central Time Zone', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time', 'Central European Time']
+Uncertainty: 0.113 (frob)
+Label: in
+
+Question: what county is frederick md in?
+Ground truth: ['Frederick County']
+Predicted: ['Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Saint Michael Parish', 'Virginia', 'Virginia', 'St. Vincent County', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Skamania County', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia', 'Virginia']
+Uncertainty: 0.250 (frob)
+Label: far-ood
+
+Question: what highschool did harper lee go to?
+Ground truth: ['Monroe County High School']
+Predicted: ['Petersburg High School', 'Harvard College', 'Petersburg High School', 'Lakeside School', 'Petersburg High School', 'Petersburg High School', 'Petersburg High School', 'Petersburg High School', 'Petersburg High School', 'Overbrook High School', 'Petersburg High School', 'Valparaiso High School', 'Petersburg High School', 'Petersburg High School', 'Petersburg High School', 'Juníperanza High School', 'Petersburg High School', 'Junípero Serra High School', 'Junípero Serra High School', 'Junípero Serra High School', 'Petersburg High School', 'Petersburg High School', 'Valparaiso High School', 'Dunbar High School', 'Lakeside School', 'Harvard College', 'Dunbar High School', 'Petersburg High School', 'Petersburg High School', 'Junípero Serra High School']
+Uncertainty: 0.317 (frob)
+Label: far-ood
+
+Question: who did george w. bush run against for the second term?
+Ground truth: ['Al Gore']
+Predicted: ['George H. Bush', 'George W. Bush', 'George W. Bush', 'George Bush', 'George W. Bush', 'George W. Bush', 'George Bush', 'George Bush', 'George Bush', 'George W. Bush', 'George W. Bush', 'George W. Bush', 'George Bush', 'Governor of Texas', 'George Bush', 'George Bush', 'George Bush', 'George W. Bush', 'George Bush', 'George W. Bush', 'George Bush', 'George Bush', 'George Bush', 'George Bush', 'George W. Bush', 'George W. Bush', 'George Bush', 'George Bush', 'George W. Bush', 'George Bush']
+Uncertainty: 0.204 (frob)
+Label: near-ood
+
+Question: who is niall ferguson's wife?
+Ground truth: ['Ayaan Hirsi Ali']
+Predicted: ['Jodi Jell', 'Jana Duggar', 'Colleenork', 'Colleen Sorkin', 'Colonel Sanders', 'Grand Prairie', 'United States Military Academy', 'Jana Duggar', 'Jana Duggar', 'Colin Ford', 'Jenmyn Bieber', 'United States of America', 'Lisa Marie Presley', 'Fairfax County, Virginia', 'Colombia', 'Colleen Sorkin', 'Jodi Rell', 'Jana Duggar', 'Arleen Sorkin', 'United States Military Academy', 'Colleen Sorkin', 'Colin Ford', 'Fancy Juvonen', 'Jared Padalecki', 'United States Military Academy', 'Colonel Sanders', 'United States Military Academy', 'Colleen Sorkin', 'Jana Duggar', 'Colleen Sorkin']
+Uncertainty: 0.612 (frob)
+Label: far-ood
+
+Question: what are the songs that justin bieber wrote?
+Ground truth: ['Catching Feelings', 'Down to Earth', 'Beauty and a Beat', 'All Around The World (featuring Ludacris)', 'Die in Your Arms', 'As Long As You Love Me (featuring Big Sean)', 'Baby', 'Believe', 'Be Alright', 'Boyfriend']
+Predicted: ['I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss', 'I Miss You', 'Chappily Married Man', 'J songs', 'II Miss You', 'Jazmyn Bieber', 'Jazmyn Bieber', 'Jazmyn Bieber', 'I Miss You', 'Jazz', 'Chad Hurley', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'Jazmyn Bieber', 'Jazmyn Bieber', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You', 'I Miss You']
+Uncertainty: 0.532 (frob)
+Label: far-ood
+
+Question: where was rihanna born and raised?
+Ground truth: ['Saint Michael Parish', 'Barbados']
+Predicted: ['Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish', 'Saint Michael Parish']
+Uncertainty: 0.000 (frob)
+Label: in
+
+Question: what year did president william henry harrison take office?
+Ground truth: ['3/4/1841']
+Predicted: ['George W. Bush 2001 presidential inauguration', '1996–97 NBA season', '1996–97 NBA season', '1996 Democratic National Convention', 'United States Secretary of State', 'George W. Bush 2001 presidential inauguration', 'George W. Bush 2001 presidential inauguration', '1996 Democratic National Convention', '1996 Democratic National Convention', 'George W. Bush 2001 presidential inauguration', 'United States Secretary of State', 'Ford Ford Motor Company', 'George W. Bush 2001 presidential inauguration', 'George W. Bush 2001 presidential inauguration', 'George W. Bush 2001 presidential inauguration', 'United States Secretary of State', '1996 Democratic National Convention', '1996 Democratic National Convention', 'United States Military Academy', 'United States Representative', 'George W. Bush 2001 presidential inauguration', '1996 Democratic National Convention', 'United States Secretary of State', 'United States Military Academy', '1996 Democratic National Convention', 'United States Representative', 'George W. Bush 2001 presidential inauguration', 'United States Secretary of State', 'United States Secretary of State', 'George W. Bush 2001 presidential inauguration']
+Uncertainty: 0.528 (frob)
+Label: far-ood
+
+Question: where george lopez was born?
+Ground truth: ['Mission Hills']
+Predicted: ['Fairfield', 'ford', 'Fairfield', 'Skamania County', 'Mecklenburg County', 'Skamania County', 'Port Sheridan', 'Fairfield', 'Skamania County', 'Fairfield', 'Rockford', 'Norwell High School', 'Holiday in Handon', 'Fairfield', 'Holiday in Handcuffs', 'Mecklenburg County', 'Winter in Denmark', 'Brooklyn', 'New York City', 'Fairfield', 'Holiday in Handcuffs', 'Chicago', 'Holiday in Handon', 'Fairfield', 'Fairfield', 'New York City', 'Skamania County', 'Holiday in Handon', 'Grand Prairie', 'Fairfield']
+Uncertainty: 0.533 (frob)
+Label: far-ood
+
+Question: what did the islamic people believe in?
+Ground truth: ['Zakāt', 'Salah', 'Hajj', 'Islamic dietary laws', 'Jihad', 'Sawm', 'Halal food', 'Shahada', 'Adab']
+Predicted: ['Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims', 'Muslims']
+Uncertainty: 0.000 (frob)
+Label: far-ood
+
+Question: who will play mr gray in the film?
+Ground truth: ['Karen Mulder']
+Predicted: ['Wrigley Field', 'Sedona Airport', 'Grayhound Lines', 'Aileen Quinn', 'Sierra Nevada', 'Lamar Sally', 'Turner Field', 'A Friend to Die For', 'Black American West', 'Chirsten Storms', 'Sierra Nevada', ' grayhound Lines', 'Greyhound Lines', 'Wolfsonian-FIU', 'Greyhound Lines', 'LGray Branch Twilightray, Branch Branchite, Pepper, and, Branch, Their Color, Comeite, Come, and. Branch, Branch', 'Chocolate and Coffee Shop', 'Blackstock', 'Sedona Airport', 'Rainbow Bluff Expedition', 'Greyhound Lines', 'Rainbow Bluff Expedition', 'Black Swan', 'Greyhound Lines', 'Black Springs Follie', 'Black American West', 'Waxhaws', 'Gray, Come Clean', 'Black British', 'Sierra Nevada']
+Uncertainty: 0.617 (frob)
+Label: far-ood
+
+Question: who won the battle of gettysburg union or confederate?
+Ground truth: ['Union']
+Predicted: ['United States Military Academy', 'Conflict in Afghanistan', 'Conflict in Afghanistan', 'Edwin Catmull', 'United States Military Academy', 'United States Military Academy', 'United States Military Academy', 'United States Military Academy', 'Conflict in Afghanistan', 'Paul Fusco', 'United States Military Academy', 'United States of America', 'Conflict in Afghanistan', 'United States Military Academy', 'United States Military Academy', 'United States Military Academy', 'Rooney family', 'United States of America', 'United States Military Academy', 'Conflict in Afghanistan', 'United States Military Academy', 'United States Military Academy', 'Conflict in Afghanistan', 'United States Military Academy', 'United States Military Academy', 'United States Military Academy', 'United States Military Academy', 'United States Secretary of State', 'United States Army War College', 'United States Military Academy']
+Uncertainty: 0.483 (frob)
+Label: far-ood
+
+Question: who is michael buble?
+Ground truth: ['Singer', 'Actor', 'Singer-songwriter']
+Predicted: ['Swing music', 'Swing music', 'Singer', 'Swing music', 'Swing music', 'Singer', 'Swing music', 'Swing music', 'Singer', 'Singer', 'Swing music', 'Singer', 'Singer', 'Singer', 'Swing music', 'Singer', 'ocardial infarction', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer', 'Singer']
+Uncertainty: 0.355 (frob)
+Label: near-ood
+
+Question: what county is kansas city kansas?
+Ground truth: ['Wyandotte County']
+Predicted: ['ansas', 'California', 'Cerro County', 'Kansas City', 'Cecil Newman', 'ansas', 'California', 'Kansas City', 'California', 'Kansas City', 'Cecil Newman', 'California', 'California', 'Cerro County', 'Kansas City', 'Las Vegas', 'Kansas City', 'ansas', 'ansas', 'California', 'ansas', 'Cecil Newman', 'ansas County', 'California', 'Las Vegas', 'ansas', 'California', 'Kansas City', 'Las Vegas', 'Kansas City']
+Uncertainty: 0.532 (frob)
+Label: far-ood
+
+Question: who did jackie robinson first play for?
+Ground truth: ['Montreal Royals', 'Kansas City Monarchs', 'Los Angeles Bulldogs', 'Brooklyn Dodgers', 'UCLA Bruins football']
+Predicted: ['Chicago Bulls', 'Rittenhouse Square', 'Chicago Bears', 'Los Angeles Lakers', 'Chicago Bears', 'Chicago Bears', 'Rittenhouse Square', 'Riptide the Pelican', 'Rittenhouse Square', 'Las Vegas Motor Speedway', 'Rittenhouse Square', 'Roush Fenway Racing', 'Rittenhouse Square', 'Chicago Bears', 'Chicago Bulls', 'Chicago Bears', 'Rittenhouse Square', 'San Francisco 49ers', 'Chicago Bears', 'Chicago Bears', 'Chicago Bulls', 'Las Vegas Motor Speedway', 'Chason Schirmer', 'Chicago Bears', 'Riverside Resort Hotel & Casino', 'Las Vegas Motor Speedway', 'Chicago Bulls', 'Chicago Bears', 'Riptide the Pelican', 'Chicago shooting']
+Uncertainty: 0.490 (frob)
+Label: far-ood
+
+Question: who was vp for lincoln?
+Ground truth: ['Andrew Johnson', 'Hannibal Hamlin']
+Predicted: ['Him/Herself', 'United States Representative', 'United States Representative', 'Hodgenville', 'Bernard', 'United States Representative', 'United States Representative', 'United States Representative', 'United States Representative', 'United States of America', 'United States Representative', 'United States of America', 'Oakland', 'United States Representative', 'United States Representative', 'United States of America', 'Harrison Lincoln', 'United States Representative', 'United States Representative', 'Firearm', 'United States of America', 'United States Representative', 'United States Representative', 'United States Representative', 'Oakland Holmes', 'United States Representative', 'United States Representative', 'United States Representative', ' Come-Forest, and Their Color, Come-', 'United States of America']
+Uncertainty: 0.506 (frob)
+Label: in
+
+Question: what other books did charles dickens write?
+Ground truth: ['The Chimes', 'Our Mutual Friend', 'The Old Curiosity Shop', 'David Copperfield', 'A Christmas Carol', 'The Cricket on the Hearth', 'The Life and Adventures of Nicholas Nickleby', 'Hard Times', 'Oliver Twist', 'A Tale of Two Cities']
+Predicted: ['Two poems', 'Two poems', 'Two poems', 'Two poems', 'The Origin of Species', 'To a Louse', 'The Origin of Species', 'Two poems', 'Two poems', 'The Origin of Species', 'Two poems', 'Two poems', 'Two poems', 'Two poems', 'The Origin of Species', 'Two poems', 'Like a Rolling Stone', 'Two poems', 'To a Song', 'Two Towers', 'How the other half lives', 'Two poems', 'Two poems', 'Two poems', 'Two poems', 'Two poems', 'Two poems', 'Two poems', 'Two poems', 'Two poems']
+Uncertainty: 0.422 (frob)
+Label: in
+
+Question: who was the first dictator of the soviet union?
+Ground truth: ['Joseph Stalin']
+Predicted: ['Dmitry Medvedev', 'Dilma Rousseff', 'Dartmouth Moose', 'Darlene Morse', 'Dmitry Medvedev', 'Dictator', 'Dilma Rousseff', 'Dmitry Medvedev', 'Dilma Rousseff', 'Dilma Rousseff', 'Dilma Rousseff', 'Dwight Howard', 'Dmitry Medvedev', 'Joseph Stalin', 'Joseph Stalin', 'Dmitry Medvedev', 'Didel Castro', 'Dilma Rousseff', 'Dilma Rousseff', 'Dmitry Medvedev', 'Joseph Stalin', 'Dilma Rousseff', 'Dilma Rousseff', 'Darlene Dingle', 'Dmitry Medvedev', 'Dmitry Medvedev', 'Dilma Rousseff', 'Rooney family', 'Darlene Mowry', 'Dmitry Medvedev']
+Uncertainty: 0.574 (frob)
+Label: near-ood
+
+Question: what is the currency of puerto rico called?
+Ground truth: ['United States dollar']
+Predicted: ['United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States of America', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'United States dollar']
+Uncertainty: 0.090 (frob)
+Label: in
+
+Question: what kind of cancer did carl wilson have?
+Ground truth: ['Lung cancer']
+Predicted: ['Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Tuberculosis', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Tuberculosis', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Appendicitis', 'Head and neck cancer', 'Head and neck cancer', 'Tuberculosis', 'Appendicitis', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer', 'Head and neck cancer']
+Uncertainty: 0.343 (frob)
+Label: near-ood
+
+Question: who plays the voice of kitt in knight rider?
+Ground truth: ['William Daniels']
+Predicted: ['William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels', 'William Daniels']
+Uncertainty: 0.000 (frob)
+Label: in
+
+Question: what county is brentwood tennessee in?
+Ground truth: ['Williamson County']
+Predicted: ['Morris County', 'Jackson County', 'Morrophy County', 'Jackson County', 'Jackson County', 'Will County', 'St. Louis County', 'Jackson County', 'Jackson County', 'Jackson County', 'Morris County', 'Morro County', 'Jackson County', 'Morris County', 'Jackson County', 'Jackson County', 'Mecklen County', 'Jackson County', 'Morris County', 'Morris County', 'Morris County', 'Morris County', 'Jackson County', 'Jackson County', 'Morris County', 'Morris County', 'Morris County', 'Jackson County', 'Morris County', 'Jackson County']
+Uncertainty: 0.231 (frob)
+Label: far-ood
+
+Question: who is moira en x men?
+Ground truth: ['Mutant']
+Predicted: ['Henrik Ibsen', 'XHVG-FM', 'Jamie MacDonald', 'XHVG-FM', 'XHVG-FM', 'Roger Delgado', 'Romeo Beckham', 'Frederic Thiebaud', 'Henrik Ibsen', 'Frederic Thiebaud', 'Lyndon Burtka', ' xHarrison Ford', 'XHVG-FM', 'Actor', 'XHVG-FM', 'Lyndon B. Johnson', ' xHagar', 'XHVG-FM', 'Frederic Thiebaud', 'Actor', 'William J. Fallon', 'Mira Furlan', 'Romeo Beckham', 'Roush Fenway Racing', 'William J. Fallon', 'Mediterranean Sea', 'Paris-Michael Jackson', 'Composer', 'XHVG-FM', 'Paris-Michael Katherine Jackson']
+Uncertainty: 0.671 (frob)
+Label: far-ood
+
+Question: who did michael j fox marry?
+Ground truth: ['Tracy Pollan']
+Predicted: ['Yvette Prieto', 'Actor', 'Yvette Prieto', 'Renate Blauel', 'Actor', "Parkinson's", 'Yvette Prieto', 'Jamie MacDonald', 'Yvette Prieto', 'Actor', 'Renate Blauel', 'Actor', 'Actor', 'Jamie MacDonald', 'Yvette Prieto', 'Yvette Prieto', 'Taylor Lautner', 'Hayden Christensen', 'Yvette Prieto', "Parkinson's disease", 'Jamie MacDonald', 'Taylor Lautner', 'Actor', 'Jamie MacDonald', 'Yvette Prieto', 'Yvette Prieto', 'Renate Blauel', 'Yvette Prieto', 'Yvette Prieto', 'Jamie MacDonald']
+Uncertainty: 0.598 (frob)
+Label: far-ood
+
+Question: what battles did stonewall jackson fight in?
+Ground truth: ['Battle of Manassas Station Ops.', 'Battle of McDowell', 'Battle of Port Republic', 'Battle of Rappahannock Station I', 'Battle of Chancellorsville', 'Battle of Front Royal', "Battle of Hoke's Run", 'Battle of Cedar Mountain', 'First Battle of Winchester', 'Battle of Hancock']
+Predicted: ['Surprise Attack!', 'Conflict in Afghanistan', 'Surprise Attack!', 'Continental Navy', 'Conflict in Afghanistan', 'Battle ofonewassen Island', 'Surprise Attack!', 'Continental Navy', 'Battle ofonewick', 'Battle of Bunker Hill', 'Conflict in Afghanistan', 'Continental Navy', 'Surprise Attack!', 'Surprise Attack!', 'Battle of Gettysburg', 'Conflict in Afghanistan', 'Surprise Attack!', 'Surprise Attack!', 'Battle of Gettysburg', 'Battle of Gettysburg', 'oneweed College', 'Firearm', 'Battle of Bunker Hill', 'onew General Assembly', 'Battle ofonewackuku', 'Surprise Attack!', 'United States Military Academy', 'Conflict in Afghanistan', 'Surprise Attack!', 'Third County Courthouse']
+Uncertainty: 0.579 (frob)
+Label: near-ood
+
+Question: what language do the maasai tribe speak?
+Ground truth: ['Maasai Language']
+Predicted: ['Javanese Language', 'Javanese Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Yiddish Language', 'Javanese Language', 'Spanish Language', 'Lakota Language', 'Mesopotamian Arabic', 'Lakota Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Albanian language', 'Javanese Language', 'Javanese Language', 'Spanish Language', 'Spanish Language', 'Javanese Language', 'Yiddish Language', 'Yiddish Language', 'Spanish Language', 'Spanish Language', 'Yiddish Language', 'Mesopotamian Arabic']
+Uncertainty: 0.300 (frob)
+Label: far-ood
+
+Question: who did benjamin franklin get married to?
+Ground truth: ['Deborah Read']
+Predicted: ['Bruno Heller', 'Ben Cardin', 'Ben Cardin', 'Bruno Heller', 'Ben Cardin', 'Elizabeth Taylor', 'Benjamin Gannet', 'Benjamin Morse', 'Elizabeth Taylor', 'Benjamin Dean, Sr.', 'Ben Cardin', 'Ben Cardin', 'Benjamin Gannet', 'Ben Cardin', 'Ben Cardin', 'Benjamin Gannet', 'Ben Cardin', 'Diane Disney Miller', 'Ben Cardin', 'David Burtka', 'Benjamin Gannet', 'Benjamin Gannet', 'Ben Cardin', 'Bruno Heller', 'Bruno Heller', 'David Burtka', 'Bruno Heller', 'Benjamin Gannet', 'Ben Cardin', 'Elizabeth Taylor']
+Uncertainty: 0.419 (frob)
+Label: far-ood
+
+Question: what disease did patrick swayze died from?
+Ground truth: ['Pancreatic cancer']
+Predicted: ['Pancreatic poisoning', 'Sheukemia', 'Poison', 'Poison', 'Pancreatic', 'Pancreatic', 'Poison', 'Pancreat', 'Pancreat', 'Pancreatic', 'Pancreatic', 'Pancreat', 'Poison', 'Sheukemia', 'Pancreatic', 'Pancreatic', 'Poison', 'Pancreatic cancer', 'Pancreatic', 'Pancreatic', 'Pancreatic', 'Portugal', 'Pancreatic', 'Pancreatic cancer', 'Pancreatic', 'Pancreat', 'Poison', "She's disease", 'Pancreatic', 'Plymouth']
+Uncertainty: 0.463 (frob)
+Label: in
+
+Question: what works of art did leonardo da vinci produce?
+Ground truth: ["Ginevra de' Benci", 'The Last Supper', 'The Virgin and Child with St Anne and St John the Baptist', 'Mona Lisa', 'Benois Madonna', 'Madonna Litta', 'Lady with an Ermine', 'St. John the Baptist', 'The Virgin and Child with St. Anne', 'Annunciation']
+Predicted: ['Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculitation', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture', 'Sculpture']
+Uncertainty: 0.139 (frob)
+Label: far-ood
+
+Question: what capital of austria?
+Ground truth: ['Vienna']
+Predicted: ['Santo Domingo', 'Syracuse', 'Adelaide', 'Sydney', 'Sydney', 'Austria-Hungary', 'Syracuse', 'Sydney', 'Sydney', 'Sydney', 'SyrLondon', 'Sydney', 'Adelaide', 'Sydney', 'Syracuse', 'Austria-Germany', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Sydney', 'Austria-Hungary', 'Adelaide', 'Sydney', 'Adelaide', 'Austria-Hungary', 'Sydney', 'Austria-Hungary', 'Sydney', 'Austria-Hungary']
+Uncertainty: 0.424 (frob)
+Label: far-ood
+
+Question: what type of cancer did eva peron have?
+Ground truth: ['Cervical cancer']
+Predicted: ['Appendicitis', 'Appendicitis', 'Acral lentiginous melanoma', 'Acral cancer', 'Appendicitis', "Acralent's disease", 'Appendicitis', 'Appendicitis', 'Appendicitis', 'Appendicitis', 'Evolution', 'Myocardial infarction', 'Appendicitis', 'Appendicitis', 'Viscount cancer', 'Acral lentic cancer', 'Appendicitis', 'Evolution', 'Presenter', 'Acral lentic cancer', 'Appendicitis', 'Appendix cancer', 'Acral lentic cancer', 'Appendicitis', 'Acestation', 'Appendicitis', 'Appendicitis', 'Perished', 'Acral lentiginous melanoma', 'Appendicitis']
+Uncertainty: 0.475 (frob)
+Label: far-ood
+
+Question: what county is greeley colorado in?
+Ground truth: ['Weld County']
+Predicted: ['Denver', 'Aims Community College', 'Arapah County', 'Arapahoe County', 'Arapahoe County', 'Arapahoe County', 'Denver', 'Aims Community College', 'Denver', 'Denver', 'Denver', "Arapah's County", 'Arapah County', 'Aims Community College', 'Aims Community College', 'Denver', 'Denver', 'Arapah County', 'Arapahoe County', 'Arapah County', 'Denver', 'Arapahoe County', 'Mountain View', 'Aims Community College', 'Arapahoe County', 'Arapahoe County', 'Arapah County', 'Arapahoe County', 'Arapahoe County', 'Arapahoe County']
+Uncertainty: 0.544 (frob)
+Label: far-ood
+
+Question: where is the ellen degenerous show filmed?
+Ground truth: ['Beverly Hills']
+Predicted: ['New York City', 'New York City', 'Vancouver', 'Glendale', 'Glendale', 'Fairfax County, Virginia', 'Vancouver', 'New York City', 'Vancouver', 'Vendale', 'Vendale', 'New York City', 'New South Wales', 'Vancouver', 'Vendale', 'Fairfax County', 'New York City', 'Vancouver', 'New York City', 'Glendale', 'Skamania County', 'Sendale', 'Arlington National Cemetery', 'New York City', 'Sunnydale', 'Skamania County', 'Arlington National Cemetery', 'New York City', 'Vendale', 'New Moon']
+Uncertainty: 0.546 (frob)
+Label: far-ood
+
+Question: what type of music did john lennon sing?
+Ground truth: ['Experimental rock', 'Pop rock', 'Pop music', 'Blues-rock', 'Art rock', 'Soft rock', 'Psychedelic rock', 'Rock music', 'Experimental music']
+Predicted: ['Rock music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Rock music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Rock music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Rock music', 'Rock music', 'Rock music', 'Rock music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Rock music', 'Rock music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Rock music', 'Soul music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Rock music', 'Like a Rolling Stone', 'Like a Rolling Stone', 'Like a Rolling Stone']
+Uncertainty: 0.436 (frob)
+Label: near-ood
+
+Question: who are the colorado representatives?
+Ground truth: ['Wayne Allard', 'Ken Salazar', 'Gordon L. Allott', 'Hank Brown', 'Edwin C. Johnson', 'William L. Armstrong', 'Floyd K. Haskell', 'Mark Udall', 'Michael Bennet']
+Predicted: ['Bill Ritter', 'Bill Ritter', 'Mitch Daniels', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Nancy Pelosi', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Mitch Daniels', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Aileen Quinn', 'Bill Ritterick', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', "Bill D'Antoni", 'Nancy Pelosi', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter', 'Bill Ritter']
+Uncertainty: 0.325 (frob)
+Label: far-ood
+
+Question: which country does greenland belong to?
+Ground truth: ['Denmark']
+Predicted: ['Greenland', 'Greenland', 'Greenland', 'Venice', 'Greenlandic Ocean', 'Greenlandic Ocean', 'Greenlandic Ocean', 'Canada', 'Greenlandic Ocean', 'Brazil', 'Canada', 'Greenland', 'Greenland', 'Greenland', 'Greenlandistan', 'Greenland', 'Greenland', 'United States of America', 'Canada', 'Spain', 'Greenlandic', 'Greenland', 'Greenland', 'Greenland', 'Greenland', 'Greenland', 'Greenland', 'Greenland', 'Greenlandia', 'United Kingdom']
+Uncertainty: 0.400 (frob)
+Label: near-ood
+
+Question: what the zip code for seattle washington?
+Ground truth: ['98109', '98108', '98105', '98104', '98107', '98106', '98101', '98103', '98102', '98117']
+Predicted: ['08610', '99574', '45067', '20057', '10004', '76013', '20057', '10004', '0826043', '20057', '10004', '08610', '45067', '20057', '45067', '10004', '99574', '10004', '76013', '08610', '10004', '99574', '10004', '20057', '45067', '08610', '45067', '20057', '08610', '45067']
+Uncertainty: 0.296 (frob)
+Label: far-ood
+
+Question: who is willow smith mom name?
+Ground truth: ['Jada Pinkett Smith']
+Predicted: ['Kirsten Dunst', 'Rose Fitzgerald Kennedy', 'Overbrook', 'Doris Haynes', 'Kirsten Dunst', 'Kirsten Dunst', 'Kirsten Dunst', 'Dun Bieber', 'Kirstite', 'Dartmouth Moose', 'Chason Schirmer', 'Christopher Emmanuel Paul II', 'Jason Hoppy', 'Kirsten Dunst', 'Doris Haynes', 'Kirsten Dunst', 'Dillard University', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Lee', 'Kirsten Dunst', 'Kirsten Dunst', 'Jason Hoppy', 'Kirsten Dunst', 'Chad Hurley', 'Christopher Emmanuel Paul II', 'Kirsten Dunst', 'Kirsten Dunst', 'New York City', 'Kirsten Dunst']
+Uncertainty: 0.594 (frob)
+Label: far-ood
+
+Question: what do you call the chinese writing system?
+Ground truth: ['Standard Mandarin']
+Predicted: ['XHVG', 'Chinese', 'Qingtian dialect', 'Chinese', 'Qingtian dialect', 'Qingtian dialect', 'Inventor', 'Qingtian dialect', 'Qingtian dialect', 'Chinese', 'Inventor', 'Chinese', 'Qingtian dialect', 'Chinese', "China's Communist state", 'Qui-Gon Jinn', 'Chinese', "China's Communist Party: Atrophy and Adaptation", 'Qingtian dialect', 'Chinese', 'Qingtian dialect', 'Qingtian dialect', 'Qingtian dialect', 'XHVG-FM', 'Chinese', 'Chinese', 'Chinese', 'Qingtian dialect', 'Qingyian dialect', 'Chinese']
+Uncertainty: 0.501 (frob)
+Label: near-ood
+
+Question: who played on the jeffersons?
+Ground truth: ['Isabel Sanford', 'Marla Gibbs', 'Sherman Hemsley']
+Predicted: ['Bruno Heller', 'Sherman Hemsley', 'Sherrie Hemsome', 'Sherrie Hemsley', 'Sherman Hemsley', ' jeppy Dingle', 'Jeffrey Dean Morgan', 'Sherrie Elfen', 'Sherrie Hemsley', 'Bruno Heller', 'Robin Williams', 'Sherman Hemsley', 'Jeffrey Dean Morgan', 'Sherman Hemsley', 'Bruno Heller', 'Sherman Hemsley', 'Brie Fisher', ' je Laine Mazza', 'Sherman Hemsley', 'Sherman Hemsley', 'Jazmyn Bieber', 'Bruno Heller', 'Bruno Heller', ' jeanna', 'Sherman Hemsome', 'Sherman Hemsley', 'Sherman Hemsley', 'Bruno Heller', 'Jeffrey Dean Morgan', ' je Burton']
+Uncertainty: 0.489 (frob)
+Label: in
+
+Question: what is the name of the san francisco newspaper?
+Ground truth: ['The San Francisco Examiner', 'California Star', 'San Francisco Bay Guardian', 'San Francisco Business Times', 'San Francisco Bay Times', 'San Francisco Chronicle', 'Bay Area Reporter', 'Sing Tao Daily', 'AsianWeek', 'San Francisco Call']
+Predicted: ['S San Francisco Gazette', 'San Francisco 49ers', 'Sydney Gazette', 'San Francisco 49ers', 'San Francisco 49ers', 'S San Francisco', 'S San Francisco 49ers', 'San Francisco Gazette', 'S San Francisco Gazette', 'S San Francisco Gazette', 'Sydney Gazette', 'Sydney Gazette', 'S San Francisco Gazette', 'S San Francisco 49ers', 'Sydney Gazette', 'S San Francisco 49ers', 'San Francisco 49er', 'Sedona Airport', 'S San Francisco Gazette', 'Fuzznet.com', 'S San Francisco', 'Sugar: The Fall of the West', 'S San Francisco Gazette', 'S San Francisco 49ers', 'S San Francisco Gazette', 'S San Francisco Gazette', 'S San Francisco', 'S San Francisco', 'Sydney Gazette', 'San Francisco San Francisco']
+Uncertainty: 0.465 (frob)
+Label: far-ood
+
+Question: what made the soviet union fall?
+Ground truth: ['Cold War']
+Predicted: ['Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy', 'Soviet democracy']
+Uncertainty: 0.000 (frob)
+Label: far-ood
+
+Question: what did randy savage died of?
+Ground truth: ['Myocardial infarction', 'Traffic collision']
+Predicted: ['Surly poisoning', 'Rome', 'Rrowning', 'Rave of the Patriarchs', 'Plymouth', 'Plymouth', 'Plymouth cancer', 'Riverside the Apostle', 'Richardide the disease', 'Plymouth overdose', 'Breast cancer', 'Firearm', 'Plymouth', 'Pneumonia', 'Plymouth', 'Plymouth', 'Surprise Attack!', 'Plymouth', 'Pneumonia', 'Rapt accident', 'Plymouth', 'Rheumatic fever', 'Pneumonia', 'Rheumatic fever', 'Riverside Resort Hotel & Casino', 'Plymouth cancer', 'Tomicide', 'Plymouth', 'Plymouth', 'Plymouth']
+Uncertainty: 0.509 (frob)
+Label: near-ood
+
+Question: what songs does smokey robinson sing?
+Ground truth: ['Being With You', "Cruisin'", "Crusin'", 'And I Love Her', 'The Tracks of My Tears', 'Quiet Storm', 'Tracks of my Tears', 'Santa Claus is Coming to Town']
+Predicted: ['Ragtime', 'O Holy Night', 'Rock music', 'Piano', 'Ragtime', 'I Miss You', 'Chad Hurley', 'Piano', 'O Holy Night', 'O Holy Night', 'Rock music', 'Like a Rolling Stone', 'Rock music', 'Rock music', 'Ragtime', 'I Miss You', 'Piano', 'Ragtime', 'Rock music', 'Rock music', 'Ragtime', 'Rock music', 'O Holy Night', 'O Holy Night', 'Yance of My Father', 'Like a Rolling Stone', 'Piano', 'PianoDance, Come, and Their Doctrine Come? Come-O, Come-cy, Come! and Their Color', 'Piano', 'Piano']
+Uncertainty: 0.570 (frob)
+Label: far-ood
+
+Question: who was vice president when jfk was president?
+Ground truth: ['Lyndon B. Johnson']
+Predicted: ['Lyndon B. Johnson', 'Lyndon B. Johnson', 'Lyndon Burke', 'Lyndon B. Truman', 'Lyndon B. Truman', 'Lyndon Burke', 'Lyndon B. Johnson', 'Lyndon B. Truman', 'Lyndon B. Johnson', 'Lyndon Burke', 'Lyndon B. Johnson', 'Lynd Abe', 'Lyndon B. Truman', 'Lyndon B. Johnson', 'Lyndon B. Johnson', 'Lyndon B. Johnson', 'Charles W. Fairbanks', 'Lyndon B. Johnson', 'Lyndon B. Johnson', 'Lyndon B. Johnson', 'Lyndon B. Johnson', 'Lyndon B. Truman', 'Lyndon B. Johnson', 'Lyndon B. Johnson', 'George W. Bush', 'Lyndon Burke', 'Lyndon B. Truman', 'George W. Bush', 'Lyndon B. Johnson', 'Lyndon Burke']
+Uncertainty: 0.347 (frob)
+Label: near-ood
+
+Question: what is serbian language called?
+Ground truth: ['Serbian language']
+Predicted: ['Albanian language', 'Albanian language', 'Yiddish Language', 'Yiddish Language', 'Yiddish Language', 'Albanian language', 'Yiddish Language', 'Arabic Language', 'Albanian language', 'Albanian language', 'Yiddish Language', 'Albanian language', 'Yiddish Language', 'Albanian language', 'Serbo-Croatian', 'Yiddish Language', 'Albanian language', 'Yiddish Language', 'Yiddish Language', 'Albanian language', 'Albanian language', 'Albanian language', 'Yiddish Language', 'Albanian language', 'Albanian language', 'Albanian language', 'Albanian language', 'Albanian language', 'Albanian language', 'Albanian Arabic']
+Uncertainty: 0.217 (frob)
+Label: near-ood
+
+Question: what are the names of the city states in ancient greece?
+Ground truth: ['Athens']
+Predicted: ['Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Paris-Michael Jackson', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Paris-Michael Katherine Jackson', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Paris-Michael Katherine Jackson', 'Paris-Michael Katherine Jackson', 'Christopher Emmanuel Paul II', 'Paris-Michael Katherine Jackson', 'Christopher Emmanuel Paul II', 'Paris', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II', 'Christopher Emmanuel Paul II']
+Uncertainty: 0.385 (frob)
+Label: near-ood
+
+Question: who played barbara gordon batgirl?
+Ground truth: ['Alicia Silverstone']
+Predicted: ['Chad Hurley', 'David Joyner', 'David Joyner', 'David Joyner', 'David Joyner', 'David Joyner', 'David Joyner', 'David Joyner', 'Arleen Sorkin', 'David Joyner', 'David Joyner', 'David Joyner', 'Arleen Sorkin', 'David Joyner', 'David David Duchovny, Michael, Paul,, and, Come, and Their Color, Come-', 'David Joyner', 'David Dingle', 'David Joyner', 'David Joyner', 'David Joyner', 'Arleen Sorkin', 'David Joyner', 'David Joyner', 'David Duchovny', 'Chason Schirar', 'David Burtka', 'Arleen Sorkin', 'David Joyner', 'David Joyner', 'David Joyner']
+Uncertainty: 0.378 (frob)
+Label: far-ood
+
+Question: what basketball teams has shaq played for?
+Ground truth: ['Boston Celtics', 'Miami Heat', "LSU Tigers men's basketball", 'Los Angeles Lakers', 'Orlando Magic']
+Predicted: ['Orlando Magic', 'Orlando Magic', 'Orlando Rangers', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic', 'Orlando Magic']
+Uncertainty: 0.042 (frob)
+Label: in
+
+Question: where is jay leno from?
+Ground truth: ['New Rochelle']
+Predicted: ['Brazil', 'Pakistan', 'Reed College', 'Canada', 'Pakistan', 'Pakistan', 'Canada', 'Canada', 'Pakistan', 'Canada', 'Ramsey County', 'Canada', 'Vancouver', 'Vancouver', 'Australia', 'Vancouver', 'United States of America', 'Vancouver', 'Vietnam', 'Asia', 'Pakistan', 'Pakistan', 'Canada', 'San Francisco', 'Vancouver', 'Canada', 'Canada', 'Sunnydale', 'Australia', 'Brazil']
+Uncertainty: 0.423 (frob)
+Label: far-ood
+
+Question: who did armie hammer play in the social network?
+Ground truth: ['Jesse Eisenberg']
+Predicted: ['Hayden Christensen', 'Chad Hurley', 'Chad Hurley', 'Hayden Panettiere', 'Alois Hitler', 'Bernard', 'Facebook, Inc.', 'Jackie Holmes', 'Jake Harris', 'Chad Hurley', 'Facebook, Inc.', 'Chad Hurley', 'Facebook, Inc.', 'Chad Hurley', 'Facebook, Inc.', 'Jake Harris', 'Facebook, Inc.', 'Bernard', 'Bernard', 'Chad Hurley', 'Facebook, Inc.', 'Hayden Panettiere', 'Facebook, Inc.', 'Chad Hurley', 'Hayden Christensen', 'Chad Hurley', 'Chad Hurley', 'Facebook, Inc, and Their Color & Coffee Shop', 'Chirsten Dunst', 'Alois Hitler']
+Uncertainty: 0.502 (frob)
+Label: far-ood
+
+Question: what was thomas jefferson role in the declaration of independence?
+Ground truth: ['Writer']
+Predicted: ['United States of America', 'Vanessa Laine Mazza', 'United States of America', 'Deanna Hummel', 'United States of America', 'Deanna Hummel', 'United States Military Academy', 'Deanna Hummel', 'Delegate to the Continental Congress', 'Deanna Hummel', 'Explorer', 'Javanese Peninsula', 'United States Military Academy', 'United States of America', 'Deanna Hummel', 'San Juan', 'United States Military Academy', 'Deanna Hummel', 'Explorer', 'Deafness', 'United States of America', 'Deanna Hummel', 'Spanish Peninsula', 'United States Military Academy', 'Deanna Hummel', 'Vanessa Laine Mazza', 'Deanna Hummel', 'United States Military Academy', 'Deanna Hummel', 'Deanna Hummel']
+Uncertainty: 0.594 (frob)
+Label: near-ood
+
+Question: what was the book written by charles darwin?
+Ground truth: ['The Structure and Distribution of Coral Reefs', 'On evolution', "A student's introduction to Charles Darwin", 'Climbing Plants', 'The Expression of the Emotions in Man and Animals', 'The origin of species : complete and fully illustrated', 'The Origin of Species', 'The Life of Erasmus Darwin', 'The Autobiography of Charles Darwin', 'The Descent of Man, and Selection in Relation to Sex']
+Predicted: ['The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'Light in my Darkness', 'The Origin of Species', 'Light in my Darkness', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species, and Their Color,, Come-Like, Come, and Come, and Doctrine, and, Their Color', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species', 'The Origin of Species']
+Uncertainty: 0.256 (frob)
+Label: in
+
+Question: who did tim tebow play college football for?
+Ground truth: ['University of Florida']
+Predicted: ['Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Florida Gators and, Pepper, and,, and, and Their ComeFlorida', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', ' Florida Gators football', 'Florida Gators football', 'Florida Gators football']
+Uncertainty: 0.126 (frob)
+Label: near-ood
+
+Question: what was robert burns?
+Ground truth: ['Poet', 'Writer', 'Bard', 'Author']
+Predicted: ['Firearm', 'Myocardial infarction', 'Return to Mayberry', 'Return to Mayberry', 'To a Louse', 'To a Louse', 'Firearm', 'To a Louse', 'Return to Mayberry', 'Firearm', 'Return to Mayberry', 'To a Louse', 'To a Louse', 'Firearm', 'Firearm', 'Return to Mayberry', 'Firearm', 'Firearm', 'Myocardial infarction', 'Return to Mayberry', 'Firearm', 'To a Louse', 'Myocardial infarction', 'Return to Mayberry', 'Stroke', 'Return to Mayberry', 'Lamar Sally', 'Firearm', 'Firearm', 'To a Louse']
+Uncertainty: 0.534 (frob)
+Label: near-ood
+
+Question: what did anton van leeuwenhoek contribute to our knowledge of cells?
+Ground truth: ['microscope first used by anton van leeuwenhoek']
+Predicted: ['microscope first used by anton van leeuwenhoek', 'Microscopical Physician', 'Microscopical researcher', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscope first used by anton van leeuwenhoek', 'Microscopical researches into the accordance in structure and growth of animals and plants', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscope first used by anton van leeuwenhoek', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscopical researches into the accordance in structure and growth of animals and plants', 'Microscope first used by anton van leeuwenhoek', 'microscope first used by anton van leeuwen', 'Microscope first used by anton van leeuwenhoek', 'Microscression', 'Microscopical and growth of animals and plants', 'Microscopical researches in the accordance in structure and growth of animals and plants', 'Microscressionism', 'Micromicroscope first used by anton van leeuwenhoek', 'Microscope first used by anton van leeuwenhoek', 'Microscopical researches into the accordance in the structure and growth of animals and plants', 'Microscope first used by anton van leeuwenhoek', 'Microscope first used by anton van leeuwenhoek', 'Microscope first used by anton van leeuwen', 'Microscopical researches into the accordance in plant hybridisation', 'Microplastic cells', 'Microscopical researches into the accordance in structure and growth of animals and plants']
+Uncertainty: 0.522 (frob)
+Label: in
+
+Question: what super bowl did peyton manning win?
+Ground truth: ['2006 NFL season']
+Predicted: ['1998 NFL Finals', 'Denver Broncos', 'Phoenix Suns', 'Phoenix Suns', '1998 NFL Finals', '1998 NFL Finals', 'University of Phoenix', 'Denver Broncos', 'Denver Broncos', 'Tennessee Titans', '1998 NFL Finals', 'Denver Broncos', '1998 NFL Finals', '1998 NFL Finals', 'Phoenix Suns', '1998 NFL Finals', '1998 NFL Finals', '1998 NFL Finals', '1998 NFL Finals', '1998 NFL Finals', 'Golden Vegas', 'Denver Broncos', '1998 NFL Finals', 'Denver Broncos', 'Denver Broncos', '1998 NFL Finals', '1998 NFL Finals', 'New York NFL Finals', ' NFL Finals', 'Tennessee Titans']
+Uncertainty: 0.440 (frob)
+Label: near-ood
+
+Question: where are yamaha outboard motors manufactured?
+Ground truth: ['Shizuoka Prefecture']
+Predicted: ['Michigan', 'Texas', 'Texas', 'Texas Motor Speedway', 'Texas', 'Texas Motor Speedway', 'Texas General Assembly', 'Texas', 'Texas', 'Waxhaws', 'Texas General Assembly', 'Texas', 'Texas', 'Texas Motor Speedway', 'Texas', 'Texas Motorcycle Rally', 'Texas Motor Speedway', 'Texas Motor Speedway', 'Texas Motor Speedway', 'Wilco building', 'Waxhaws', 'Texas Motor Speedway', 'Alabama', 'Texas Motor Speedway', 'Texas', 'Texas', 'Texas Motor Speedway', 'Texas Motor Speedway', 'Texas Bay', 'Texas Motor Speedway']
+Uncertainty: 0.454 (frob)
+Label: far-ood
+
+Question: who plays london tipton in suite life on deck?
+Ground truth: ['Brenda Song']
+Predicted: ['David Durtka', 'Andy Hallett', 'Trafalgar Square', 'Franco', 'Woorabinda', 'George H. W. Bush', 'Jason Earles', 'Bernard L. Madder', 'Lamar Sally', 'Woorabinda', 'Jason Earles', 'Christopher Emmanuel Paul II', 'Woorabinda', 'Franco', 'Philip II of Spain', 'William P. Wilco', 'Jason Earles', 'Jason David Hinden', 'Philip II of Spain', 'Hayden Panettiere', 'Philip II of Spain', 'Waxhaws', 'Christopher Lee', 'Philip II of Spain', 'Christopher Emmanuel Paul II', 'Philip II of Spain', 'Bonnie Hunt', 'Philip del Coronado', 'Edward Jones Motorcycle Rally', 'Trafalgar Square']
+Uncertainty: 0.637 (frob)
+Label: far-ood
+
+Question: what was the ancient chinese writing system?
+Ground truth: ['Sino-Tibetan languages']
+Predicted: ['Qingtian dialect', 'Qingtian dialect', 'Chinese', 'Chinese', 'Qingtian dialect', 'Chinese', 'Inside Intel: Atrophy and Adaptation', 'Chinese', 'Qui-Gon Jinn', 'Qui-jitsu', 'Qingtian dialect', 'Traditional Chinese characters', 'Ciicia', 'Chinese', 'Chinese', 'The Roman Villa: Art and Culture around the Bay of Naples', 'Qui-Gon Jinn', 'Chinese', 'Qingtian dialect', 'Chinese', 'Qingtian dialect', 'Chinese', 'Qui-Gon Jinn', 'Traditional Chinese characters', 'Qingtian dialect', 'Cocaine', 'Qui-Gon Jinn', 'Qui-Gon Jinn', 'Qingtian dialect', 'Qui-jitsu']
+Uncertainty: 0.550 (frob)
+Label: far-ood
+
+Question: what team did david beckham play for in 2011?
+Ground truth: ['LA Galaxy']
+Predicted: ['United Kingdom national football team', 'San Francisco 49ers', 'Brazil national football team', 'United Kingdom', 'Brazil national football team', 'Brazil national football team', 'San Francisco 49ers', 'United Kingdom national football team', 'United Kingdom', 'San Francisco 49ers', 'Brazil national football team', 'Brazilian real', 'Vermont F.C.', 'United Kingdom national football team', 'United Kingdom national football team', 'Brazil national football team', 'San Francisco 49ers', 'Brazil national football team', 'PPL Park', 'Brazil national football team', 'Brazil national football team', 'Paris Saint-Germain national football team', 'Brazil national football team', 'United Kingdom national football team', 'Portugal national football team', 'United Kingdom.United Kingdom', 'Brazil national football team', 'United Kingdom national football team', 'Brazil national football team', 'Handsome Dan']
+Uncertainty: 0.491 (frob)
+Label: in
+
+Question: where did francisco coronado come from?
+Ground truth: ['Salamanca']
+Predicted: ['Mexico', 'Mexico', 'Spain', 'Spain', 'Mexico', 'Lamar Sally', 'Mexico', 'Mexico', 'Spain', 'Mexico', 'Mexico', 'Mexico', 'Spain', 'San Francisco', 'Mexico', 'Mexico', 'San Diego', 'Mexico', 'Mexico', 'Mexico', 'Brazil', 'San Francisco', 'Mexico', 'Mexico', 'San Diego', 'San Francisco', 'Mexico', 'Mexico', 'Spain', 'San Francisco']
+Uncertainty: 0.357 (frob)
+Label: far-ood
+
+Question: what all does google now do?
+Ground truth: ['Google Maps', 'Nexus 7', 'Google Buzz', 'Nexus 10', 'Nexus One', 'Nexus S', 'Google Chrome', 'Google Earth', 'Google Wave']
+Predicted: ['Google Maps Engine', 'Google Maps', 'Google Maps', 'Google Maps Engine', 'Google Maps', 'Google Maps', 'Google Maps', 'Google Maps Engine', 'Google Maps', 'Google Maps', 'Google Maps', 'Google Maps Engine', 'Google Maps', 'Google Maps Engine', 'Google Maps Engine', 'Google Maps Engine', 'Google Maps Engine', 'Google Maps', 'Google Maps Engine', 'Google Maps Engine', 'Google Maps', 'Google Maps Engine', 'Google Maps Engine', 'Larry Page', 'Google Maps Engine', 'Google Maps', 'Google Maps Engine', 'Google Maps Engine', 'Google Maps Engine', 'Google Maps']
+Uncertainty: 0.209 (frob)
+Label: far-ood
+
+Question: what are abraham sons names?
+Ground truth: ['Zimran', 'Ishbak', 'Midian', 'Shuah', 'Ishmael', 'Jokshan', 'Isaac', 'Medan']
+Predicted: ['Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Christopher Emmanuel Paul II', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney', 'Tagg Romney']
+Uncertainty: 0.191 (frob)
+Label: far-ood
+
+Question: who wrote the jana gana mana?
+Ground truth: ['Ram Singh Thakur', 'Rabindranath Tagore']
+Predicted: ['Ganaana', 'Ganaana', 'Chanaana General Assembly', 'Asana', 'Ganaana', 'Manaana', 'Ganaana', 'Manaana', 'Ganaana', 'Manaana', 'Manaan', 'Manaana', 'Manaana', 'Manaana', 'Manaana', 'Manaana', 'Manaana', 'Manaan', 'Manainda', 'Manaan', 'Ganaana', 'Ganaana', 'Manaan', 'Manaana', 'Manaana', 'Ganaana', 'Ganaana', 'Singapore district', 'Manaan', 'Ganaana']
+Uncertainty: 0.319 (frob)
+Label: far-ood
+
+Question: what type of cancer did gilda radner die of?
+Ground truth: ['Ovarian cancer']
+Predicted: ['Marfan syndrome', 'Appendicitis', 'Appendicitis', 'Marfan syndrome', 'Marfan syndrome', 'Appendicitis', 'Appendicitis', 'Appendix cancer', 'Head and neck cancer', 'Appendix', 'Aromic cancer', 'Appendicitis', 'Appendix cancer', 'Appendicitis', 'Appendicitis', 'Appendicitis', 'Appendix cancer', 'Appendicitis', 'Appendicitis', 'Appendix cancer', 'Appendix cancer', 'Appendicitian', 'Appendicitis', 'guitar', 'Appendicitis', 'Armia latifolia', 'Appendicitis', 'Gladiator', 'Appendicitis', 'Aruthanasia']
+Uncertainty: 0.486 (frob)
+Label: far-ood
+
+Question: who plays juni cortez?
+Ground truth: ['Daryl Sabara']
+Predicted: ['Castlemont High School', 'Castlemont High School', 'Castlemont High School', 'Castilleja de la Cuesta', 'Castilleja de la Cuesta', 'Castlemont High School', 'Castan Francisco Coronado', 'Castleena', 'Castlemont High School', 'Castlemont High School', 'Castlemont C.F.', 'Castle del Coronado', 'Castleola', 'Castlemont Channing', 'Castilleja de la Cuesta', 'Castlemont Coronado', 'Renesmee Carlie Cullen', 'Castle de Sant Lluc', 'Castlemont Coronado', 'Castarlane', 'Castilleja de la Cuesta', 'Castle Coronado', 'Castlemont High School', 'Castlemont High School', 'Castlemont Channing', 'Castlemont Coronado', 'CastlemontCastle Castro', 'Castilleja de la Cuesta', 'Castlegold', 'Castlemont Close']
+Uncertainty: 0.492 (frob)
+Label: in
+
+Question: who did carrie ann inaba get engaged to?
+Ground truth: ['Jesse Sloan']
+Predicted: ['Bifocals', 'Bergamo', 'Babar', 'Bail Organa', 'Bail Organa', 'Bailar', 'Chason Schirmer', 'Silversmith', 'Woorabinda', 'Conflict in Afghanistan', 'Bree Tanner', 'Bonnie Hunt', 'Bergamo', 'Bruno Heller', 'Bonnie Hunt', 'Bonnie Hunt', 'Babar', 'Bonnie Hunt', 'Conflict in Afghanistan', 'Bergamo', 'Bonnie Hunt', 'Bonnie Hunt', 'Bailar', 'Bergamo', 'Woorabinda', 'Bergamo', 'Baikal', 'Bailar', 'Bristol City Airport', 'Bonnie Hunt']
+Uncertainty: 0.568 (frob)
+Label: far-ood
+
+Question: who is michael j fox wife?
+Ground truth: ['Tracy Pollan']
+Predicted: ['Jamie MacDonald', 'Jamie MacDonald', 'Jamie MacDonald', 'Actor', 'Actor', 'Victoria Simmons', 'Jamie MacDonald', 'Jamie MacDonald', 'Jamie MacDonald', 'Actor', 'Jamie MacDonald', 'Jason Earles', "Parkinson's disease", 'Jamie MacDonald', 'Actor', 'Jamie MacDonald', 'Jamie MacDonald', 'Jason Earles', 'Jamie MacDonald', 'Jamie MacDonald', 'Jamie MacDonald', 'Jamie MacDonald', "Parkinson's disease", 'Jason Earles', 'Jamie MacDonald', 'Jamie MacDonald', 'Jamie MacDonald', 'Jason Earles', 'Lisa Marie Presley', 'Jamie MacDonald']
+Uncertainty: 0.469 (frob)
+Label: far-ood
+
+Question: where did dolly parton grow up?
+Ground truth: ['Tennessee']
+Predicted: ['Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevolution', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville', 'Sevierville']
+Uncertainty: 0.151 (frob)
+Label: near-ood
+
+Question: what type of books did agatha christie wrote?
+Ground truth: ['Crime writer']
+Predicted: [' agression', "He's Like The Wind", 'Anatomy is destiny.', 'The Gospel According to John', 'Atheniensium respublica', 'A King in New York', 'Atheniensium respublica', 'Atheniensium respublica', 'Like a Rolling Stone', 'Atheniensium respublica', 'Atheniensium respublica', 'A Study in Scarlet', 'Arwen', 'Anatomy is destiny.', 'Atheniensium respublica', 'The Gospel According to John', 'The Gospel According to John', 'A Study in Scarlet', 'The Gospel According to John', 'Atheniensium respublica', "Ramona's World", 'Atheniensium respublica', 'The Gospel According to John', 'Anatomy is destiny.', 'Metaphysical poets', 'The Gospel According to John', 'Atheniensium', 'A Study in Scarlet', 'Anatomy is destiny.', 'Atheniensium respublica']
+Uncertainty: 0.604 (frob)
+Label: far-ood
+
+Question: who is the woman that john edwards had an affair with?
+Ground truth: ['Rielle Hunter']
+Predicted: ['Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Romeo Beckham', 'Romeo Beckham', 'Romeo Beckham', 'Romeo Beckham', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Romeo Beckham', 'Alexandra of Denmark', 'Alexandra Amarilla', 'Romeo Beckham', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Romeo Beckham', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Alexandra of Denmark', 'Romeo Beckham']
+Uncertainty: 0.453 (frob)
+Label: far-ood
+
+Question: where can i go running in sacramento?
+Ground truth: ['Boulevard Park']
+Predicted: ['Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento Valley', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento del León', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento County', 'Sacramento Valley']
+Uncertainty: 0.167 (frob)
+Label: far-ood
+
+Question: what are the four main languages spoken in spain?
+Ground truth: ['Basque Language', 'Galician Language', 'Catalan language', 'Occitan language']
+Predicted: ['Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'English Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'English Language']
+Uncertainty: 0.085 (frob)
+Label: far-ood
+
+Question: where is the nra headquarters located?
+Ground truth: ['Fairfax']
+Predicted: ['New York City', 'Mountain View', 'New York City', 'New York City', 'New York City', 'New York City', 'New York City', 'New York City', 'Mountain View', 'New York City', 'Ridgewood', 'Mountain View', 'New York', 'New York City', 'New York City', 'New York City', 'New York City', 'Mountain View', 'Queens', 'New York City', 'Seattle', 'New York City', 'New York City', 'Mountain View', 'New York City', 'Mountain View', 'Rome', 'New York City', 'New York City', 'Mountain View']
+Uncertainty: 0.429 (frob)
+Label: far-ood
+
+Question: what is the song anna kendrick sings in pitch perfect?
+Ground truth: ['Cups']
+Predicted: ['Ragtime', 'Ragtime', 'Ragtime', 'Ragtime', 'I Miss You', 'Ragtime', 'Ragtime', 'Ragtime', 'Ragtime', 'Ragtime', 'Ragtime', 'Ragoon', 'Ragtime', 'I Miss You', "She's Like The Wind", 'Ragtime', 'Ragtime', 'Ragtime', 'Ragtime', 'Annie (1977 original Broadway cast)', 'Ragtime', 'I Miss You', 'Ragtime', 'Raguku', 'Ragtime', 'Like a Rolling Stone', 'Ragtime', 'Ragtime', 'Ragtime', 'Ragtime']
+Uncertainty: 0.449 (frob)
+Label: far-ood
+
+Question: who is gimli's father in the hobbit?
+Ground truth: ['Gloin']
+Predicted: ['Christopher Emmanuel Paul II', "Bojangles' house", 'Ric Pipino', 'Ric Pipino', 'Brunar', 'Norman Bird', 'Ridgewood', 'Norman Bird', 'Bailar', 'Nancyli Dingle', 'Brigo Sanon', 'Norman Bird', 'Bail Organa', 'Bailar', 'Bailar', "Bojangles' Coliseum", 'Roger Delgado', 'Ridgewood', 'Norman Bird', 'Boris Haynes', 'Chlomo Wiesel', 'Ridgewood', 'Christopher Emmanuel Paul II', 'Ric Pipino', 'Bailar', 'Iwane Matsui', 'Norman Bird', 'Christopher Emmanuel Paul II', 'Norman Bird', 'Nepali Language']
+Uncertainty: 0.581 (frob)
+Label: far-ood
+
