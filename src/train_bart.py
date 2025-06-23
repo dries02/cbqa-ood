@@ -1,6 +1,6 @@
 import pandas as pd
 import torch
-from torch.optim import Adam
+from torch.optim import Adam, Optimizer
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
@@ -15,24 +15,24 @@ N_EPOCHS = 20
 BATCH_SIZE = 32
 
 
-def train(model: BartForConditionalGeneration, dataloader: DataLoader, optimizer) -> None:
+def train(model: BartForConditionalGeneration, dataloader: DataLoader, optimizer: Optimizer) -> None:
     """Fit the model on the training set."""
     for epoch in tqdm(range(1, N_EPOCHS+1), desc="Epochs"):
         running_loss = 0
 
         loop = tqdm(dataloader, desc=f"Epoch {epoch}/{N_EPOCHS}")
         for batch in loop:
-            batch = {k: v.to(device) for k, v in batch.items()}
+            batch = {k: v.to(device) for k, v in batch.items()}     # maybe rename
             outputs = model(**batch)
 
             loss = outputs.loss
 
-            optimizer.zero_grad()                     # clear out old gradients
+            optimizer.zero_grad()                                   # clear out old gradients
             loss.backward()
             optimizer.step()
 
             running_loss += loss.item()
-            avg_so_far = running_loss / (loop.n + 1)  # loop.n is batches done so far
+            avg_so_far = running_loss / (loop.n + 1)                # loop.n is batches done so far
             loop.set_postfix(train_loss=f"{avg_so_far:.4f}")
 
 
@@ -40,7 +40,7 @@ def experiment(
         model: BartForConditionalGeneration,
         tokenizer: BartTokenizer,
         train_df: pd.DataFrame,
-        optimizer,
+        optimizer: Optimizer,
         output_dir: str | None = None,
     ) -> None:
     model.to(device)

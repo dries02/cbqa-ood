@@ -38,7 +38,9 @@ ignore = [
 ]
 
 [dependency-groups]
-dev = []
+dev = [
+    "ipykernel>=6.29.5",
+]
 
 [tool.ruff]
 line-length = 120
