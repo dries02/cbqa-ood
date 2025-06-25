@@ -5,6 +5,7 @@ import torch
 from tqdm import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
 
+from f1_rms import f1_rms_uncertainty
 from sbertdemo import frob
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -64,7 +65,7 @@ def fetch_predictions(test_df: pd.DataFrame) -> list[list[str]]:
 
 def analyze():
     test_df = pd.read_parquet("data/webquestions/webquestions-merged-seqs.parquet")
-
+    test_df["f1_rms"] = test_df["predictions"].apply(f1_rms_uncertainty)
 
     test_df["frob"] = test_df["predictions"].apply(frob)
     test_df.to_parquet("data/webquestions/webquestions-frob.parquet")

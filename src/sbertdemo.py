@@ -8,11 +8,11 @@ scorer = BERTScorer(model_type="bert-base-uncased", device=device)
 
 
 def frob(answers: list[str]) -> float:
-    r"""Compute the Frobenius norm of a similarity matrix.
+    r"""Compute the Frobenius norm of a distance matrix.
 
-    Implementing Frobenius norm: ```sqrt(2\sum_{i<j} s_{ij}^2)```.
+    Implementing Frobenius norm: ```sqrt(2\sum_{i<j} D_{ij}^2)```.
     """
-    answers = list(filter(None, answers))         # filter empty strings (Falsy)
+    answers = list(filter(None, answers))           # filter empty strings (Falsy)
 
     T = len(answers)
     lhs, rhs = [], []
@@ -26,3 +26,5 @@ def frob(answers: list[str]) -> float:
     d = 1.0 - f1                                    # actual distance so h(x,x) = 0
     sq = (d * d).sum().item() * 2
     return math.sqrt(sq) / math.sqrt(T * (T - 1))   # normalized
+
+
