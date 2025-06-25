@@ -1,10 +1,10 @@
 import pandas as pd
 import torch
-from qadataset import QADataset
 from torch.utils.data import DataLoader
 from transformers import BartForConditionalGeneration, BartTokenizer
 
-import torch
+from qadataset import QADataset
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
@@ -21,37 +21,39 @@ def interact(model: BartForConditionalGeneration, tokenizer: BartTokenizer) -> N
 
 
 
-def evaluate(model: BartForConditionalGeneration, tokenizer: BartTokenizer, dataloader: DataLoader) -> None:
+def evaluate(model: BartForConditionalGeneration, tokenizer: BartTokenizer, dataloader: DataLoader, *, verbose=True) -> None:
     """Evaluate the model on a data set."""
+    if dataloader.dataset.is_train:                 # from QADataset.is_train
+        msg = "Dataset should be in evaluation mode so all answers are returned."
+        raise ValueError(msg)
+
+    tmp_flag = model.training                       # maybe restore
     model.eval()
     em_count = 0
 
     with torch.no_grad():
         for batch in dataloader:
-            # Move inputs to the right device
-            batch = {k: v.to(device) for k, v in batch.items()}
-            input_ids = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
-            labels = batch["labels"].to(device)
+            # only put inputs and attention mask to device
+            batch_gpu = {k: v if k == "labels" else v.to(device) for k, v in batch.items()}
 
-            # Generate predictions greedily
-            pred_ids = model.generate(**batch, max_length=32)
+            pred_ids = model.generate(**batch_gpu, max_length=32)               # greedy decoding
 
-            # Decode everything
-            questions = tokenizer.batch_decode(input_ids, skip_special_tokens=True)
+            questions = tokenizer.batch_decode(batch_gpu["input_ids"], skip_special_tokens=True)
             predictions = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
-            references = tokenizer.batch_decode(labels, skip_special_tokens=True)
 
-            # Print line by line
-            for q, p, g in zip(questions, predictions, references, strict=True):
-                print(f"Q: {q}")
-                print(f"P: {p}")
-                print(f"G: {g}")
-                print("-" * 80)
-                em_count += p == g
+            for q, p, g in zip(questions, predictions, batch_gpu["labels"], strict=True):
+                if verbose:
+                    print(f"Q: {q}")
+                    print(f"P: {p}")
+                    print(f"G: {g}")
+                    print("-" * 80)
+                em_count += p in g              # check if in any ground truth answers
+    if verbose:
+        print(f"EM = {em_count}")
 
-    print(f"EM = {em_count}")
-    # perhaps also add F1 and other metrics... maybe separate it from the inference
+    model.training = tmp_flag                   # restore
+    return em_count
+
 
 def main() -> None:
     model = BartForConditionalGeneration.from_pretrained("models/nq-bnn")

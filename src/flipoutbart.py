@@ -86,7 +86,7 @@ class FlipoutBart(BartForConditionalGeneration):
             masked_lm_loss += kl                                                # ELBO = CE + KL
 
         if not return_dict:
-            output = (lm_logits,) + outputs[1:]
+            output = (lm_logits, *outputs[1:])
             return ((masked_lm_loss, *output)) if masked_lm_loss is not None else output
 
         return Seq2SeqLMOutput(

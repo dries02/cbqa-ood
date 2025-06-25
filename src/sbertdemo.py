@@ -1,32 +1,28 @@
 import math
-from functools import cache
-from itertools import combinations
-
+import torch
 from bert_score import BERTScorer
-from tqdm import tqdm
+
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
+scorer = BERTScorer(model_type="bert-base-uncased", device=device)
 
 
 def frob(answers: list[str]) -> float:
-    """Compute the Frobenius norm of a similarity matrix."""
-    answers = sorted(answers)           # so (x,y) and (y,x) hit the same cache entry
-    scorer = BERTScorer(model_type="bert-base-uncased")
+    r"""Compute the Frobenius norm of a similarity matrix.
 
-    @cache                              # actual distance so symmetry
-    def bert_distance(a: str, b: str) -> float:
-        _, _, f1 = scorer.score([a], [b])
-        f1 = f1[0].item()
-        return 1.0 - f1
+    Implementing Frobenius norm: ```sqrt(2\sum_{i<j} s_{ij}^2)```.
+    """
+    answers = list(filter(None, answers))         # filter empty strings (Falsy)
 
-    total_distance = 0
     T = len(answers)
-    total_pairs = T * (T - 1) // 2      # symmetric matrix, zero diagonal
+    lhs, rhs = [], []
+    for i in range(T):
+        for j in range(i+1, T):                     # actual distance so symmetry
+            lhs.append(answers[i])
+            rhs.append(answers[j])
 
-    # implementing Frobenius norm: sqrt(2\sum_{i<j} s_{ij}^2)
-    for i, j in tqdm(combinations(range(T), 2), total=total_pairs):
-        d = bert_distance(answers[i], answers[j])
-        total_distance += d * d
+    _, _, f1 = scorer.score(lhs, rhs, batch_size=128)
 
-    total_distance *= 2                 # symmetry
-    total_distance = math.sqrt(total_distance)
-    max_score = math.sqrt(T * (T - 1))
-    return total_distance / max_score   # normalized
+    d = 1.0 - f1                                    # actual distance so h(x,x) = 0
+    sq = (d * d).sum().item() * 2
+    return math.sqrt(sq) / math.sqrt(T * (T - 1))   # normalized

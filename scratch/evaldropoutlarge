@@ -1,0 +1,1200 @@
+Question: what is the oregon ducks 2012 football schedule?
+Ground truth: ['University of Oregon']
+Predicted: ['Oregon State University', 'Oregonian', 'Oregon Ducks football', 'University of Minnesota', 'University of Oregon', 'Oregon Ducks football', 'Oregon State Ducks football', 'Oregon Ducks football', 'University of Oregon', 'University of Oregon', 'OregonOregon Ducks', 'Oregon Ducks football', 'University of Central Washington', 'Oregon State University', 'University of Oregon football', 'Seattle Seahawks football', 'University of Oregon', 'Oregon Ducks football', 'Oregon Ducks', 'Oregon Ducks football', 'Sports', 'University of Maine', 'University of of Portland', 'Oregon State University', '2012 football schedule', 'Sports Authority Bowl', 'Oregon State University', 'Oregon Ducks football schedule', 'Oregon State', 'Oregon Ducks football']
+Uncertainty: 0.479 (frob)
+Label: far-ood
+
+Question: who plays ken barlow in coronation street?
+Ground truth: ['Tony Warren']
+Predicted: ['Coronation Street', 'Ian Holm', '.', 'Rosie Reynolds', 'The B-52s', 'WilDavid', 'Queen Edward', 'David Ogden Nash', 'Peter Foner', 'Felix Jones', 'KingBritishDavidJackDavidKingdom', 'Neil Patrick-Hillby', 'Emma', 'Prince Edward', 'Wilfred Kay', 'Coronation', 'King Edward VII', 'Emma Stone', 'Wilfred Harris', 'Wilfrid', 'Roswell', 'Jack Kundell', 'David Lindsay', "Queen's Court", 'Richard A. Dosgate', 'Richard Bracey', 'Richard Harris', 'London', 'British DJ', 'London']
+Uncertainty: 0.602 (frob)
+Label: far-ood
+
+Question: what happened after mr. sugihara died?
+Ground truth: ['Yaotsu']
+Predicted: ['Mattea Underwood', 'Sue Bird', 'Teisō', 'Japan', 'Japan', "People's Republic of China", 'Mathematician', 'Chief Justice', 'Myanmar', 'Law and law', 'Unbelievable', 'Japan', 'Tōhaya', 'Kiratawa', 'Mathematician', 'Lawyer', 'Peruvian dictator', 'Priest', 'Catholicism', 'Japan', 'Siegfried', 'Japan', 'Japan', 'World Civil War II', 'Bailie', 'Death', 'What happened after World War II', "Lawrence O'Donnell", 'David Tudor, Jr.', 'Buddhabha']
+Uncertainty: 0.586 (frob)
+Label: far-ood
+
+Question: who did mozart write his four horn concertos for?
+Ground truth: ['wolfgang amadeus mozart used story by pierre beaumarchais']
+Predicted: ['Violin concerto in timpus', 'Soprano', 'Roméo Simoni', 'Nein-Raik', 'Violin and Orchestra', 'Giovaniano', 'Roméo Christa', 'Piano', 'Joseph Mantilabu', 'Sibé Massúa', 'Opera', 'Opera', 'Nurnaal', 'Concetera', 'Opera Concertante', 'Opera music', 'trumpe', 'Grand horn', 'trumpeter', 'Artusan', 'Johannes Salomon', 'Musician', "Mozart's horn concertos", 'Rienin and Olivier Lastira', 'Musical interpreter', 'Music', 'Mozart', 'Horns', 'Giorgio de Carlo', 'Giovanni Mozart']
+Uncertainty: 0.579 (frob)
+Label: far-ood
+
+Question: where is jamarcus russell from?
+Ground truth: ['Mobile']
+Predicted: ['Sociologist', 'Australia', 'Australia', 'where is jamarcus russell', 'Sudiana', 'Rome', 'Australia', 'King of the Netherlands', 'Jamaican', 'Rome', 'Sierra Leone', 'Johannicordland', 'Americus', 'Kingdom of Heaven', 'Sociologist', 'From', 'Jasmine Town', 'Saxon Englander', 'New Zealand', 'Europe', 'New York', 'Saxonamus', 'Rupela, Netherlands', 'Americana', 'Jore Achilles', 'Sarasik', 'Australia', 'United States of America', 'Jasper Street', 'Australia']
+Uncertainty: 0.581 (frob)
+Label: far-ood
+
+Question: where was george washington carver from?
+Ground truth: ['Diamond']
+Predicted: ['Tennessee', 'St. George', 'Massachusetts', 'Olotha', 'Washington', 'Kent County', 'Viraster', 'New York City', 'Virginia', 'Richmond', 'Washington, D.C', 'Washington, D.C', 'Tappanee', 'Washington, D.C.', 'George Washington', 'Washington, Virginia', 'Washignton', 'United States of America', 'Washington D.C.', 'Virginia', 'Virginia', 'Western Maryland', 'Washington', 'Tennessee', 'Wright County', 'United States of America', 'Bradley Burton', ' cotton farm', 'Virginia', 'Washington D.C']
+Uncertainty: 0.555 (frob)
+Label: far-ood
+
+Question: what else did ben franklin invent?
+Ground truth: ['Lightning rod', 'Franklin stove', 'Bifocals', 'Glass harmonica']
+Predicted: ['Drugorganol', 'Inventor', 'Philosopher', 'Cyanotype', 'ruin', 'Philosopher', 'The golden rule', 'Balls', 'Benjamin', 'Inventor', 'Inventors', 'Benjamin Franklin', 'Inventor, for circulation and sale', 'Bifocuses', 'Mathematicon', 'Syphilis syndrome', 'Cotton gin', 'The safety of air', 'Physicist', '.', 'Sewing', 'Explode', 'Bridgewater', 'Physicometer', 'Drug use', 'Cocaine, Spice and More', 'Engineer', 'Franklin', 'Bifurter', '']
+Uncertainty: 0.569 (frob)
+Label: in
+
+Question: who was richard nixon married to?
+Ground truth: ['Pat Nixon']
+Predicted: ['Ricardo Galeás', 'Nancy Nixon', 'Richard Nixon', 'Richard Nixon', 'Richard Richard Nixon', 'Richard Nixon', 'Richard N. Nixon', 'Dorothy Parker', 'Anne Newman', 'Richard Milne Nixon', 'Richard Nixon', 'Taw-Shee Berry', 'Dina Ralston', 'Richard Nixon', 'Texas', 'Jill B. Harris', 'Richard Nixon', 'Ruth Elizabeth Hadfield', 'Republican', 'Nicole Holm', 'Margareggia', 'Richard Nixon', 'Dina Nixon', 'Richard Nixon', 'Kath Souckel', 'Elizabeth Taylor', 'Nixon', 'George McGovern', 'Richard Nixon', 'Richard Nixon']
+Uncertainty: 0.541 (frob)
+Label: far-ood
+
+Question: what country did germany invade first in ww1?
+Ground truth: ['Belgium']
+Predicted: ['Germany', 'Poland', 'Germany', 'Germany', 'West Germany', 'British Empire', 'Poland', 'Germany', 'Germany', 'ant', 'Germany', 'World War II', 'Germany', 'Germany', 'Germany', 'Germany', 'GeorgiaSwatedUnited States Army', 'Germany', 'United Kingdom', 'Germany', 'Germany', 'Germany', 'Germany', 'Germany', 'France', 'Bonn', 'Switzerland', 'Germany', 'German state', 'America']
+Uncertainty: 0.391 (frob)
+Label: near-ood
+
+Question: what is the best sandals resort in st lucia?
+Ground truth: ['Micoud Quarter', 'Choiseul Quarter', 'Praslin Quarter', 'Vieux Fort Quarter', 'Castries Quarter', 'Laborie Quarter', 'Gros Islet Quarter', 'Anse la Raye Quarter', 'Dauphin Quarter', 'Dennery Quarter']
+Predicted: ['Malibu', "St. Lucie's Bay", 'St. Helen and Granite Island', 'Luxemburg', 'The Look Live Lounge', 'Palms Beach', 'Lombardala', 'Ionia', 'Red Rock City', 'Ionian Islands', 'Birthingtree', 'Palace of Palms', 'Palos Ruvas', 'Palm Orchard', 'Palos Verdes', 'University of Central Florida', 'St. Lucia', 'Spy Needle', 'Andrea Nastrada', 'Malibu', 'Santo Dieux', 'Palace of the Forbidden Desert', 'Clisson', 'Sands Beach City', 'Bergoland', 'Long Island', 'Balqueira', 'Birmingham', 'Victoria', 'Luxempre']
+Uncertainty: 0.604 (frob)
+Label: far-ood
+
+Question: who is governor of ohio 2011?
+Ground truth: ['John Kasich']
+Predicted: ['M Richard Cordling', 'Maimin', 'Shirley Rousebaugh', 'Nelson Richard', 'Rick Otway', 'Milderin Chase', 'Nancy Forreco', 'Ohio', 'Alcee Sabak', 'Mitch Daniels', 'Marillyn Edgefield-Scott', ' ring', 'Warren County Executive', 'Governor of Ohio', 'Bob Ferguson', 'Republican Party', 'State of Ohio', 'Mitch Daniels', 'Nancy Patricklevid', 'Rick Perry', 'Al Hobson', 'Jerry R. Handmull', 'Mitch Huepor', 'John Kasich', 'Republican Party of Ohio', 'Mitch Republican', 'Rinokey', 'Alonso', 'Republican National Committee', 'Richard Tester']
+Uncertainty: 0.618 (frob)
+Label: far-ood
+
+Question: where is the fukushima daiichi nuclear plant located?
+Ground truth: ['Japan', 'Okuma']
+Predicted: ['Japan', 'Tokyo', 'Tokyo', 'Okishio', 'Japan', 'Tokyo', 'Tokyo', 'Japan', 'Okuma', 'Tokyo', 'Tokomachi', 'Tokyo', 'Okawasan Railroad', 'Japan', 'Japan', 'Japan', 'Tokyo', 'Japan', 'Okonuma', 'Japan', 'Japan', 'Okuma', 'Japan', 'Okawa', 'Japan', 'Japan', 'Nuclear power plant', 'Japan', 'TokieOkOkOkawo Prefecture', 'Japan']
+Uncertainty: 0.429 (frob)
+Label: in
+
+Question: who is the minority leader of the house of representatives now?
+Ground truth: ['Nancy Pelosi']
+Predicted: ['Nancy Gahn', 'Nicolas Millet', 'Max Kraft', 'Nicolas Sarkozy', 'Nicoleanthe of Spain', 'Seth Paulson', 'Sylvio Paul, D.D.', 'Andrea Pleotas', 'Matteus', 'Andrea Rapp', 'Democratic Party', 'Robert House of Congress', 'Nancy Bieske', 'Democratic Party', 'Mathew Baylton', 'Felissa Starke', 'Kamela', 'Nancy Pelosi', 'Nancy Ashton', 'Frank Paul', 'Dry-Dwells', 'Andrea Cihuas', 'Nancy Pelosi', 'Jon Kyl', 'Nélla Ciesela', 'Democratic Party', 'Bob Bennett', 'United States Representative', 'Democratic Party', 'De Nardes']
+Uncertainty: 0.623 (frob)
+Label: in
+
+Question: what did st augustine do?
+Ground truth: ['Physician', 'Writer', 'Philosopher']
+Predicted: ['Singer', 'What did David Halcombe used to say?', "St. Patrick's Day", 'AstAstorium', 'Singer, Louisa G. Stern', 'Sachaça', "St Peter's Feast", 'British Empire', 'National Academy of Sciences', 'Scientist', 'St. Paul', 'United States of America', '', 'United States of America', 'Governor of Massachusetts', 'What did St. Andrew the Great used to do?', "St. Nicholas's Day", 'United States of America', 'United States of America', 'How did George W. Bush get started?', 'St. Louis County', 'Singapore', 'Marchall', 'ActorMonte', 'Scientist', 'Zeus', 'President of the United States', 'American Philosopher', 'March', 'Statesman']
+Uncertainty: 0.651 (frob)
+Label: near-ood
+
+Question: who is keyshia cole dad?
+Ground truth: ['Leon Cole']
+Predicted: ['Authorial', 'Lane Davidy', 'angel', 'Martin', 'In football', '', 'Author', 'Luther Williams King', 'Mellie', 'Bill and Ted', 'Actor', 'Christian', 'Andy cole', 'Heath Hill', 'Actor', 'Dr. Luke McCartney', 'Dad', 'Actor', 'Christian Scientist', 'St. Louis', '', 'Musician', 'Actor', 'Singer', 'Mia', 'Jason Coleman', 'Emmett Lewis', 'Singer', 'Hebrews 11', 'DiscChristian']
+Uncertainty: 0.557 (frob)
+Label: far-ood
+
+Question: where did edgar allan poe died?
+Ground truth: ['Baltimore']
+Predicted: ['Paris', 'Atlanta', 'Eastonong', 'The Warsaw', 'Cavettee', 'Tennessee', 'United Kingdom', 'Augustin Island', 'South Africa', 'Gladstone', 'Americus', 'London', 'Pansy', 'Arvindale', 'Seattle', 'New York', 'Mozart', 'England', 'Virginia', 'Viola Academy of Music and Sciences', 'Ilford Church', 'Lee Harvey Oswald', 'Tenn. and Arlington Cemetery', 'The other side of the ledger', 'London', 'Death Valley', 'Memphis', 'Texas', 'Tunis State', 'Mendiscase']
+Uncertainty: 0.605 (frob)
+Label: near-ood
+
+Question: when did charles goodyear invented rubber?
+Ground truth: ["During the early 1830's he began inventing, filing six patents between 1830 and 1834, and during this period became interested in rubber, which he tried - unsuccessfully - to use in some of his mechanical inventions."]
+Predicted: ['Rolls-copper', 'DrRollRollRollRoll', 'Roll finding', '1964', 'RollInventor', "Turner's law", 'Rolled disk', 'Clay', 'Lawrence Clay Goodyear', 'Rolled rubber', 'Rolls-moulders', 'Roll', 'Turned into building material', 'Rolled shoe', '', '19601960', 'Miles-perrin', 'year of creation', 'Invention', 'Millingbury', 'Invented by Charles Goodyear', 'Adrian Michelet', 'Spring Valley', 'Rolled', 'RollIncMarch', 'Roll seal', 'March', 'Spare tire', 'Inventeded', 'Engineer']
+Uncertainty: 0.593 (frob)
+Label: far-ood
+
+Question: what to do today in atlanta with kids?
+Ground truth: ['Atlanta History Center', 'Atlanta Cyclorama & Civil War Museum', 'Atlanta Ballet', 'Fernbank Museum of Natural History', 'Woodruff Arts Center', 'Zoo Atlanta', 'Atlanta Symphony Orchestra', 'Centennial Olympic Park', 'Martin Luther King, Jr., National Historic Site', 'Fernbank Science Center']
+Predicted: ['University of South Florida', 'Santa Fantasy Mountains', 'St. Nicholas College of Oxford', '', "Atlanta Children's Museum", 'Club Rocker', 'Adult photo session', 'Childrens Museum of the University of Florida', 'University of of Central Florida', "Kids' Playland", 'Club', "Children's Museum of Miami", 'Sarena Williams', 'Buddh Gautam', 'Spaces of Seforo', "St. Patrick's Parade", '', "Children's Museum of New York", 'University of Florida', "Gulf Coast Children's Museum", "Children's Museum of Atlanta", 'Navigation', '', 'Atlanta Museum of Art', "Children's Museum of Southern Art", 'Children of the World Museum', 'Sorbon Academy', "Children's Museum of South Florida", 'University of Georgia College', "Los Angeles Children's Museum"]
+Uncertainty: 0.591 (frob)
+Label: far-ood
+
+Question: who did france surrender to in ww2?
+Ground truth: ['Germany']
+Predicted: ['Mediterranean', 'Normaille', 'France', 'France', 'United States of America', 'France', 'France', 'Réonné Burkère', 'France', 'France', 'Germany', 'Battle of Saint-Martin', '', 'France', 'France', 'Germany', 'France', 'France', 'County of Savoy', 'France', 'France', 'Normandy', 'France', 'France', 'Germany', 'France', 'France', 'Candel', 'France-cathépedé statuisme', 'Normandy']
+Uncertainty: 0.420 (frob)
+Label: near-ood
+
+Question: what electorate does anna bligh represent?
+Ground truth: ['Electoral district of South Brisbane']
+Predicted: ['Frisland', 'Blair Island', 'election', 'Nassau County', 'Democratic Party', 'Northern Ireland', 'Bligh', 'Flagler', 'Nim', 'Bloast', 'New Zealand', 'Constitutional monarchy', 'New South Wales', 'Constitutional Member of Parliament', 'Conservative Party', 'WesternPerth', 'Democratic Party', 'United Kingdom', 'Northern Ireland', '2011 US mid-twenty-four', 'Northern Territory', 'Whinburgh', 'Natal', 'Queensland', 'NBlair', 'Somerset County', 'New Zealand', 'Tensaw Nation', 'New Jersey', 'Anat']
+Uncertainty: 0.637 (frob)
+Label: far-ood
+
+Question: what channel is the usa pageant on?
+Ground truth: ['us']
+Predicted: ['Mash TV', 'CNN', 'American Idol: Kids Unlimited', 'CNN', 'CBN', 'CNN', 'CNN', 'Esperance', 'Miss USA Junior College Football Team', "Miss America's Underdog Race", 'E! Entertainment', 'Bandera', 'TVTV', 'MMA', 'Miss Universe World 2017', 'Star India', 'CNN Alternative Resources', 'CNN', 'MTVM', "Miss America Children's Choice Awards", 'American Appromatet', 'American football channel', 'Athlete', 'TVMTV', 'Miss America Talent Search', 'Miss America Pageant', 'Battle of the Clumps', 'BeautyPageant', 'Miss America 2017', '']
+Uncertainty: 0.592 (frob)
+Label: far-ood
+
+Question: what are some of the traditions of islam?
+Ground truth: ['Zakāt', 'Salah', 'Hajj', 'Islamic dietary laws', 'Mosque Carpet', 'Jihad', 'Sawm', 'Halal food', 'Shahada', 'Adab']
+Predicted: ['Abrahamism', 'Islamic spiritual system', 'Abbaa', 'Sunni Muslims', 'Al Qaeda', 'Sunacleanism', "Sa'ida", 'Tribal traditions', 'Buddhism', 'Sunnah tradition', "Baha'i literature", 'Islam', 'Islam', 'Sunni religions', 'Buddhism', 'Buddha system', 'Buddhism', 'Sunni Islam', 'Judaism', 'Muslims', "Bai'a", 'Abrahamic-Arabic', 'Tradition', 'MuslimsBuddhism', 'Qadianism', 'Sunbiyat', 'Mosques', "Shia'a", "Bif-e'il", 'Saudi Arabia']
+Uncertainty: 0.531 (frob)
+Label: far-ood
+
+Question: what is the australian dollar called?
+Ground truth: ['Australian dollar']
+Predicted: ['Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'AustralianAustralian dollar', ' dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'AustralianAustralianAustraliaAustralian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar', 'Australian dollar']
+Uncertainty: 0.166 (frob)
+Label: in
+
+Question: what timezone is sweden?
+Ground truth: ['Central European Time']
+Predicted: ['Swedish Time Zone', 'Eurasian Time Zone', 'Sweden', 'Sweden', 'Stockholm Time Zone', 'Pacific Time Zone', ' Time Zone', 'The European Time Zone', 'Central Time Zone', 'Eyloon', 'Central European Time', 'Central Time Zone', 'Sweden', 'UTC', 'North Time Zone', 'Swedden Time', 'Southern European Time Zone', 'Switzerland', 'Swedish Time Zone', 'Greenland', 'Sweden', ' Time Zone', 'Central Time Zone', ' Timezone', 'Zambia', 'UTC-8', 'Greenland Time Zone', 'Sweden', 'Südwestland', 'Central Pacific Time Zone']
+Uncertainty: 0.546 (frob)
+Label: in
+
+Question: what county is frederick md in?
+Ground truth: ['Frederick County']
+Predicted: ['Louis County', ' County of Frederick', 'Adelphia County', 'Monmouth County', 'erick', 'county', 'Maryland', 'Md. Frederick County', 'Pennsylvania', "County Sheriff's Court", 'Ottawa County', 'United StatesFrisbane', 'British County of Staffordshire', 'Montgomery County', 'Manahaw', 'Pennsylvania', 'WestCounty of Frederick', 'United States of America', '', 'County of Frederick', 'Marine County', 'United States of America', "St. Mary's County", 'United States of America', 'Marin County', 'Marin', 'Baltimore', 'Fairfax County', ' Maryland', 'Maderich County']
+Uncertainty: 0.566 (frob)
+Label: far-ood
+
+Question: what highschool did harper lee go to?
+Ground truth: ['Monroe County High School']
+Predicted: ['Bishop McLeod High School', 'University of Haderas High School', 'Lakeside', 'University of California, Berkeley', 'School of Visual Arts', 'Norwell High School', 'student council', 'University of Southern California', 'School of Visual Arts and Literature', "Harper's School", 'Lakes High School', 'Overbrook High School', 'Orlando High School', 'Dunbar High School', 'Wickaway High School', 'University of Tennessee', 'The Harpsin School', 'Sevierville High School', 'Perperston United Methodist Church', 'Binghamton High School', 'Dartmouth University', 'Ridley College', 'Sewick High School', 'Victoria High School', 'Ford High School', 'Dunbar High School', 'Highland High School', 'Wright High School', 'Performing School', 'Lakeside High School']
+Uncertainty: 0.503 (frob)
+Label: far-ood
+
+Question: who did george w. bush run against for the second term?
+Ground truth: ['Al Gore']
+Predicted: ['George W. Bush', 'Governor of New Jersey', 'Democratic Party', 'Governor of Massachusetts', 'Nixon-Bush win', 'George W. Bush for President', 'President of the United States', 'George W. BushTwo', 'Politician', 'George W. Bush', 'George W. Bush', 'Second-generation parent', 'Bill Clinton', 'George W. Bush', 'George W. Bush', 'President of the United States', 'George W. Bush', 'Governor of Maine', 'George T. W. Bush', 'Mark Tobin', 'George W. Bush', 'President of the United States', 'Presidential candidate', 'George Bush', 'George W. Bush', 'Theodore Roosevelt II', 'President of the United States', 'BushGeorgeGeorgeBush for re-nom, Independent-Republican Nationalist Party', 'George W. Bush', 'George W. Bush']
+Uncertainty: 0.539 (frob)
+Label: near-ood
+
+Question: who is niall ferguson's wife?
+Ground truth: ['Ayaan Hirsi Ali']
+Predicted: ['Robin Williams', 'Dianne Spencer', 'Doris Duchin', 'Rachael Wagner', 'Jason Divenmayer', 'Marc Diener', 'Doris Kerr', 'Michael Derrick Ferguson', 'President of the United States', 'Rachel', 'Alex Ferguson', 'Barbara Ferguson', 'Jason Os Lifeguard', 'Alex King', 'Singer', "Who's Who?", 'Rachael B. Harwell', 'Niella Lovovevly', 'Alexandra Harris', 'Coreisha Cote', 'Dina Obama', 'Susan W. Black', 'Coretta Abercromie', 'Dorothy Everly', 'Nellie White', 'Alexandria Thames', 'Romi Wolfe', 'Alex Alex Ferguson', 'Bruce Fraser', 'Corey W. Ferguson']
+Uncertainty: 0.586 (frob)
+Label: far-ood
+
+Question: what are the songs that justin bieber wrote?
+Ground truth: ['Catching Feelings', 'Down to Earth', 'Beauty and a Beat', 'All Around The World (featuring Ludacris)', 'Die in Your Arms', 'As Long As You Love Me (featuring Big Sean)', 'Baby', 'Believe', 'Be Alright', 'Boyfriend']
+Predicted: ['Song for the Deed', 'I Heart Music', 'Justin Bieber', "I'm Every Woman", 'guitar', 'Beautiful Girl', 'll', 'Geddy Boyz', 'Proud and I Still Love', 'Dream a Million Days', 'Guitar', "I'm a Star", 'Dreams from the Heart', 'Dance-off', 'Song for the voiceless', 'The Scientist', 'Dance with the Stars', 'We Are the Champions', "Don't: Justin bieber", 'Bassist', 'Pop music', 'The song', 'Dance with My Father', 'Dance with My Father', 'We Are the Champions', 'Song of the Day', 'A Place in Time', 'Dance music', 'Art of song', 'Blues songs']
+Uncertainty: 0.624 (frob)
+Label: far-ood
+
+Question: where was rihanna born and raised?
+Ground truth: ['Saint Michael Parish', 'Barbados']
+Predicted: ['Barbados', 'Barack', 'Barack II', 'Rome', 'BarBar', 'Barbados', 'Barcelona', 'Ohio', 'New York–Massachusetts', 'MassMassachusetts', 'Tunisia', 'BarBarcelona', 'St. Joseph and Arlington County', 'Barbado', "St. Joseph's Cathedral", 'Tampachus', 'José Massau', 'BarBarack Obama', 'Asia', 'badBelize', 'Barcelona', 'Canada', 'BarSan Francisco', 'Boston', 'Barbadoo', 'Beauty', 'Barbadica', 'Houston', 'Rihanna', 'BarBaroo']
+Uncertainty: 0.594 (frob)
+Label: in
+
+Question: what year did president william henry harrison take office?
+Ground truth: ['3/4/1841']
+Predicted: ['1901', 'The 1st United Regent of the United States', 'ton', '1988', '1960', '1897', '19th president', '1962', '1965', 'The War of 1812', '1897', 'United States of America', 'United States', 'President of America', '1897', '1980', '2011', 'President of the United States', '1897 Election', '1900', '1883', '1897 Democratic Party Convention', '1883', '19th Amendment', 'Future United States Secretary of State', 'President of the United States', '1925', '1936', 'New York City', 'United States President']
+Uncertainty: 0.575 (frob)
+Label: far-ood
+
+Question: where george lopez was born?
+Ground truth: ['Mission Hills']
+Predicted: ['Mexico', 'portland, Maine', 'Glendale', 'California', 'California', 'Los Angeles', 'Guayau', 'George Lopez', 'Los Angeles', 'Australia', 'Well-n down.', 'Brooklyn', 'New York City', 'JosJorr-de-Sula', 'Australia', 'United States of American States', 'Jerusali', 'New York', 'New York City', 'Los Angeles', 'Mexico', 'Massachusetts', 'Massachusetts', 'Mexico City', 'New Mexico', 'Spain', 'George A.', 'Spain', 'Los Angeles', 'Texas']
+Uncertainty: 0.537 (frob)
+Label: far-ood
+
+Question: what did the islamic people believe in?
+Ground truth: ['Zakāt', 'Salah', 'Hajj', 'Islamic dietary laws', 'Jihad', 'Sawm', 'Halal food', 'Shahada', 'Adab']
+Predicted: ['God is Father', 'Islam', 'Bab-el', 'Anger', 'Monotheism', 'Abrahamic religions', "Qur'an", 'Islam', 'Islam', 'Muslims', 'Afriism', 'MuslimsIslam', 'Judaism', 'IslamIslamChristianMuslimsAngAllahIslam Islam and Christianity Islam,Islamic Sunni Muslim', 'Islamism', 'Sunnaism', 'Sunna', 'Sunan Islam', 'Islamic law', 'Muslims', ' religious text', 'The religion of Islam', 'Babism', 'Muslims', 'Buddhism', 'Qīd', 'Angism', 'Quran', 'Islam', 'Islam']
+Uncertainty: 0.495 (frob)
+Label: far-ood
+
+Question: who will play mr gray in the film?
+Ground truth: ['Karen Mulder']
+Predicted: ['Steve McQueen', 'David Silver', 'John F. Gray', 'Andrea Riselles', 'Dennis Zuchowski', 'Steve McQuillan', 'Stephen Jones', 'George Mc Notch', 'Steve Harris', 'Edwin F. Grisaille', 'Paul Fosse', 'John Knepper', 'Bill Murray', 'David Lewis', 'David Lewis', 'Stan Lee', 'President of the United States', 'David Lewis', 'Michael Rosenbaum', 'Martin Sheen', 'The Washington Redskins', 'Arthur Anderson', 'David Lewis', 'Ian McTeaver', 'Seth MacFarlane', 'James McAroy', 'Kevin James', 'David Lewis, Jr.', 'David Silver', 'Kevin Fillon']
+Uncertainty: 0.503 (frob)
+Label: far-ood
+
+Question: who won the battle of gettysburg union or confederate?
+Ground truth: ['Union']
+Predicted: ["States's Constitution Party", 'President of the United States', 'Battle of Appomatt County', "Statesman's War", 'Confederacy', 'Confederate republic', 'Abraham Lincoln', 'Gettysburg', 'Confederate state', 'Confederate States', 'Virginia', 'Confederate Convention', 'Battle of the Boardwalk', 'Battle of the Rodeo', '', 'Confederate Army', 'Confederates', 'Statesman', 'Battle of Chancellie Court', 'Confederate State', 'Battle of Bunker Hill', 'PennsylvWarrenBattlePennsylvania', 'Statesman', 'Confederatic Republics', 'United States Army Corps.', 'The Union Army', 'Virginia', 'Confederative', 'Statesmanship', 'Battle of Appomiscus']
+Uncertainty: 0.581 (frob)
+Label: far-ood
+
+Question: who is michael buble?
+Ground truth: ['Singer', 'Actor', 'Singer-songwriter']
+Predicted: ['Singer', 'Actor', 'Sorad', 'Individual', 'Moisau Newman', 'José Paladino', 'Musician', 'SActor', 'Singer', 'Musician', 'Singer', 'ActorComedian', 'Musician', 'Sutton', 'Chorditos', 'Actor', 'Who Is Michael Bublé', 'Author', 'Businessperson', 'Musician', 'Canada', "Boyle's alabaster", 'Michael Buble', 'Biopreter', 'France', 'T-Shirt', 'Billboard Artist', 'Busted', '', 'Mimi bunny']
+Uncertainty: 0.570 (frob)
+Label: near-ood
+
+Question: what county is kansas city kansas?
+Ground truth: ['Wyandotte County']
+Predicted: ['Kansas City', 'Kansas City', 'Kansas', 'County of Kansas', 'City County', 'Kansas City', 'Kansas City', 'Kansas City', 'Kansas City', 'Kansas City', 'County of Kansas', 'Kansas', 'SalSalena County', 'Salina County', 'Kansas City, MO', 'Fitch County', 'Kander County', 'Kendex County', 'GKansas', 'Kansas', 'Hancock County', 'Fayette County', 'Arlen County', 'Kansas', 'KansasPineKansasLawKansasKansasKansas CountyKansasKansas', 'Adams County', 'Kansas City', 'Clarksham', 'County of Kansas.', 'County']
+Uncertainty: 0.523 (frob)
+Label: far-ood
+
+Question: who did jackie robinson first play for?
+Ground truth: ['Montreal Royals', 'Kansas City Monarchs', 'Los Angeles Bulldogs', 'Brooklyn Dodgers', 'UCLA Bruins football']
+Predicted: ['Sports', 'MLB.com', 'OakSports Authority', 'New York Empire', 'St. Louis Cardinals', 'Novelist', 'Chicago Bulls', 'Republican Party', 'Cincinnati Reds', 'The New York Knicks', 'Chicago Bears', 'Major League Baseball', 'Tennessee Valley State University football', 'FC Dallas Star', 'Houston Texans', 'Pablo Picayo', 'Houston Rockets', 'Sports Arena', 'Chicago Cubs', 'New York Yankees', 'OrlandoOrlando Football Club', 'C. F.D.R.G.', 'Dallas Cowboys', 'Dallas Cowboys', 'Dallas Cowboys', 'New York Yankees', 'Dallas Cowboys', 'Dallas Cowboys', 'Jackie Robinson', 'Cincinnati Reds']
+Uncertainty: 0.555 (frob)
+Label: far-ood
+
+Question: who was vp for lincoln?
+Ground truth: ['Andrew Johnson', 'Hannibal Hamlin']
+Predicted: ['Robert A. Lee', 'George R.C. Parks', 'Politician', 'Admiral W. Jackson', 'Gerald Cleveland', 'Jimmy Burch', 'PresidentRobert GLawCongressor', 'Henry H. Lastingham', 'Olaf Laffert', 'President of the United States', 'Peter Fleming Galway', 'Corey Lewiecki', 'Andrew Lincoln Lincoln', 'Lawyer', 'President of the Confederacy', 'John A. Russell', 'Geraldine Adams', 'Lawyer', ' Lincoln - Kent County Register', 'Franklin', 'Andrew Lincoln', 'Republican National Committee', 'John Adams', 'President of the United States', 'Lynd Marshall', 'Arthur Hobson', ' Lincoln', 'Lawyer', 'New York City', 'Lawyer']
+Uncertainty: 0.596 (frob)
+Label: in
+
+Question: what other books did charles dickens write?
+Ground truth: ['The Chimes', 'Our Mutual Friend', 'The Old Curiosity Shop', 'David Copperfield', 'A Christmas Carol', 'The Cricket on the Hearth', 'The Life and Adventures of Nicholas Nickleby', 'Hard Times', 'Oliver Twist', 'A Tale of Two Cities']
+Predicted: ['How the other guy smote', 'Books', 'Novelist', "The Lord Chamberlain's Court", 'Novel', 'Books', 'How the other half lives', 'Davidse', 'How the other half lives', 'How the Worlds Flickered', ' Book BookTheTheBooksTheTheThe LivesThe LifeAstThe Life Book andTheTheWriting Book', 'Pride and Prejudice', 'How to make a fortune', 'How the Beedle came to be', 'How the Griswil', 'A World of Adventures', "The Magician's Stone", 'The Bibliotheas', 'The Cambridge Companion to the Arts of the Holy Spirit, volume 2', 'Author', 'The Life and Times of William Shakespeare and Mary Newman', 'Short Circumnaves', 'The Age of Man', 'The Lord of the Flies', 'The rest of the World', "Zeus Johnson and a Vampire's Prayer", 'The Chronicles of the White Sunflower', 'The Chronicles of an Eggster', 'Author', 'Books']
+Uncertainty: 0.629 (frob)
+Label: in
+
+Question: who was the first dictator of the soviet union?
+Ground truth: ['Joseph Stalin']
+Predicted: ['President of the soviet republic', 'Dictative state', 'Joseph Stalin', 'V Nikita Stalin', 'Lenin Lenin', 'Duke of Moscow', 'Sui-il', 'Joseph Stalin', 'Putin', 'Joseph Stalin', 'St. George of Russia', 'Communist state', 'Joseph Stalin', 'Dmitry Medvedev', 'Joseph Stalin', 'Dictator', 'SuicideDictai', 'Suan Hyo', 'Dmitry', 'Joseph Stalin', 'Vietnam', 'Suoneling', 'Suha Rhasa', 'Communist', 'Joseph Stalin', 'Dictor of the Russian Russia', 'Suha-de', 'Suicide', 'Dzer-law', 'VJoseph Stalin']
+Uncertainty: 0.593 (frob)
+Label: near-ood
+
+Question: what is the currency of puerto rico called?
+Ground truth: ['United States dollar']
+Predicted: ['United States dollar', 'United States of America dollar', 'United States dollar', 'United States dollar', 'United States dollar', 'Mexican peso', 'Puerto Rico', 'Puerto Rico peso', 'Mexico peso', 'United States dollar', 'Mexico', 'United States dollar', 'United States dollar', 'United States of America', 'Mexican pesos', 'UnitedUnited States', 'United Salvador flor', 'Puerto Rican peso', 'Mexico Peso', 'United States dollar', 'Americas', 'United Mexican peso', 'United States dollar', 'Mexican', 'Costal peso', 'PRPuPPuSpanishUnitedPhilippin peso', 'United States dollar', 'United States dollar', 'United States of America', 'United States of America']
+Uncertainty: 0.497 (frob)
+Label: in
+
+Question: what kind of cancer did carl wilson have?
+Ground truth: ['Lung cancer']
+Predicted: ['Myel cancer', 'Cancer', 'Breast cancer', 'Cancer', 'Cancer', 'Typhoid cancer', 'Cancer', 'Cancer', 'Prostate cancer', 'Cancer', 'Cancer', 'Cancer', '', 'Cancer', 'Cancer', 'Cancer', 'Tuberculosis', 'Leukemia', 'Cancer', 'Cancer', ' Cancer', 'Brain tumor', 'Cancer', 'Cancer', 'Lupus', 'Pancreatic cancer', 'Cancer', 'Cervic cancer', 'Cancer', 'Typhus cancer']
+Uncertainty: 0.322 (frob)
+Label: near-ood
+
+Question: who plays the voice of kitt in knight rider?
+Ground truth: ['William Daniels']
+Predicted: ['WilliamWilliam Atkinson', 'William Shatner', 'William Daniels', 'William Daniels', 'Saw IV', 'John Lloyd', 'William Daniels', 'James Luten', 'William Daniels', 'Stewart Cillside', 'Alex Borland', 'Kitt Williams', 'Sergio Polo', 'William Daniels', 'William Shatoo', 'William Shakespeare', 'William Daniels', 'Keke Johnson', 'Thomas the Knight', 'Kittie Thomas', 'William Shatner', 'Felix Farman', 'James L. Brooks', 'William Daniels', 'Billy Tingle', 'Cy Foslhan', 'Nicholas Hoult', 'William Shakespeare', 'William Daniels', 'Kristen Christensen']
+Uncertainty: 0.523 (frob)
+Label: in
+
+Question: what county is brentwood tennessee in?
+Ground truth: ['Williamson County']
+Predicted: ['Tennessee', 'Brentonton', 'Brent County', 'Jefferson County', 'Tennessee', 'County of Brentwood', 'Tennessee', 'Jefferson County', 'Brentwood', 'United States of America', 'Tennessee', 'Tennessee', 'Tennessee', 'Northeast District', 'Narcin County', 'Franklin County', 'City of New Jersey', 'Franklinscounty', 'Madison County', 'Brent County', 'Brentwood', 'Brent County', 'Neshaw County', 'Tennessee', 'Brent County', 'Tennessee', 'Jefferson County', 'Brent County', 'Brent County', 'Tennessee']
+Uncertainty: 0.507 (frob)
+Label: far-ood
+
+Question: who is moira en x men?
+Ground truth: ['Mutant']
+Predicted: ['Manuel Fernandes', 'Ricciardo Cilloe', 'Marvel Comics', 'Massey', 'Alex Borstein', 'Actor', 'Mathematician', 'Moisés Frauels', 'Majors', 'Mira Hayin', 'GuyJason Alexander', 'Millingbury', 'Israel Haybek', 'Angola', 'Franques-Olivier C.E.', 'Aurore de voice', 'Mexico', 'Franz Zeppelin', 'Venezuelan', "Moisin d'Molina", 'San Francisco', 'Belgium', 'Mira Ferrer', 'Bill Clinton', 'Matawi', 'Singer', 'Spanish Language', "Bill O'Reilly", 'Alyssa Milosi', 'Zeus McSpathie']
+Uncertainty: 0.622 (frob)
+Label: far-ood
+
+Question: who did michael j fox marry?
+Ground truth: ['Tracy Pollan']
+Predicted: ['Solebury', 'Rachael Taylor Wood', 'Rachael Miller', 'Lane Defealed', 'Mickey', 'Mellie Jewett', 'Actor', 'Daryl J. Chavis', 'Maiden Rule', 'Christian Lezza', 'Dina Laconteur', 'Josie', 'Newsday', 'Mia Green', 'Singer', 'Dante Alucas', 'Domenic Nicolai', '', 'Astrologer', 'guitar', 'Sacha Baron', 'Juan León', 'Rachael Burton', 'Linnell', 'Rachael Biester', 'Rochetti', 'Philip Howard', 'Romi Williams', 'Elizabeth Taylor', 'Mellis Baker']
+Uncertainty: 0.593 (frob)
+Label: far-ood
+
+Question: what battles did stonewall jackson fight in?
+Ground truth: ['Battle of Manassas Station Ops.', 'Battle of McDowell', 'Battle of Port Republic', 'Battle of Rappahannock Station I', 'Battle of Chancellorsville', 'Battle of Front Royal', "Battle of Hoke's Run", 'Battle of Cedar Mountain', 'First Battle of Winchester', 'Battle of Hancock']
+Predicted: ['Battle of App Island', 'Warren County Courthouse', 'Battle of Appomattox', 'The Battle of Bunker', 'Stonewall', 'St.onewulfant', '', 'UnitedUnited States of America', 'Battle of Appomel and Wards', 'Charlottesville', 'Battle of the Plains', 'Battle of Little Rock', 'Walled-off', "Prince of Wales' army", 'Battle of the Crystal Palace', 'Battle of Bunker Hill', 'Battle of the Stone', 'Battle of Chancellel', 'Gatesthornton', 'Battle of the Bulge', 'atter of an hour', 'Battle of Chancellorsville', 'Stonewall', 'Battle of the Boerter', 'Sharpeville', 'Four-hundredths of five', "Confessant' War", 'W.E.1', 'Battle of Appomattox', "Warren County Sheriff's Court"]
+Uncertainty: 0.605 (frob)
+Label: near-ood
+
+Question: what language do the maasai tribe speak?
+Ground truth: ['Maasai Language']
+Predicted: ['Masai language', 'English Language', 'Sa language', 'Sa language', 'Nkwazi language', 'Kenya', 'English Language', 'Zuniá', 'Mai language', 'English Language', 'Mai Language', 'Zulu Language', 'English Language', 'Afrika languages', 'Masai Language', 'Masati Language', 'Nzoiai Language', 'Indian language', 'Chamanian languages', 'Maasai Language', ' language', 'Zulu language', 'Maasai language', 'English Language', 'EnglishZo language', 'Māasai language', 'Aluanuri language', 'Mongani language', 'Bwonyi language', 'EnglishEnglishEnglishMāori language']
+Uncertainty: 0.443 (frob)
+Label: far-ood
+
+Question: who did benjamin franklin get married to?
+Ground truth: ['Deborah Read']
+Predicted: ['Christina Jameson', 'Franklin married?', 'Rachida Wagner', 'Matilda', 'Astrologer', 'Alice Faye Frank', 'Evelyn Cope', 'Franklin', 'Mary Robinson', 'LieRoth deafinally Gilder', 'Franklin', 'Alicity Beltran', 'Beth Everly', 'Renate Graftler', 'Emma W. Parker', 'Emma W. Parker', 'Astiluca Mimicillis', "The Queen's Great-great-uncle", 'Ruth Bicombing', 'Jack Donosasa Bandeiro', 'Benjamin Franklin', 'Emma Ora', 'Alice Paul', 'J. Reuben Smith', 'Matthias Scup', 'womanEmma', 'AstAuroch', 'Abraham Lincoln', 'Ralston, D.C.', "Benjamin's second cousin"]
+Uncertainty: 0.590 (frob)
+Label: far-ood
+
+Question: what disease did patrick swayze died from?
+Ground truth: ['Pancreatic cancer']
+Predicted: ['Deafness', 'Drug overdose', 'Tuberculosis', 'Leukemia', 'Deplauen syndrome', 'ProtePneumonia', "Parker's disease", 'Typhus', 'Typhus', 'Typhus disease', 'Aortic dissection', "Deaf's disease", 'Death', 'Drug overdose', 'Pneumonia', 'Tyrad disease', 'Typhus', 'Typhus', 'Pneumonia', 'Multiple sclerosis', 'Deafness', 'Typhro disease', 'Multiple sclerosis', 'Drug', "Typert's disease", 'Lymphoma disease', 'Typhus disease', 'Pancroft disease', 'Typhoid cancer', 'Pneumonia']
+Uncertainty: 0.519 (frob)
+Label: in
+
+Question: what works of art did leonardo da vinci produce?
+Ground truth: ["Ginevra de' Benci", 'The Last Supper', 'The Virgin and Child with St Anne and St John the Baptist', 'Mona Lisa', 'Benois Madonna', 'Madonna Litta', 'Lady with an Ermine', 'St. John the Baptist', 'The Virgin and Child with St. Anne', 'Annunciation']
+Predicted: ['Sorbon', 'Draw', 'Painter', 'Giorgio de Cholfël', 'Mathematica', 'Sculpture', 'Credicorpism', 'Leonardo da Vinci', 'Fauvism', 'Sculverine', 'Vin of the Americas', 'Sculisse, Italy', 'Painting', 'Vinista da Vinci', 'Sculpless painter', 'Drawing', 'Sorbonah for example', 'Drawing', 'Art', 'ViolaArt', 'Sculpto paintings', 'Drawing', 'Vinarino da Vinci', 'Gauze-au-rio', 'Brazil', 'Giovanni da Vinci', 'Drawing', 'Painting', "Opera d'Orieto, Region of Bif", 'Painting in the dawn']
+Uncertainty: 0.603 (frob)
+Label: far-ood
+
+Question: what capital of austria?
+Ground truth: ['Vienna']
+Predicted: ['Austria', 'Austria', 'Austria', 'The Netherlands', 'Austria', 'Austria', 'Austria', 'New York City', 'Austria', 'Bremen', 'Austria', 'Austria', 'Bonn', 'LArAustralia', 'Austria', 'Berlin', 'Capital of New South Island', 'Rome', 'Austria', 'Austria', 'Luxem', 'house of Lords', 'Capital of Australia', 'Rupel', 'Berlin', 'Capital of South Australia', 'Austria', 'Western Australia', 'Rothstadt', 'Lüneburg']
+Uncertainty: 0.501 (frob)
+Label: far-ood
+
+Question: what type of cancer did eva peron have?
+Ground truth: ['Cervical cancer']
+Predicted: ['cancer', 'Cancer', 'Pancretic cancer', 'Cancer', 'Cancer', 'Cancer', 'Cancer', 'Cancer', 'Head and neck cancer', 'Peritoneal cancer', 'Lancoma', ' Cancer', 'Cancer', 'Cancer', 'Nicole Peron', 'Cerebral cancer', 'Cancer', 'Aortism, thyroid cancer', ' cancerCancer', 'Pancreatic dissection', 'Cancer', 'Cancer', 'Leukemia', 'Cancer', 'Cancer', 'Cancer', 'Cancer', 'Cancer', 'Cancer', 'Cerebral cancer']
+Uncertainty: 0.361 (frob)
+Label: far-ood
+
+Question: what county is greeley colorado in?
+Ground truth: ['Weld County']
+Predicted: ['Denver', 'County Colorado', 'Greeley County', 'Pueblo', 'Colorado', 'Adams County', 'Denver County', 'Colorado', 'Colorado', 'Colorado', 'Madera County', 'Colorado', 'Denver', 'Adams County', 'Rock County', 'Colorado', 'County', 'Denver County', 'Pine County', 'Colorado', 'Denver', 'Denver', 'Colorado', 'Denver', 'Denver', 'County of Colorado', 'Sevierville Township', 'Colorado', 'Colorado', '.']
+Uncertainty: 0.457 (frob)
+Label: far-ood
+
+Question: where is the ellen degenerous show filmed?
+Ground truth: ['Beverly Hills']
+Predicted: ['Grenada', 'Spring Valley', 'Museum of Contemporary culture Arts', 'badShy Life On Film and TV', 'Dallas', 'Las Vegas', 'Desperadoo', 'Cornish', 'Glasna', 'Los Angeles', 'Terah', 'Vené', 'South Africa', 'Los Angeles', 'Australia', 'Los Angeles', 'Everett', 'Chicago', 'Australia', 'Congolomyelitis', 'Washington, D.C.', 'Marvel.com', 'EllEllen degenerous', 'Invernic syndrome', 'Australia', 'where is the ellen degenerative', 'Chicago', 'Ellen', 'The House of Wooster', 'New York']
+Uncertainty: 0.635 (frob)
+Label: far-ood
+
+Question: what type of music did john lennon sing?
+Ground truth: ['Experimental rock', 'Pop rock', 'Pop music', 'Blues-rock', 'Art rock', 'Soft rock', 'Psychedelic rock', 'Rock music', 'Experimental music']
+Predicted: ['ore', 'John Lennon', 'Pop music', 'Caruso Love', 'Rock music', 'Rag music', 'Pop music', 'Country music', 'Jazz', 'J.M.', 'Pop music', 'Rock music', 'Rock music', 'Jars-Rock mix', 'Jazz music', 'Pop music', 'Country music', 'Music', 'The G-F split', 'Pop music', 'Eclipse', 'Jazz piano', 'Bananno', 'Classical music', 'John Peel', 'Pop music', 'TheDrums', 'Classical music', 'Rock music', 'Piano Music']
+Uncertainty: 0.506 (frob)
+Label: near-ood
+
+Question: who are the colorado representatives?
+Ground truth: ['Wayne Allard', 'Ken Salazar', 'Gordon L. Allott', 'Hank Brown', 'Edwin C. Johnson', 'William L. Armstrong', 'Floyd K. Haskell', 'Mark Udall', 'Michael Bennet']
+Predicted: ['Mattersea', 'Rocky Mountains', 'Washington Redskins', 'Representative District of Colorado', 'Mila J. Johnson', 'Colorado', 'Representative', 'Mila Jilmaz', 'Migua Mayé', 'Colorado Republican Party', 'Mexico', 'Colorado', 'Colorado', 'Rocky Mountains', ' 2017.', 'Miraa', 'Jon Tester', 'Andrés Castro', 'The Rocky Mountains', 'United States of America', 'Lawyer', 'Roy Campos', 'Fris Scott King', 'Rocky Mountains', 'Gifford Pinnick', 'New Mexico', 'United Democratic Party of Colorado', 'United States of Mexico', 'Colorado', 'Colombia']
+Uncertainty: 0.603 (frob)
+Label: far-ood
+
+Question: which country does greenland belong to?
+Ground truth: ['Denmark']
+Predicted: ['Greenland', 'Greenland', 'Greenland', 'Greenland', 'Norway', 'Swaziland', 'Greenland', 'Greenland', 'Eurasia', 'Greenland', 'Greenland', 'Netherlands', 'Gibson Republic', 'Lithuania', 'Greenland', 'Greenland', 'Greenland', 'Arabsiya', 'Greenland', 'Lativia', 'Greenland', 'Iceland', 'Greenland', 'Greenland', 'Greenland', 'Greenland', 'Green Republic', 'Greenland', 'SwGreenland', 'Slovenia']
+Uncertainty: 0.429 (frob)
+Label: near-ood
+
+Question: what the zip code for seattle washington?
+Ground truth: ['98109', '98108', '98105', '98104', '98107', '98106', '98101', '98103', '98102', '98117']
+Predicted: ['Seattle', 'Magnolia', 'WashingtonSeattle', 'Washomba', '65001', 'Everett', 'Mountain View', '', 'Magnolia House', '10004', 'Washington', 'King County', '820101', 'Eugene', 'Magnolia', 'Magnolia', 'Olympic Valley', '91002', 'Seattle', 'Tens of America', 'Qingley', '5500', 'Seattle Metropolitan Area', '01606', '206206', 'Milling', '10005', 'Magnolia', 'Washingtonean', 'Norcross']
+Uncertainty: 0.541 (frob)
+Label: far-ood
+
+Question: who is willow smith mom name?
+Ground truth: ['Jada Pinkett Smith']
+Predicted: ['Tupolebone', 'Nancy Smith', 'StMother', 'A.rosey Smith', 'Willow Smith', 'Shelwen Smith', 'Name of a Place', 'Sechildin', 'TToby Scott', 'Sime Oxford Black', 'Walt Smith', ' nameSinger', 'Waxham-Carter', 'Dorothy', 'Blair-Adamss', 'Sumi L. Smith', 'Martin Showerard', "My mom's name", 'Wadrell Toni Smith', 'Ric Pipitone', 'Tahaw Daniels', 'Alyssa Williams', 'Lawlory', 'Spenser', 'My name', 'Daria', 'Singer', 'Dianne Goldsmith', 'Wlodepseble', 'Lawyer']
+Uncertainty: 0.604 (frob)
+Label: far-ood
+
+Question: what do you call the chinese writing system?
+Ground truth: ['Standard Mandarin']
+Predicted: ['Writing system', 'Chinese characters', 'Chinese characters', 'Cantin script', 'Chinese characters', 'The Chinese characters', 'Traditional Chinese writing', 'Chinese writing', 'Yiyi script', 'Chinese', 'Cantilean', 'Chinese writing', 'Chinese characters', 'Traditional Chinese', 'Faxi characters', 'Chinese writing', 'Chinese characters', 'Chinese writing', 'Standard Chinese', 'Chinese characters', "Chinese script or Chinese writing system, as used in China, is the practice of the People's Republic of China.what do you call the chinese", 'Yin-tzu script', 'Chinese writing', 'Traditional Chinese characters', 'Chinese characters', 'Chinese characters', 'Chinese legal language', 'Chinese characters', 'Chinese script', 'Writing']
+Uncertainty: 0.387 (frob)
+Label: near-ood
+
+Question: who played on the jeffersons?
+Ground truth: ['Isabel Sanford', 'Marla Gibbs', 'Sherman Hemsley']
+Predicted: ['Jack Elmer', 'Jake Libert', 'ScotJersey band', 'John Elms', 'Ric Pipitone', 'Jenny and the Jellies', 'Roger Daltrup', 'Jeff Burton', 'Jimmy Bennett', 'Hank Williams', 'Edmund "Head Start" McCormick', 'Joey Harris', 'David Lewis', 'Edwin Jarvis', 'Dick Acton', 'Rock Star', 'Albert Brooks', 'Edwin Williams', 'Roger Cramer', 'James Lafferty', 'Dick Wolf', 'Mickey Jr.', 'Chordo Strangione', 'Carolyn Everly', 'Edwin Jarvis', 'Jimmy Haley', 'Jev Lampley', 'Richard Harris', 'Alan Shepton', 'Randy Travis']
+Uncertainty: 0.520 (frob)
+Label: in
+
+Question: what is the name of the san francisco newspaper?
+Ground truth: ['The San Francisco Examiner', 'California Star', 'San Francisco Bay Guardian', 'San Francisco Business Times', 'San Francisco Bay Times', 'San Francisco Chronicle', 'Bay Area Reporter', 'Sing Tao Daily', 'AsianWeek', 'San Francisco Call']
+Predicted: ['The San Francisco Examiner', 'News Publishers Europe', 'Bay of the san Francisco', 'San Francisco Chronicle', 'The San Francisco Chronicle', 'The San Francisco Chronicle', 'Publisher', 'Prado', 'San Francisco Chronicle', 'The San Francisco Star', 'San Francisco francisco Sentinel', 'San Francisco Chronicle', 'The San Francisco Chronicle', 'The San Francisco Press', 'San Francisco Chronicle', 'San Francisco News Star', ' link', 'The San Francisco Chronicle', 'San Francisco Chronicle', 'The San Francisco Chronicle', 'The San Francisco Chronicle', 'The San Francisco Chronicle', 'Publisher of the Star', 'Publisher', 'San Francisco Examiner', 'City of San Francisco', 'The San Francisco Examiner', 'The San Francisco Chronicle', 'San Francisco', 'San Francisco Chronicle']
+Uncertainty: 0.437 (frob)
+Label: far-ood
+
+Question: what made the soviet union fall?
+Ground truth: ['Cold War']
+Predicted: ['Socialist state', 'Whig Party', 'New York City', 'United States of America', 'Communism', 'Communist state', 'Socialist parties', 'Communism', 'Communism', 'Socialist Party', 'Socialist Party', 'Soviet Union', 'Taipong', 'Communist Party', 'Communication', 'raine', 'China', 'Soviet democracy', 'World War I', 'Soviet democracy', 'Communist', 'Communist state', 'Communist Party', 'Vietnam', 'Illinois', 'United States Socialist Party of America', 'Communist', 'Communism', 'Soviet Union', 'Soviet state']
+Uncertainty: 0.513 (frob)
+Label: far-ood
+
+Question: what did randy savage died of?
+Ground truth: ['Myocardial infarction', 'Traffic collision']
+Predicted: ['Drug overdose', 'Spayed', 'The Joker', 'Myelodysplasticoid', 'Pierce Stroger', 'Cancer', 'Lawyer', 'Drug for Children', 'Fever', 'Marcovius', 'Cancer', 'Drug overdose', 'Drug overdose', 'Male', 'Cancer', 'Drug overdose', 'Cancer', "Randy's Law", 'Drug overdose', 'Drug overdose', 'Drug overdose', "Soraya's disease", 'artery', 'Cervical cancer', 'Death by suicide', '', 'Pulse', 'Pneumonia', 'Guy Downie', 'Randy Steven']
+Uncertainty: 0.526 (frob)
+Label: near-ood
+
+Question: what songs does smokey robinson sing?
+Ground truth: ['Being With You', "Cruisin'", "Crusin'", 'And I Love Her', 'The Tracks of My Tears', 'Quiet Storm', 'Tracks of my Tears', 'Santa Claus is Coming to Town']
+Predicted: ['Ast-Mater,', 'I Heart to Die', 'The Jingle Song', 'Raoul sing', 'Music', 'Smoky', 'Theodore', 'Kicking in the Shadows', 'Edwin', 'Doré', 'Dreams from the Inside', 'The Answer Is in', 'I Have a Dream', "Moody's Children's Hospital", 'Music', 'Letters From Your Father', 'Musical flute', '50-cents pop', 'This Is the Last Time', 'Dance with a friend', 'Song 4 U', "He's a Rollicking Fool", 'BlMusic', 'Songwriter', 'I Have a Crush', 'I- Love-toes', 'Astor', 'Blow Away', 'Song 4', 'Caruso']
+Uncertainty: 0.628 (frob)
+Label: far-ood
+
+Question: who was vice president when jfk was president?
+Ground truth: ['Lyndon B. Johnson']
+Predicted: ['Al Gore', 'Dictonak', 'Mike Pence', 'Bill Clinton', 'Al Gore', 'NepVice President', 'George W. Bush', 'Al Gore', 'DickDickrick', 'George H. W. Bush', 'Al B. King', 'Ron Paul', 'Al Gore', 'Saddik Smith', 'George H. W. Bush', 'Poland', 'George H. W. Bush', 'Lyne Pauper', 'Nelson Aliko-Pauls Jr.', 'Bush for president', 'Dick Cheney', 'George W. Bush', 'Spaker', 'Al Smith', 'George W. Bush', 'Al Gore', 'Nixon, for one', 'Dick Cheney', 'Al Gore', 'George W. Bush']
+Uncertainty: 0.562 (frob)
+Label: near-ood
+
+Question: what is serbian language called?
+Ground truth: ['Serbian language']
+Predicted: ['Serbian Language', 'Serbian', 'Serbian alphabet', 'Serbian language', 'Serbian Language', ' nova', 'Serbian languages', 'Serbian Language', 'Serbian language', 'Serbian Serbian language', 'Serbian language', 'Serbian', 'Serbian language', 'Serbian language', 'English Language', 'Serbian', 'Serbian language', 'Serbian language', 'Serbian language', 'Serbian language', 'Serbian language', 'Serbian Language', 'Serbian language', 'Serbian language', 'Serbian language', 'Serbian languages', 'Serbian Language', 'Serbian language', 'Serbian alphabet', 'Serbian language']
+Uncertainty: 0.239 (frob)
+Label: near-ood
+
+Question: what are the names of the city states in ancient greece?
+Ground truth: ['Athens']
+Predicted: ['Albania', 'Name of Athens', 'The city of Athens', 'Greece', 'Ionian Islands', 'Greece', 'Tunis', 'Albania', 'Medinaya', 'Ionic Republic', 'Republic', 'Greece', 'Tunisian Empire', 'City of Cyprus', 'Middle East Canaanite', 'Greece', 'Greek alphabet', 'Hellenic Empire', 'Greece', 'Ionia', 'Troupa', 'Lithuania', 'Albanian people', 'Ionian', 'The city of Athens', 'Ionianos', 'Greece', '', 'Ile iura', 'Ionian Macedonia']
+Uncertainty: 0.526 (frob)
+Label: near-ood
+
+Question: who played barbara gordon batgirl?
+Ground truth: ['Alicia Silverstone']
+Predicted: ['The Female Voice of', 'Kirsten Farland', 'bara gorden', 'James Anderson', 'Batgirl', 'Kirsten Dunbar', 'Kate Bosch', 'Ellen Richards', 'Bree Tanner', 'Barbara Geddic', 'Sarah Jones', 'Christian Bale', 'gilden', 'Batgirl', 'Brittany Jones', 'BatGirl', 'Jack Donne', 'Kate Hudson', 'Bonnie Hunt', 'Barbara Gordon', "She's a boy and girl", 'Nichelle Holt', 'Tarek Tasek', 'PrAssociation', 'Ellie MacColl', 'Robin Williams', 'Bat Woman', 'Changelist', 'KK-BOE', 'Sarah Hager']
+Uncertainty: 0.577 (frob)
+Label: far-ood
+
+Question: what basketball teams has shaq played for?
+Ground truth: ['Boston Celtics', 'Miami Heat', "LSU Tigers men's basketball", 'Los Angeles Lakers', 'Orlando Magic']
+Predicted: ['Shaq', 'Chicago Bulls', 'New York Knicks', 'Miami Hurricanes football', 'Miami Heat', 'Los Angeles Lakers', 'U of L.L.', 'Cleveland Lakers', 'Basketball', 'Miami Heat', 'Tampa Bay Pistons', 'Memphis Grizzlies', 'Sports Illustrated', 'Cleveland Cavaliers', 'ClevelLos Angeles Lakers', 'Cineplex', 'Orlando', 'Los Angeles Lakers', 'U.S. Basketball team', 'SportsLosMiamiLos California Golden CompLos Monsters Florida', 'LosLos Angeles Lakers', 'Cleveland 3C', 'LosLos Angeles Clippers', 'Cleveland Thunder', 'Los Angeles Lakers', 'Sports Authority of Florida', 'Utah Jazz', 'Miami Heat', 'Cleveland Lakers', 'Los Angeles Lakers']
+Uncertainty: 0.536 (frob)
+Label: in
+
+Question: where is jay leno from?
+Ground truth: ['New Rochelle']
+Predicted: ['San Francisco', 'Toronto', 'Americas', 'Richmond', 'Mexico', 'Kansas City', 'MexicoNew Mexico', 'Philippa', 'New York', 'Jaysville', 'California', 'Sanquirino', 'WashingtonJanesville', 'Mexico', 'Philippiana', 'Denver', 'Easton Township', 'Brazil', 'Australia', 'California', 'Canton', 'MexicoMexico', 'Kansas City', 'WesternWest', 'Independence', 'San Juan County', 'Edina', 'Kansas City', 'Los Lenos', 'New York']
+Uncertainty: 0.583 (frob)
+Label: far-ood
+
+Question: who did armie hammer play in the social network?
+Ground truth: ['Jesse Eisenberg']
+Predicted: ['Musician', 'Moiselle Mark Zuckerberg', 'Jacauly Dekemah', 'Sacha Party', 'New York Jets', 'Maximil', 'Author', 'United States of America', 'Mixed Martial Artist', 'Actor', 'Chappie', 'Social Media Producer', 'M&T Bank', 'Riot', 'Sorokin', 'Singer', 'Social media', 'Facebook', 'Facebook', 'Facebook', 'Listed', 'Choburn Now!', 'Choke', 'Romeo', 'Facebook', 'Muse', 'Facebook', 'Albert Brooks', 'Social network', 'Social Network']
+Uncertainty: 0.603 (frob)
+Label: far-ood
+
+Question: what was thomas jefferson role in the declaration of independence?
+Ground truth: ['Writer']
+Predicted: ['United States of America', 'Georgia', 'Iraqi National', 'United States of America', 'United States of America', 'President of France', 'Independence War', 'Barastian Islands', 'Quarter of the Scottish Empire', 'Australia', 'Independence', 'King of England', 'Historians', 'United States of America', 'Georgia', 'United States of America', 'Indiraia', 'Indirana', 'United States of Africa', 'United States of America', 'President of the Bahamas', 'Thomas Jefferson', 'North Africa', 'Governor of Virginia', 'Method of Mass Media', 'United States of America', 'Independence', 'Albania', 'West Africa', 'Independence']
+Uncertainty: 0.570 (frob)
+Label: near-ood
+
+Question: what was the book written by charles darwin?
+Ground truth: ['The Structure and Distribution of Coral Reefs', 'On evolution', "A student's introduction to Charles Darwin", 'Climbing Plants', 'The Expression of the Emotions in Man and Animals', 'The origin of species : complete and fully illustrated', 'The Origin of Species', 'The Life of Erasmus Darwin', 'The Autobiography of Charles Darwin', 'The Descent of Man, and Selection in Relation to Sex']
+Predicted: ['The Origin, Book Three', 'The Life of P.G. Katheras', 'The Life and all that it stands for', 'The Life of Charles Darwin', 'The A.Q. of the same name', 'The Prince', 'The book of Charles Darwin', 'The K-25 Handbook', 'The Secret Garden of William Shakespeare', 'Charles Dickens', 'The Wealth of the Universe', 'The Life of the Artist', 'The Life of the Tribe of Five', 'The Origin of Species', 'NarrBlack and White', 'The Life and Work of Charles Darwin', 'On the Origin of Life and Selection', 'The Structure of the Origin of the Species', 'The Origin of Species', 'The Life and Adventures of George W. Smith', 'The Mysterious Legend of the Bendug Reef', 'The Philosopher', "Philosopher's Stone", 'The Origin of Species', 'The Secret to the Kingdom', 'The end of a unequal case', 'The Life and Arts of Charles Darwin', 'The Origin of Species', 'The Life and the Origin of Species', 'WWales']
+Uncertainty: 0.559 (frob)
+Label: in
+
+Question: who did tim tebow play college football for?
+Ground truth: ['University of Florida']
+Predicted: ['East Tennessee State University', 'Florida State University', 'University of Central Florida', 'Florida Gators football', 'University of Florida', 'New York York Jets', '', 'University of Florida', 'Florida Gators football', 'Florida Gators football', 'Florida Florida', 'New York Jets', 'Ohio University University', 'Florida State University', 'Florida State University Gators', 'Florida Gators football', 'Florida Gators footballI football', 'Florida Gators football team', 'University of Minnesota University of Minnesota', 'The Florida Gators football', 'Tim Tebow', 'Miami Dolphins', 'University of Minnesota', 'University of Florida', 'University of Florida', 'Florida Gators football', 'Florida Gators football', 'Florida Gators football', 'FloridaUniversity of Florida', 'New York York Jets']
+Uncertainty: 0.485 (frob)
+Label: near-ood
+
+Question: what was robert burns?
+Ground truth: ['Poet', 'Writer', 'Bard', 'Author']
+Predicted: ['Engineer', '', 'Robert', 'Hot chocolate', 'Singer', 'Burning', 'Como', 'Mougassett', 'Blazing', 'Burn', 'Fire', 'Burn', "Burnatt's law", 'In the film', 'Tear molds', 'NationalBurn', 'Burns disease', 'Singer', 'asterian', 'Blair', 'Comedian', 'Burnit', 'Burned Orange', 'Blown', '', 'BleBurn', '', ' roRomans 5', 'gBurn', 'Reviewer-']
+Uncertainty: 0.544 (frob)
+Label: near-ood
+
+Question: what did anton van leeuwenhoek contribute to our knowledge of cells?
+Ground truth: ['microscope first used by anton van leeuwenhoek']
+Predicted: ['Mathematician', 'Mathematician', 'Neutron', 'EHow did anton van lee', 'F. K. Goelz', 'Anon', "Anaron's disease", 'Anton-Leuven-Dutchooxfam', 'BlauNexBotBlau-Gothik', 'VEC organelle', 'Anatomy', 'Cancer', 'Cereal', 'Waleside', 'Anton-Léuvenner', 'De Kolkhoek', 'Mathematician', 'Anatrogenism', 'Mathematician', 'E. T. A. Felton', 'Neorecortex', 'Cell', 'Molecular and cellular biology', 'Vincentus Vivant', 'Pharmacology', 'De metalloresin', 'ral', 'University of Oxford', 'University of Oxford', 'Molecular biology']
+Uncertainty: 0.623 (frob)
+Label: in
+
+Question: what super bowl did peyton manning win?
+Ground truth: ['2006 NFL season']
+Predicted: ['Super Bowl', 'Sports Authority', 'Sports', 'Super Bowl VIII', 'Super Bowl XIII', 'Super Bowl XXX', 'Super Bowl XIII', 'Super Bowl XV', 'Chief', 'American football', 'Super Bowl XVIII', 'Super Bowl', 'Super Bowl XLIII', 'American football', 'Super Bowl XLIII', 'Super Bowl XXXVI', '1999 Super Bowl XV', 'Super Bowl XV', 'Super Bowl XV', '2012 Super Bowl X', 'American Bowl', 'Super Bowl VI', 'Super Bowl X', 'Super Bowl XIII', 'Super Bowl XXV', 'American football', '1948 NBA Finals', 'Super Bowl XLII', '', 'Super Bowl XV']
+Uncertainty: 0.441 (frob)
+Label: near-ood
+
+Question: where are yamaha outboard motors manufactured?
+Ground truth: ['Shizuoka Prefecture']
+Predicted: ['Millington', 'Canada', 'Yamaha', 'Santa Cruz', 'Tokyo, Japan', 'Off-highway', 'Yamaha Corporation', 'Tokyo', 'Yamaha Racing', 'Yamaha Corporation', 'Yamaha Corporation', 'United States of America', 'Americas', 'Kentucky', 'Moline County', 'Japan', 'Hayloft', 'Boston', 'Milling and Process Industries', 'Japan', 'Utah', 'Japan', 'Iowa', 'Ying', 'Japan', 'OutOut of Stock Motorcycle', '', 'Kentucky', 'Millington', 'Japan']
+Uncertainty: 0.557 (frob)
+Label: far-ood
+
+Question: who plays london tipton in suite life on deck?
+Ground truth: ['Brenda Song']
+Predicted: ['Arthur Weissel', 'lex', 'Mariné Heller', 'Scott Long', 'Jack McBaron', 'Tennis player', 'Arthur C. Hopper', 'Tennis Court', 'David Tompkins', 'Sailop', 'The Right Sex organist', 'J. Anthony Priest', 'Sorcha Mehde', 'Party-goile', '', 'M.I.T.', 'Lana Welker', 'Alex Borrbone', 'Lane Lovett', 'Jack Coleman', 'atherius europe', 'Monarch', 'New York Jets', 'Solemnity', 'Solemate', 'Jackman', 'BillTaylor', 'David Lewis', 'Sailor', "Jules D'Argent"]
+Uncertainty: 0.612 (frob)
+Label: far-ood
+
+Question: what was the ancient chinese writing system?
+Ground truth: ['Sino-Tibetan languages']
+Predicted: ['Traditional Chinese script', 'Printing', 'Chinese script', 'Chinese characters', 'Writing system', 'Standard Chinese', 'Chinese writing system', 'Chinese', 'Traditional Chinese characters', 'Writing system', 'Chinese characters', 'Ancient China', 'Chinese writing', 'Ancient Chinese alphabet', 'Wangantai', 'Chinese characters', 'Zhuangzhu script', 'Writing Language', 'Traditional Chinese script', 'Zijing', 'Traditional Chinese', 'Ancient Chinese characters', 'Traditional Chinese characters', 'Standard Tibetan alphabet', 'Fengshu', 'Chuanqu system', 'Chinese script', 'Ancient chinese script', 'Chinese characters', 'Chujangshao script']
+Uncertainty: 0.425 (frob)
+Label: far-ood
+
+Question: what team did david beckham play for in 2011?
+Ground truth: ['LA Galaxy']
+Predicted: ['Tottenham Hotspur', 'New York Rangers', 'Team captain', 'Arsenal C. Premier League', 'Atlanta Hawks', "U.S. Men's National Team", 'Philadelphia Eagles', '', 'Manchester United England Football Club', 'Manchester United', 'Miami Dolphins', 'FC Barcelona', 'Chicago Bulls', 'Milwaukee Admirals', 'New York Rangers', 'London Red Bulls', 'Manchester United', "United States men's basketball", 'Arsenal F.C', 'Sport United F.C.', 'Toronto FC', 'Miami Dolphins', 'Miami Heat', 'FC Barcelona', 'ESPN FC', 'Chicago Blackhawks', 'player', 'Manchester United', 'New York Red Bulls', 'NFL Draft']
+Uncertainty: 0.517 (frob)
+Label: in
+
+Question: where did francisco coronado come from?
+Ground truth: ['Salamanca']
+Predicted: ['San Francisco', 'San Francisco', 'Colombia', 'Mexico', 'Mexico', 'United States of America', 'Carrascalain', 'Fortranbury Park', 'Mexico', 'San Francisco', 'San José', 'Brazil', 'Mexico', 'San Francisco', 'Indonesia', 'Cinéméo de Mexico', 'San Francisco', 'Peru', 'San Francisco', 'San Francisco', 'San Francisco', 'Americana', 'United States of,', 'Mexico', 'Centaurión', 'San Francés', 'Mexico', 'Guatemala', 'Santero', 'Santerdías']
+Uncertainty: 0.518 (frob)
+Label: far-ood
+
+Question: what all does google now do?
+Ground truth: ['Google Maps', 'Nexus 7', 'Google Buzz', 'Nexus 10', 'Nexus One', 'Nexus S', 'Google Chrome', 'Google Earth', 'Google Wave']
+Predicted: ['Mozilla', 'M&M', 'Mountain View', 'Milling', 'Mozart family', 'Computing', 'Google', 'Mamella', 'Google', 'GoogleWebsite', 'Google Corporation', 'Google', 'Google Play', 'Milling', 'Mozambique', 'Google, Inc.', 'Milling', 'Google', 'GPS', 'Google Fiber', 'M&S chocolate', 'Esper', 'M&T Solutions', 'Google Corporation', 'Mozilla', 'M&', 'Mozart', 'Mountain View', 'Mountain Search Engine', 'M&T Securities']
+Uncertainty: 0.552 (frob)
+Label: far-ood
+
+Question: what are abraham sons names?
+Ground truth: ['Zimran', 'Ishbak', 'Midian', 'Shuah', 'Ishmael', 'Jokshan', 'Isaac', 'Medan']
+Predicted: ['Heinz', 'Abraham Lincoln', 'Israel and David', 'Men', 'United States Military', 'Abrahms', 'Abraham', 'Zeus', 'Zeus', 'David', 'Zerephlitz', 'Brothers', 'Abraham and Joseph', 'Abraham', 'Abraham', 'Abrahams', 'Abraham', 'Abraham', 'Abraham', 'Gibson', 'Abraham and Isaac', "Zephar's name", 'AlyssJunamoto', 'Hebrew name', 'Abraham through him', 'Name of an American woman', 'Abraham and his sons', 'Abraham', 'Abraham', '']
+Uncertainty: 0.514 (frob)
+Label: far-ood
+
+Question: who wrote the jana gana mana?
+Ground truth: ['Ram Singh Thakur', 'Rabindranath Tagore']
+Predicted: ['JhJana gana mana', 'Mwai Mwinala', 'AndMana', 'Guyana', 'Juta', 'Keinan tradition', 'Kaiosya', "Mahaba-Sa'odobo", 'John Anderson', 'Jana Gana stira', 'Moisl Ferre', 'Jias', 'Jana Gana', 'Mamanas', 'Mahavara Rao', 'Rupa padasin', 'Mihyoody', 'Jaihein Khanda', 'Jana gana mana', 'Jana Gana', 'Zimbabwe', 'Tsuyoshi Yomi', 'Maine Desplieux', 'Mahasafi', 'Jana gana', 'JJi', 'Mathematica', 'Tajik literature', 'Jana Gana', 'Mounakos.']
+Uncertainty: 0.583 (frob)
+Label: far-ood
+
+Question: what type of cancer did gilda radner die of?
+Ground truth: ['Ovarian cancer']
+Predicted: ['Cancer', 'Leukemia', 'Cancer', 'Cancer', 'Lymphoma', "Bright's disease", 'Cancer', 'Bre cancerDrug of cancer', 'Cancer', 'Pancreatic cancer', 'Pancreatic cancer', 'Aortic cancer', 'Cereal cancer', 'Head and neck cancer', 'Cancer', 'Prestoma', 'Lung cancer', 'Lung cancer', "Gilda Radner's disease", 'Approximately', 'PathLymphoma', 'Cancer', 'Pulmonary cancer', 'Leukemia', 'Cancer', 'Pancreatic cancer', 'Pancreatis', 'Cerence disease', 'Cancer', 'Cancer']
+Uncertainty: 0.456 (frob)
+Label: far-ood
+
+Question: who plays juni cortez?
+Ground truth: ['Daryl Sabara']
+Predicted: ['Curt Tichenor', 'Nickelback', ' Jazzophonist', 'Sacha Varese', 'Musician', 'Roger Fede', 'Alex Borland', 'Edison Alensio', 'Singer', 'Singer', 'Rome', 'Cody Allen', 'Juan Diego Arias', 'Muskerk', 'Matuma', 'Denis Galán', 'Singer', 'Mira Furlong', 'Alex Borstein', 'Junesto', 'Alex Borstein', 'Mildura', 'José Alba', 'ESPN College Football', 'Marlon', 'Alex Borghout', 'Jack Morris', 'ATC Barcelona', 'Sorrell Beckham', 'David Fusil']
+Uncertainty: 0.590 (frob)
+Label: in
+
+Question: who did carrie ann inaba get engaged to?
+Ground truth: ['Jesse Sloan']
+Predicted: ['Singer', 'Sacha Prekel', 'Candice Taylor', 'Ruth Burt Bach', 'Singer', 'Candidate', 'Candle', "Mendy's List", 'Dante and Gif', 'Chris Brown', 'Mellon Brice', 'Peter Taylor', 'BarNe Mountain', 'Rome Paul, Jr', 'Philippine pop star', 'Singer', 'Abuelah Bazz- Nabvi', 'Singer', 'Dallas Cowboys', 'Candice Connolly', 'Eugán Sáo', 'Nancy Lee', 'Nancy Pelosi', 'Christians', 'Ricky Halligan', 'Lane McGuinness', 'Mattie Halter', 'Mixed-', 'Sidwell', 'Mandy Patée']
+Uncertainty: 0.614 (frob)
+Label: far-ood
+
+Question: who is michael j fox wife?
+Ground truth: ['Tracy Pollan']
+Predicted: ['Actor', 'Mila', '', 'Fox', 'Actor', 'Matt Smith', 'Matt Lauer', 'Philosopher', 'Raining down the curtain', 'Shelby Jones', 'Brad Paisley', 'Mandy Rose', 'Paul Midland', 'Nell Jones', 'nancy j', 'Matthälliste föl', 'Paula James', 'My wife', 'Printer', 'Jill Seinfeld', 'Singer', 'Dinaène Kraft', 'Nancy Kay', 'Zeus', 'Wife', 'Jenny Lewis', 'Meryl', 'Singer', 'Actor', 'American football']
+Uncertainty: 0.579 (frob)
+Label: far-ood
+
+Question: where did dolly parton grow up?
+Ground truth: ['Tennessee']
+Predicted: ['Dollywood', 'St. Paul, Minnesota', 'France', "Saint Michael's Island", 'United States of America', 'New York City', 'Rock Springs', 'Lynnwood', 'Wilko', 'I Nowhere', 'Ithmus', 'Gouverneil', 'Seville', 'Canada', 'where did dolly parton grow up', 'I Have A Dream', 'West Leland', 'In Harlem', 'Mickey Reels', 'ShWilford', 'Woodland', 'Garden City', 'St. Joseph', 'On the Ronde', 'South Jersey', 'Singer', 'Orlando', 'Spacesville', 'South Africa', '']
+Uncertainty: 0.613 (frob)
+Label: near-ood
+
+Question: what type of books did agatha christie wrote?
+Ground truth: ['Crime writer']
+Predicted: ['A World Apart', 'The Secret World of Agatha Christie', 'The Life of George Wollstoneck', 'A Study in Defiance', 'The Life and Adventures of Little Rachael and Pauper Through', 'A. L. Kingford Tale', 'Novel', "Children's Bible", 'The Secret of Johann Sebastian Bach', 'Alyssa Chamberlain', 'A Christmas Present', 'BooksBooks written by Agatha Christie', 'Anglo-Catholicism', 'A Pagette', 'Victim of a Lady', 'The letters and prayers of Saint Nicholas and Saint Nicholas', 'The Adventures of Huckle Dancing', 'A P. G.', 'The Life of George Madison', 'The Golden-plate', ' bookAuthor', '', 'Alyssa Moorely Canfield', 'Aristotelism by Baudelaire', 'Victor Hugo', 'American Woman in New England', 'Lawyer', "Dead Man's Gun", 'Bridget Jones', 'The Adventures in the Life']
+Uncertainty: 0.625 (frob)
+Label: far-ood
+
+Question: who is the woman that john edwards had an affair with?
+Ground truth: ['Rielle Hunter']
+Predicted: ['Bimini Zepeda', 'CarmSupto Markievich', 'Bobby Sheppard', 'Renee Wollenkerd', 'Emma Hadfield', 'RDebbie Downer', 'Alyssa Milerman', 'Mimi Molloy', 'Rachael Harris', 'Alicia Favore', 'Bridget Jones', 'Linda Mensch', 'Dianne Bunny', 'Bridgett', 'Alyssa Seyrior', 'Dulcida', 'John F. Kennedy', 'Alyssa McLeod', 'Nicole Wales Jones', 'Alyssa Milano', 'Renfield schoolgirl', 'Emma Watson', 'Bimimba', 'Alyssa Milaverre', 'Rita Verstil', 'Abuse', 'Alyssa Milano', 'Deb Asia', 'Elizabeth Taylor', 'Alyssia Green']
+Uncertainty: 0.563 (frob)
+Label: far-ood
+
+Question: where can i go running in sacramento?
+Ground truth: ['Boulevard Park']
+Predicted: ['San Francisco', 'San Francisco Bay Area', 'Mesa', "Moody's Research Assistance", 'Shawnee', 'San Francisco 4908', 'Valeland Regional Park', 'Sacramento City College', 'San Francisco Bay Area', "Bishop's Park", 'Myer Beach', 'Desaverance football', 'Running Room', 'Peter Jones Memorial High School', 'St. Joseph Catholic Church', 'San Francisco Bay Area', ' Clovis', 'Mixed Martial Arts', 'Los Angeles Marathon', "St. Mary's Catholic Church", 'San Francisco Bay Area', 'San Francisco', 'Running Caper', 'Elite Foundation of California', 'Bakersfield', 'San Francisco 49ers', 'Sacramento', 'lympic-cross country', 'Cathathodexx', 'Mexico City']
+Uncertainty: 0.619 (frob)
+Label: far-ood
+
+Question: what are the four main languages spoken in spain?
+Ground truth: ['Basque Language', 'Galician Language', 'Catalan language', 'Occitan language']
+Predicted: ['Spanish Language', 'Spanish Language', 'Spanish language', 'Spanish Language', 'English language', 'Standard Language', 'Iberic Language', 'Spanish Language', 'Cicero', 'Latin Language', 'Puer languages', 'Spanish Language', 'Greek Language', 'Spanish Language', 'Four Continuits', 'Spanish Language', 'Andrea Godin', 'Spanish language', 'Albanian Arabic', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish, Spanish Language', 'StandardEnglish Language', 'Basque, Occitan, Catalan languages', 'Spanish Language', 'Andalusian language', 'Spanish Language', 'Spanish Language', 'Spanish Language']
+Uncertainty: 0.418 (frob)
+Label: far-ood
+
+Question: where is the nra headquarters located?
+Ground truth: ['Fairfax']
+Predicted: ['RRUnited States', 'New York', 'Rasba National Academy of Azerbaijan', 'United States of America', 'Kansas City', 'The Netherlands', 'New York City', 'Denver', 'Atlanta', 'United States of America', 'United States of America', 'United States of America', 'New IsraelIsrael', 'United States of America', 'Russia', 'Denver', 'United Negro Military Monument', 'LatUnited States of America', 'Denver', 'New York', 'New York City', 'Stockwell Beach', 'Pakistan', 'New York City', 'United States of America', 'New York', 'New York City', 'Las Vegas', 'Washington, D.C.', 'United Kingdom']
+Uncertainty: 0.572 (frob)
+Label: far-ood
+
+Question: what is the song anna kendrick sings in pitch perfect?
+Ground truth: ['Cups']
+Predicted: ["The Lord's Prayer", "She's Like The Wind", "God, You's No More", 'Busted Grit', 'Perfect Love song', 'Perfect', "I'll Have You Now", 'Blown Air', 'Caruso-pops', 'Song', 'Singing in Tune', 'Ragtime', 'Traitor', 'Let Me Love You Just', 'The power of 5', 'The PhThe song', 'Know that', ' song', 'Melted-water', 'Blainville White', 'Chantelle', 'Busted', 'Pitch perfect', 'This Is Your Birthday', 'Touch', "It's Like You Love", 'The Blackshear', "Bring 'Em' All Country", 'Before the Stormy Weather', 'Pitch-forter']
+Uncertainty: 0.620 (frob)
+Label: far-ood
+
+Question: who is gimli's father in the hobbit?
+Ground truth: ['Gloin']
+Predicted: ['Samwell', 'Arron', '', 'Arwen and Bollo', 'Baron Took', 'Boudar', 'Balfe', 'Heinor the Hammermeister', 'Fido', 'The Lord of the Rings', 'Heinric', 'Beningle', 'Arathimor', 'Arthil', 'Heinxll', "He's got a case", 'Baron', 'Middlemrow', 'Aldermout', 'Hagar guard', 'A.B.', 'Ald Badger', 'Ben- Hur', 'Hobbit', "Arwen's father", 'Heinrich', 'Shadark', 'Ben Shead', 'Bengelin', 'Armen Hitler']
+Uncertainty: 0.595 (frob)
+Label: far-ood
+
+Question: who developed the tcp ip reference model?
+Ground truth: ['Robert E. Kahn', 'Vint Cerf']
+Predicted: ['Lansard', 'Nancy Pakula', 'Mozill', 'Travis Leuven', 'Michel Thibodme', 'Mixediation', 'Nilad', 'Tunisica- Tuxedo', 'TCT', 'Server-attached Listener', 'Mining', 'M&T LifeStyle', 'WalesModel', 'Rohaninga', 'server', 'Mozilla', 'peripher language', 'IoT', 'Mozilla Technology', 'Tcp/Mimex', 'Bill Gates', 'Tom Clancy', 'Miguel Ferrer', 'Mizoram', 'Mozilla', 'Jens. Jakobsson', 'Thomas Nelson', 'T4TIP.who developed the tcp ip reference model?', 'Bill Gates', 'Dilaud Liang']
+Uncertainty: 0.636 (frob)
+Label: far-ood
+
+Question: who led the campaign in the shenandoah valley?
+Ground truth: ["Jackson's Valley Campaign"]
+Predicted: ['Nancy Danzira', 'Bushwahr', 'David Jones', 'Soros Entertainment Records', 'President of the United States', 'Candidate for President', 'Andrew Johnson', ' L.', 'Ben Franklin', 'Governor Kay Johnson', "St. Michael's Catholic Church", 'Sheldao Harris', 'Nelson Mandela', 'Samuel Gildor', 'Shenandoah County', 'Nancy aspirants', 'C. F. Graham', 'Nancy Abramson', 'Heinzler', 'Republican National Committee', 'Sam B. Brown, Sr.', 'Glenn Phillips', 'Steve Bannon', 'Theodore J. White', 'Candidate', 'Political commentator', 'George W. Bush', 'Lyndon Johnson', 'Democratic National Convention', 'The Democratic Party']
+Uncertainty: 0.640 (frob)
+Label: far-ood
+
+Question: who founded the pittsburgh steelers in 1933?
+Ground truth: ['Rooney family']
+Predicted: ['The G. B. Morse', 'Businessperson', 'Rooney-News Co.', 'RoRo, Jr.', 'Randy Meyers', 'Rooney family', 'RoPage', 'Bechman family', 'Pittsburgh Steelers', 'Robert J. W. Nelson', 'Barry R. Chambers', 'Roamahan Robinsonism', 'Steeler', 'Robert W. Riley', 'William B. Morris', 'J. Joe Browning Jr.', 'Roedick Steelers', 'Melwellie Bossell', 'Wilbur Ross', 'Steel Street', 'Barr & Company', 'William Roosch', 'Robert Anderson', 'Rooney J. Board of Directors', 'Robert J. Heinz', 'Walraman & Company', 'Wilbur Ully', 'Roist', 'Robert MILLer', 'The James Mellon family']
+Uncertainty: 0.589 (frob)
+Label: near-ood
+
+Question: what college did albert einstein go to?
+Ground truth: ['University of Zurich', 'Aargau Cantonal School', 'ETH Zurich', 'Luitpold Gymnasium']
+Predicted: ['University of Oxford', 'University of California, Berkeley', 'The Cambridge University', 'University of Montana', 'Harvard University', 'Harvard University', 'University of Cambridge', 'University of future king', 'University of Massachusetts Amherst', 'University of Chicago', 'Albert Einstein College of Medicine', 'University of Oxford', "Harper's School", 'Harvard', 'Wongingen Academy of the Arts', 'Harvard University', 'University of Chicago', 'The law school', 'The Cambridge University', 'Ralsbury College, Oxford', 'University of Galigi', 'Neotecnologist', 'University of Oxford', 'University of Galinea', 'AmUniversity of Oxford', 'Pennsylvania School of Visual Arts', 'University of Florida', 'Harvard University', 'Albertanus Williams College', "Young's College"]
+Uncertainty: 0.527 (frob)
+Label: far-ood
+
+Question: what team does jordan own?
+Ground truth: ['Jordan national football team']
+Predicted: ['Los Angeles Clippers', 'United States', ' Team', 'Jordan national football team', 'Manchester United', 'Chicago Cubs', 'Los Angeles Clippers', 'Sportsman', 'FC Barcelona', 'UnitedNew York Jets', 'Nationals', 'FC Barcelona', 'Chicago Bulls', 'Los Angeles Clippers', 'Chicago Cubs', 'Chicago Bulls', 'Chicago Blackhawks', 'Miami Dolphins', 'Toronto Raptors', 'Philadelphia 76ers', 'Miami Dolphins', 'Miami Heat', 'Sports Channel', 'FC Ria', 'St. Louis Rams', 'Chicago Bulls', 'Israel Football Club', 'Chicago Bulls basketball', 'Palestinian National Football League', 'Los Angeles Lakers']
+Uncertainty: 0.527 (frob)
+Label: far-ood
+
+Question: who is the state governor of tennessee?
+Ground truth: ['Bill Haslam']
+Predicted: ['Nissan', 'Rick Billicali', 'Nedwell', 'William T. Abercron', 'Nathan Easton Black', 'Neshana Taylor', 'Neissland Toler', 'Nancy Forney', 'Nathan Deal', 'Northeastern United States', 'NigelRick Perry', 'Nye', 'Ned Senator from Tennessee', 'Rick Hall', 'Governor of Tennessee', 'Maren Gibson', 'Mevillah King', 'Ned Jones', 'Matt Rooker', 'Mike Lee', 'Nancy Allen', 'Republican Party', 'Chad Holton', 'Tennessee', 'Nelson', 'Rick Perry', 'Bill Anderson', 'Rick Perry', 'Neshoba Walker', 'Tennessee Republican Party']
+Uncertainty: 0.583 (frob)
+Label: far-ood
+
+Question: what language does cuba speak?
+Ground truth: ['Spanish Language']
+Predicted: ['Spanish Language', 'Como', 'Cuba Spanish-speaking', 'Cuba Language', 'Yiddish Language', 'Arabic Language', 'Cubic English', 'Criolish language', 'Cuban Spanish', 'Spanish Language', 'Brazilian language', 'Yiddish language', 'Brazil', 'Peruvian language', 'Cuba Language', 'Languages', 'Cuba Language', 'English Language', 'Cuba', 'English-Spanish Language', 'South American Language', 'Cuba Language', 'Spanish Language', 'Brazilian language', 'Brazilian Portuguese', 'Cuba', 'English Language', 'Zulu language', 'English Language', 'Cuba Language']
+Uncertainty: 0.428 (frob)
+Label: near-ood
+
+Question: where did aaron rodgers go to high school?
+Ground truth: ['Pleasant Valley High School']
+Predicted: ['School of Visual and Performing Arts', 'Aaron', 'The Heidel School', 'Princeton High School', 'Shawna High School', 'Valdosta County', 'Dunbar High School', 'Perkins High School', 'Dunbarry High School', 'New Haven', 'Over the Hill School', 'High School Musical', 'Sharonville High', 'Sharon Edward Woodard High School', 'L.A.', 'School of William Morton High School', 'Aaron Rodgers High School', 'St. Joseph Catholic School of America', 'Aaron Rodgers High School', 'Eton High School', 'Branford University', 'Shawnee High School', 'Shawnee High School', 'Aaron High School', 'Shawnee High School', 'Zócargo High School', 'School of Visual Arts', 'Bridgewater', 'Aaron MacGregor High School', 'Sharonville High School']
+Uncertainty: 0.531 (frob)
+Label: far-ood
+
+Question: where herman cain stance on the issues?
+Ground truth: ['Évocateur: The Morton Downey Jr. Movie']
+Predicted: ['John F. Kennedy Jr.', 'United States of America', 'Ronald Reagan', 'Never mind', 'Democracy', 'Bush', 'Ron Paul', 'Herbicamp', 'Theresa Halton', 'United States Military Academy', 'United States Military', 'Never Trained', 'Armenian Revolutionary', 'Australia', 'Politico', 'Gary Burton', 'Republican Party', 'United States Military', 'President of the United States', 'The Ruling Party', 'American football', 'Dow Jones fire', 'Orlando Sentinel', 'A. Philip Burton Burton', 'Governor-General', 'Cyanism', 'United States of America', 'Matters of society', 'Baker County', 'Richmond-Presley Memorial']
+Uncertainty: 0.640 (frob)
+Label: far-ood
+
+Question: what are the sights to see in madrid?
+Ground truth: ['Paseo del Prado', 'Thyssen-Bornemisza Museum', 'Almudena Cathedral', 'Plaza de Cibeles', 'Puerta del Sol', 'Royal Palace of Madrid', 'Museo de Lazaro Galdiano', 'Gran Vía', 'Museo Nacional Centro de Arte Reina Sofía', 'Plaza Mayor, Madrid']
+Predicted: ['Madrid United', 'Madrid', 'Museu Nacional de Catalunya', 'Madrid Walk of Stars', 'Madrid', 'Baro de la Unión', 'Soraya Book Bar and Grill', 'The Alémet del Rastroffer', 'Madrid', 'Spain', 'Sagrassa', 'Madera', 'Cabins', 'Madrid International Museum', 'Santuaron', 'Sagua de Malloros', 'Vision de France', 'Museo de la Cataluana', 'Museums of the Americas', 'Rioni-Alba National Park', 'Madrid', 'The Sagrada Famíale', 'Basilikins', 'The Louve of the Things', 'Vision of Europa', 'Madrid', 'Sorba de la Baua', 'City of God', 'The Cathedral of the Holy Trinity', 'Puilé Christiana Church']
+Uncertainty: 0.604 (frob)
+Label: far-ood
+
+Question: what year was george w bush elected?
+Ground truth: ['George W. Bush presidential campaign, 2000']
+Predicted: ['Governor of Maine', 'George W Bush', '2006 United States of America', '2012', 'Governor of Maryland', '2006', 'Democratic Party', 'George Washington', 'Republican Party', 'March 4, 1952', '1818', '2005', 'Politician', '2003', '2011', '2012', '1937', 'Governor of Massachusetts Island', 'Governor of Australia', 'George W Bush', 'Conservative', 'Governor of Maine', '2012', '1883', '2006 American general election', 'Governor of Maine', 'Republican Party', 'George W. Bush', 'Australian', 'Governor of Massachusetts']
+Uncertainty: 0.597 (frob)
+Label: far-ood
+
+Question: where is mission san buenaventura located?
+Ground truth: ['Ventura County']
+Predicted: ['Carré', 'Vence', 'Spain', 'Spain', 'Santa Fe City', 'San Francisco', 'Japan', 'Missionary', 'City of Barcelona', 'Interreligious Community of Barcelona', 'San buenino', 'Italy', 'Spain', 'Spain', 'Seucas', 'The Catholic University of Spain', 'Mountain of California', 'Spain', 'Spain', 'VSanSpain', 'United States of America', 'Spain', 'United States', 'Urugay', 'Tokyo', 'Spain', 'Mission', 'Spain', '', 'United States']
+Uncertainty: 0.563 (frob)
+Label: far-ood
+
+Question: who was the italian leader in ww1?
+Ground truth: ['Benito Mussolini']
+Predicted: ['Italy', 'Rome', 'Alvis', 'Italy', 'President of Italy', 'Fabrico Savoian', 'DeNobile', 'ton', 'Sergio Marchiol', "Riccardo de' Medici", 'Andrea Caggi', 'Diliberte', "World's First Prime Minister", 'Romeu Secretary', 'Italy', 'Italy', 'Romilien', 'Italy', 'Ricardo Del Provo', 'Italian dictator', 'Ricard Manuel', 'Andrea Salvzi', 'Andrea Moavera', 'Joseph II', 'Romeo', 'Silvio Berlusconi', 'Clara Boruffa', 'WorldWorld', 'Italy', 'World War I']
+Uncertainty: 0.597 (frob)
+Label: near-ood
+
+Question: what time in hilo hawaii?
+Ground truth: ['Hawaii–Aleutian Time Zone']
+Predicted: ['Hawaii News Central', 'Hana Hale', 'Hawaii', 'Hawaii', ' green', 'June', 'Hawaii- Honio Airport', 'Hawaii Islands Time', 'University of Hawaii', 'Hawaii Time Limits', 'Hawaii', 'Hawaii', 'Honolulu', 'Hawaii', 'Hawaii Islands', 'Hawaii Time Territory', 'Hawaii First Coast', 'Hawaii Time', 'Hawaii', 'University of Hawaii at Hilo', 'Hawaii', 'Hawaii', 'Honoula Beach', 'Honolulu', 'University of Hawaii', 'Hawai Island', 'Hawaii', 'Hawaii', 'Hawaii Five-Eight', 'Hawaii Time Zone']
+Uncertainty: 0.453 (frob)
+Label: in
+
+Question: where did rudolf virchow conduct his research?
+Ground truth: ['Humboldt University of Berlin', 'University of Würzburg']
+Predicted: ['University of Oxford', 'University of Oxford', 'University of Oxford', 'University of Oxford', 'where did rudolf von Bosen and Bismuth-Anschlöd', 'University of Oxford', 'Rutect Institute of Technology', 'University of Oxford', 'University of Oxford', 'University of Oxford', 'University of Cambridge', 'Neurobiology and Tropicalism', 'University of Oxford', 'University of Oxford', 'University of Oxford', 'University of Oxford', 'University of Cambridge', 'Chicago Board of Commissioners', 'University of Oxford', 'New York City', "Rudolfe d'Aurore", 'Austalstadt', 'University of Oxford', 'Rudolf Klausen', 'University of Oxford', 'Indiana', 'EminentUniversity of Oxford', 'University of Oxford', 'University of Oxford', 'Biography']
+Uncertainty: 0.497 (frob)
+Label: far-ood
+
+Question: what university did gordon brown attend?
+Ground truth: ['University of Edinburgh']
+Predicted: ['University of Oxford', 'University of Oxford', 'Gold Coast University School of Medicine', 'University of Oxford', 'United States Military Academy', 'University of Southern California', 'beliefs', 'Dartmouth College', 'University of Texas at Galveston', 'University', 'Pennsylvania', 'University of Texas', 'University of Oxford', 'University of Oxford', 'University of Oxford', 'Bridgewater State School', 'Morehouse College', 'University of Cambridge', 'UniversityUniversity of Oxford', 'University of Oxford', 'Princeton University', 'George Washington University', 'University of Oxford', 'University of California', 'University of Massachusetts', 'University of Oxford', 'University of California, Berkeley', 'University of Florida', 'University of Oxford', 'University of Miami']
+Uncertainty: 0.454 (frob)
+Label: far-ood
+
+Question: what year did the seahawks win the superbowl?
+Ground truth: ['2006 NFL season']
+Predicted: ['Miami Dolphins', 'Super Bowl VII', '2012', 'Super Bowl XLVII', '2012', 'Super Bowl XXXV', 'Super Bowl XXX', 'Super Bowl XV', '1854 NFL season', '1989 Atlanta Falcons', 'Super Bowl XLII', 'Indianapolis', 'Sports Illustrated', '1990 NFL Draft', '1948 World Series', '1994 NBA Finals', '2012', '1998 Super Bowl XXX', '1983', '1989', 'Super Bowl XXV', ' 2003 season', '1984', 'Super Bowl XV', 'Super Bowl XXXV', 'Super Bowl IV', 'Super Bowl IV', '1970 NFL Draft', 'Superbowl', 'Super Bowl']
+Uncertainty: 0.548 (frob)
+Label: near-ood
+
+Question: what did stephen hawking become famous for?
+Ground truth: ['Author', 'Mathematician', 'Professor', 'Writer', 'Cosmologist', 'Physicist', 'Actor', 'Astronomer', 'Scientist', 'Science writer']
+Predicted: ['Stephan Benson', 'Inventor', 'TeMarkMark', 'Lead', 'Lead vocalist', 'Champion', 'Lawyer', 'KingKeptija', 'American football', 'Jowl', 'Inventor', 'Never', 'Gymnast', 'United States of America', 'Cancell', 'Gymnast of Wales', 'United States of America Corporation', 'Businessperson', 'Political activist', 'Businessperson', 'Kingdom of Singapore', 'Foxtel', 'Businessperson', '', 'Traitor', 'Soroptimist', 'Singer', 'Mark of Approval', 'Adrian P. Green', 'Entrepreneur']
+Uncertainty: 0.609 (frob)
+Label: near-ood
+
+Question: who plays donna noble?
+Ground truth: ['Catherine Tate']
+Predicted: ['Rachel Holliday', 'Kristin Davis', 'Edward VII of Spain', 'Taylor', 'Kristen Lewis', 'Mimi Dillon', 'John Noble', 'Alexa', 'Barbi Rivera', 'Musique', 'Mimi Hale', 'David Lewis', 'Donnie Sky', 'JackMellon', 'Kristin Rihans', 'Alexander Zoltrion', 'Kristen Stewart', 'Kristen Anderson', 'Mira Korda', 'Alex Borstein', 'Caroline Wiesen', 'chord', 'Robin Morgan', 'Alex Boré', 'Taylor Lautner', 'Kristen', 'Kristen Dunst', 'KristKim', 'Bill Neildes', 'Taylor Lauter']
+Uncertainty: 0.562 (frob)
+Label: far-ood
+
+Question: what was dr seuss education?
+Ground truth: ['Dartmouth College', 'University of Oxford', 'Lincoln College, Oxford']
+Predicted: ['Dr Martin Luther King', 'University of Cambridge', 'English Language and Literature', "Theodorical and Philosopher's alchemist", 'Dr Seuss', 'A.I. Milner', 'School of Literature', 'A Drinker Dot Found', 'The Life of George D. C. Moore', 'Return to Overview', 'teacher', 'Dartmouth College', 'Cultural and Scientific Literography', 'Phillip Jones Seuss', 'Y.M.', 'Social and Philosophic Dictionary', 'Mathematica', 'University of Medicine School', 'Astrodmagritte', 'University of Oxford', 'Dr. Seuss College', 'Aristos Leinster', 'W.E.D.', 'Dr. Seuss', 'Cicero High School', 'University of Oxford', 'A student of African descent', 'Aristean Legend', 'The World of Dr. Seuss', 'Dr. Seuss']
+Uncertainty: 0.631 (frob)
+Label: in
+
+Question: where did queensland get its name from?
+Ground truth: ['Queen Victoria']
+Predicted: ['British Columbia', 'Australia', "Queen's Bay", 'United Kingdom', 'United Kingdom', 'Eurasia', 'England', 'West Virginia', 'United Kingdom', "Queen's Park", 'Kingdom of Australia', 'West Sussex', 'New Zealand', 'Australia', 'England', 'England', 'United Kingdom', 'Canada', 'United States of America', 'Canada', 'England', 'Las Vegas', 'United Kingdom', 'England', 'KingEngland', 'England', 'Canada', 'England', 'England', "Queen's Park"]
+Uncertainty: 0.527 (frob)
+Label: far-ood
+
+Question: what document did james madison write?
+Ground truth: ['The Federalist Papers', 'The Papers of James Madison: Presidential Series', 'The Papers of James Madison: Congressional Series', 'The Papers of James Madison: Secretary of State Series', 'The Papers of James Madison', 'The Papers of James Madison: Retirement Series']
+Predicted: ["James Madison's will", 'Memorandum', 'Memorandum', 'The War of 1812', ' Document', 'Trump the Deal', 'The Life of James Madison', 'Concord', 'The Life of James Madison', 'The Constitution of United States of America', 'The Declaration of Independence', 'The Life of James Arthur Garfield', 'Memorium', 'Writing in the Streets', 'Law of the Sea', 'James Madison and the creation of the human condition', 'The Writings of James Madison', 'The Chronicles of forage', 'Butterfly', 'National Security Act of 1655', "In the Lord's Life", ' Document', ' SecurityMemoirs of an Officer By James Smith', 'United States of Tennessee', 'The War of 1812', 'Documentation for the United States of America', 'Confiscation in the United States of England and Ireland', 'American Presidency', '1815 Republication', 'The Life of James James']
+Uncertainty: 0.588 (frob)
+Label: far-ood
+
+Question: what are the three official languages of belgium?
+Ground truth: ['French Language', 'German Language', 'Dutch Language']
+Predicted: ['Flemish, Dutch Language', 'French Language', 'Dutch Language', 'Dutch language', 'Dutch Language', 'Beloréan language', 'Dutch Language', 'Dutch Language', 'Belgium', 'Dutch Language', 'Dutch Language', 'Dutch Language', 'Belgium', 'Belgium', 'Dutch Language', 'Languages of the Kingdom of Belgium', 'Belgium Language', 'French Language', 'French Language', 'Federal republicana', 'English Language', 'Bellemoisian French', 'Belgium French', 'Dutch Language', 'English Language', 'DutchFrench Language', 'Dutch Language', 'Arab Language', 'Belgium', 'Belgium']
+Uncertainty: 0.446 (frob)
+Label: in
+
+Question: what airport do you fly into to get to destin fl?
+Ground truth: ['Northwest Florida Regional Airport', 'Destin–Fort Walton Beach Airport']
+Predicted: ['Destin–Fort Walton Airport', 'Seuler Anchorage Airport', 'New York City', 'NorthDestin Airport', 'Northwest Florida Regional Airport', 'Miami International Airport', 'Destin-Howard International Airport', 'Destin International Airport', 'Dorin International Airport', 'Severn International Airport', 'Destin Air Base', 'Destin Florida Airport', 'Destin–Fort Walton Airport', 'Dunleay County', 'Northwest Florida Regional Airport', 'Destin County, Florida', 'Destin-DeBois Airport', 'Destin Airport', 'Northwest United States', 'Miami International Airport', 'Destin Island Airport', ' oak', 'Syracan', 'Northwest Florida Regional Airport', 'Destin City', 'Destin–Fort Gordon Airport', 'Seabase Mountain', 'Destin Air Park', 'Destin International Airport', 'Northwest Florida']
+Uncertainty: 0.515 (frob)
+Label: in
+
+Question: what do you call members of the senate?
+Ground truth: ['Senator']
+Predicted: ['United States of America', 'United States Senate', 'Eliya Plutko', 'United States Senate', 'Member of the Senate', 'United States of America', 'SenatorMember of the Senate', 'The United States Senate', 'United States Senate', 'Member of the Senate', 'United States Senate', 'Member of the Senate', 'United States', 'United States Senate', 'Senator', 'Lieutenant-Governor of Texas', 'Senate Republican leader', 'United States Senate', 'United States Senate', 'Orator', 'United States Senate', 'Senate Majority Whip', 'United States Senate', 'Whig Party', 'Senator', 'Gerald Ford', 'United States Senator', 'Senator', 'Governor of Alabama', 'Gerald Jones']
+Uncertainty: 0.561 (frob)
+Label: far-ood
+
+Question: what team does colin kaepernick play for?
+Ground truth: ['San Francisco 49ers']
+Predicted: ['Colonel Kaepernick', 'San Francisco 49ers', 'Colin Kaepernick', 'St. Louis St.', 'Colin Kaepernick', 'Philadelphia Eagles', 'Indianapolis', 'San Francisco 49ers', 'San Francisco 49ers', 'Colin Kaepernick', 'Colin Kaepernick', 'Colin Kaepernick', 'NFL Draft', 'Colin Kaepernick', 'Colin Kaepernick', '49ers', 'Philadelphia Eagles', 'San Francisco 49ers', 'San Francisco 49ers', 'Indianapolis Colts', 'Colin Kaepernick', 'Colin Kaepernick', 'San Francisco 49ers', 'San Francisco 49ers', 'San Francisco 49ers', '', 'San Francisco 49ers', 'San Francisco 49ers', 'San Francisco 49ers', 'Indian Football League']
+Uncertainty: 0.563 (frob)
+Label: near-ood
+
+Question: where did joe flacco attend college?
+Ground truth: ['University of Delaware']
+Predicted: ['University of North Carolina School of Medicine', 'University of North Alabama', 'University of Malta', 'Virginia College School of Law', 'University of Phoenix', 'University of Miami University', 'UniversityBaltimore', 'University of Massachusetts', 'Joe Hadfield University', 'University of Pennsylvania', 'Materie High School', 'University of of California Santa Barbara', 'Midd Valley State University', 'United States of America', 'University of North Carolina', 'University of North Jersey', 'Mater Dei', 'Ransom College', 'University of Central Florida', 'University of North Carolina at Wilmington', 'University of Florida', 'University of Massachusetts Ambe', 'University of', 'University of California, Berkeley', 'Massachusetts College of William and Extension', 'NC State University', 'University of Central Florida', 'University of Virginia', 'University of Toronto', 'Virginia State University']
+Uncertainty: 0.470 (frob)
+Label: far-ood
+
+Question: who is emma stone father?
+Ground truth: ['Jeff Stone']
+Predicted: ['President of the United States', 'Lawyer', "Bill Clinton's father", 'Mark Ogden', 'Giovanni Polo', 'Who is Emma Goldman', 'Actor', 'Rachael Haynes', 'Lawyer', 'Musician', 'Quoté', 'Emma stone', 'Musician', 'Lamar', 'Ricardo Martelo', 'Archbishop of Canterbury', 'Emma Roberts', 'Zeus', 'Mother', 'Cairo', 'Richard Burton', 'The real-dealer', 'Ben Stone', 'Bill Clinton', 'Emperor', 'Luan Phan', 'President of the United States', 'President of the Dominican Republic', 'Mendel Bahr', 'Rufus Christ had power']
+Uncertainty: 0.616 (frob)
+Label: far-ood
+
+Question: where was theodore roosevelt buried?
+Ground truth: ['Youngs Memorial Cemetery']
+Predicted: ['New York City', 'New York City', 'New York City', 'Massachusetts', 'New York City', 'New York City', 'New York City', 'Church of the Holy Trinity', 'New York City', 'NewNewHNewBostonNewNew OrleansStatenNew York', 'New York, New York City', 'New York City', 'Boston', 'New York City', 'Arlington National Cemetery', 'New York City Board of Trade', 'TheThe Kew-Forestt Cemetery', 'Church of the Holy Trinity', 'New York City', 'odore', 'ArNew York City', 'President of the United States', 'New York City', 'The Philadelphia Registry', 'Pennsylvania', 'Boai', 'Washington Monument', 'Franklin Island', 'New York Times', 'New York City']
+Uncertainty: 0.551 (frob)
+Label: far-ood
+
+Question: where the missouri river ends?
+Ground truth: ['Mississippi River']
+Predicted: ['Indianapolis', 'Missouri', 'Missouri', 'Missouri', 'The Missouri', 'St. Louis', 'Indian', 'Kansas City', 'Missouri', 'Missouri', 'Missouri Valley', 'Kansas City', 'United States', 'Missouri', 'Missouri River Valley', 'Missouri River', 'Missouri', 'Indian', 'Missouri River', 'GermanGerman', 'German Democratic Party', 'Iowa', 'x', 'Missouri County', 'where the missesouri river', 'Missouri River', 'WaterMissouri', 'Missouri', 'American Statesman', 'Missouri']
+Uncertainty: 0.509 (frob)
+Label: far-ood
+
+Question: what type of currency do they use in thailand?
+Ground truth: ['Thai baht']
+Predicted: ['Thai baht', 'Thai baht', 'Thai bahile', 'Thai bahm', 'Thai bahttang', 'Thamx Bank', 'Thai bahat', 'Thai baht', 'Thai rupee', 'Thai-Thai chai', 'Thai baht', 'Thai bahu', 'Thai bahasa', 'Thaiyuanerin', 'Thai bah', 'Thai baht', 'Thai baht', 'Thai baht', 'Thai baht', 'Thai baht', 'Thai baht', 'Thai bao', 'Thai baht', 'Thai baht', 'Thai dollar', 'Thai Yuan', 'Thai baht', 'Thai baht', 'Thaijawxai varieties', 'Thai bahti']
+Uncertainty: 0.353 (frob)
+Label: in
+
+Question: who is khloe kardashian's husband?
+Ground truth: ['Lamar Odom']
+Predicted: ['KhKhoe Khossarian', 'Richard W. Jones', 'Ric Harris', 'Kanye West', 'Arman Khrit', 'John Bensen', 'KhKh', 'Sheryl Lee', 'RKhoe Kardashian', 'Khooch', 'Khazan Karnegayi', 'Khloin', 'David Shein', 'Khloé Kardashian', 'Singer', 'Khuan Khumme', 'Kardashian', 'Rafi Nabson', 'Khloé Reneasia Kardashian', 'Gregor Karmenian', 'Raim Shah', 'Steve Kardash', 'Khugard-Cook', 'Rui Khoo', 'Armenian', 'Khloe Kardashian', 'Gregor Stormy', 'KhKhloé Khor', ' Ad Sheron Baker Jr. She Miss. Kay Kay Midight FO Sports bet betty betty.', 'Romeo George Washington II']
+Uncertainty: 0.610 (frob)
+Label: far-ood
+
+Question: what years did romney serve as governor?
+Ground truth: ['1/2/2003']
+Predicted: ['Governor of New York', 'Governor of Maine', 'Polonist', 'Governor of New Jersey', 'Governor of Maine', 'Governor', 'GovernGovernor of Massachusetts', 'Governor of Massachusetts', 'Governor of Massachusetts', 'Governor of Maine', 'Governor of Massachusetts', 'Governor of Massachusetts', 'Governor of Maine', 'Queensland', 'Two-party system', 'Governor of Massachusetts Edward R. Nicholas', '2000Governor of Texas', 'Governor', 'Massachusetts', 'Governor of Massachusetts', 'Governor of Massachusetts', '2005–06 Republican gubernatorial contest', 'Two-hundred-day', 'Governor of Maine', 'Gerald T. Ford Military', 'Governor', 'Governor of Ohio', 'New York governor', 'Governor of Texas', 'Two terms']
+Uncertainty: 0.512 (frob)
+Label: far-ood
+
+Question: what type of government does france use?
+Ground truth: ['Semi-presidential system', 'Constitutional republic', 'Unitary state']
+Predicted: ['Finance', 'Unitary', 'Federal republic', 'Federal republic', 'Fauché', 'Unitary state', 'Parliamentary system', 'Federation', 'Federation', 'Unitary state in France', 'TheRepublic', 'French Republic', 'Parliament', 'Federation', 'Finance minister', 'Semi', 'Federation France', 'Monarch', 'Second French republic', 'Parliamentary republic', 'Republic', 'National', 'Parliamentary system', 'Unitary state', 'Constitutional republic', 'Constitutional republic', 'Constitutional monarchy', 'Two-party system', 'Parliamentary system', 'Governor']
+Uncertainty: 0.535 (frob)
+Label: in
+
+Question: who rules denmark right now?
+Ground truth: ['Helle Thorning-Schmidt']
+Predicted: ['Giacomo Braga', 'mark', 'Christianin tradition', 'Sweden', 'Denmark', 'Denmark', 'markhager', 'Dogma', 'Denmark', 'Mark Zuckerberg', 'Mark', 'Denmark', 'Brussels', 'Denmark', 'United States of America', 'Danmark', 'Denmark', 'Ric Pipa', 'Denmark', 'Iceland', 'Sports ministerDenmark', 'Mark Zuckerberg', 'Denmark', 'Denmark', 'Denmark', '', 'Denmark', 'Iceland', 'DenRulé', 'Denmark']
+Uncertainty: 0.551 (frob)
+Label: far-ood
+
+Question: what did stephen hawking study?
+Ground truth: ['Physics']
+Predicted: ['Rheumatic disease', 'Adelaide Fisher', 'Scientist', 'University of Oxford', 'Rachman-Green', 'Neutron system', 'Arthur C. Clarke', 'Yore College', ' PersonalityNational Institute of Medicine', 'Dow Jones', 'Rachael Hansen', 'Keggy', 'Millingham book of arithmetic', 'Milling', 'Yale Divinity School', 'Neutonian', '', 'Myelolex crystallography', 'Physician', 'Yinham Bible', "King's disease", 'New York City', 'University of of Oxford', ' Personality and motivation research', 'Apuastika', 'Neutron', 'Neurolethallion', 'Drug abuse', '', 'Author']
+Uncertainty: 0.645 (frob)
+Label: far-ood
+
+Question: where did bristol palin go to school?
+Ground truth: ['Wasilla High School', 'West Anchorage High School', 'Juneau-Douglas High School']
+Predicted: ['School of Visual and Theatre Arts', 'Columbus, Ohio', 'Sharon College', 'Basseterre', 'Israel', 'Bristol High School', 'School of Visual Arts', 'St. Lawrence County Jail', 'Nearwest Washington High School', 'School of Rock', 'Columbia University', 'Aristocrat Party', 'University of Pennsylvania', 'The Columbia University', 'Peter Jackson School', 'School of Visual Arts', 'Inwood High School', 'Harvard University', 'Mississippi', 'Schoolgirl', 'Dakota University', 'Straton College', 'Norland', 'Briswell High School', 'Charlottesville', 'Washington High School', 'University of Southern California', 'Canon High School', 'School for the Deaf and the Blind', 'University of Oxford']
+Uncertainty: 0.603 (frob)
+Label: far-ood
+
+Question: what region of the world is egypt associated with?
+Ground truth: ['Middle East']
+Predicted: ['Egypt', '', 'Eyl Island', 'Egypt', 'Middle East', 'Egypt', 'Egypt', 'Egypt', 'Egypt', 'Middle East', 'Egypt', 'Egypt', 'Egypt', 'Middle East', 'Etime Arabia', 'Egypt', 'Egypt', 'Egyptian context', 'Eyl', 'Africa', 'Sudan', 'Eritrea', 'Egypt', 'Middle East', 'Sudan', 'Egypt', 'Egypt', 'Egypt', 'Sudania', 'Egypt']
+Uncertainty: 0.362 (frob)
+Label: near-ood
+
+Question: where did drew brees go to college wikianswers?
+Ground truth: ['Purdue University']
+Predicted: ['Cornell University', 'University of Houston', 'Walter P. Err', 'Wright State University', 'Matthau', 'University of Minnesota', 'Occidental College', 'United States of America', 'Amherst College', 'West Windsor Community College', 'University of North Alabama', 'Wisconsin State University', 'Candidacy State College', 'University of Oxford', '', 'University of Oxford', 'Washington and Kentucky State University', 'Texas A.I.E.', ' secondary school', 'Washington D.C.', 'United States of America', 'University of Oxford', 'United States of America', 'Yale Law School', 'United States of America', 'Florida State University', 'Wadham College', 'University of Oxford', 'University of Oxford', 'University of Central Florida']
+Uncertainty: 0.567 (frob)
+Label: far-ood
+
+Question: what are republicans views on health care?
+Ground truth: ['20003']
+Predicted: ['Conservatives', 'Governance of the United States', 'Presumptive', 'United States of America', 'Physician', 'Centers for Medicare and Medicaid Services', 'Republican Party', 'Centers for America', 'Congressman', 'Centers for Independent', 'President Donald Trump', 'Presidential hopefuls', 'Consultant', 'Health care reform', 'Physician', 'Centre for Medicare and Medicaid', 'Centrist', 'Medicain', 'Health and Labor', 'Centers for Medicare and Medicaid expansion', 'Health Care', 'Republican Party', 'Governor', 'Drug Policy', 'Centers for Medicare and Medicaid Services', 'President of the United States', 'Ron Payne-Cook', 'Centarianism', 'Health Care', 'Conservatism']
+Uncertainty: 0.616 (frob)
+Label: far-ood
+
+Question: what school did ben roethlisberger go to?
+Ground truth: ['Miami University']
+Predicted: ['Pittsburgh Steelers football', 'University of Pennsylvania', 'Ben Franklin High School', 'Pittsburgh School of the Arts', 'University of Pittsburgh', 'Pitt High School', 'University of Pittsburgh', 'Roamer High School', 'Roethlisberger High School', 'Pittsburgh High School', 'University of Pittsburgh', 'University of Pittsburgh', 'University of Pennsylvania', 'Pennsylvania High School', 'University of Pittsburgh', 'University of Pennsylvania', 'Helix High School', 'University of Pennsylvania', 'Pitt State University', 'Pittsburgh School of Medicine', 'Pittsburgh Steelers', 'University of of Pennsylvania', 'University of Florida', 'Basingerlin High School', 'Penn State', 'University of Pennsylvania', 'University of Pennsylvania', 'University of Florida', 'University of Pittsburgh', 'University of Pittsburgh']
+Uncertainty: 0.463 (frob)
+Label: near-ood
+
+Question: what kind of guitar did george harrison use?
+Ground truth: ['Fender Stratocaster', 'Rickenbacker 360/12']
+Predicted: ['acoustic guitar', 'Bass guitar', 'Gibraltar', 'Bass guitar', 'Electric bass guitar', 'Sitar', 'Gibbs Lesley', 'Gibson acoustic guitar', 'C.F. Stewart', 'Music', 'Drums', 'Carolotte organ', 'F-twin guitar', 'Bass guitar', 'C. F. Martin guitar', 'Guitar', 'Bass guitar', 'Fender Stratocaster', 'Bass guitar', 'Bass guitar', 'Acoustic guitar', 'B&B Custom', 'The Fender Guitar', 'Guantantheron', 'guitar', 'The Gibson F1', 'The Fender Stratos', 'The F-8', 'B-Fender', 'Ford Model B']
+Uncertainty: 0.542 (frob)
+Label: near-ood
+
+Question: what language do navajo people speak?
+Ground truth: ['Spanish Language', 'Navajo Language', 'English Language']
+Predicted: ['Navajo Language', 'Spanish Language', 'English Language', 'Navajero language', 'Navajo Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'Spanish Language', 'English Language', 'Navajo language', 'Spanish Language', 'NavNavajo language', 'Navicota language', 'English Language', 'SpanishNavajo Language', 'Spanish Language', 'Spanish Language', 'Navajo language', 'Navoan Language', 'Spanish Language', 'Navajo Language', 'Navajo Language', 'Spanish Language', 'Spanish language', ' thing.', 'Naviguously language', 'Navajo Language', 'Spanish Language', 'Navajo']
+Uncertainty: 0.395 (frob)
+Label: near-ood
+
+Question: what places make up new england?
+Ground truth: ['Maine']
+Predicted: ['South Devon', 'City Center', 'New York', 'UnitedEngland', 'Canada', 'Swofford', 'England', 'England', 'New York', 'London', 'New Zealand', 'New York', 'London', 'United Kingdom', 'England', 'New York', 'New Jersey', 'New York', 'North Yorkshire', 'Canada', 'North Yorkshire', 'England', 'Canada', 'New Caledonia', 'England', 'New York City', 'New England', 'Newland', 'United Kingdom', 'Severn']
+Uncertainty: 0.524 (frob)
+Label: near-ood
+
+Question: what are the landlocked countries in latin america?
+Ground truth: ['Bolivia', 'Honduras', 'Cuba', 'El Salvador', 'Guatemala', 'Costa Rica', 'Cuauhtémoc, D.F.', 'Great Pyramid of Tenochtitlán', 'Paraguay', 'Belize']
+Predicted: ['Honduras', 'Brazil', 'Panama', 'Caribbean States', 'Mérida', 'Brazil', 'Lampedua Island', 'Amazon Basin', 'Bolivia', 'Panama', 'Caracol', 'Carras', 'Pampas', 'Granco', 'Water Resources of Central America', 'Peru', 'Amazonian rainforest', 'Jamaica', 'Mozambique', 'Latuse Country', 'Guatemala', 'Guatema', 'Latimerin Island', 'Maurican Republic', 'Cocoyena', 'Guyano Republic', 'United States of America', 'Andorinia', 'Managua', 'Latvia']
+Uncertainty: 0.557 (frob)
+Label: near-ood
+
+Question: who did gerald ford select as his vice president when he became president?
+Ground truth: ['Nelson Rockefeller']
+Predicted: ['President of the United States', "George Ford's vice president", 'President of the United States of America', 'George H.. W. Bell', 'Gerald Ford', 'Vice President', 'Vice president', 'George H. Roosevelt', 'Henry VIII', 'Dick Cheney', 'Charles W. King', 'Dick Nixon', 'George W. Bush', 'Vice President', 'Richard Nixon', 'Gerald Stanley', 'Dick Henry', 'Gerald Ford', 'Dick Cheney', 'Dick DeVos', 'Dickjamin', 'Gerald Ford', 'Jack Kennedy', 'Gerald R. Ford', 'Gerald Ford', 'Vice President', 'Pres. John F. Kennedy', 'Ricochet', 'Yosef T. Williams, Jr.', 'Gerald Ford']
+Uncertainty: 0.564 (frob)
+Label: far-ood
+
+Question: what is the currency used in italy?
+Ground truth: ['Euro']
+Predicted: ['Euro', 'Italian for sale', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Italian florin', 'Euro', 'Euro system', 'Euro', 'Italy', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Italian peso', 'Euro', 'Euro for Italian origin', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro', 'Euro']
+Uncertainty: 0.301 (frob)
+Label: in
+
+Question: who is jamie little engaged to?
+Ground truth: ['Cody Selman']
+Predicted: ['Jordin Sparks', 'Candace Mullaney', 'Candice', 'Candice Manuel', 'Candie Greengrass', 'Candie', 'Cory Greengrass', 'Seth MacFarlane', 'Candice Kennedy', 'SpikeVictoria Preschool', 'Jordin Hatch', 'Romeo and Jake', 'Seth MacFarlane', 'Jason Allen', 'Rothko', 'Jemma Jones', 'Jasmine Thomas', 'Candlelight', 'Randy Alcoby', 'Jasmine Thomas', 'Candie', 'Jasmine Thomas', 'Singer', 'Daniel K.–Ives', 'Jorden Jerman', 'Ricky Carasolo', 'Mack', 'Riccio', 'Brittanhouser', 'Gavin Allen']
+Uncertainty: 0.576 (frob)
+Label: far-ood
+
+Question: what is the capital of modern egypt?
+Ground truth: ['Cairo']
+Predicted: ['Cairo', 'Egypt', 'Cairo', 'Cairo', 'Egypt', 'Egypt', 'Sudan', 'Cairo', 'Cairo', 'Egypt', 'Aksum', 'Coptic', 'Cairo', 'Ancient Egypt', 'Egypt', 'Cairo', 'Egypt', 'Cup of Egypt', '', '', 'Cairo', 'Egypt', 'Egypt', 'Fourcha', 'Egypt', 'Cairo', 'Egypt', 'Egypt', 'Egyptian National Museum', 'Egypt']
+Uncertainty: 0.342 (frob)
+Label: near-ood
+
+Question: where is tyrese gibson from?
+Ground truth: ['Watts']
+Predicted: ['Tyrse gibson', 'BritishSydenham', 'UnitedTunarklbury', 'United States of America', '', 'Europe', 'United Kingdom', 'Europe', 'Europe', 'AustraliaAustralia', 'Eurasia', 'Europe', 'Jamaica', 'United Kingdom', 'Tiger bar graph', 'Tympanologist', 'Prague', 'United States of America', 'Syracine', 'Gibson–Taylor ratio', 'Tireless', ' fragment', 'Australia', 'Bolton', 'B&T', 'Australia', 'Europe', 'Jötland', 'Kirillos', 'Tear-pothole film']
+Uncertainty: 0.615 (frob)
+Label: far-ood
+
+Question: who did scarlett johansson date?
+Ground truth: ['Justin Timberlake', 'Josh Hartnett', 'Benicio del Toro', 'Jared Leto', 'Derek Jeter']
+Predicted: ['Ryan Reynolds', 'Romeo and Gildon', 'Romola Nash', 'Jasmine Thomas', 'Rachlo Glass', 'RemJosh Smith', 'RomRomancer', 'Romancing the King', 'Ryan Gosling', 'Downdare', 'Never A.D.', 'Jack Coleman', 'Scarlett', 'Maid ofothra', 'Ryan Reynolds', 'Romolo Shires', 'Ryan Reynolds', 'Mia Jarrow', 'Eri Ruppreid', 'Men', 'Kate Bosworth', 'Romola della Vorale', 'Paula Wenley', 'Eddie Harris', 'Ryan Reynolds', 'Ryan Reynolds', 'Romantic foil', 'Ryan Reynolds', 'Ellen Barken', 'Romina unfalante']
+Uncertainty: 0.574 (frob)
+Label: far-ood
+
+Question: which continents were part of the roman empire?
+Ground truth: ['Europe', 'North Africa', 'Middle East']
+Predicted: ['Italy', 'Rome', 'RItaly', 'Western and Eastern Europe', 'Germany', 'Romeria', 'North America', 'Rome', 'Europe', 'Americas', 'Italy', 'Rune', 'Central America', 'Rome', 'Rome', 'North America', 'Italy', 'North Africa', 'Europe', 'Europe', 'Europe', 'Kingdom of France', 'Rome', 'Roman', 'Europe', 'Europe', 'North America', 'Europe', 'Latin Empire', 'North America']
+Uncertainty: 0.472 (frob)
+Label: in
+
+Question: where was elvis costello born?
+Ground truth: ['Paddington']
+Predicted: ['South Africa', 'Virginia', 'University ofWellesley', 'Ormond Beach', 'Sudbury', 'California', 'Muswell Beach', 'San Jacirca', 'Silverson', 'Houston', 'New York City', 'New York City', 'Janesville', ' Listerse', 'Costello', "Wilbur 'Elvis Costello", 'Spain', 'ScotElvis Presley', 'Canada', 'Delhi', 'Pennsylvania', 'Costa Ranch', 'Delaware', 'California', 'Washington, United States', 'Canada', 'Orlando', 'Australia', 'WilliamTenn', 'Los Angeles']
+Uncertainty: 0.569 (frob)
+Label: far-ood
+
+Question: where are the gobi desert located on a map?
+Ground truth: ['Mongolia']
+Predicted: ['Afghanistan', 'Sunni', 'Bucalandria', 'Ibou Desert', 'Malta', 'Desert of California', 'Bolj-fakssi lake', 'Mongolia', 'Mongoland', 'Eurasia', 'Gosunde', 'Greenland', 'Mongolian', 'Langara', 'Tarkiti', 'Mongolia', 'Desert Island', 'Eurasia', 'Mineri', 'Morriston', 'Bhutan', 'Gobi National Park', 'Ego Valley', 'Egypt', 'Minda', 'Goebab', 'Las Vegas', 'Egypt', 'India', 'Gobi Desert']
+Uncertainty: 0.587 (frob)
+Label: in
+
+Question: in which continent is germany?
+Ground truth: ['Europe']
+Predicted: ['North America', 'Germany', 'Germany', 'Germany', 'North America', 'Germany', 'Germany', 'German Democratic Republic', 'Germany', 'Europe', 'Germany', 'North-African people', 'Africa', 'Germany', 'Europe', 'Germany', 'North America', 'West Germany', 'Sociofonium', 'Germany', 'West Germany', 'North America', 'Germany', 'Germany', 'Berlin', 'North America', 'Germany', 'North America', 'Africa', 'Europe']
+Uncertainty: 0.419 (frob)
+Label: near-ood
+
+Question: when did the wright brothers created their first plane?
+Ground truth: ['1900 Wright Glider']
+Predicted: ['1915', 'Werin W. Wright', 'Roller Koo', 'Roll of whiskey', 'Charles and Francis W. Wright', 'Wesley Thomas Wright', '1956', 'Orville Wright', '1902', 'Charles Oscar Wright', 'Wiright', "Explorer's Progress", 'Airplane', 'In the hands of William Russell and his brothers', 'Waxle Model Air', '1834', 'Warth family', 'Flight of the Frankander', '1925', 'Airbus automobile', '1900', 'Flight of the Edmunds', 'Wright Model T', 'Wirfield', '1918', 'Airplane', 'Wright', 'Explorer', 'Airplane', '19th century']
+Uncertainty: 0.588 (frob)
+Label: near-ood
+
+Question: where is the seychelles on world map?
+Ground truth: ['Africa']
+Predicted: ['Eurasia', 'Maur Africa', 'Seychelles', 'Medé', 'Seychelles', 'Mare Island', 'Map of the Seychelles', 'Mason Region', 'Mauritius', 'Roré', 'Moz Africa', 'Mozambique', 'Navigant Islands', 'Mozambique', 'Africa', 'Mozambique', 'Mozambique', 'Asia', 'South Africa', 'Mediterranean Sea', 'Mechel', 'South Africa', 'New Caledonia', 'Southeast Asia', 'Oceanian Islands', 'Cambodia', 'Guyana', 'Mozambique', 'South Indian Ocean', 'Guyana']
+Uncertainty: 0.541 (frob)
+Label: near-ood
+
+Question: what is the average temperature in phoenix az in december?
+Ground truth: ['Phoenix should not be contained in Maricopa County.']
+Predicted: ['Phoenix, Arizona', 'Phoenix', 'Ice Lake', 'The average temperature in Toronto, Canada', 'Phoenix', 'HotRosPhoenix HighHotSun Temperature', 'December', 'Climate of Phoenix', 'Phoenix', 'Average temperature in Phoenix', 'Hot Springs', 'Average temperature in Phoenix', 'The city of Vancouver', 'August', 'Phoenix', ' temperature in Phoenix, Arizona', 'The temperature of Phoenix', 'Glendale', 'Phoenix', 'Phoenix', 'Phoenix Airport', 'Phoenix metropolitan area', 'Phoenix, Arizona', 'City of Phoenix, Arizona', 'Hot Springs', 'Phoenix Airport Authority', 'Temperature of New Mexico', 'Phoenix International Airport', 'Average high temperature in Phoenix', 'Phoenix International Airport']
+Uncertainty: 0.536 (frob)
+Label: far-ood
+
+Question: where to exchange euros in new york city?
+Ground truth: ['John F. Kennedy International Airport']
+Predicted: ['New York', 'New York City', 'New York', 'New York City', 'New York', 'New York', 'New York City', 'New York City', 'New York City Factsheet', 'Euro', 'New York', 'New York', 'New York', 'New York City', 'New York City', 'New York', 'Euro', 'New York', 'New York', 'Paris', 'New York Times', 'New York', 'Euro', 'New York', 'New York', 'New York', 'EuroNew York', 'New York euro', 'New York', 'New York City']
+Uncertainty: 0.344 (frob)
+Label: far-ood
+
+Question: when did florida marlins join mlb?
+Ground truth: ['1993 Major League Baseball Season']
+Predicted: ['Sailor', 'Miami Beach', 'Iceburg City', 'M&', '2000 NFL Draft', '2000', '1956', 'Mountain Park', 'Marlon Brand', 'Syric Weather', '2000 Summer Olympics', 'Marlena Park School', 'Atlanta Falcons', 'Marlon Hale', 'Stericycle, Inc', 'M&T Bank Stadium', 'Seattle-bound', 'Miami Dolphins', 'New Zealand', '2012', 'Mountain', 'When did florida marlins join mlb', "Marelin's law", 'Mile High', '2004', 'Marlins', '1983', 'Mountain Ridley', 'Cincinnati Reds', '2012']
+Uncertainty: 0.620 (frob)
+Label: near-ood
+
+Question: what countries does the panama canal go through?
+Ground truth: ['Panama Canal Zone']
+Predicted: ['Rwanda', 'Italy', 'Spain', 'Panama', 'Canary Republic', 'Spain', 'Spain', 'Panama Island', 'Canada', 'Port of Brazil', 'Panama', 'Panama Canal', 'Panama Islands', 'Panama Canal', 'Italy', 'Moldova', 'Guatemala', 'Brazil', 'Guatemala', 'Panama', 'Panama Canal Zone', 'Panama Canal', 'Panama Canal', 'Portugal', 'Mafias', ' Panama Canal', 'Panama Canal', 'Panamanian Canal', 'Pago Pilar', 'Spain']
+Uncertainty: 0.488 (frob)
+Label: in
+
+Question: who did paul revere marry?
+Ground truth: ['Sarah Revere']
+Predicted: ['Josiah', 'Rachael Berry', 'Solemn', 'Christian actor', 'MNamiyaticaluten hostantically-.− up', 'Jill of recent memory', 'Latina', 'Jasmine Touné', 'Christian god', 'Jill Burt', 'Barbara Williams', 'Dorothy Paul II', 'Candice Nichols', 'Christiana Perry', 'Kathleen Righton', 'Boyle', 'Rachael Delgado', 'Christian', 'Zeus Rachmaninowski', 'José Arias', 'Shlomo Goren', 'Descendants of the Artistes of the World', 'Ralph F. Cramer', 'Nicole Kidman', 'Christina Borkowa', 'Jill Thornton', 'Zeus', 'Rita Meikle', 'Zeus', 'Roxanne Christie']
+Uncertainty: 0.604 (frob)
+Label: far-ood
+
+Question: what did fred durst do?
+Ground truth: ['Musician']
+Predicted: ['Deutger', 'Cecile and Hitler', 'Germany', 'Compositiv', 'Mathematician', 'Matteo Savareas', 'Compos', 'Michel Nouters', '', 'Comical', 'Bill Clinton', 'Dilipote', 'Economist', 'Dorf Ringer', 'Politician', 'Monarch University', ' Personality trait', 'Singer', 'Composer', 'Writer', 'Political activist', 'Socialist', 'WriterWriter', '', 'Composistin', 'Writer', 'Dilbert', 'Suicide', 'What did fred Hitler do?', "King's Counsellor"]
+Uncertainty: 0.599 (frob)
+Label: near-ood
+
+Question: who did the chargers draft in 2011?
+Ground truth: ['Frank Summers']
+Predicted: ['Denver Broncos', 'Chargers Drafting Watch', 'United States Secretary of State', 'Los Angeles Chargers', 'Chargers', 'Sophomobile', 'San Diego Chargers', 'San Francisco 49ers', 'Chargers', 'Chargers', 'Chargers', 'Lane Allen', 'Carolina Carolina Panthers', 'Utah Chargers football', 'Chargers', 'Los Angeles Chargers', "Chargers' first-round pick", 'Chargers', 'Chargers', 'Chargers FFA', ' Draft', 'San Francisco 49ers', ' Chargers', 'San Diego Chargers', ' Chargers', 'LosSean Kidd', ' Chargers Draft', 'San Francisco Chargers', 'Los Angeles Chargers', 'San Diego Chargers']
+Uncertainty: 0.577 (frob)
+Label: far-ood
+
+Question: what colleges did albert einstein teach at?
+Ground truth: ['School of Mathematics, Institute for Advanced Study', 'Humboldt University of Berlin Department of Physics']
+Predicted: ['University of Cambridge', 'University of Oxford', 'Einstein College', 'Eton College', 'Abery', 'Albertine College', 'University of Chicago', 'Columbia College', '', 'Alberta State University', 'The Cambridge School', 'Santa Fe College', 'University of Chicago', 'University of Oxford', 'University of Oxford', 'University of Oxford', 'Brookfield Institute of Technology', 'University of Cambridge', 'Reed Institute', 'University of Oxford', 'Yale College', 'Harvard University', 'Rupp School of Business', 'University of Oxford', 'University of Chicago', 'Ralphear A. Smith College', 'Alberta University', 'Alberta Community College', 'University of Chicago', 'Mathematicians']
+Uncertainty: 0.500 (frob)
+Label: far-ood
+
+Question: what make of bike did steve mcqueen ride in the great escape?
+Ground truth: ['Yucatan']
+Predicted: ['Suiter', 'Cabrétie', 'Bifo-Rollers', 'Bike', "The Giro d'oro d'Ilexa", 'Spikey', 'Inventor', 'Bike', 'The bicycle', 'Bicycle', "Inmates' Charter", 'Peter Fitzmauson', 'Bicycle', 'Bike', 'Bike', 'Wilmot 456', 'Bike', 'Bent-ooil', 'Inventorinvent', 'BristBike', 'Spyder', 'Bifoculain', 'Bike', 'Writer', 'The Great Escape', 'Coulson crank', 'Mountain Hardbody', 'Bike', 'Barested', 'Austria']
+Uncertainty: 0.547 (frob)
+Label: far-ood
+
+Question: which dawkins book to read first?
+Ground truth: ['The Selfish Gene']
+Predicted: ['The book', 'Deafthook', 'Kathleen Williams', 'Ladonna Levie', 'Narrative', 'Christianity, Culture and Trademes', 'Wadington', 'Dawhile', 'Edward Williams', 'The Hunger Diilla', 'The Grapes of Wrath', 'The Life of Frederick S. de Cret', 'The Wealth of Numbers', 'The Life of Thomas English Teacher', 'B. D. Harris', 'New Moon', 'Orlando Jones', 'Christianity', 'The Sea of Monsters', 'The Life of A.L.P.E.d. Louisiana', 'The Grapes of Life', 'The Scarlet Legend', "The Bibliographer's Friend", 'Franklin D. Roosevelt: The Life of an American Spy', 'Bookmark', "Anthony and the Magician's Stone", 'Stillwater', ' book to read first', 'Brayden Faulkner', 'James A. Harris']
+Uncertainty: 0.609 (frob)
+Label: far-ood
+
+Question: what year was the first miss america pageant held?
+Ground truth: ['1930 Miss America']
+Predicted: ['1923', 'Miss America pageantMiss America', 'Miss America', 'Miss America', 'Miss America', 'Miss America America 2007', 'Miss America 1947', 'Miss America', 'Miss America', '2000', 'Miss America 2017', 'Miss America Contest of Newport', 'Miss America pageant 1963', 'Miss America 1921', 'Miss America Pageant 1934', 'Miss America', 'Miss America Pageant', 'Miss America 1921', 'Miss America America 1921 Contestant', "Miss America's Pageant", 'Miss America Pageant', 'Miss America 1921', 'Mississipi Territory', 'Miss America 1979', 'Miss Tennessee High School', 'Miss America', 'Miss America 1921', 'Miss America', 'Miss America 2018', 'Miss America']
+Uncertainty: 0.371 (frob)
+Label: far-ood
+
+Question: what was nikola tesla inventions?
+Ground truth: ['Tesla coil']
+Predicted: ['Inventor', 'Inventor', 'Marché design', 'Phone', 'Telephone', 'Inventor', 'Inventor', 'Ceramix', 'Inventor', 'What was an ice-breaking move?', 'Entrepreneur', ' inventions', 'Zeus rapha', 'Inventor', 'Tuskevnikov rifle', 'Inventor', 'Explorer', 'Engineering', 'Eurasium', 'UniversityInventors', 'Explorer', 'Invent', 'University of atrium', 'Lawyer', 'University of Tartu', 'raper', 'Miami', 'Inventor', 'Entomologist', 'United States of America']
+Uncertainty: 0.534 (frob)
+Label: far-ood
+
+Question: where did flemish people come from?
+Ground truth: ['Belgium']
+Predicted: ['United Kingdom', 'HoustonHouston', 'Where did flemish people come from', 'Zemwealtha', 'Washington', 'Israel', 'Normans', 'Germany', 'Austria', 'Scotia', 'Asia', 'Mosheville', 'Belleva', 'Hungarian republic', 'Poland', 'France', 'Istakh', 'Flemish Republic of', 'Paris', 'Mazen', 'South Africa', 'Seattle', 'Israel', 'Christianity', 'Tennessee', 'England', 'Israel', 'United Kingdom', 'Arubin French language', 'Indian']
+Uncertainty: 0.564 (frob)
+Label: in
+
+Question: what was the cause of death for bruce lee?
+Ground truth: ['Cerebral edema']
+Predicted: ['Drug overdose', 'CardCardTDeathTCardMedical evidenceLeadDeathElectrialDeathDeathCongDeathCongCong', 'Congestion', 'Head wound', 'Cancer', 'Cerebral hemorrhage', 'Homelessness', 'Cardiac cancer', 'Cancer', 'Tuberculosis', 'Cerebral cancer', 'Pneumothreat', 'An autopsy', 'Tuberculosis', 'Tuberculosis', 'Pneumothorax', 'TuberTuberculosis', 'Brain tumor', 'Congression', 'Cardiac suicide', 'Cancer', 'Cardiac arrest', 'Le cause of death', 'Lancay', 'Pneumonia', 'Lungt disease', 'Tuberculosis', 'Cardiac cancer', 'Congestion', 'Tuberculosis']
+Uncertainty: 0.541 (frob)
+Label: far-ood
+
+Question: where was benjamin franklin educated?
+Ground truth: ['Boston Latin School']
+Predicted: ['President of the United States', 'New YorkNew York', 'Pennsylvania State High School', 'Franklin', 'Richmond', 'United States Representative', 'New York City', 'New York University School of Medicine', 'United States of America', 'Boston University', 'Franklin High School', 'Franklin College', 'Franklin Academy, Pennsylvania County', 'New York City', 'Memphis', 'Wilburton', 'Virginia', 'Newcastle', 'Philanthony College', 'American Catholic Church', 'Franklin College, Oxford', 'Wright College, Cambridge', 'Princeton University', 'Pennsylvania', 'Reed College, Oxford', 'Franklin', 'Frankland School', 'Charlottesville', 'Franklin', 'New York City']
+Uncertainty: 0.589 (frob)
+Label: far-ood
+
+Question: where obama went to school?
+Ground truth: ['Occidental College', 'Harvard Law School', 'Noelani Elementary School', 'Punahou School', 'State Elementary School Menteng 01', 'St. Francis of Assisi Catholic School', 'Columbia University']
+Predicted: ['Hawaii', 'University of College of Saint Thomas', 'St. Paul', 'Columbia University', 'St. Francis of the Catholic Church', 'Harpton University School of Law', 'Occidental College, Oxford', 'United States Military Academy', "Harrah's Bay", 'Washington High School', 'Harvard University', 'Columbia University', 'University of Phoenix', "St. Paul's School", 'Federal School for the Deaf', 'No. 2', 'Occidental College', 'Washington D.C.', 'The K of Omaha', 'Harvard University', 'ColumbUniversity of Pennsylvania', 'Womack Academy', 'Columbia University', 'WestProfessor', 'Paternian system', 'University of Chicago', 'university of Virginia', 'Washington D.C.', 'Washington, D.C.', 'Harvard School']
+Uncertainty: 0.614 (frob)
+Label: in
+
+Question: what is the primary language of china?
+Ground truth: ['Standard Mandarin']
+Predicted: ['Churi Language', 'Standard Mandarin', 'Chinese language', 'English Language', 'English Language', 'Chinese language', 'Standard language', 'Chinese language', 'Chinese language', 'Chinese language', 'English Language', 'StandardStandardStandard English Language', 'Standard Tibetan language', 'Chinese language', 'Chinese language', 'Chinese language', 'Standard Mandarin', 'Chinese language', 'Chinese language.what is the primary language of china?.. the Chinese language of ancient China.What does it mean to do you?.', 'Chinese language', 'Standard Mandarin Chinese', 'Chinese language', 'Chinese', 'English Language', 'Qing language', 'Chinese language', 'Standard Tibetan Language', 'Chinese language', 'Standard Mandarin', 'Chinese language']
+Uncertainty: 0.349 (frob)
+Label: in
+
+Question: who was the soviet leader during world war ii?
+Ground truth: ['Alexei Negmatov']
+Predicted: ['Joseph Stalin', 'Suhrman', 'Joseph Stalin', 'Communist state', 'SuicideSuicide', 'Joseph Stalin', 'Dalma', 'Joseph Stalin', 'Vladimir Stalin', 'Joseph Stalin', 'Joseph Stalin', 'Dzhokin', 'CommunistChina', 'Joseph Stalin', 'Suheen', 'Joseph Stalin', 'Joseph Stalin', 'Communist', 'Joseph Stalin', 'Suu-', 'Suzhbaev', 'Russia', 'Joseph Stalin', 'Dict minister', 'Dicting', 'Joseph Stalin', 'Joseph Stalin', 'Vladimir the Great', 'Joseph Stalin', ' in west Germany']
+Uncertainty: 0.543 (frob)
+Label: far-ood
+
+Question: where was david berkowitz arrested?
+Ground truth: ['New York City']
+Predicted: ['Poland', 'New York City', 'United States of America', 'Arrest and Sale of Property', 'Dallas', 'Arlington', 'New York', 'Heatherford', 'Barack Obama', 'Israeli politician', 'Arthur R. Gompers', 'Lawyer', 'United States of America', 'Israel', 'Janesville', 'Orwell', 'Tupelo', 'Canton', 'David B.', 'Arrest', 'New York City', 'Shirō', 'uchila', 'Arrest', 'Arlington County', 'David Bauter', 'United States of America', 'Arlington County', 'Orlando', 'Dallas']
+Uncertainty: 0.614 (frob)
+Label: near-ood
+
+Question: where was the city of david?
+Ground truth: ['Bethlehem']
+Predicted: ['David', 'City of David', 'New York City', 'Davidston', 'David', 'United States of America', 'Heidelberg', 'New YorkNew York', 'MexicoLos Angeles', 'Dartmouth', 'David', 'David', 'Derry', 'City of City', 'Americus', 'David', 'David', 'David Silverlake', 'AmericAmericana', 'David', 'David', 'David', 'Doverville', 'David Richards', 'Richmond', 'Dobrus', 'David', 'DUnited Kingdom', 'Maine', 'The City of David']
+Uncertainty: 0.537 (frob)
+Label: far-ood
+
+Question: what is cindy sherman known for?
+Ground truth: ['Photographer']
+Predicted: ['SherSherman', 'Sculptor', 'Cindy Sherman', 'Singer', 'Sherphy', 'Sherman', 'Sheridan', 'Sherman', 'SLawyer', 'Singer', 'Singer', 'Cindy Smith', 'Sherman Art Museum', 'Culay', 'Sherman', 'Psychologist', 'Advertising', 'Sherman Methodist Church', 'ActorSSinger', 'Sherwell', 'Sherman', 'New York Jets', 'Sherman', 'Sherlock Holmes', 'Sherwin-ulsey', 'Sherman Crime', 'Singer', 'Sherman', 'Sherman', 'Sherman']
+Uncertainty: 0.531 (frob)
+Label: near-ood
+
+Question: what tv shows did shawnee smith play in?
+Ground truth: ['Anger Management', 'The Tom Show', 'Scream Queens', 'Brand New Life', '30 Days of Night: Dust to Dust', 'Arsenio', 'Becker', 'The Stand', 'All is Forgiven']
+Predicted: ['The Twilight Saga', 'The Shawnee Family', 'Sorrier Days', 'CNN Primer', 'Saw', 'The Twilight Saga', 'CMT', 'Sorority', 'Sherlock Holmes and the Cabinet', 'The Twilight Zone', '1902', 'The Twilight Saga: Game Three', ' of', 'Dr. Scott Pilgrim Time', 'The Twilight Saga', 'The Twilight Saga', 'The Twilight Zone', '8:00 PM Central', 'MTV', 'Shawnee', 'The Twilight Zone', '8: Clocker', "MTV Children's Book", 'The Twilight Zone', 'Brotherly Love', 'Scream: The Return of General Hospital', 'Twilight Street', 'The Twilight Zone', 'The Twilight Zone', "Cul de' Lax"]
+Uncertainty: 0.566 (frob)
+Label: near-ood
+
+Question: what are aristotle's contributions to science?
+Ground truth: ['Politics', 'Ethics', 'Aesthetics', 'Metaphysics']
+Predicted: ['Neutetic flor archaeology', 'Physicist', 'Naturalist', 'Astron', 'Economics', 'Christianity', 'Astrologer', 'Scientologist', 'Neutron', 'Emperor of the Romans', 'Class of the Ancients', 'Quintiliane', 'Astronomy', 'Scientist', 'Classical Latin', 'Astrologer', 'Heilphus', 'Astrologer', 'The Study of animal evolution', 'University of Oxford', 'Astronomer', 'L. Sprague de Campo', 'Morphology', 'Physiology', 'Scientologist', 'Economist', 'Class of Aristotle', 'Lausf', 'Biography', 'Scientist']
+Uncertainty: 0.557 (frob)
+Label: far-ood
+
+Question: what is there to do for fun in kansas city?
+Ground truth: ['Kemper Arena', 'Starlight Theatre', 'Kauffman Stadium', 'Municipal Stadium', 'Ward Parkway Center', 'Arrowhead Stadium', 'Blue Ridge Mall', 'Blue Ridge Crossing', 'Crown Center', "TWA Corporate Headquarters' Building"]
+Predicted: ['Kansas City, Kansas', 'Arlington Live!', 'Kansas City', 'University of Central Texas', 'Kansas City Zoo', 'Arkansas State University', 'KCTV News Channel', 'Kansas City Public Library', 'Lawry', 'Kansas City', 'Theatre', 'Kansas City Walk of Discovery', 'University of Central Park', 'Kansas CityUniversity of Kansas City', 'Kansas City', 'Kansas City', "Kansas City Zoo Children's Museum", 'Kansas City', 'Kansas City', 'Kansas City', 'K-Pop', 'Kansas City', 'Kansas City Star', 'Kansas City', 'Kansas City', 'Kansas State Fair', 'Kansa University of Kansas', 'Kansas City Museum of Art', "Kansas City Children's Museum", 'Oléon Field Farm']
+Uncertainty: 0.504 (frob)
+Label: far-ood
+
+Question: where was martin luther king jr raised?
+Ground truth: ['Atlanta']
+Predicted: ['Atlanta', 'Memphis', 'Boston', ' Lutherans', 'Atlanta', 'New York City', 'Washington, D.C', 'Canada', 'United States Military Academy', 'Easton', 'Over the Hill', 'Germany', 'Moreland County', 'Canada', 'United States of America', 'Orlando', 'Alabama Supreme Court', 'Washington, D.C.', 'United States of America', 'Boston', 'Luxembourg', 'Boston', 'Boston University', 'Canada', 'Boston', 'Germany', 'Glenwood', 'Memphis', 'East Lansing', 'Kingston']
+Uncertainty: 0.559 (frob)
+Label: in
+
+Question: where does delaware river start?
+Ground truth: ['West Branch Delaware River', 'Mount Jefferson']
+Predicted: ['New River', 'Delaware', 'Ohio River', 'New York City', 'Indian River Valley', 'Wilmington', 'Pennsylvania', 'Eastern United States', 'Delaware', 'Vanderitas', 'Ohio', 'Deer Creek', 'Delaware', 'American Indian', 'Wiliam County', 'Marlon County', 'Delaware', 'MDelaware River', 'Delaware County', 'The Delaware River', 'Sole County', 'Wilmoth', 'Ohio River', 'Wyandot County', 'Ariston County, United States', 'Wilmington', 'South Jersey', 'Ohio', 'Aberdeen Seaway', 'The Ohio River']
+Uncertainty: 0.547 (frob)
+Label: far-ood
+
+Question: where did mitt romney's parents come from?
+Ground truth: ['Bloomfield Hills']
+Predicted: ['David Milch', 'English', 'Hawaii', 'Tennessee', 'New York', 'Brooklyn', 'Las Vegas', 'ller', 'British Columbia', 'Honolulu', 'United States of America', 'New York City', 'Kansas City', 'Brooklyn', 'New York City', 'Florida', 'New York', 'New York', "My father's side", 'New York', 'Boston', 'Alabama', 'Stadge', 'Romeo and Paul', 'vancouver', 'Staten Island', 'Honolulu', 'Birmingham', 'Texas', 'American football player']
+Uncertainty: 0.533 (frob)
+Label: far-ood
+
+Question: what places in japan were bombed?
+Ground truth: ['Hiroshima Prefecture']
+Predicted: ['Tokyo', 'Tokyo', 'Tokyo', 'Tokyo', 'Tokyo', 'Tokyo', 'Japan', 'Shimayama', 'China', 'Tokyo', 'Tokyo', 'Tokyo', 'Tokugun', 'The Tokyo Ground Zero', 'Japan', 'Tokyo', 'Tokaya-sen', 'Osaka', 'Tokyo', 'Tokyo', 'Tokyo', 'United States of America', 'Tokyo', 'Shinjo', 'Japan', 'Tokyo', 'Tokyo', 'Tokyo', 'Seibuya-jima', 'Japan']
+Uncertainty: 0.389 (frob)
+Label: far-ood
+
+Question: when did michael jordan return to the nba?
+Ground truth: ['2001–02 NBA season']
+Predicted: ['Point guard', 'Point', '2003 NBA Draft', '1984 NBA Draft', 'National Basketball Association', '2003 NBA Draft', 'C.J. Hammons', '1984 NBA Draft', 'Back in the NBA', 'Orlando Magic', '2003', '1984 NBA Finals', 'Indiana Pacers', '1984 NBA Draft', '1984 NBA Draft', '1984 NBA Finals', 'PointPoint guard', '1984 NBA Draft', '2003 NBA Draft', 'NBA', '1984 NBA Finals', '1984 NBA Draft', 'Shaq', 'Two-Way Magic', 'Point guard', '2003 NBA Draft', '2003 NBA Finals', '2003 NBA Draft', '2003 NBA Draft', '1984 NBA Draft']
+Uncertainty: 0.527 (frob)
+Label: far-ood
+
+Question: what type of economy exists in china?
+Ground truth: ['Socialist state']
+Predicted: ['Economy of China', 'StateStateEconomist', 'Ribbon', 'An economy', 'Economy', 'Economy', 'Unitary Chineseitary', "People's Republic of", 'Rural land', 'Shenzhen', 'Socialist state', 'Economy', 'China', 'Economical system', 'China', 'Boikinset', 'Economy', 'Industry', 'Second-Class Economy', 'Socialism', 'Japan', 'Mixed-party system', 'Yin-utilecha republic of Russia', 'Japonism', 'China', 'Empire State', 'Cultural economy', 'China', 'SocialDChinese governmentRChinese government', 'Chinese economy']
+Uncertainty: 0.542 (frob)
+Label: in
+
+Question: who was esther's husband?
+Ground truth: ['Susa']
+Predicted: ['Lane Allen', 'Heinrich Roesler', 'Samuel Hobson and John Smith', 'Sidney Davy', 'Gustav Schubert', 'Michel', 'Gen. Joseph Darwin', 'Hermanus', 'Bailie King', 'Christian Hitler', 'Hosse al-Ghayos', 'Beauvaül', 'David', 'Marc Israel', 'David Richards', 'Zeus', 'Christian Foster-Ward', 'David', 'Cromelin', 'Compton', 'John Smith', 'Heinrich', 'Samuel of Arabia', 'Liliist', 'Solomonhead', 'David Wilson', 'Riccly', 'Joban Cutler', 'Luitgard', 'Christian Krayer']
+Uncertainty: 0.562 (frob)
+Label: near-ood
+
+Question: who's dating claire danes?
+Ground truth: ['Hugh Dancy']
+Predicted: ['Alex Judd', 'Marc Alinger', 'Neutronism', 'David Burtch', 'IceChristian Bale', 'Sebastian Koch', 'Jack Donoughty', 'Jason Allen', ' christopher gormley', 'Marcia Green', 'Eric Williams', 'Czech Republic', 'Candidat', 'Claire Danvers', 'Andy', 'American football player', 'Singer', 'American football player', 'Single', 'Jasmine', 'Claire Danes', 'Jason Allen', 'Brilliant liar', 'Ice Hockey player', 'David Wallis', 'Taylor Shipp', 'Romeulion', 'Singer', 'Alex', 'Ruth Holdor']
+Uncertainty: 0.575 (frob)
+Label: far-ood
+
+Question: what produce does florida export?
+Ground truth: ['Orange juice']
+Predicted: ['Sunbonilla figs', 'Milling', 'United States of America', 'United States', 'Miami-Dwater Waterforest', 'Food', 'Southwest Florida Organic Park', 'Florida Made in Florida', 'Southeast United States', 'Mango', 'Milledgein', 'Sustainable Farm Revolution', 'United States of America', 'Sevillen', 'Marcilla', 'United States ofFlorida', 'Jämling', 'MyrUnited States of America', 'Sorale fruit', 'United States of America', 'Sunflower seeds', 'TAMASU, FL', 'Seminarium of the Bahamas', 'Pineapple', 'Sun Power Plant', 'Soybean', 'Wycote', 'Costa Rica', 'Sewell-tree sugar', 'Corn-based']
+Uncertainty: 0.617 (frob)
+Label: far-ood
+
+Question: what type of sports do japanese play?
+Ground truth: ['Japan national football team', "Japan women's national handball team", "Japan men's national volleyball team", 'Japan national handball team', "Japan women's national volleyball team", 'Japan national baseball team']
+Predicted: ['Japan', 'Indian Ocean Ocean Sea', 'Japanese football', 'Sports', 'Jocquet', 'Japan Hockey League', 'Basketball', 'Japan national football team', 'Japan', 'Japanese national football team', 'Jaguks', 'Japanese football', 'JJapan Series', 'Puquet', 'Japan Football Club', 'Japan Lions', 'BBasketball', 'NationalJapan Football League', 'Japan Hockey', 'Basketball', 'Jucan football', 'Sports', 'American football player', 'Basketball', 'Japan football', 'Football', 'Japanese football', 'Sports Entertainment', 'Japan', 'Japan']
+Uncertainty: 0.553 (frob)
+Label: far-ood
+
+Question: what did drita find out?
+Ground truth: ['Football Superleague of Kosovo']
+Predicted: ['Luxembes', '', 'Mysianes', 'Sorin', 'Wars of the Ages', 'New York City', 'Complication', 'Indian Ocean', 'Doril Chan', 'Drug and Alcoholism,', 'Mathematic Personality', '2006 Democratic National Convention', 'g', '', '1990', 'Spain', 'russia', 'Derrida', 'Newton', 'Drita Torres', 'Breast cancer', 'Anti-Dos', 'chained', 'Poland', '2011 United States Open University', 'Televangelist', 'News and \xadculture', 'dritpham', 'Debutante', 'Scientist']
+Uncertainty: 0.659 (frob)
+Label: far-ood
+
+Question: where did the latin language originate from?
+Ground truth: ['Italic languages', 'Indo-European languages']
+Predicted: ['Italy', 'Albania', 'Tage', 'Afrique Republic of Argentina', 'Latin Language', 'Latin language', 'Latin Portuguese', 'Greek Language', 'ancy', 'Altoism', 'Latin Language', 'Eritrea', 'Brazil', 'Latin', 'Europe', 'Brazil', 'Romanic language', 'Wales', 'El Salvador', 'Latin Language', 'Andorthic cultures', 'Latinate language', 'Lat', 'Latin Language', 'Latino language', 'Europe', 'Eurasia', 'Brazilian language', 'Brazil', 'South America']
+Uncertainty: 0.562 (frob)
+Label: in
+
+Question: when does the mayan calendar end exactly?
+Ground truth: ['2012']
+Predicted: ['Tunis University, Oxford', 'The Middle East', 'Islamic', 'Yin-tan', 'Tentative period', 'The year of Islam', 'The year of the prophet', 'Islamic calendar', 'The year 2012', 'Mayan calendar', 'Mayan calendar year', 'When does the mayan calendar end exactly?', 'The year', '2012', 'Tajik', 'Year 365', 'The month of vernil', 'Mayan calendar', 'Mongolia', 'Sun Day', 'The Eastern Time Zone', 'IslamicMay', 'The twelfth month', 'Islamic calendar', 'When does the Islamic calendar begin?', 'Philippine Islands', 'Sun-set', 'Yongsong', '2012 calendar year', 'Asiaest Coast']
+Uncertainty: 0.619 (frob)
+Label: near-ood
+
+Question: what school did karl benz go to?
+Ground truth: ['Karlsruhe Institute of Technology', 'University of Karlsruhe']
+Predicted: ['University of Heidelberg', 'Bridgewater Albert High School', 'Radcliffe Academy', 'University of Florida', 'Lakeside School', 'University of Florida Medical School', 'University of Minnesota, Minneapolis', 'University of Oxford University', 'Harper and Marshall College', 'Harvard University', 'University of Central Florida', 'University of Florida', 'Lowery High School', 'University of Houston', 'Columbian Military Academy and State School', 'University of Florida', 'Yale College for Advanced Study', 'Harvard University', 'University of Minnesota', 'Reed College', 'Harvard University', 'Dundurn High School', 'University of Central Florida', 'Mathematician', 'Yale High School', 'Dunbar College', 'University of Central Florida', 'The John F. School of Law', 'Waxbury Academy of Technology', 'University of Phoenix']
+Uncertainty: 0.514 (frob)
+Label: far-ood
+
+Question: when does jewish new year start?
+Ground truth: ['Yiddish Language']
+Predicted: ['2012New Year', '2012', '2012', '2000 BC', '2011', 'Jewish new year', '2009', 'Israel', 'New York City', '2012', 'New Year', 'New Year', '2002 Presidents Day', 'New Year', 'Shidduchim', 'Shidung', 'New York', '2012', 'New Year', 'New Year', 'New Year', '1856', '2012', '2012', '2012', 'Israel', 'MNew Year', 'Yiddish calendar', 'New Year', '2012']
+Uncertainty: 0.555 (frob)
+Label: near-ood
+
+Question: when do world war ii end?
+Ground truth: ['1942']
+Predicted: ['World War II', '2012 Summer Olympics', 'Germany', 'World War II', 'World War II', 'World War II', 'World War I', 'World War II', '1991 Winter Olympics', 'World War I and World War I', 'World War II', 'United Kingdom', 'World War II', 'World War I', 'World War II', 'World War II', 'World War ii', 'Battle of World War II', 'World War I', 'World War III', 'World War II', 'World War II', 'war', 'World War II', 'World War I', 'German2011', 'War of the Second World War', 'World War I', 'World War ii', 'Germany had']
+Uncertainty: 0.434 (frob)
+Label: far-ood
+
+Question: what do christians believe about heaven hell and purgatory?
+Ground truth: ['Greek Evangelical Church', 'The Church of Nails']
+Predicted: ['Hell', 'Christians', 'Judaism', 'Anglicanism', 'Christ Church', 'Hell and Purgatory', 'Operative polarity', "My Father's Home", 'Anglicanism', "God's kingdom", 'Christianity', 'Christians', 'God rest', 'Christians', 'Hell', 'Christianity', 'Jesus Christ', 'Christians', 'Judaism', 'Johannah', 'God', "God's kingdom", 'What do christians believe about heaven?', 'Jesus Christ', 'Anglicanism', 'Aristology', 'Christians', 'Hell and Heaven', 'Pulgate Rabbit', 'Heaven and the afterlife']
+Uncertainty: 0.546 (frob)
+Label: far-ood
+
+Question: where did morgan freeman graduate?
+Ground truth: ['Jackson State University', 'Los Angeles City College']
+Predicted: ['Princeton University', 'Middelware Township', 'University of Oxford', 'University of Massachusetts', 'WomenUniversity of Massachusetts - campus', 'University of Oxford', 'Princeton University of Pennsylvania', 'University of Oxford', 'UniversityShawnaw', 'Carter University', 'University of Oxford', 'Madera School of Visual Arts', 'Munican University', 'Mississippiperforming Arts', 'Columbus High School', 'Brookline High School', 'Alyssa Milano', 'Brookdale High School', 'Westminster High School', 'University of Oxford Oxford', 'New York City', 'University of Massachusetts Amherst', 'University of Florida', 'Martell Elementary School', 'West Lafayette High School', 'University of Florida State University', 'Brooklyn', 'West Lafayette High School', 'West Virginia', 'Brook College']
+Uncertainty: 0.565 (frob)
+Label: far-ood
+
+Question: who did queen elizabeth 1 executed?
+Ground truth: ['queen elizabeth i of england she executed mary queen of scots']
+Predicted: ['England', 'Elizabeth Taylor', 'Execution', 'Elizabeth', 'British Guiana', 'Elizabeth II', 'Elizabeth II', 'Trick Ranger', 'Execution', 'QueenKing ofQueen Victoria', 'Queen Elizabeth II of Australia', 'Queen Victoria', 'British royalist', 'Elizabeth II of Great Britain', 'Elizabeth I', 'Elizabeth Taylor', 'Phil oface', 'King of Spain', 'Elizabeth II', 'Lawyer', 'Elizabeth II', 'Catherine Bellatrix', 'Mark of the Beast', 'King of Spain', 'Elizabeth II', 'British royalist', 'Queen of England', 'Craig never lived', 'King Edward VII', 'Assassie']
+Uncertainty: 0.573 (frob)
+Label: far-ood
+

@@ -27,7 +27,7 @@ ANNOTATIONS_TO_DOWNLOAD = [
 os.makedirs("data/", exist_ok=True)
 for link, subdir, dest in TEST_SETS_TO_DOWNLOAD:
     os.makedirs("data/" + subdir, exist_ok=True)
-    wget.download(link, BASE / subdir / dest)
+    wget.download(link, str(BASE / subdir / dest))
 
 for link, subdir, dest in ANNOTATIONS_TO_DOWNLOAD:
-    wget.download(link, BASE / subdir / dest)
+    wget.download(link, str(BASE / subdir / dest))
