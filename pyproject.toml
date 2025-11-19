@@ -15,7 +15,6 @@ dependencies = [
     "torch>=2.7.0",
     "transformers>=4.51.1",
     "vastai>=0.2.8",
-    "wget>=3.2",
 ]
 
 [[tool.uv.index]]

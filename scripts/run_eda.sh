@@ -1,8 +1,4 @@
-#!/bin/bash
-
 # Run EDA script for all dataset/OOD combinations
-echo "Running EDA checks..."
-
 datasets=("webquestions" "triviaqa" "nq")
 
 for dataset in "${datasets[@]}"; do

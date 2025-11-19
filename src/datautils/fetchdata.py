@@ -1,4 +1,4 @@
-""""Load TriviaQA and Natural Questions datasets."""
+""""Load TriviaQA and Natural Questions datasets from Huggingface."""
 
 from pathlib import Path
 

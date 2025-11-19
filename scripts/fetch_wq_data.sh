@@ -1,7 +1,11 @@
+# Fetch WebQuestions train and dev splits from Karpukhin et al. from their repo.
+# References:
+# https://arxiv.org/pdf/2004.04906 (Karpukhin et al. 2020)
+# https://github.com/facebookresearch/DPR/blob/main/dpr/data/download_data.py
+
 splits=(train dev)                      # test is loaded elsewhere due to annotations
 
 outdir=data
-mkdir -p $outdir 
 mkdir -p $outdir/"webquestions"         # other datasets are loaded elsewhere
 
 tmpdir=tmp
@@ -13,17 +17,16 @@ for split in ${splits[@]}; do
 
   wget -q --show-progress -O $tmpdir/$name.gz $url
   gunzip -f $tmpdir/$name.gz            # unzip and delete .gz
-                                       
+
   infile="$tmpdir/$name"
   outfile="$outdir/webquestions/$name"
 
-  jq '[ .[] | { question, answers } ]' $infile > $outfile     # remove unnecessary columns relating to Karpukhin et al.
+                                        # remove unnecessary columns relating to Karpukhin et al.
+  jq '[ .[] | { question, answers } ]' $infile > $outfile
+  jq -c '.[]' $outfile > "$outfile"l    # json to jsonl since nq and triviaqa are also jsonl
+  rm $outfile                           # remove original json
 
-  echo handled $outfile
+  echo handled "$outfile"l
 done
 
-rm -rf $tmpdir
-
-# References:
-# https://arxiv.org/pdf/2004.04906 (Karpukhin et al. 2020)
-# https://github.com/facebookresearch/DPR/blob/main/dpr/data/download_data.py
+rm -rf $tmpdir                          # cleanup bloated json files
