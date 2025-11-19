@@ -28,8 +28,6 @@ I can see in https://discovery.ucl.ac.uk/id/eprint/10151750/2/Patrick_Lewis_Thes
 
 - https://github.com/facebookresearch/DPR/issues/143 shows that the 278 dev set is filtered. the original 361 seems hard to find
 
-- mail: hello.patrick.lewis@gmail.com   
-
 ## TriviaQA
 | Split | Link | Samples |
 |-------|------|------|
