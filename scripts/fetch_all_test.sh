@@ -11,4 +11,9 @@ for dataset in "${datasets[@]}"; do
     url="https://dl.fbaipublicfiles.com/qaoverlap/data/$dataset-$suffix"
     wget -q --show-progress -O $dest $url
   done
+
+  echo "\$ uv run src/datautils/mergeannotations.py --dataset $dataset"
+  uv run src/datautils/mergeannotations.py --dataset "$dataset"
+  # rm data/$dataset/$dataset-annotations.jsonl
+  # rm data/$dataset/$dataset-test.qa.csv
 done

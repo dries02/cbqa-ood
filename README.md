@@ -28,6 +28,8 @@ I can see in https://discovery.ucl.ac.uk/id/eprint/10151750/2/Patrick_Lewis_Thes
 
 - https://github.com/facebookresearch/DPR/issues/143 shows that the 278 dev set is filtered. the original 361 seems hard to find
 
+Rest to 1940 samples
+
 ## TriviaQA
 | Split | Link | Samples |
 |-------|------|------|
@@ -36,6 +38,7 @@ I can see in https://discovery.ucl.ac.uk/id/eprint/10151750/2/Patrick_Lewis_Thes
 | Test | [download](https://dl.fbaipublicfiles.com/qaoverlap/data/triviaqa-test.qa.csv) | 11,313
 | Annotations | [download](https://dl.fbaipublicfiles.com/qaoverlap/data/triviaqa-annotations.jsonl) | 11,313
 
+Reduced to 3948 samples
 
 ## Natural Questions
 | Split | Link | Samples |
@@ -44,3 +47,5 @@ I can see in https://discovery.ucl.ac.uk/id/eprint/10151750/2/Patrick_Lewis_Thes
 | Dev | [view](https://huggingface.co/datasets/RUC-NLPIR/FlashRAG_datasets/viewer/nq/dev) | 8,757
 | Test | [download](https://dl.fbaipublicfiles.com/qaoverlap/data/nq-test.qa.csv) | 3,610
 | Annotations | [download](https://dl.fbaipublicfiles.com/qaoverlap/data/nq-annotations.jsonl) | 3,610
+
+Reduced to 1428 samples

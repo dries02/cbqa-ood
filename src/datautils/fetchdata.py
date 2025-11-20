@@ -11,6 +11,7 @@ def fetch_data(base: str, ds_name: str) -> None:
     splits = ("train", "dev")
     for split in splits:
         dataset = load_dataset("RUC-NLPIR/FlashRAG_datasets", ds_name, split=split)
+        dataset = dataset.remove_columns(["id"]).rename_column("golden_answers", "answers")
         filename = f"{ds_name}-{split}.jsonl"
         dataset.to_json(basepath / filename, orient="records", lines=True)
 
