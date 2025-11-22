@@ -3,9 +3,32 @@ import torch
 from torch.utils.data import DataLoader
 from transformers import BartForConditionalGeneration, BartTokenizer
 
-from qadataset import QADataset
+from src.train.qadataset import QADataset, eval_collate_fn
+
+import ast
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+import string
+import re
+
+def normalize_answer(s):
+    """Lower text and remove punctuation, articles and extra whitespace."""
+    
+    def remove_articles(text):
+        return re.sub(r'\b(a|an|the)\b', ' ', text)
+    
+    def white_space_fix(text):
+        return ' '.join(text.split())
+    
+    def remove_punc(text):
+        exclude = set(string.punctuation)
+        return ''.join(ch for ch in text if ch not in exclude)
+    
+    def lower(text):
+        return text.lower()
+    
+    return white_space_fix(remove_articles(remove_punc(lower(s))))
 
 
 def interact(model: BartForConditionalGeneration, tokenizer: BartTokenizer) -> None:
@@ -42,12 +65,30 @@ def evaluate(model: BartForConditionalGeneration, tokenizer: BartTokenizer, data
             predictions = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
 
             for q, p, g in zip(questions, predictions, batch_gpu["labels"], strict=True):
+
+                g_list = ast.literal_eval(g)
+                p_2 = normalize_answer(p)
                 if verbose:
                     print(f"Q: {q}")
                     print(f"P: {p}")
                     print(f"G: {g}")
+                    if not any(p_2 == normalize_answer(gt) for gt in g_list):
+                        print("REJECTED")
+                    else:
+                        print("ACCEPTED")
                     print("-" * 80)
-                em_count += p in g              # check if in any ground truth answers
+
+                # em_count += p in g
+                
+
+
+                # if p in g_list and not any(p_2 == normalize_answer(gt) for gt in g_list):
+                    # print(f"Type of g: {type(g_list)}")
+                    # print(f"G value: {g_list}")
+                    # raise ValueError
+                # print(p_2)
+                # print()
+                em_count += any(p_2 == normalize_answer(gt) for gt in g_list)              # check if in any ground truth answers
     if verbose:
         print(f"EM = {em_count}")
 
@@ -56,14 +97,20 @@ def evaluate(model: BartForConditionalGeneration, tokenizer: BartTokenizer, data
 
 
 def main() -> None:
-    model = BartForConditionalGeneration.from_pretrained("models/nq-bnn")
-    tokenizer = BartTokenizer.from_pretrained("models/nq-bnn")
-    train_df = pd.read_parquet("data/webquestions/webq-train.parquet").head(100)
-    dataset = QADataset(train_df, tokenizer)
-    dataloader = DataLoader(dataset, batch_size=1)
+    model = BartForConditionalGeneration.from_pretrained("models/nq-large").to(device)
 
-    # evaluate(model, tokenizer, dataloader)
-    interact(model, tokenizer)
+    tokenizer = BartTokenizer.from_pretrained("models/nq-large")
+    test_df = pd.read_parquet("data/nq/nq-merged.parquet")
+    test_df = test_df[test_df["labels"] == "far-ood"]
+    print(len(test_df))
+    # test_df = pd.read_json("nq-dev.jsonl", lines=True)
+
+    dev_dataset = QADataset(test_df, tokenizer, is_train=False)
+    dataloader = DataLoader(dev_dataset, shuffle=False, batch_size=64, collate_fn=eval_collate_fn)
+
+    em = evaluate(model, tokenizer, dataloader, verbose=True)
+    print(em)
+    # interact(model, tokenizer)
 
 
 if __name__ == "__main__":

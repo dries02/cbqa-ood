@@ -5,8 +5,8 @@ import torch
 from tqdm import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
 
-from f1_rms import f1_rms_uncertainty
-from sbertdemo import frob
+from src.eval.f1_rms import f1_rms_uncertainty
+from src.eval.sbertdemo import frob
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

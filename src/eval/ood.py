@@ -1,7 +1,7 @@
 from pathlib import Path
 
 import torch
-from sbertdemo import frob
+from src.eval.sbertdemo import frob
 from torch.nn.functional import softmax
 from tqdm import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer

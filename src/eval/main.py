@@ -4,7 +4,7 @@ import torch
 from transformers import BartForConditionalGeneration, BartTokenizer
 
 from flipoutbart import FlipoutBart
-from sbertdemo import frob
+from src.eval.sbertdemo import frob
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

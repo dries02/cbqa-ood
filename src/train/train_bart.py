@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import torch
 from torch.optim import Adam, AdamW, Optimizer
@@ -5,13 +7,13 @@ from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
 
-from eval_bart import evaluate
-from flipoutbart import FlipoutBart
-from qadataset import QADataset, eval_collate_fn
+from src.eval.eval_bart import evaluate
+from src.train.flipoutbart import FlipoutBart
+from src.train.qadataset import QADataset, eval_collate_fn
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-N_EPOCHS = 50
+N_EPOCHS = 15
 BATCH_SIZE = 32
 
 
@@ -68,7 +70,7 @@ def experiment(
         model.save_pretrained(output_dir)
         tokenizer.save_pretrained(output_dir)
 
-    evaluate(model, tokenizer, dev_data, verbose=True)
+    # evaluate(model, tokenizer, dev_data, verbose=True)
 
 
 def train_bnn():
@@ -90,15 +92,17 @@ def train_bnn():
 
 
 def main() -> None:
-    train_df = pd.read_json("data/webquestions/webquestions-train.json")
-    dev_df = pd.read_json("data/webquestions/webquestions-dev.json")
+    ds = "nq"
+
+    train_df = pd.read_json(Path("data") / ds / (ds + "-train.jsonl"), lines=True)
+    dev_df = pd.read_json(Path("data") / ds / (ds + "-dev.jsonl"), lines=True)
 
     model = BartForConditionalGeneration.from_pretrained("facebook/bart-large").train()  # enable dropout
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
 
     optimizer = AdamW(model.parameters(), lr=1e-5)
 
-    experiment(model, tokenizer, train_df, dev_df, optimizer, "models/nq-large")
+    experiment(model, tokenizer, train_df, dev_df, optimizer, output_dir=Path("models") / (ds + "-large"))
 
 
 if __name__ == "__main__":
