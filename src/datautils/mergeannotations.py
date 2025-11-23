@@ -1,7 +1,7 @@
 """Inspect the annotated test data from Lewis et al."""
 
-import argparse
 import json
+from argparse import ArgumentParser, Namespace
 from enum import Enum
 from pathlib import Path
 
@@ -26,13 +26,13 @@ ANNOTATIONS = [
 ]
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args() -> Namespace:
     """Create a parser.
 
     Returns:
         argparse.Namespace: A parser that expects the user to enter a data set identifier and OOD type.
     """
-    parser = argparse.ArgumentParser(description="Process QA data set selection and OOD choice.")
+    parser = ArgumentParser(description="Process QA data set selection and OOD choice.")
     parser.add_argument(
         "--dataset",
         type=str,
