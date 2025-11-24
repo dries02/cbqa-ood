@@ -40,36 +40,39 @@ def evaluate(
 
     with torch.no_grad():
         for batch in dataloader:
-                    # only put inputs and attention mask to device
+                # only put inputs and attention mask to device
             batch_gpu = {k: v.to(device) for k, v in batch.items() if k != "labels"}
 
-            pred_ids = model.generate(**batch_gpu, max_length=32)               # greedy decoding
+            pred_ids = model.generate(**batch_gpu, max_length=32, num_beams=1, early_stopping=False)   # greedy decoding
 
             predictions = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
 
             for p, g in zip(predictions, batch["labels"], strict=True):
-                # em_count += p in g
                 p_2 = normalize_answer(p)
-                em_count += any(p_2 == normalize_answer(gt) for gt in g)              # check if in any ground truth answers
+                em_count += any(p_2 == normalize_answer(gt) for gt in g)          # check if in any ground truth answers
 
-    model.training = tmp_flag                   # restore
+    model.training = tmp_flag                   # restore (?)
     return em_count
 
 
 def main() -> None:
-    model = BartForConditionalGeneration.from_pretrained("models/nq-large").to(device)
+    import ast
+    model = BartForConditionalGeneration.from_pretrained("models/webquestions-large").to(device)
 
-    tokenizer = BartTokenizer.from_pretrained("models/nq-large")
-    test_df = pd.read_parquet("data/nq/nq-merged.parquet")
+    tokenizer = BartTokenizer.from_pretrained("models/webquestions-large")
+    test_df = pd.read_parquet("data/webquestions/webquestions-merged.parquet")
+
     test_df = test_df[test_df["labels"] == "far-ood"]
-    print(len(test_df))
+
+    test_df["answers"] = test_df["answers"].apply(ast.literal_eval)   # parquet stores lists as strings...
+    # test_df = test_df[test_df["labels"] == "far-ood"]
     # test_df = pd.read_json("nq-dev.jsonl", lines=True)
 
     dev_dataset = QADatasetEval(test_df, tokenizer)
     dataloader = DataLoader(dev_dataset, shuffle=False, batch_size=64, collate_fn=QADatasetEval.collate_fn)
 
-    em = evaluate(model, tokenizer, dataloader, verbose=True)
-    print(em)
+    em = evaluate(model, tokenizer, dataloader)
+    print(f"{em} out of {len(test_df)}, {em / len(test_df):.3f}")
 
 
 if __name__ == "__main__":

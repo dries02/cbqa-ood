@@ -9,7 +9,8 @@ from transformers import PreTrainedTokenizerBase
 class QADatasetTrain(Dataset):
     """QA Dataset with pre-tokenized inputs and labels for training.
 
-    Training requires labels to be pretokenized. Labels may be stochastic or deterministic.
+    Training requires labels to be pretokenized as well.
+    Since multiple answers may be correct, labels can be considered stochastic.
     """
 
     def __init__(self, df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, *,
@@ -35,8 +36,6 @@ class QADatasetTrain(Dataset):
     def __getitem__(self, idx: int) -> dict[str, torch.Tensor]:
         """Fetch sample from dataset."""
         label = random.choice(self.labels[idx]) if self.sample_answer else self.labels[idx][0]
-        print(self.encodings_q["attention_mask"][idx].shape)
-        print(label.shape)
         return {
             "input_ids": self.encodings_q["input_ids"][idx],
             "attention_mask": self.encodings_q["attention_mask"][idx],
@@ -63,7 +62,7 @@ class QADatasetEval(Dataset):
         return {
             "input_ids": self.encodings_q["input_ids"][idx],
             "attention_mask": self.encodings_q["attention_mask"][idx],
-            "labels": self.labels[idx],
+            "labels": self.labels.iloc[idx],                            # safe indexing
         }
 
         # input is a list of dicts of size "batch_size", where each dict comes from __getitem__.

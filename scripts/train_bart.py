@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 from torch.optim import Adam, AdamW, Optimizer
-from transformers import BartForConditionalGeneration, BartTokenizer
+from transformers import BartForConditionalGeneration, BartTokenizer, GenerationConfig
 
 from src.train.flipoutbart import FlipoutBart
 from src.train.trainconfig import TrainConfig
@@ -23,6 +23,7 @@ def parse_args() -> Namespace:
 
 def train_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
     model = BartForConditionalGeneration.from_pretrained("facebook/bart-large").train()  # enable dropout
+    model.generation_config = GenerationConfig.from_model_config(model.config)           # modern stuff
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
     optimizer = AdamW(model.parameters(), lr=config.lr)
 
@@ -48,8 +49,8 @@ def main() -> None:
     config = TrainConfig(**vars(parse_args()))                  # fetch and unpack the __dict__
     ds = config.dataset
 
-    train_df = pd.read_json(Path("data") / ds / (ds + "-train.jsonl"), lines=True).head(10000)
-    dev_df = pd.read_json(Path("data") / ds / (ds + "-dev.jsonl"), lines=True).head(10000)
+    train_df = pd.read_json(Path("data") / ds / (ds + "-train.jsonl"), lines=True)
+    dev_df = pd.read_json(Path("data") / ds / (ds + "-dev.jsonl"), lines=True)
 
     model, tokenizer, optimizer = train_bart(config)
 
