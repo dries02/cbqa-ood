@@ -1,5 +1,3 @@
-import os
-
 import pandas as pd
 import torch
 from tqdm import tqdm
@@ -75,7 +73,7 @@ def analyze():
 
 
 def main() -> None:
-    test_df = pd.read_parquet("data/webquestions/webquestions-merged.parquet")
+    test_df = pd.read_json("data/webquestions/webquestions-test.jsonl")
 
     test_df["predictions"] = fetch_predictions(test_df)
 

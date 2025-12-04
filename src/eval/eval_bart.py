@@ -56,15 +56,13 @@ def evaluate(
 
 
 def main() -> None:
-    import ast
     model = BartForConditionalGeneration.from_pretrained("models/webquestions-large").to(device)
 
     tokenizer = BartTokenizer.from_pretrained("models/webquestions-large")
-    test_df = pd.read_parquet("data/webquestions/webquestions-merged.parquet")
+    test_df = pd.read_json("data/webquestions/webquestions-test.jsonl")
 
     test_df = test_df[test_df["labels"] == "far-ood"]
 
-    test_df["answers"] = test_df["answers"].apply(ast.literal_eval)   # parquet stores lists as strings...
     # test_df = test_df[test_df["labels"] == "far-ood"]
     # test_df = pd.read_json("nq-dev.jsonl", lines=True)
 

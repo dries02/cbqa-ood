@@ -1,5 +1,6 @@
 """Inspect the annotated test data from Lewis et al."""
 
+import ast
 import json
 from argparse import ArgumentParser, Namespace
 from enum import Enum
@@ -33,14 +34,9 @@ def parse_args() -> Namespace:
         argparse.Namespace: A parser that expects the user to enter a data set identifier and OOD type.
     """
     parser = ArgumentParser(description="Process QA data set selection and OOD choice.")
-    parser.add_argument(
-        "--dataset",
-        type=str,
-        choices=["nq", "webquestions", "triviaqa"],
-        required=True,
+    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True,
         help=(
-            "Specify which dataset to use: nq (Natural Questions), "
-            "webquestions (WebQuestions), or triviaqa (TriviaQA)."
+            "Specify which dataset to use: nq (Natural Questions), webquestions (WebQuestions), or triviaqa (TriviaQA)."
         ),
     )
 
@@ -89,16 +85,15 @@ def encode_labels(test_df: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_test_set(
-        base_path: str,
-        test_extension: str = "test.qa.csv",
-        annotations_extension: str = "annotations.jsonl",
-        ) -> pd.DataFrame:
+        base_path: str, test_extension: str = "test.qa.csv", annotations_extension: str = "annotations.jsonl") -> pd.DataFrame:
     """Read (q,a) pairs with annotated label from .csv and .jsonl file.
 
     Returns:
         pd.DataFrame: The loaded test set with encoded ID (0) / OD (1) samples.
     """
     data = pd.read_csv(base_path + test_extension, sep="\t", names=["question", "answers"])
+                                    # convert string repr of a list to a list...
+    data["answers"] = data["answers"].apply(ast.literal_eval)
                                     # we are very sure that this aligns well
     data["labels"] = load_labels(base_path, annotations_extension)
     return encode_labels(data)
@@ -110,9 +105,7 @@ def main() -> None:
     base_path = f"data/{args.dataset}/{args.dataset}-"
 
     test_df = load_test_set(base_path)
-
-                                    # lists might look like strings in view but its ok
-    test_df.to_parquet(base_path + "merged.parquet", index=False)
+    test_df.to_json(base_path + "test.jsonl", orient="records", lines=True)
 
 if __name__ == "__main__":
     main()
