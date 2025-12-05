@@ -19,6 +19,7 @@ class TrainConfig:
     batch_size: int
     lr: float
     patience: int
+    dropout: float
     dataset: str
     method: str
     train_path: Path | None = None

@@ -34,8 +34,8 @@ def evaluate(
         msg = "Dataset should be in evaluation mode so all answers are returned."
         raise TypeError(msg)
 
-    tmp_flag = model.training                       # maybe restore
-    model.eval()                                    # no dropout
+    was_training = model.training                       # maybe restore
+    model.eval()                                        # no dropout during inference
     em_count = 0
 
     with torch.no_grad():
@@ -51,7 +51,7 @@ def evaluate(
                 p_2 = normalize_answer(p)
                 em_count += any(p_2 == normalize_answer(gt) for gt in g)          # check if in any ground truth answers
 
-    model.training = tmp_flag                   # restore (?)
+    model.train(was_training)                                                     # revert if it was in train mode before
     return em_count
 
 
@@ -67,7 +67,7 @@ def main() -> None:
     # test_df = pd.read_json("nq-dev.jsonl", lines=True)
 
     dev_dataset = QADatasetEval(test_df, tokenizer)
-    dataloader = DataLoader(dev_dataset, shuffle=False, batch_size=64, collate_fn=QADatasetEval.collate_fn)
+    dataloader = DataLoader(dev_dataset, shuffle=False, batch_size=128, collate_fn=QADatasetEval.collate_fn)
 
     em = evaluate(model, tokenizer, dataloader)
     print(f"{em} out of {len(test_df)}, {em / len(test_df):.3f}")

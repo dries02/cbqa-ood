@@ -29,7 +29,7 @@ class Trainer:
         self.optimizer = optimizer
         self.config = config
 
-        train_dataset = QADatasetTrain(train_df, tokenizer, stochastic_labels=True)
+        train_dataset = QADatasetTrain(train_df, tokenizer, use_stochastic_labels=True)
         self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
 
         dev_dataset = QADatasetEval(dev_df, tokenizer)
@@ -51,28 +51,27 @@ class Trainer:
 
                 loss = outputs.loss
 
-                self.optimizer.zero_grad()                              # clear out old gradients
+                self.optimizer.zero_grad()                                      # clear out old gradients
                 loss.backward()
                 self.optimizer.step()
 
                 running_loss += loss.item()
-                avg_so_far = running_loss / idx                         # batches done so far
+                avg_so_far = running_loss / idx                                 # batches done so far
 
                 if idx == len(self.train_data):
                     em_count = evaluate(self.model, self.tokenizer, self.dev_data)
-                    if em_count > best_em:
+                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM=str(em_count))
+
+                    if em_count > best_em:                                      # found better, save immediately
                         best_em = em_count
                         epochs_no_improvement = 0
                         self.save()
+                    elif epochs_no_improvement + 1 == self.config.patience:     # patience ran out, stop early
+                        print(f"\nEarly stopping at epoch {epoch}."
+                              f"Best EM: {best_em} at epoch {epoch - self.config.patience}.")
+                        return
                     else:
                         epochs_no_improvement += 1
-
-                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM=str(em_count))
-
-                    if epochs_no_improvement == self.config.patience:
-                        print(f"\nEarly stopping at epoch {epoch}. Best EM: {best_em}.")
-                        return
-
                 else:
                     loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM="-")
 

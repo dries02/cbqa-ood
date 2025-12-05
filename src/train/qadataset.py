@@ -14,18 +14,17 @@ class QADatasetTrain(Dataset):
     """
 
     def __init__(self, df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, *,
-                 stochastic_labels: bool = False, max_len_q: int = 32, max_len_a: int = 32) -> None:
-        """Pre-tokenize everything at initialization."""
+                 use_stochastic_labels: bool = False, max_len_q: int = 32, max_len_a: int = 32) -> None:
+        """Pre-tokenize everything at construction."""
         super().__init__()
-        self.sample_answer = stochastic_labels
+        self.use_stochastic_labels = use_stochastic_labels
 
         self.encodings_q = tokenizer(
             df["question"].to_list(), max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
 
         self.labels = [
             tokenizer(
-                answers, max_length=max_len_a, truncation=True, padding="max_length", return_tensors="pt",
-            )["input_ids"]
+                answers, max_length=max_len_a, truncation=True, padding="max_length", return_tensors="pt")["input_ids"]
             for answers in df["answers"]
         ]
 
@@ -35,7 +34,7 @@ class QADatasetTrain(Dataset):
 
     def __getitem__(self, idx: int) -> dict[str, torch.Tensor]:
         """Fetch sample from dataset."""
-        label = random.choice(self.labels[idx]) if self.sample_answer else self.labels[idx][0]
+        label = random.choice(self.labels[idx]) if self.use_stochastic_labels else self.labels[idx][0]
         return {
             "input_ids": self.encodings_q["input_ids"][idx],
             "attention_mask": self.encodings_q["attention_mask"][idx],
