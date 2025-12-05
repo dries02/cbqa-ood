@@ -38,6 +38,9 @@ class Trainer:
 
     def train(self) -> None:
         """Train the model."""
+        best_em = 0
+        epochs_no_improvement = 0
+
         for epoch in tqdm(range(1, self.config.n_epochs+1), desc="Epochs", position=0):
             running_loss = 0
 
@@ -57,7 +60,19 @@ class Trainer:
 
                 if idx == len(self.train_data):
                     em_count = evaluate(self.model, self.tokenizer, self.dev_data)
+                    if em_count > best_em:
+                        best_em = em_count
+                        epochs_no_improvement = 0
+                        self.save()
+                    else:
+                        epochs_no_improvement += 1
+
                     loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM=str(em_count))
+
+                    if epochs_no_improvement == self.config.patience:
+                        print(f"\nEarly stopping at epoch {epoch}. Best EM: {best_em}.")
+                        return
+
                 else:
                     loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM="-")
 

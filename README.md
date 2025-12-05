@@ -1,6 +1,8 @@
 # Package management
 uv: ```curl -LsSf https://astral.sh/uv/install.sh | sh```
 
+jq: ```sudo apt-get install jq```
+
 # Datasets
 We use three data sets for closed-book question answering, as used by Lewis et al. (2020).
 

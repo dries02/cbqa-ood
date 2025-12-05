@@ -1,4 +1,4 @@
-from typing import override
+from typing import Self, override
 
 import torch
 from bayesian_torch.layers.flipout_layers import LinearFlipout
@@ -14,16 +14,21 @@ class FlipoutBart(BartForConditionalGeneration):
     def __init__(self, config: BartConfig) -> None:
         """Create a Bayes BART model."""
         super().__init__(config)
-        pretrained_w = self.lm_head.weight.data.clone()         # from pretraining
+        self.train_size: int | None = None
 
-        self.lm_head = LinearFlipout(                           # merely replacing output head
-            in_features=config.d_model,
-            out_features=config.vocab_size,
-            bias=False,                                         # pretrained model also no bias
-        )
+    @classmethod
+    def from_pretrained(cls, pretrained_model_name_or_path: str, train_size: int, rho: float = -3, **kwargs) -> Self:
+        model = super().from_pretrained(pretrained_model_name_or_path, **kwargs)
+        model.train_size = train_size
+        pretrained_w = model.lm_head.weight.data.clone()         # from pretraining
+                                                # merely replacing output head, pretrained model also no bias
+        model.lm_head = LinearFlipout(
+            in_features=model.config.d_model, out_features=model.config.vocab_size, posterior_rho_init=rho, bias=False)
 
-        self.lm_head.mu_weight.data.copy_(pretrained_w)         # warm start posterior
-
+                                                # Set weights AFTER LinearFlipout is fully constructed
+        with torch.no_grad():                   # https://docs.pytorch.org/docs/stable/nn.init.html
+            model.lm_head.mu_weight.copy_(pretrained_w)        # warm start posterior
+        return model
 
     @override
     def forward(
@@ -45,7 +50,7 @@ class FlipoutBart(BartForConditionalGeneration):
         output_hidden_states: bool | None = None,
         return_dict: bool | None = None,
     ) -> tuple | Seq2SeqLMOutput:
-        """Perform a forward pass with the Flipout BART model, based on parent implementation."""
+        """Perform a forward pass with the Flipout BART model, based on base class implementation."""
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
         if labels is not None:
@@ -83,7 +88,8 @@ class FlipoutBart(BartForConditionalGeneration):
             labels = labels.to(lm_logits.device)
             loss_fct = CrossEntropyLoss()
             masked_lm_loss = loss_fct(lm_logits.view(-1, self.config.vocab_size), labels.view(-1))
-            masked_lm_loss += kl                                                # ELBO = CE + KL
+
+            masked_lm_loss += kl / self.train_size                        # ELBO = CE + 1/N KL
 
         if not return_dict:
             output = (lm_logits, *outputs[1:])

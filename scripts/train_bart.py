@@ -2,7 +2,7 @@ from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
 import pandas as pd
-from torch.optim import Adam, AdamW, Optimizer
+from torch.optim import AdamW, Optimizer
 from transformers import BartForConditionalGeneration, BartTokenizer, GenerationConfig
 
 from src.train.flipoutbart import FlipoutBart
@@ -13,15 +13,16 @@ from src.train.trainer import Trainer
 def parse_args() -> Namespace:
     """Create a parser."""
     parser = ArgumentParser(description="Train a model.")
-    parser.add_argument(
-        "--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--n_epochs", type=int, required=True)
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--lr", type=float, default=1e-5)
+    parser.add_argument("--patience", type=int, default=10)
     return parser.parse_args()
 
 
-def train_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
+def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
     model = BartForConditionalGeneration.from_pretrained("facebook/bart-large").train()  # enable dropout
     model.generation_config = GenerationConfig.from_model_config(model.config)           # modern stuff
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
@@ -30,33 +31,38 @@ def train_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartT
     return model, tokenizer, optimizer
 
 
-def train_bnn() -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
-    model = FlipoutBart.from_pretrained("facebook/bart-base").eval()                  # disable dropout
-    tokenizer = BartTokenizer.from_pretrained("facebook/bart-base")
+def make_flipout(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
+    train_size = sum(1 for _ in Path.open(config.train_path))
 
-    for p in model.model.parameters():                                                # freeze
-        p.requires_grad = False
+    model = FlipoutBart.from_pretrained("facebook/bart-large", train_size).train()
+    tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
 
-    optimizer = Adam([
-        {"params": model.lm_head.mu_weight,  "lr": 5e-3, "weight_decay": 0.0},
-        {"params": model.lm_head.rho_weight, "lr": 1e-3, "weight_decay": 0.0},
-    ])
+    optimizer = AdamW([
+    {
+        "params": model.model.parameters(),     # Encoder + Decoder
+        "lr": 1e-5,
+    },
+    {
+        "params": model.lm_head.parameters(),   # mu_weight + rho_weight
+        "lr": 1e-4,                             # Higher LR for new Bayesian layer
+        "weight_decay": 0.0,                    # No weight decay on Bayesian params
+    }])
+
     return model, tokenizer, optimizer
 
 
 def main() -> None:
     """Entry point for training CBQA model. Also asks for command line arguments."""
     config = TrainConfig(**vars(parse_args()))                  # fetch and unpack the __dict__
-    ds = config.dataset
+    train_df = pd.read_json(config.train_path, lines=True)
+    dev_df = pd.read_json(config.dev_path, lines=True)
 
-    train_df = pd.read_json(Path("data") / ds / (ds + "-train.jsonl"), lines=True)
-    dev_df = pd.read_json(Path("data") / ds / (ds + "-dev.jsonl"), lines=True)
+    methods = {"mcdropout": make_bart, "flipout": make_flipout}
 
-    model, tokenizer, optimizer = train_bart(config)
+    model, tokenizer, optimizer = methods[config.method](config)
 
     trainer = Trainer(model, tokenizer, optimizer, train_df, dev_df, config)
     trainer.train()
-    trainer.save()
 
 
 if __name__ == "__main__":
