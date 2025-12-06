@@ -19,12 +19,12 @@ def parse_args() -> Namespace:
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--lr", type=float, default=1e-5)
     parser.add_argument("--patience", type=int, default=10)
-    parser.add_argument("--dropout", type: float, default=0.1)
+    parser.add_argument("--dropout", type=float, default=0.1)
     return parser.parse_args()
 
 
 def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
-    bartconfig: BartConfig = BartConfig.from_pretrained("facebook/bart-base")
+    bartconfig: BartConfig = BartConfig.from_pretrained("facebook/bart-large")
     bartconfig.dropout = config.dropout
 
     model = BartForConditionalGeneration.from_pretrained("facebook/bart-large", config=bartconfig).train()  # enable dropout

@@ -30,7 +30,7 @@ def normalize_answer(s: str) -> str:
 def evaluate(
         model: BartForConditionalGeneration, tokenizer: BartTokenizer, dataloader: DataLoader) -> None:
     """Evaluate the model on a data set."""
-    if not isinstance(dataloader.dataset, QADatasetEval):                 # from QADataset.is_train
+    if not isinstance(dataloader.dataset, QADatasetEval):
         msg = "Dataset should be in evaluation mode so all answers are returned."
         raise TypeError(msg)
 
@@ -56,15 +56,10 @@ def evaluate(
 
 
 def main() -> None:
-    model = BartForConditionalGeneration.from_pretrained("models/webquestions-large").to(device)
+    model = BartForConditionalGeneration.from_pretrained("models/webquestions-mcdropout-large").to(device)
 
-    tokenizer = BartTokenizer.from_pretrained("models/webquestions-large")
-    test_df = pd.read_json("data/webquestions/webquestions-test.jsonl")
-
-    test_df = test_df[test_df["labels"] == "far-ood"]
-
-    # test_df = test_df[test_df["labels"] == "far-ood"]
-    # test_df = pd.read_json("nq-dev.jsonl", lines=True)
+    tokenizer = BartTokenizer.from_pretrained("models/webquestions-mcdropout-large")
+    test_df = pd.read_json("data/webquestions/webquestions-test.jsonl", lines=True)
 
     dev_dataset = QADatasetEval(test_df, tokenizer)
     dataloader = DataLoader(dev_dataset, shuffle=False, batch_size=128, collate_fn=QADatasetEval.collate_fn)
