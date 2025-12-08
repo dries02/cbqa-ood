@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 
@@ -22,9 +22,9 @@ class TrainConfig:
     dropout: float
     dataset: str
     method: str
-    train_path: Path | None = None
-    dev_path: Path | None = None
-    output_dir: Path | None = None
+    train_path: Path = field(init=False)
+    dev_path: Path = field(init=False)
+    output_dir: Path = field(init=False)
 
     def __post_init__(self) -> None:
         """Set some directories."""

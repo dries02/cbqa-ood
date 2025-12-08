@@ -43,7 +43,8 @@ def evaluate(
                 # only put inputs and attention mask to device
             batch_gpu = {k: v.to(device) for k, v in batch.items() if k != "labels"}
 
-            pred_ids = model.generate(**batch_gpu, max_length=32, num_beams=1, early_stopping=False)   # greedy decoding
+            pred_ids = model.generate(
+                **batch_gpu, max_length=32, num_beams=1, do_sample=False, early_stopping=False)    # greedy decoding
 
             predictions = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
 
@@ -51,7 +52,7 @@ def evaluate(
                 p_2 = normalize_answer(p)
                 em_count += any(p_2 == normalize_answer(gt) for gt in g)          # check if in any ground truth answers
 
-    model.train(was_training)                                                     # revert if it was in train mode before
+    model.train(was_training)                                                     # revert if it was in train mode
     return em_count
 
 

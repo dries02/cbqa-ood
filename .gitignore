@@ -13,3 +13,4 @@ wheels/
 # only ignore base-level data folder containing actual data
 /models/
 /data/
+/results/
