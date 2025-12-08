@@ -17,7 +17,7 @@ class GenConfig:
     model: str
     dataset: str
     n_reps: int
-    batch_size: int
+    batch_size: int                     # how many questions to process per time
     model_path: Path = field(init=False)
     test_df_path: Path = field(init=False)
     answers_dest_path: Path = field(init=False)
@@ -42,7 +42,7 @@ def load_model(model_type: str, path: Path, device: torch.device) -> BartForCond
     if model_type == "mcdropout":
         return BartForConditionalGeneration.from_pretrained(path).train().to(device)
     if model_type == "flipout":
-        return FlipoutBart.from_pretrained(path).eval().to(device)
+        return FlipoutBart.from_pretrained(path, None).eval().to(device)
     msg = f"Unknown model type: {model_type}"
     raise ValueError(msg)
 
@@ -54,7 +54,7 @@ def generate_predictions_batched(model: BartForConditionalGeneration, tokenizer:
 
     for idx in tqdm(range(0, len(questions), batch_size)):
         chunk_qs = questions[idx:idx + batch_size]
-        tok_qs = tokenizer(                             # tokenize each question only once
+        tok_qs = tokenizer(                                 # tokenize each question only once
             chunk_qs, max_length=32, truncation=True, padding="max_length", return_tensors="pt").to(device)
 
         batch_preds = []

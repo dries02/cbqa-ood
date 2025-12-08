@@ -64,14 +64,3 @@ def f1_rms_uncertainty(strings: list[str]) -> float:
     T = D.shape[0]
     off_diag = D[~np.eye(T, dtype=bool)]
     return np.sqrt((off_diag ** 2).mean())        # your formula
-
-# ----------------------------- DEMO --------------------------------
-if __name__ == "__main__":
-    answers = [
-        "Paris is the capital of France.",
-        "The capital of France is Paris",
-        "It's Paris",
-        "Berlin"               # conflicting answer
-    ]
-    u = f1_rms_uncertainty(answers)
-    print("u_RMS =", round(u, 4))

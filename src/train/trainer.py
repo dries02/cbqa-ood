@@ -29,7 +29,7 @@ class Trainer:
         self.optimizer = optimizer
         self.config = config
 
-        train_dataset = QADatasetTrain(train_df, tokenizer, use_stochastic_labels=True)
+        train_dataset = QADatasetTrain(train_df, tokenizer, use_stochastic_labels=False)
         self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
 
         dev_dataset = QADatasetEval(dev_df, tokenizer)
