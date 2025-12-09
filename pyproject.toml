@@ -9,6 +9,7 @@ dependencies = [
     "bayesian-torch>=0.5.0",
     "bert-score>=0.3.13",
     "datasets>=3.5.0",
+    "hf-xet>=1.2.0",
     "ipykernel>=6.29.5",
     "pandas>=2.2.3",
     "sentencepiece>=0.2.0",

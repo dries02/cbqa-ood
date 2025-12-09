@@ -1,7 +1,9 @@
+from pathlib import Path
 from typing import Self, override
 
 import torch
 from bayesian_torch.layers.flipout_layers import LinearFlipout
+from safetensors.torch import load_file
 from torch.nn import CrossEntropyLoss
 from transformers import BartConfig, BartForConditionalGeneration
 from transformers.modeling_outputs import Seq2SeqLMOutput
@@ -12,22 +14,40 @@ class FlipoutBart(BartForConditionalGeneration):
     """Implements BART with a Bayesian output layer using flipout."""
 
     def __init__(self, config: BartConfig) -> None:
-        """Create a Bayes BART model."""
-        super().__init__(config)
-        self.train_size: int | None = None
+        """Create a Flipout BART model."""
+        super().__init__(config)           #  LinearFlipout in ctor would make us lose pretrained weights.
+        self.train_size: int | None = getattr(config, "train_size", None)           # for scaling KL
 
     @classmethod
-    def from_pretrained(cls, pretrained_model_name_or_path: str, train_size: int, rho: float = -3, **kwargs) -> Self:
-        model = super().from_pretrained(pretrained_model_name_or_path, **kwargs)
-        model.train_size = train_size
-        pretrained_w = model.lm_head.weight.data.clone()         # from pretraining
-                                                # merely replacing output head, pretrained model also no bias
+    def from_bart_pretrained(cls, pretrained_model_name_or_path: str, train_size: int, rho: float = -3) -> Self:
+        """Load a BART model by using pretrained output weights as posterior."""
+        model = super().from_pretrained(pretrained_model_name_or_path)
+        model.train_size = train_size                           # not present in base model
+        model.config.train_size = train_size                    # save for the future
+
+        pretrained_w = model.lm_head.weight.data.clone()        # from pretraining
+                                                    # merely replacing output head, pretrained model also no bias
         model.lm_head = LinearFlipout(
             in_features=model.config.d_model, out_features=model.config.vocab_size, posterior_rho_init=rho, bias=False)
 
-                                                # Set weights AFTER LinearFlipout is fully constructed
-        with torch.no_grad():                   # https://docs.pytorch.org/docs/stable/nn.init.html
-            model.lm_head.mu_weight.copy_(pretrained_w)        # warm start posterior
+                                                    # Set weights AFTER LinearFlipout is fully constructed
+        with torch.no_grad():                       # https://docs.pytorch.org/docs/stable/nn.init.html
+            model.lm_head.mu_weight.copy_(pretrained_w)         # warm start posterior
+        return model
+
+    @classmethod
+    def from_pretrained(cls, pretrained_model_name_or_path: str) -> Self:
+        """Load a previously trained Flipout model."""
+        model = super().from_pretrained(pretrained_model_name_or_path)      # will give a warning
+                                                                            # mu and rho are not loaded immediately
+        model.lm_head = LinearFlipout(model.config.d_model, model.config.vocab_size, bias=False)
+        state_dict_path = Path(pretrained_model_name_or_path) / "model.safetensors"
+        state_dict = load_file(state_dict_path)
+
+        with torch.no_grad():                                               # load manually
+            model.lm_head.mu_weight.copy_(state_dict["lm_head.mu_weight"])
+            model.lm_head.rho_weight.copy_(state_dict["lm_head.rho_weight"])
+
         return model
 
     @override

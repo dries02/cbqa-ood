@@ -42,7 +42,7 @@ def load_model(model_type: str, path: Path, device: torch.device) -> BartForCond
     if model_type == "mcdropout":
         return BartForConditionalGeneration.from_pretrained(path).train().to(device)
     if model_type == "flipout":
-        return FlipoutBart.from_pretrained(path, None).eval().to(device)
+        return FlipoutBart.from_pretrained(path).eval().to(device)
     msg = f"Unknown model type: {model_type}"
     raise ValueError(msg)
 
