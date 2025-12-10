@@ -36,7 +36,7 @@ def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTo
 
 
 def make_flipout(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
-    train_size = sum(1 for _ in Path.open(config.train_path))
+    train_size = sum(1 for _ in Path.open(config.train_path))           # is this a good idea...?
 
     model = FlipoutBart.from_bart_pretrained("facebook/bart-large", train_size).train()      # enable dropout
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
