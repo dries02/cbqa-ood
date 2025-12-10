@@ -31,3 +31,4 @@
 - [ ] deep ensembles: how to ensure enough diversity?
 - [ ] determine reasonable max len for tokenizing questions and answers based on training set
 - [ ] finetuning and better model training documentation/experiment tracking
+- [ ] OOD detection is imbalanced here. how imbalanced? would AP be better than AUROC?
