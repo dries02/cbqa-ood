@@ -11,8 +11,10 @@
 - [ ] token-level probability averaging
   - [ ] masking before or after computing MI/divergence?
   - [ ] implement Jensen divergence
+- [ ] Multi-label setting model training
 - [ ] cleanup some old files (`f1_rms.py`, `sbertdemo.py`)
-- [ ] cleanup notebooks
+- [ ] proper error analysis
+- [ ] baselines: log probs, entropy, ...
 
 ## 🏃
 

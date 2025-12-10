@@ -26,7 +26,7 @@ class GenConfig:
         """Set some directories."""
         self.model_path = Path("models") / f"{self.dataset}-{self.model}-large"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
-        self.dest_path = Path("results") / self.dataset
+        self.answers_dest_path = Path("results") / self.dataset
 
 
 def parse_args() -> Namespace:
@@ -82,8 +82,8 @@ def main() -> None:
     test_df["predictions"] = generate_predictions_batched(
         model, tokenizer, test_df["question"].tolist(), device, config.n_reps, config.batch_size)
 
-    Path.mkdir(config.dest_path, parents=True, exist_ok=True)
-    test_df.to_json(config.dest_path / f"{config.model}-large.jsonl", orient="records", lines=True)
+    Path.mkdir(config.answers_dest_path, parents=True, exist_ok=True)
+    test_df.to_json(config.answers_dest_path / f"{config.model}-large.jsonl", orient="records", lines=True)
 
 
 if __name__ == "__main__":
