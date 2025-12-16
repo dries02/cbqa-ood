@@ -1,3 +1,4 @@
+from argparse import ArgumentParser, Namespace
 from collections import defaultdict
 
 import numpy as np
@@ -7,6 +8,13 @@ from transformers import BartForConditionalGeneration, BartTokenizer
 
 MAX_Q_LEN = 32
 MAX_ANS_LEN = 32
+
+
+def parse_args() -> Namespace:
+    parser = ArgumentParser()
+    parser.add_argument("--model", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
+    return parser.parse_args()
 
 
 @torch.no_grad()
