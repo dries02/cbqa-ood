@@ -26,7 +26,7 @@ def choose_method(method: str) -> Callable[[list[str]], float]:
     raise ValueError(msg)
 
 
-def main():
+def main() -> None:
     """Compute uncertainty scores based on answers from stochastic model."""
     args = parse_args()
     answer_path = Path("results") / args.dataset / f"{args.model}-large.jsonl"

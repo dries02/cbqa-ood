@@ -31,8 +31,8 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# 0 = <bos>, 1 = <pad>, 2 = <eos>, 3 = <unk> 4 = '.', 50118 = '\n', 50264 = <mask>
-BAD_IDS = torch.tensor([0, 1, 2, 3, 4, 50118, 50264], device=DEVICE)
+# 0 = <bos>, 1 = <pad>, 2 = <eos>, 3 = <unk>, 50264 = <mask>, no more 4 = '.', 50118 = '\n'
+BAD_IDS = torch.tensor([0, 1, 2, 3, 50264], device=DEVICE)
 
 def compute_uncertainties(probs_per_token: torch.Tensor) -> dict[str, list[float]]:
     mask = ~torch.isin(probs_per_token.indices.T, BAD_IDS)
@@ -97,7 +97,7 @@ def main() -> None:
     results = compute_baselines(model, tokenizer, DEVICE, test_df["question"].tolist())
     Path.mkdir(config.answers_dest_path, parents=True, exist_ok=True)
     pd.concat([test_df, results], axis=1).to_json(
-        config.answers_dest_path / "baselines.jsonl", orient="records", lines=True)
+        config.answers_dest_path / "baselines.jsonl", orient="records", lines=True, force_ascii=False)
 
 
 if __name__ == "__main__":

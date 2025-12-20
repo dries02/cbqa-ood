@@ -10,10 +10,11 @@ MAX_Q_LEN = 32
 MAX_ANS_LEN = 32
 
 
-def parse_args() -> Namespace:
+def parse_args() -> Namespace:      # maybe add wrapper class again like elsewhere
     parser = ArgumentParser()
     parser.add_argument("--model", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
+    parser.add_argument("--n_reps", type=int, default=10)
     return parser.parse_args()
 
 
@@ -65,18 +66,16 @@ def generate_answer(
 
 
 def main() -> None:
-    dataset = "webquestions"
-    method = "mcdropout"
-    n_reps = 10
+    args = parse_args()
 
-    model = BartForConditionalGeneration.from_pretrained(f"models/{dataset}-{method}-large").train()
-    tokenizer = BartTokenizer.from_pretrained(f"models/{dataset}-{method}-large")
-    test_df = pd.read_json(f"data/{dataset}/{dataset}-test.jsonl", lines=True)
+    model = BartForConditionalGeneration.from_pretrained(f"models/{args.dataset}-{args.method}-large").train()
+    tokenizer = BartTokenizer.from_pretrained(f"models/{args.dataset}-{args.method}-large")
+    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
     test_df[["answer", "mean_mi", "max_mi"]] = test_df["question"].apply(
-        lambda q: pd.Series(generate_answer(model, tokenizer, q, device, n_reps)))
-    test_df.to_json(f"results/{dataset}/{method}-large-token.jsonl", orient="records", lines=True)
+        lambda q: pd.Series(generate_answer(model, tokenizer, q, device, args.n_reps)))
+    test_df.to_json(f"results/{args.dataset}/{args.method}-large-token.jsonl", orient="records", lines=True)
 
 
 if __name__ == "__main__":
