@@ -68,14 +68,14 @@ def generate_answer(
 def main() -> None:
     args = parse_args()
 
-    model = BartForConditionalGeneration.from_pretrained(f"models/{args.dataset}-{args.method}-large").train()
-    tokenizer = BartTokenizer.from_pretrained(f"models/{args.dataset}-{args.method}-large")
+    model = BartForConditionalGeneration.from_pretrained(f"models/{args.dataset}-{args.model}-large").train()
+    tokenizer = BartTokenizer.from_pretrained(f"models/{args.dataset}-{args.model}-large")
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = model.to(device)
     test_df[["answer", "mean_mi", "max_mi"]] = test_df["question"].apply(
         lambda q: pd.Series(generate_answer(model, tokenizer, q, device, args.n_reps)))
-    test_df.to_json(f"results/{args.dataset}/{args.method}-large-token.jsonl", orient="records", lines=True)
+    test_df.to_json(f"results/{args.dataset}/{args.model}-large-token.jsonl", orient="records", lines=True)
 
 
 if __name__ == "__main__":

@@ -13,8 +13,10 @@
   - [ ] implement Jensen divergence
 - [ ] Multi-label setting model training
 - [ ] cleanup some old files (`f1_rms.py`, `sbertdemo.py`)
+- [ ] For F1: use tokens rather than words!
 - [ ] proper error analysis
 - [ ] baselines: log probs, entropy, ...
+- [ ] Fix bug wrt tokenization/alignment
 
 ## 🏃
 
@@ -31,4 +33,3 @@
 - [ ] deep ensembles: how to ensure enough diversity?
 - [ ] determine reasonable max len for tokenizing questions and answers based on training set
 - [ ] finetuning and better model training documentation/experiment tracking
-- [ ] OOD detection is imbalanced here. how imbalanced? would AP be better than AUROC?
