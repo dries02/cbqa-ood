@@ -60,8 +60,7 @@ def generate_predictions_batched(model: BartForConditionalGeneration, tokenizer:
         batch_preds = []
         with torch.no_grad():
             for _ in range(n_reps):
-                out_ids = model.generate(
-                    **tok_qs, max_new_tokens=32, num_beams=1, do_sample=False, early_stopping=False)
+                out_ids = model.generate(**tok_qs, min_new_tokens=1)
                 preds = tokenizer.batch_decode(out_ids, skip_special_tokens=True)
                 batch_preds.append(preds)                   # X_ij is i-th answer to j-th question
 

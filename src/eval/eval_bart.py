@@ -43,9 +43,7 @@ def evaluate(
                 # only put inputs and attention mask to device
             batch_gpu = {k: v.to(device) for k, v in batch.items() if k != "labels"}
                 # max_new_tokens is equivalent to max_length for encoder-decoder; anyway max_length is deprecated
-            pred_ids = model.generate(
-                **batch_gpu, max_new_tokens=32, num_beams=1, do_sample=False, early_stopping=False)    # greedy decoding
-
+            pred_ids = model.generate(**batch_gpu)
             predictions = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
 
             for p, g in zip(predictions, batch["labels"], strict=True):

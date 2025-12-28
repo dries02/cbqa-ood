@@ -26,11 +26,11 @@ def generate_answer(
     tok_q = tokenizer(
         question, max_length=MAX_Q_LEN, truncation=True, padding="max_length", return_tensors="pt").to(device)
 
-    decoder_input_ids = torch.tensor([[tokenizer.eos_token_id, tokenizer.bos_token_id]], device=device)
-    ngram_map = defaultdict(set)                    # maps 2-gram prefix to set of tokens that followed
+    decoder_input_ids = torch.tensor([[tokenizer.eos_token_id]], device=device)
+    # ngram_map = defaultdict(set)                    # maps 2-gram prefix to set of tokens that followed
     token_mis = []
 
-    for _ in range(MAX_ANS_LEN - 3):                # excluding <BOS>, <EOS> ... <EOS>
+    for _ in range(MAX_ANS_LEN - 2):                # excluding <BOS>, <EOS> ... <EOS>
         all_logits = torch.stack([
             model(**tok_q, decoder_input_ids=decoder_input_ids).logits[0, -1, :]
             for _ in range(n_reps)
@@ -47,15 +47,15 @@ def generate_answer(
         token_mis.append(mutual_info.item())
 
         prefix = tuple(decoder_input_ids[0, -2:].tolist())
-        blocked = ngram_map[prefix]
-        if blocked:
-            mean_probs[list(blocked)] = 0           # prevent repeated trigrams
+        # blocked = ngram_map[prefix]
+        # if blocked:
+            # mean_probs[list(blocked)] = 0           # prevent repeated trigrams
 
         next_token = mean_probs.argmax()
         if next_token == tokenizer.eos_token_id:
             break
 
-        ngram_map[prefix].add(next_token.item())
+        # ngram_map[prefix].add(next_token.item())
         decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
     return {

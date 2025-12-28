@@ -23,12 +23,31 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
+def update_config(model):
+    def update_gen_config(config: GenerationConfig) -> GenerationConfig:
+        config.max_new_tokens = 32
+        config.num_beams = 1
+        config.do_sample = False
+        config.early_stopping = False
+        config.forced_bos_token_id = None
+        config.no_repeat_ngram_size = 0
+        return config
+
+    model.config.max_new_tokens = 32
+    model.config.num_beams = 1
+    model.config.do_sample = False
+    model.config.early_stopping = False
+    model.config.forced_bos_token_id = None
+    model.config.no_repeat_ngram_size = 0
+    model.generation_config = update_gen_config(GenerationConfig.from_model_config(model.config))
+
+
 def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
     bartconfig: BartConfig = BartConfig.from_pretrained("facebook/bart-large")
     bartconfig.dropout = config.dropout
 
     model = BartForConditionalGeneration.from_pretrained("facebook/bart-large", config=bartconfig).train()  # enable dropout
-    model.generation_config = GenerationConfig.from_model_config(model.config)           # modern stuff
+    update_config(model)
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
     optimizer = AdamW(model.parameters(), lr=config.lr)
 

@@ -22,9 +22,17 @@ class QADatasetTrain(Dataset):
         self.encodings_q = tokenizer(
             df["question"].to_list(), max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
 
+        def tokenize_labels(answers, tokenizer, max_len):
+            tokens = tokenizer(
+                answers, max_length=max_len, truncation=True,
+                padding="max_length", return_tensors="pt",
+            ).input_ids[:, 1:]  # Remove <s>
+
+            tokens[tokens == tokenizer.pad_token_id] = -100  # Mask padding
+            return tokens
+
         self.labels = [
-            tokenizer(
-                answers, max_length=max_len_a, truncation=True, padding="max_length", return_tensors="pt")["input_ids"]
+            tokenize_labels(answers, tokenizer, max_len_a)
             for answers in df["answers"]
         ]
 
@@ -36,8 +44,8 @@ class QADatasetTrain(Dataset):
         """Fetch sample from dataset."""
         label = random.choice(self.labels[idx]) if self.use_stochastic_labels else self.labels[idx][0]
         return {
-            "input_ids": self.encodings_q["input_ids"][idx],
-            "attention_mask": self.encodings_q["attention_mask"][idx],
+            "input_ids": self.encodings_q.input_ids[idx],
+            "attention_mask": self.encodings_q.attention_mask[idx],
             "labels": label,
         }
 
