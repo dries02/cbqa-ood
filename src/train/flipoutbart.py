@@ -32,6 +32,7 @@ class FlipoutBart(BartForConditionalGeneration):
 
                                                     # Set weights AFTER LinearFlipout is fully constructed
         with torch.no_grad():                       # https://docs.pytorch.org/docs/stable/nn.init.html
+            model.lm_head.prior_weight_mu.copy_(pretrained_w)
             model.lm_head.mu_weight.copy_(pretrained_w)         # warm start posterior
         return model
 

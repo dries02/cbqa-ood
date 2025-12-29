@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 from torch.optim import AdamW, Optimizer
-from transformers import BartConfig, BartForConditionalGeneration, BartTokenizer, GenerationConfig
+from transformers import BartConfig, BartForConditionalGeneration, BartTokenizer
 
 from src.train.flipoutbart import FlipoutBart
 from src.train.trainconfig import TrainConfig
@@ -23,23 +23,21 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
-def update_config(model):
-    def update_gen_config(config: GenerationConfig) -> GenerationConfig:
-        config.max_new_tokens = 32
-        config.num_beams = 1
-        config.do_sample = False
-        config.early_stopping = False
-        config.forced_bos_token_id = None
-        config.no_repeat_ngram_size = 0
-        return config
+def update_config(model: BartForConditionalGeneration) -> None:
+    """Update default BART settings for sequence generation. Handling answer length, greedy decoding, and `<bos>`."""
+    gen_kwargs = {
+        "min_new_tokens": 1,            # prevent empty sequences
+        "max_new_tokens": 32,           # max_length also ok with encoder-decoder
+        "num_beams": 1,                 # greedy decoding
+        "do_sample": False,             # greedy decoding
+        "early_stopping": False,        # greedy decoding
+        "forced_bos_token_id": None,    # for changed <bos> handling
+        "no_repeat_ngram_size": 0,      # not necessary after changed <bos> handling. see github
+    }
 
-    model.config.max_new_tokens = 32
-    model.config.num_beams = 1
-    model.config.do_sample = False
-    model.config.early_stopping = False
-    model.config.forced_bos_token_id = None
-    model.config.no_repeat_ngram_size = 0
-    model.generation_config = update_gen_config(GenerationConfig.from_model_config(model.config))
+    for key, value in gen_kwargs.items():       # make sure everything gets saved properly in config.json files
+        setattr(model.config, key, value)
+        setattr(model.generation_config, key, value)
 
 
 def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
@@ -57,7 +55,8 @@ def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTo
 def make_flipout(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
     train_size = sum(1 for _ in Path.open(config.train_path))           # is this a good idea...?
 
-    model = FlipoutBart.from_bart_pretrained("facebook/bart-large", train_size).train()      # enable dropout
+    model = FlipoutBart.from_bart_pretrained("facebook/bart-large", train_size, rho=-2.5).train()      # enable dropout
+    update_config(model)
     tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
 
     optimizer = AdamW([

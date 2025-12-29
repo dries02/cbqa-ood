@@ -53,6 +53,7 @@ class Trainer:
 
                 self.optimizer.zero_grad()                                      # clear out old gradients
                 loss.backward()
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)   # no explosions
                 self.optimizer.step()
 
                 running_loss += loss.item()
