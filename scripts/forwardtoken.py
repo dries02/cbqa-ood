@@ -1,10 +1,13 @@
 from argparse import ArgumentParser, Namespace
-from collections import defaultdict
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 import torch
+from tqdm import tqdm
 from transformers import BartForConditionalGeneration, BartTokenizer
+
+from src.train.flipoutbart import FlipoutBart
 
 MAX_Q_LEN = 32
 MAX_ANS_LEN = 32
@@ -18,44 +21,42 @@ def parse_args() -> Namespace:      # maybe add wrapper class again like elsewhe
     return parser.parse_args()
 
 
+def load_model(model_type: str, path: Path, device: torch.device) -> BartForConditionalGeneration:
+    if model_type == "mcdropout":
+        return BartForConditionalGeneration.from_pretrained(path).train().to(device)
+    if model_type == "flipout":
+        return FlipoutBart.from_pretrained(path).eval().to(device)
+    msg = f"Unknown model type: {model_type}"
+    raise ValueError(msg)
+
+
 @torch.no_grad()
 def generate_answer(
         model: BartForConditionalGeneration, tokenizer: BartTokenizer, question: str, device: torch.device,
         n_reps: int) -> dict:
-    """Generate an answer token by token while preventing repeated trigrams."""
     tok_q = tokenizer(
         question, max_length=MAX_Q_LEN, truncation=True, padding="max_length", return_tensors="pt").to(device)
-
     decoder_input_ids = torch.tensor([[tokenizer.eos_token_id]], device=device)
-    # ngram_map = defaultdict(set)                    # maps 2-gram prefix to set of tokens that followed
-    token_mis = []
 
-    for _ in range(MAX_ANS_LEN - 2):                # excluding <BOS>, <EOS> ... <EOS>
-        all_logits = torch.stack([
-            model(**tok_q, decoder_input_ids=decoder_input_ids).logits[0, -1, :]
-            for _ in range(n_reps)
-        ])
+    tok_q_batched = {k: v.repeat(n_reps, 1) for k, v in tok_q.items()}
+
+    token_mis = []
+    for _ in range(MAX_ANS_LEN - 2):
+        decoder_batched = decoder_input_ids.repeat(n_reps, 1)  # (n_reps, seq_len)
+        all_logits = model(**tok_q_batched, decoder_input_ids=decoder_batched).logits[:, -1, :]  # (n_reps, vocab)
+
         probs = torch.softmax(all_logits, dim=-1)
         mean_probs = probs.mean(dim=0)
 
-        # TODO should I compute entropy before or after masking blocked tokens?
-
-        entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()          # entropy of the mean
-
-        per_pass_entropy = -(probs * torch.log(probs + 1e-10)).sum(dim=-1)     # entropy of distributions
-        mutual_info = entropy - per_pass_entropy.mean()                        # MI = entropy of mean - mean of entropy
+        entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()
+        per_pass_entropy = -(probs * torch.log(probs + 1e-10)).sum(dim=-1)
+        mutual_info = entropy - per_pass_entropy.mean()
         token_mis.append(mutual_info.item())
-
-        prefix = tuple(decoder_input_ids[0, -2:].tolist())
-        # blocked = ngram_map[prefix]
-        # if blocked:
-            # mean_probs[list(blocked)] = 0           # prevent repeated trigrams
 
         next_token = mean_probs.argmax()
         if next_token == tokenizer.eos_token_id:
             break
 
-        # ngram_map[prefix].add(next_token.item())
         decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
     return {
@@ -64,16 +65,18 @@ def generate_answer(
         "max_mi": np.max(token_mis),
     }
 
-
 def main() -> None:
     args = parse_args()
 
-    model = BartForConditionalGeneration.from_pretrained(f"models/{args.dataset}-{args.model}-large").train()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model_path = Path("models") / f"{args.dataset}-{args.model}-large"
+    model = load_model(args.model, model_path, device)
+
     tokenizer = BartTokenizer.from_pretrained(f"models/{args.dataset}-{args.model}-large")
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = model.to(device)
-    test_df[["answer", "mean_mi", "max_mi"]] = test_df["question"].apply(
+
+    tqdm.pandas()
+    test_df[["answer", "mean_mi", "max_mi"]] = test_df["question"].progress_apply(
         lambda q: pd.Series(generate_answer(model, tokenizer, q, device, args.n_reps)))
     test_df.to_json(f"results/{args.dataset}/{args.model}-large-token.jsonl", orient="records", lines=True)
 

@@ -26,9 +26,9 @@ class QADatasetTrain(Dataset):
             tokens = tokenizer(
                 answers, max_length=max_len, truncation=True,
                 padding="max_length", return_tensors="pt",
-            ).input_ids[:, 1:]  # Remove <s>
+            ).input_ids[:, 1:]                                  # Remove <s>
 
-            tokens[tokens == tokenizer.pad_token_id] = -100  # Mask padding
+            tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding
             return tokens
 
         self.labels = [
