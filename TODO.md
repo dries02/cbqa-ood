@@ -8,9 +8,6 @@
 ## 🔧
 
 - [ ] MC Dropout only on output layer (similar to Flipout) (?)
-- [ ] token-level probability averaging
-  - [ ] implement Jensen divergence
-- [ ] Multi-label setting model training
 - [ ] cleanup some old files (`f1_rms.py`, `sbertdemo.py`)
 - [ ] For F1: use tokens rather than words?
 
@@ -18,7 +15,7 @@
 
 - [ ] different pretrained models like T5, not just BART-large
 - [ ] train flipout on nq
-- [ ] train mcdropout and flipout on triviaqa
+- [ ] train mcdropout and flipout on triviaqa?
 
 ## ☕
 
@@ -30,6 +27,8 @@
 - [ ] deep ensembles: how to ensure enough diversity?
 - [ ] determine reasonable max len for tokenizing questions and answers based on training set
 - [ ] finetuning and better model training documentation/experiment tracking
+- [ ] How does Jensen divergence relate to MI?
+- [ ] Any thoughts on soft label setting?
 
 ## Error analysis
 
@@ -38,3 +37,4 @@
 - [ ] selective prediction (if i answer top K% most confident predictions, what are my metrics?)
 - [ ] performance and uncertainty correlation?
 - [ ] performance (better with 'ensemble'?)
+- [ ] FLOPs?

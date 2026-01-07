@@ -17,7 +17,7 @@ def parse_args() -> Namespace:      # maybe add wrapper class again like elsewhe
     parser = ArgumentParser()
     parser.add_argument("--model", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--n_reps", type=int, default=10)
+    parser.add_argument("--n_reps", type=int, default=30)
     return parser.parse_args()
 
 
@@ -41,7 +41,8 @@ def generate_answer(
     tok_q_batched = {k: v.repeat(n_reps, 1) for k, v in tok_q.items()}
 
     token_mis = []
-    for _ in range(MAX_ANS_LEN - 2):
+    token_entropies = []
+    for _ in range(MAX_ANS_LEN):
         decoder_batched = decoder_input_ids.repeat(n_reps, 1)  # (n_reps, seq_len)
         all_logits = model(**tok_q_batched, decoder_input_ids=decoder_batched).logits[:, -1, :]  # (n_reps, vocab)
 
@@ -52,7 +53,7 @@ def generate_answer(
         per_pass_entropy = -(probs * torch.log(probs + 1e-10)).sum(dim=-1)
         mutual_info = entropy - per_pass_entropy.mean()
         token_mis.append(mutual_info.item())
-
+        token_entropies.append(entropy.item())
         next_token = mean_probs.argmax()
         if next_token == tokenizer.eos_token_id:
             break
@@ -60,9 +61,11 @@ def generate_answer(
         decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
     return {
-        "answer": tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True),
+        "prediction": tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True),
         "mean_mi": np.mean(token_mis),
         "max_mi": np.max(token_mis),
+        "mean_entropy": np.mean(token_entropies),
+        "max_entropy": np.max(token_entropies),
     }
 
 def main() -> None:
@@ -76,7 +79,7 @@ def main() -> None:
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
 
     tqdm.pandas()
-    test_df[["answer", "mean_mi", "max_mi"]] = test_df["question"].progress_apply(
+    test_df[["prediction", "mean_mi", "max_mi", "mean_entropy", "max_entropy"]] = test_df["question"].progress_apply(
         lambda q: pd.Series(generate_answer(model, tokenizer, q, device, args.n_reps)))
     test_df.to_json(f"results/{args.dataset}/{args.model}-large-token.jsonl", orient="records", lines=True)
 

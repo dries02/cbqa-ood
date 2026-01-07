@@ -32,6 +32,7 @@ torch = [
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
+    "D100",           # missing docstring in public module
     "CPY001",         # missing copyright
     "T201",           # using print
     "TD002",          # missing author in TODO

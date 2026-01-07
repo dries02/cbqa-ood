@@ -7,6 +7,7 @@ from transformers import BartForConditionalGeneration, BartTokenizer
 
 from src.eval.eval_bart import evaluate
 from src.train.qadataset import QADatasetEval, QADatasetTrain
+from src.train.qadatasetsoft import QADatasetTrainSoft, compute_kl_soft_loss
 from src.train.trainconfig import TrainConfig
 
 
@@ -21,6 +22,7 @@ class Trainer:
         train_df: pd.DataFrame,
         dev_df: pd.DataFrame,
         config: TrainConfig,
+        *, use_soft_labels: bool = True,
     ) -> None:
         """Create a trainer."""
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -28,9 +30,15 @@ class Trainer:
         self.tokenizer = tokenizer
         self.optimizer = optimizer
         self.config = config
+        self.use_soft_labels = use_soft_labels
 
-        train_dataset = QADatasetTrain(train_df, tokenizer, use_stochastic_labels=False)
-        self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
+        if self.use_soft_labels:
+            train_dataset = QADatasetTrainSoft(train_df, tokenizer)
+            self.train_data = DataLoader(
+                train_dataset, shuffle=True, batch_size=config.batch_size, collate_fn=QADatasetTrainSoft.collate_fn)
+        else:
+            train_dataset = QADatasetTrain(train_df, tokenizer, use_stochastic_labels=False)
+            self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
 
         dev_dataset = QADatasetEval(dev_df, tokenizer)
         self.dev_data = DataLoader(
@@ -46,10 +54,10 @@ class Trainer:
 
             loop = tqdm(self.train_data, desc=f"Epoch {epoch}/{self.config.n_epochs}", position=1)
             for idx, batch in enumerate(loop, start=1):
-                batch_gpu = {k: v.to(self.device) for k, v in batch.items()}
+                batch_gpu = {k: v.to(self.device) for k, v in batch.items() if k != "soft_labels"}
                 outputs = self.model(**batch_gpu)
 
-                loss = outputs.loss
+                loss = compute_kl_soft_loss(outputs, batch, batch_gpu) if self.use_soft_labels else outputs.loss
 
                 self.optimizer.zero_grad()                                      # clear out old gradients
                 loss.backward()

@@ -22,11 +22,11 @@ class QADatasetTrain(Dataset):
         self.encodings_q = tokenizer(
             df["question"].to_list(), max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
 
-        def tokenize_labels(answers, tokenizer, max_len):
+        def tokenize_labels(answers: list[str], tokenizer: PreTrainedTokenizerBase, max_len: int) -> torch.Tensor:
             tokens = tokenizer(
                 answers, max_length=max_len, truncation=True,
                 padding="max_length", return_tensors="pt",
-            ).input_ids[:, 1:]                                  # Remove <s>
+            ).input_ids[:, 1:]                                  # Remove <bos>
 
             tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding
             return tokens
