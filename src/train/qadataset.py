@@ -14,19 +14,25 @@ class QADatasetTrain(Dataset):
     """
 
     def __init__(self, df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, *,
-                 use_stochastic_labels: bool = False, max_len_q: int = 32, max_len_a: int = 32) -> None:
+                 remove_bos: bool, prefix: str, use_stochastic_labels: bool = False,
+                 max_len_q: int = 32, max_len_a: int = 32) -> None:
         """Pre-tokenize everything at construction."""
         super().__init__()
         self.use_stochastic_labels = use_stochastic_labels
 
+        questions = df["question"].apply(lambda q: prefix + q).tolist()
+
         self.encodings_q = tokenizer(
-            df["question"].to_list(), max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
+            questions, max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
 
         def tokenize_labels(answers: list[str], tokenizer: PreTrainedTokenizerBase, max_len: int) -> torch.Tensor:
             tokens = tokenizer(
                 answers, max_length=max_len, truncation=True,
                 padding="max_length", return_tensors="pt",
-            ).input_ids[:, 1:]                                  # Remove <bos>
+            ).input_ids
+
+            if remove_bos:
+                tokens = tokens[:, 1:]
 
             tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding
             return tokens
@@ -53,11 +59,12 @@ class QADatasetTrain(Dataset):
 class QADatasetEval(Dataset):
     """QA Dataset with pre-tokenized inputs and labels for evaluation."""
 
-    def __init__(self, df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, *, max_len_q: int = 32) -> None:
+    def __init__(self, df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, prefix: str, max_len_q: int = 32) -> None:
         """Pre-tokenize everything at initialization."""
         super().__init__()
+        questions = df["question"].apply(lambda q: prefix + q).tolist()
         self.encodings_q = tokenizer(
-            df["question"].to_list(), max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
+            questions, max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
         self.labels = df["answers"]
 
     def __len__(self) -> int:

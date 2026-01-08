@@ -5,9 +5,10 @@ from pathlib import Path
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import BartForConditionalGeneration, BartTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 from src.train.flipoutbart import FlipoutBart
+from src.train.trainconfig import MODEL_CONFIGS
 
 
 @dataclass
@@ -15,6 +16,7 @@ class GenConfig:
     """Configuration for generating answers based on parsed arguments."""
 
     model: str
+    method: str
     dataset: str
     n_reps: int
     batch_size: int                     # how many questions to process per time
@@ -24,30 +26,31 @@ class GenConfig:
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.model_path = Path("models") / f"{self.dataset}-{self.model}-large"
+        self.model_path = Path("models") / f"{self.dataset}-google/{self.model}-{self.method}-large"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--model", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--n_reps", type=int, default=20)
+    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm", "flan-t5-large"], required=True)
+    parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
+    parser.add_argument("--n_reps", type=int, default=30)
     parser.add_argument("--batch_size", type=int, default=64)
     return parser.parse_args()
 
 
-def load_model(model_type: str, path: Path, device: torch.device) -> BartForConditionalGeneration:
-    if model_type == "mcdropout":
-        return BartForConditionalGeneration.from_pretrained(path).train().to(device)
-    if model_type == "flipout":
+def load_model(method_type: str, path: Path, device: torch.device) -> AutoModelForSeq2SeqLM:
+    if method_type == "vanilla":
+        return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
+    if method_type == "flipout":
         return FlipoutBart.from_pretrained(path).eval().to(device)
-    msg = f"Unknown model type: {model_type}"
+    msg = f"Unknown model type: {method_type}"
     raise ValueError(msg)
 
 
-def generate_predictions_batched(model: BartForConditionalGeneration, tokenizer: BartTokenizer, questions: list[str],
+def generate_predictions_batched(model: AutoModelForSeq2SeqLM, tokenizer: AutoTokenizer, questions: list[str],
                                  device: torch.device, n_reps: int, batch_size: int) -> list[list[str]]:
     """Generate predictions in batches."""
     all_predictions = []
@@ -74,15 +77,19 @@ def main() -> None:
     """Driver to make many forward passes for a stochastic model."""
     config = GenConfig(**vars(parse_args()))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = load_model(config.model, config.model_path, device)
-    tokenizer = BartTokenizer.from_pretrained(config.model_path)
+    model = load_model(config.method, config.model_path, device)
+    tokenizer = AutoTokenizer.from_pretrained(config.model_path)
     test_df = pd.read_json(config.test_df_path, lines=True)
 
+    prefix = MODEL_CONFIGS[config.model]["prefix"]
+    questions = test_df["question"].apply(lambda q: prefix + q).tolist()
+
     test_df["predictions"] = generate_predictions_batched(
-        model, tokenizer, test_df["question"].tolist(), device, config.n_reps, config.batch_size)
+        model, tokenizer, questions, device, config.n_reps, config.batch_size)
 
     Path.mkdir(config.answers_dest_path, parents=True, exist_ok=True)
-    test_df.to_json(config.answers_dest_path / f"{config.model}-large.jsonl", orient="records", lines=True)
+    results_path = config.answers_dest_path / f"{config.method}-large.jsonl"
+    test_df.to_json(results_path, orient="records", lines=True)
 
 
 if __name__ == "__main__":

@@ -1,10 +1,9 @@
 import re
 import string
 
-import pandas as pd
 import torch
 from torch.utils.data import DataLoader
-from transformers import BartForConditionalGeneration, BartTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
 from src.train.qadataset import QADatasetEval
 
@@ -28,7 +27,7 @@ def normalize_answer(s: str) -> str:
 
 
 def evaluate(
-        model: BartForConditionalGeneration, tokenizer: BartTokenizer, dataloader: DataLoader) -> None:
+        model: AutoModelForSeq2SeqLM, tokenizer: AutoTokenizer, dataloader: DataLoader) -> None:
     """Evaluate the model on a data set."""
     if not isinstance(dataloader.dataset, QADatasetEval):
         msg = "Dataset should be in evaluation mode so all answers are returned."
@@ -52,20 +51,3 @@ def evaluate(
 
     model.train(was_training)                                                     # revert if it was in train mode
     return em_count
-
-
-def main() -> None:
-    model = BartForConditionalGeneration.from_pretrained("models/webquestions-mcdropout-large").to(device)
-
-    tokenizer = BartTokenizer.from_pretrained("models/webquestions-mcdropout-large")
-    test_df = pd.read_json("data/webquestions/webquestions-test.jsonl", lines=True)
-
-    dev_dataset = QADatasetEval(test_df, tokenizer)
-    dataloader = DataLoader(dev_dataset, shuffle=False, batch_size=128, collate_fn=QADatasetEval.collate_fn)
-
-    em = evaluate(model, tokenizer, dataloader)
-    print(f"{em} out of {len(test_df)}, {em / len(test_df):.3f}")
-
-
-if __name__ == "__main__":
-    main()

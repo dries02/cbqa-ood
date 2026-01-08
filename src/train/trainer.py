@@ -3,9 +3,9 @@ import torch
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import BartForConditionalGeneration, BartTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-from src.eval.eval_bart import evaluate
+from src.eval.eval_model import evaluate
 from src.train.qadataset import QADatasetEval, QADatasetTrain
 from src.train.qadatasetsoft import QADatasetTrainSoft, compute_kl_soft_loss
 from src.train.trainconfig import TrainConfig
@@ -16,13 +16,12 @@ class Trainer:
 
     def __init__(
         self,
-        model: BartForConditionalGeneration,
-        tokenizer: BartTokenizer,
+        model: AutoModelForSeq2SeqLM,
+        tokenizer: AutoTokenizer,
         optimizer: Optimizer,
         train_df: pd.DataFrame,
         dev_df: pd.DataFrame,
         config: TrainConfig,
-        *, use_soft_labels: bool = True,
     ) -> None:
         """Create a trainer."""
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -30,17 +29,18 @@ class Trainer:
         self.tokenizer = tokenizer
         self.optimizer = optimizer
         self.config = config
-        self.use_soft_labels = use_soft_labels
+        self.use_soft_labels = config.use_soft_labels
 
         if self.use_soft_labels:
-            train_dataset = QADatasetTrainSoft(train_df, tokenizer)
+            train_dataset = QADatasetTrainSoft(train_df, tokenizer, remove_bos=config.remove_bos, prefix=config.prefix)
             self.train_data = DataLoader(
                 train_dataset, shuffle=True, batch_size=config.batch_size, collate_fn=QADatasetTrainSoft.collate_fn)
         else:
-            train_dataset = QADatasetTrain(train_df, tokenizer, use_stochastic_labels=False)
+            train_dataset = QADatasetTrain(train_df, tokenizer, remove_bos=config.remove_bos, prefix=config.prefix,
+                                           use_stochastic_labels=config.use_stochastic_labels)
             self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
 
-        dev_dataset = QADatasetEval(dev_df, tokenizer)
+        dev_dataset = QADatasetEval(dev_df, tokenizer, config.prefix)
         self.dev_data = DataLoader(
             dev_dataset, shuffle=False, batch_size=128, collate_fn=QADatasetEval.collate_fn)
 

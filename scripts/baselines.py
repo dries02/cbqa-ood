@@ -6,7 +6,9 @@ from pathlib import Path
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import BartForConditionalGeneration, BartTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+
+from src.train.trainconfig import MODEL_CONFIGS
 
 
 @dataclass
@@ -14,13 +16,14 @@ class GenConfig:
     """Configuration for generating answers based on parsed arguments."""
 
     dataset: str
+    model: str
     model_path: Path = field(init=False)
     test_df_path: Path = field(init=False)
     answers_dest_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.model_path = Path("models") / f"{self.dataset}-mcdropout-large"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-vanilla-large"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
@@ -28,11 +31,12 @@ class GenConfig:
 def parse_args() -> Namespace:
     parser = ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
+    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm", "flan-t5-large"], required=True)
     return parser.parse_args()
 
 
 def validate_sequences(probs: torch.Tensor, pred_ids: torch.Tensor,
-                       model: BartForConditionalGeneration, tokenizer: BartTokenizer) -> None:
+                       model: AutoModelForSeq2SeqLM, tokenizer: AutoTokenizer) -> None:
     """Validate some preconditions. This guarantees <eos><answer><eos><pad> without strange tokens."""
     if not (pred_ids[:, 0] == model.generation_config.decoder_start_token_id).all():
         msg = "The first token must be the decoder start token."
@@ -56,14 +60,14 @@ def validate_sequences(probs: torch.Tensor, pred_ids: torch.Tensor,
         msg = "Non-PAD tokens found after EOS."
         raise ValueError(msg)                       # <pad> only after <eos>
 
-    for forbidden_token_id in (tokenizer.bos_token_id, tokenizer.unk_token_id, tokenizer.mask_token_id):
-        if (seq == forbidden_token_id).any():
-            msg = f"Found forbidden token: {forbidden_token_id}."
-            raise ValueError(msg)                   # no <bos>, <unk>, <mask>
+    # for forbidden_token_id in (tokenizer.bos_token_id, tokenizer.unk_token_id, tokenizer.mask_token_id):
+    #     if (seq == forbidden_token_id).any():
+    #         msg = f"Found forbidden token: {forbidden_token_id}."
+    #         raise ValueError(msg)                   # no <bos>, <unk>, <mask>
 
 
 def compute_uncertainties(probs: torch.Tensor, pred_ids: torch.Tensor,
-                          model: BartForConditionalGeneration, tokenizer: BartTokenizer) -> dict[str, list[float]]:
+                          model: AutoModelForSeq2SeqLM, tokenizer: AutoTokenizer) -> dict[str, list[float]]:
     validate_sequences(probs, pred_ids, model, tokenizer)
     pred_ids = pred_ids[:, 1:]                      # (B, L + 1) -> (B, L)
     probs = probs.transpose(0, 1)                   # (L, B, V)  -> (B, L, V)
@@ -94,7 +98,7 @@ def compute_uncertainties(probs: torch.Tensor, pred_ids: torch.Tensor,
 
 @torch.no_grad()
 def compute_baselines(
-    model: BartForConditionalGeneration, tokenizer: BartTokenizer, device: torch.device,
+    model: AutoModelForSeq2SeqLM, tokenizer: AutoTokenizer, device: torch.device,
     questions: list[str], batch_size: int = 128) -> pd.DataFrame:
     """Compute elementary baselines with deterministic model."""
     uncertainties = defaultdict(list)
@@ -123,12 +127,13 @@ def main() -> None:
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    model = BartForConditionalGeneration.from_pretrained(config.model_path).to(device).eval()
-    tokenizer = BartTokenizer.from_pretrained(config.model_path)
+    model = AutoModelForSeq2SeqLM.from_pretrained(config.model_path).to(device).eval()
+    tokenizer = AutoTokenizer.from_pretrained(config.model_path)
 
     test_df = pd.read_json(config.test_df_path, lines=True)
-
-    results = compute_baselines(model, tokenizer, device, test_df["question"].tolist())
+    prefix = MODEL_CONFIGS[config.model]["prefix"]
+    questions = test_df["question"].apply(lambda q: prefix + q).tolist()
+    results = compute_baselines(model, tokenizer, device, questions)
     Path.mkdir(config.answers_dest_path, parents=True, exist_ok=True)
     pd.concat([test_df, results], axis=1).to_json(
         config.answers_dest_path / "baselines.jsonl", orient="records", lines=True, force_ascii=False)

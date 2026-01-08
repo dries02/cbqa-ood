@@ -10,29 +10,29 @@ from src.eval.sbertdemo import frob
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--model", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--method", type=str, choices=["f1", "bertscore"], required=True)
+    parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
+    parser.add_argument("--uq_method", type=str, choices=["f1", "bertscore"], required=True)
     return parser.parse_args()
 
 
-def choose_method(method: str) -> Callable[[list[str]], float]:
+def choose_method(uq_method: str) -> Callable[[list[str]], float]:
     """Determine UQ method based on user input."""
-    if method == "f1":
+    if uq_method == "f1":
         return f1_rms_uncertainty
-    if method == "bertscore":
+    if uq_method == "bertscore":
         return frob
-    msg = f"Unexpected argument: {method}"
+    msg = f"Unexpected argument: {uq_method}"
     raise ValueError(msg)
 
 
 def main() -> None:
     """Compute uncertainty scores based on answers from stochastic model."""
     args = parse_args()
-    answer_path = Path("results") / args.dataset / f"{args.model}-large.jsonl"
+    answer_path = Path("results") / args.dataset / f"{args.method}-large.jsonl"
     answers_df = pd.read_json(answer_path, lines=True)
-    answers_df[args.method] = answers_df["predictions"].apply(choose_method(args.method))
-    answer_dest_path = Path("results") / args.dataset / f"{args.model}-large-{args.method}.jsonl"
+    answers_df[args.uq_method] = answers_df["predictions"].apply(choose_method(args.uq_method))
+    answer_dest_path = Path("results") / args.dataset / f"{args.method}-large-{args.uq_method}.jsonl"
     answers_df.to_json(answer_dest_path, orient="records", lines=True)
 
 

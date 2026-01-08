@@ -6,6 +6,7 @@ import torch
 from torch import nn
 from torch.utils.data import Dataset
 from transformers import PreTrainedTokenizerBase
+from transformers.modeling_outputs import Seq2SeqLMOutput
 
 
 @dataclass
@@ -44,23 +45,29 @@ class QADatasetTrainSoft(Dataset):
     """QA Dataset with pre-tokenized inputs and labels for training using soft labels."""
 
     def __init__(self, train_df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, *,
-                 max_len_q: int = 32, max_len_a: int = 32, n_answers: int = 3) -> None:
+                 remove_bos: bool, prefix: str, max_len_q: int = 32, max_len_a: int = 32, n_answers: int = 3) -> None:
         """Pre-tokenize everything at construction."""
         super().__init__()
-        self.encodings_q = tokenizer(train_df["question"].to_list(),
-                                     max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
-        self.labels, self.soft_labels = self._tokenize_labels(train_df["answers"], tokenizer, max_len_a, n_answers)
+        questions = train_df["question"].apply(lambda q: prefix + q).tolist()
+        self.encodings_q = tokenizer(questions, max_length=max_len_q,
+                                     truncation=True, padding="max_length", return_tensors="pt")
+        self.hard_labels, self.soft_labels = self._tokenize_labels(
+            train_df["answers"], tokenizer, max_len_a, n_answers, remove_bos=remove_bos)
 
     @staticmethod
     def _tokenize_labels(all_answers: pd.Series, tokenizer: PreTrainedTokenizerBase, max_len_a: int, n_answers: int,
-                         ) -> tuple[list[int], list[list[int]]]:
+                         *, remove_bos: bool) -> tuple[list[torch.Tensor], list[list[list[list[int]]]]]:
+                    #               ^question           ^question ^answer ^position ^valid_tokens
         hard_labels = []
         soft_labels = []
         for answers in all_answers:
             tokens = tokenizer(answers[:n_answers], max_length=max_len_a, truncation=True,
                 padding="max_length", return_tensors="pt",
-            ).input_ids[:, 1:]                                  # Remove <bos>
-            tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding
+            ).input_ids
+
+            if remove_bos:
+                tokens = tokens[:, 1:]
+            tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding, does not affect soft labels
 
             root = _TrieNode()
             for ans in tokens.tolist():
@@ -74,21 +81,21 @@ class QADatasetTrainSoft(Dataset):
 
     def __len__(self) -> int:
         """Count number of samples in dataset."""
-        return len(self.labels)
+        return len(self.hard_labels)
 
     def __getitem__(self, idx: int) -> dict[str, torch.Tensor | list[list[int]]]:
         """Fetch sample from dataset."""
-        ans_idx = random.randrange(0, len(self.labels[idx]))     # to sample an answer
+        ans_idx = random.randrange(0, len(self.hard_labels[idx]))     # sample an answer
         return {
-            "input_ids": self.encodings_q.input_ids[idx],
+            "input_ids":      self.encodings_q.input_ids[idx],
             "attention_mask": self.encodings_q.attention_mask[idx],
-            "labels": self.labels[idx][ans_idx],
-            "soft_labels": self.soft_labels[idx][ans_idx],
+            "labels":         self.hard_labels[idx][ans_idx],
+            "soft_labels":    self.soft_labels[idx][ans_idx],
         }
 
         # input is a list of dicts of size "batch_size", where each dict comes from __getitem__.
     @staticmethod
-    def collate_fn(batch: list[dict[str, torch.Tensor | list[list[int]]]]) -> dict[str, torch.Tensor]:
+    def collate_fn(batch: list[dict[str, torch.Tensor | list[list[int]]]]) -> dict[str, torch.Tensor | list]:
         """Align the lists for dataloader. Train requires special care since sparse labels are not stackable."""
         return {
             "input_ids":      torch.stack([ex["input_ids"]      for ex in batch], 0),
@@ -98,7 +105,7 @@ class QADatasetTrainSoft(Dataset):
         }
 
 
-def compute_kl_soft_loss(outputs, batch: dict, batch_gpu: dict) -> torch.Tensor:
+def compute_kl_soft_loss(outputs: Seq2SeqLMOutput, batch: dict, batch_gpu: dict) -> torch.Tensor:
     """Compute KL divergence loss with soft labels."""
     log_probs = torch.log_softmax(outputs.logits, dim=-1)   # shape: (batch_size, max_ans_len, vocab_size)
     soft_targets = torch.zeros_like(log_probs, device=log_probs.device)

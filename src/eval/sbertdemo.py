@@ -1,7 +1,7 @@
 import math
+
 import torch
 from bert_score import BERTScorer
-
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 scorer = BERTScorer(model_type="bert-base-uncased", device=device)

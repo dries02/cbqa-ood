@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 from torch.optim import AdamW, Optimizer
-from transformers import BartConfig, BartForConditionalGeneration, BartTokenizer
+from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer, BartForConditionalGeneration
 
 from src.train.flipoutbart import FlipoutBart
 from src.train.trainconfig import TrainConfig
@@ -14,7 +14,8 @@ def parse_args() -> Namespace:
     """Create a parser."""
     parser = ArgumentParser(description="Train a model.")
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--model", type=str, choices=["bart-large", "flan-t5-large", "t5-large-ssm", "t5-3b-ssm"], required=True)
+    parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
     parser.add_argument("--n_epochs", type=int, required=True)
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--lr", type=float, default=1e-5)
@@ -31,33 +32,38 @@ def update_config(model: BartForConditionalGeneration) -> None:
         "num_beams": 1,                 # greedy decoding
         "do_sample": False,             # greedy decoding
         "early_stopping": False,        # greedy decoding
-        "forced_bos_token_id": None,    # for changed <bos> handling
         "no_repeat_ngram_size": 0,      # not necessary after changed <bos> handling. see github
     }
+
+    if hasattr(model.config, "forced_bos_token_id"):    # for changed <bos> handling
+        gen_kwargs["forced_bos_token_id"] = None
 
     for key, value in gen_kwargs.items():       # make sure everything gets saved properly in config.json files
         setattr(model.config, key, value)
         setattr(model.generation_config, key, value)
 
 
-def make_bart(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
-    bartconfig: BartConfig = BartConfig.from_pretrained("facebook/bart-large")
-    bartconfig.dropout = config.dropout
+def make_vanilla(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokenizer, Optimizer]:
+    model_config: AutoConfig = AutoConfig.from_pretrained(config.hf_name)
+    if hasattr(model_config, "dropout_rate"):       # T5
+        model_config.dropout_rate = config.dropout
+    if hasattr(model_config, "dropout"):            # BART
+        model_config.dropout = config.dropout
 
-    model = BartForConditionalGeneration.from_pretrained("facebook/bart-large", config=bartconfig).train()  # enable dropout
+    model = AutoModelForSeq2SeqLM.from_pretrained(config.hf_name, config=model_config).train()
     update_config(model)
-    tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
+    tokenizer = AutoTokenizer.from_pretrained(config.hf_name)
     optimizer = AdamW(model.parameters(), lr=config.lr)
 
     return model, tokenizer, optimizer
 
 
-def make_flipout(config: TrainConfig) -> tuple[BartForConditionalGeneration, BartTokenizer, Optimizer]:
+def make_flipout(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokenizer, Optimizer]:
     train_size = sum(1 for _ in Path.open(config.train_path))           # is this a good idea...?
 
-    model = FlipoutBart.from_bart_pretrained("facebook/bart-large", train_size, rho=-2.5).train()      # enable dropout
+    model = FlipoutBart.from_bart_pretrained(config.hf_name, train_size, rho=config.rho).train()
     update_config(model)
-    tokenizer = BartTokenizer.from_pretrained("facebook/bart-large")
+    tokenizer = AutoTokenizer.from_pretrained(config.hf_name)
 
     optimizer = AdamW([
     {
@@ -79,7 +85,7 @@ def main() -> None:
     train_df = pd.read_json(config.train_path, lines=True)
     dev_df = pd.read_json(config.dev_path, lines=True)
 
-    methods = {"mcdropout": make_bart, "flipout": make_flipout}
+    methods = {"vanilla": make_vanilla, "flipout": make_flipout}
 
     model, tokenizer, optimizer = methods[config.method](config)
 
