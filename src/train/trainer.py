@@ -30,6 +30,7 @@ class Trainer:
         self.optimizer = optimizer
         self.config = config
         self.use_soft_labels = config.use_soft_labels
+        self.train_size = len(train_df)
 
         if self.use_soft_labels:
             train_dataset = QADatasetTrainSoft(train_df, tokenizer, remove_bos=config.remove_bos, prefix=config.prefix)
@@ -57,7 +58,10 @@ class Trainer:
                 batch_gpu = {k: v.to(self.device) for k, v in batch.items() if k != "soft_labels"}
                 outputs = self.model(**batch_gpu)
 
+                                                                                # outputs.loss contains CE
                 loss = compute_kl_soft_loss(outputs, batch, batch_gpu) if self.use_soft_labels else outputs.loss
+                if hasattr(outputs, "kl"):
+                    loss += outputs.kl / self.train_size                        # ELBO = CE + 1/N KL
 
                 self.optimizer.zero_grad()                                      # clear out old gradients
                 loss.backward()

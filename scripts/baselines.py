@@ -23,7 +23,7 @@ class GenConfig:
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.model_path = Path("models") / f"{self.dataset}-{self.model}-vanilla-large"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-vanilla"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 

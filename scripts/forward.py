@@ -7,7 +7,7 @@ import torch
 from tqdm import tqdm
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-from src.train.flipoutbart import FlipoutBart
+from train.flipoutseq2seqbart import FlipoutSeq2SeqBart
 from src.train.trainconfig import MODEL_CONFIGS
 
 
@@ -26,7 +26,7 @@ class GenConfig:
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.model_path = Path("models") / f"{self.dataset}-google/{self.model}-{self.method}-large"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-{self.method}"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
@@ -45,7 +45,7 @@ def load_model(method_type: str, path: Path, device: torch.device) -> AutoModelF
     if method_type == "vanilla":
         return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
     if method_type == "flipout":
-        return FlipoutBart.from_pretrained(path).eval().to(device)
+        return FlipoutSeq2SeqBart.from_pretrained(path).eval().to(device)
     msg = f"Unknown model type: {method_type}"
     raise ValueError(msg)
 

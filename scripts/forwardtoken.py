@@ -7,7 +7,6 @@ import torch
 from tqdm import tqdm
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-from src.train.flipoutbart import FlipoutBart
 from src.train.trainconfig import MODEL_CONFIGS
 
 MAX_Q_LEN = 32
@@ -23,11 +22,11 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
-def load_model(method_type: str, path: Path, device: torch.device) -> AutoModelForSeq2SeqLM:
+def load_model(method_type: str, model_type: str, path: Path, device: torch.device) -> AutoModelForSeq2SeqLM:
     if method_type == "vanilla":
         return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
     if method_type == "flipout":
-        return FlipoutBart.from_pretrained(path).eval().to(device)
+        return MODEL_CONFIGS[model_type]["flipout_model"].from_pretrained(path).eval().to(device)
     msg = f"Unknown model type: {method_type}"
     raise ValueError(msg)
 
@@ -74,8 +73,8 @@ def main() -> None:
     args = parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}-large"
-    model = load_model(args.method, model_path, device)
+    model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}"
+    model = load_model(args.method, args.model, model_path, device)
 
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)

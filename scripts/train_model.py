@@ -1,11 +1,9 @@
-from argparse import ArgumentParser, Namespace
-from pathlib import Path
+from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 
 import pandas as pd
 from torch.optim import AdamW, Optimizer
-from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer, BartForConditionalGeneration
+from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer
 
-from src.train.flipoutbart import FlipoutBart
 from src.train.trainconfig import TrainConfig
 from src.train.trainer import Trainer
 
@@ -16,15 +14,18 @@ def parse_args() -> Namespace:
     parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
     parser.add_argument("--model", type=str, choices=["bart-large", "flan-t5-large", "t5-large-ssm", "t5-3b-ssm"], required=True)
     parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
+    parser.add_argument("--use_soft_labels", action=BooleanOptionalAction, required=True)
+    parser.add_argument("--use_stochastic_labels", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_epochs", type=int, required=True)
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--lr", type=float, default=1e-5)
+    parser.add_argument("--rho", type=float, default=-2.5)          # for flipout
     parser.add_argument("--patience", type=int, default=10)
     parser.add_argument("--dropout", type=float, default=0.1)
     return parser.parse_args()
 
 
-def update_config(model: BartForConditionalGeneration) -> None:
+def update_gen_config(model: AutoModelForSeq2SeqLM) -> None:
     """Update default BART settings for sequence generation. Handling answer length, greedy decoding, and `<bos>`."""
     gen_kwargs = {
         "min_new_tokens": 1,            # prevent empty sequences
@@ -51,7 +52,7 @@ def make_vanilla(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokeni
         model_config.dropout = config.dropout
 
     model = AutoModelForSeq2SeqLM.from_pretrained(config.hf_name, config=model_config).train()
-    update_config(model)
+    update_gen_config(model)
     tokenizer = AutoTokenizer.from_pretrained(config.hf_name)
     optimizer = AdamW(model.parameters(), lr=config.lr)
 
@@ -59,16 +60,15 @@ def make_vanilla(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokeni
 
 
 def make_flipout(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokenizer, Optimizer]:
-    train_size = sum(1 for _ in Path.open(config.train_path))           # is this a good idea...?
+    model = config.flipout_model.from_base_pretrained(config.hf_name, rho=config.rho).train()
 
-    model = FlipoutBart.from_bart_pretrained(config.hf_name, train_size, rho=config.rho).train()
-    update_config(model)
+    update_gen_config(model)
     tokenizer = AutoTokenizer.from_pretrained(config.hf_name)
 
     optimizer = AdamW([
     {
-        "params": model.model.parameters(),     # Encoder + Decoder
-        "lr": 1e-5,
+        "params": model.encoder_decoder_params, # Encoder + Decoder
+        "lr": 1e-4,
     },
     {
         "params": model.lm_head.parameters(),   # mu_weight + rho_weight
