@@ -4,10 +4,11 @@ from pathlib import Path
 from typing import Self
 
 import torch
-from bayesian_torch.layers.flipout_layers import LinearFlipout
 from safetensors.torch import load_file
 from transformers import PreTrainedModel
 from transformers.modeling_outputs import Seq2SeqLMOutput
+
+from src.train.linearflipoutadapter import LinearFlipoutAdapter
 
 
 @dataclass
@@ -24,31 +25,41 @@ class FlipoutSeq2SeqBase(PreTrainedModel, ABC):
     def from_base_pretrained(cls, pretrained_model_name_or_path: str, rho: float = -3) -> Self:
         """Load a base model by using pretrained output weights as prior and posterior."""
         model = super().from_pretrained(pretrained_model_name_or_path)
+        model.lm_head = LinearFlipoutAdapter(model.lm_head, rho=rho)
+        FlipoutSeq2SeqBase.enable_flipout_last_n_decoder_ffn(model, n=4, rho=rho)
 
-        pretrained_w = model.lm_head.weight.data.clone()        # from pretraining
-
-                                                    # merely replacing output head, pretrained model also no bias
-        model.lm_head = LinearFlipout(
-            in_features=model.config.d_model, out_features=model.config.vocab_size, posterior_rho_init=rho, bias=False)
-
-                                                    # Set weights AFTER LinearFlipout is fully constructed
-        with torch.no_grad():                       # https://docs.pytorch.org/docs/stable/nn.init.html
-            model.lm_head.prior_weight_mu.copy_(pretrained_w)
-            model.lm_head.mu_weight.copy_(pretrained_w)         # warm start posterior
         return model
+
+    @staticmethod
+    def enable_flipout_last_n_decoder_ffn(model, n: int, rho: float) -> None:
+        for blk in model.decoder.block[-n:]:
+            dense = blk.layer[2].DenseReluDense
+            dense.wi = LinearFlipoutAdapter(dense.wi, rho=rho)
+            dense.wo = LinearFlipoutAdapter(dense.wo, rho=rho)
 
     @classmethod
     def from_pretrained(cls, pretrained_model_name_or_path: str) -> Self:
         """Load a previously trained Flipout model."""
         model = super().from_pretrained(pretrained_model_name_or_path)      # will give a warning
                                                                             # mu and rho are not loaded immediately
-        model.lm_head = LinearFlipout(model.config.d_model, model.config.vocab_size, bias=False)
+        model.lm_head = LinearFlipoutAdapter(model.lm_head)
+
         state_dict_path = Path(pretrained_model_name_or_path) / "model.safetensors"
         state_dict = load_file(state_dict_path)
 
         with torch.no_grad():                                               # load manually
-            model.lm_head.mu_weight.copy_(state_dict["lm_head.mu_weight"])
-            model.lm_head.rho_weight.copy_(state_dict["lm_head.rho_weight"])
+            model.lm_head.flip.mu_weight.copy_(state_dict["lm_head.flip.mu_weight"])
+            model.lm_head.flip.rho_weight.copy_(state_dict["lm_head.flip.rho_weight"])
+
+            for layer in range(20, 24):
+                dense = model.decoder.block[layer].layer[2].DenseReluDense
+                dense.wi = LinearFlipoutAdapter(dense.wi)
+                dense.wo = LinearFlipoutAdapter(dense.wo)
+
+                dense.wi.flip.mu_weight.copy_(state_dict[f"decoder.block.{layer}.layer.2.DenseReluDense.wi.flip.mu_weight"])
+                dense.wi.flip.rho_weight.copy_(state_dict[f"decoder.block.{layer}.layer.2.DenseReluDense.wi.flip.rho_weight"])
+                dense.wo.flip.mu_weight.copy_(state_dict[f"decoder.block.{layer}.layer.2.DenseReluDense.wo.flip.mu_weight"])
+                dense.wo.flip.rho_weight.copy_(state_dict[f"decoder.block.{layer}.layer.2.DenseReluDense.wo.flip.rho_weight"])
 
         return model
 

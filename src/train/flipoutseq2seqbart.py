@@ -65,7 +65,7 @@ class FlipoutSeq2SeqBart(FlipoutSeq2SeqBase, BartForConditionalGeneration):
             return_dict=return_dict,
         )
 
-        lm_logits, kl = self.lm_head(outputs[0])                                # added unpacking
+        lm_logits = self.lm_head(outputs[0])                                # added unpacking
         lm_logits = lm_logits + self.final_logits_bias.to(lm_logits.device)
 
         masked_lm_loss = None

@@ -1,4 +1,4 @@
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -7,7 +7,6 @@ import torch
 from tqdm import tqdm
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-from train.flipoutseq2seqbart import FlipoutSeq2SeqBart
 from src.train.trainconfig import MODEL_CONFIGS
 
 
@@ -20,32 +19,37 @@ class GenConfig:
     dataset: str
     n_reps: int
     batch_size: int                     # how many questions to process per time
+    use_soft: bool
     model_path: Path = field(init=False)
     test_df_path: Path = field(init=False)
     answers_dest_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.model_path = Path("models") / f"{self.dataset}-{self.model}-{self.method}"
+        suffix = "soft" if self.use_soft else "hard"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-{self.method}-{suffix}-0"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm", "flan-t5-large"], required=True)
-    parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
+    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_reps", type=int, default=30)
     parser.add_argument("--batch_size", type=int, default=64)
     return parser.parse_args()
 
 
-def load_model(method_type: str, path: Path, device: torch.device) -> AutoModelForSeq2SeqLM:
-    if method_type == "vanilla":
+def load_model(method_type: str, path: Path, device: torch.device, config: GenConfig) -> AutoModelForSeq2SeqLM:
+    if method_type == "mcdropout":
         return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
     if method_type == "flipout":
-        return FlipoutSeq2SeqBart.from_pretrained(path).eval().to(device)
+        model = MODEL_CONFIGS[config.model]["flipout_model"].from_pretrained(path).eval().to(device)
+        model.lm_head.train()
+        return model
     msg = f"Unknown model type: {method_type}"
     raise ValueError(msg)
 
@@ -77,7 +81,7 @@ def main() -> None:
     """Driver to make many forward passes for a stochastic model."""
     config = GenConfig(**vars(parse_args()))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = load_model(config.method, config.model_path, device)
+    model = load_model(config.method, config.model_path, device, config)
     tokenizer = AutoTokenizer.from_pretrained(config.model_path)
     test_df = pd.read_json(config.test_df_path, lines=True)
 
@@ -88,7 +92,8 @@ def main() -> None:
         model, tokenizer, questions, device, config.n_reps, config.batch_size)
 
     Path.mkdir(config.answers_dest_path, parents=True, exist_ok=True)
-    results_path = config.answers_dest_path / f"{config.method}-large.jsonl"
+    suffix = "soft" if config.use_soft else "hard"
+    results_path = config.answers_dest_path / f"{config.method}-{suffix}.jsonl"
     test_df.to_json(results_path, orient="records", lines=True)
 
 

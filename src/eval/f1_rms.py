@@ -60,6 +60,9 @@ def _f1_distance_matrix(texts):
 # 4.  Collapse D -> u_RMS
 # ------------------------------------------------------------------
 def f1_rms_uncertainty(strings: list[str]) -> float:
+    if all(not s for s in strings):
+        return 1
+
     D = _f1_distance_matrix(strings)
     T = D.shape[0]
     off_diag = D[~np.eye(T, dtype=bool)]

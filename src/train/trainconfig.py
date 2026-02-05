@@ -12,21 +12,11 @@ MODEL_CONFIGS = {
         "remove_bos": True,
         "flipout_model": FlipoutSeq2SeqBart,
     },
-    "flan-t5-large": {
-        "hf_name": "google/flan-t5-large",
-        "prefix": "answer briefly: ",
-        "remove_bos": False,
-    },
     "t5-large-ssm": {
         "hf_name": "google/t5-large-ssm",
         "prefix": "question: ",
         "remove_bos": False,
         "flipout_model": FlipoutSeq2SeqT5,
-    },
-    "t5-3b-ssm": {
-        "hf_name": "google/t5-3b-ssm",
-        "prefix": "question: ",
-        "remove_bos": False,
     },
 }
 
@@ -57,7 +47,8 @@ class TrainConfig:
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.output_dir = Path("models") / f"{self.dataset}-{self.model}-{self.method}"
+        suffix = "soft" if self.use_soft_labels else "hard"
+        self.output_dir = Path("models") / f"{self.dataset}-{self.model}-{self.method}-{suffix}-0"
         self.train_path = Path("data") / self.dataset / f"{self.dataset}-train.jsonl"
         self.dev_path = Path("data") / self.dataset / f"{self.dataset}-dev.jsonl"
         for key in MODEL_CONFIGS[self.model]:

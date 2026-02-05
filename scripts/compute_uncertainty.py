@@ -1,4 +1,4 @@
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 from collections.abc import Callable
 from pathlib import Path
 
@@ -10,9 +10,10 @@ from src.eval.sbertdemo import frob
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--uq_method", type=str, choices=["f1", "bertscore"], required=True)
+    parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     return parser.parse_args()
 
 
@@ -29,10 +30,13 @@ def choose_method(uq_method: str) -> Callable[[list[str]], float]:
 def main() -> None:
     """Compute uncertainty scores based on answers from stochastic model."""
     args = parse_args()
-    answer_path = Path("results") / args.dataset / f"{args.method}-large.jsonl"
+    suffix = "soft" if args.use_soft else "hard"
+
+    answer_path = Path("results") / args.dataset / f"{args.method}-{suffix}.jsonl"
     answers_df = pd.read_json(answer_path, lines=True)
     answers_df[args.uq_method] = answers_df["predictions"].apply(choose_method(args.uq_method))
-    answer_dest_path = Path("results") / args.dataset / f"{args.method}-large-{args.uq_method}.jsonl"
+
+    answer_dest_path = Path("results") / args.dataset / f"{args.method}-{suffix}-{args.uq_method}.jsonl"
     answers_df.to_json(answer_dest_path, orient="records", lines=True)
 
 

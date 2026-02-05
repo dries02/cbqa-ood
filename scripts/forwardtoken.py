@@ -1,4 +1,4 @@
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 from pathlib import Path
 
 import numpy as np
@@ -15,18 +15,22 @@ MAX_ANS_LEN = 32
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm", "flan-t5-large"], required=True)
-    parser.add_argument("--method", type=str, choices=["vanilla", "flipout"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
+    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_reps", type=int, default=30)
     return parser.parse_args()
 
 
 def load_model(method_type: str, model_type: str, path: Path, device: torch.device) -> AutoModelForSeq2SeqLM:
-    if method_type == "vanilla":
+    if method_type == "mcdropout":
         return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
     if method_type == "flipout":
-        return MODEL_CONFIGS[model_type]["flipout_model"].from_pretrained(path).eval().to(device)
+        model = MODEL_CONFIGS[model_type]["flipout_model"].from_pretrained(path).eval().to(device)
+        model.lm_head.train()
+        return model
+
     msg = f"Unknown model type: {method_type}"
     raise ValueError(msg)
 
@@ -56,10 +60,11 @@ def generate_answer(
         token_mis.append(mutual_info.item())
         token_entropies.append(entropy.item())
         next_token = mean_probs.argmax()
+        decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
+
         if next_token == tokenizer.eos_token_id:
             break
 
-        decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
     return {
         "prediction": tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True),
@@ -73,7 +78,8 @@ def main() -> None:
     args = parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}"
+    suffix = "soft" if args.use_soft else "hard"
+    model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}-{suffix}-0"
     model = load_model(args.method, args.model, model_path, device)
 
     tokenizer = AutoTokenizer.from_pretrained(model_path)
@@ -84,7 +90,7 @@ def main() -> None:
     test_df[["prediction", "mean_mi", "max_mi", "mean_entropy", "max_entropy"]] = test_df["question"].progress_apply(
         lambda q: pd.Series(generate_answer(model, tokenizer, prefix + q, device, args.n_reps)))
 
-    results_path = Path("results") / args.dataset / f"{args.method}-large-token.jsonl"
+    results_path = Path("results") / args.dataset / f"{args.method}-{suffix}-token.jsonl"
     test_df.to_json(results_path, orient="records", lines=True)
 
 

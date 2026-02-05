@@ -18,7 +18,10 @@ def fetch_data(base: str, ds_name: str) -> None:
 
 def main() -> None:
     """Fetch training and development sets for TriviaQA and NaturalQuestions."""
-    ds = ("triviaqa", "nq")
+    ds = (
+        # "triviaqa",
+        "nq",
+        )
     base = "data"
     for dataset in ds:
         fetch_data(base, dataset)

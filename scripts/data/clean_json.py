@@ -2,6 +2,7 @@ from argparse import ArgumentParser, Namespace
 from pathlib import Path
 
 import pandas as pd
+import regex as re
 
 
 def parse_args() -> Namespace:
@@ -11,14 +12,15 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 # all_chars = set()
+pattern = re.compile(r"\[\d+\]")       # Wikipedia reference tokens
 
 def clean(text: str) -> str:
     """Clean text by replacing unicode characters."""
     # global all_chars
     # all_chars |= set(text)
-
     return (
-        text.replace("\u000a", " ")     # line feed
+        re.sub(pattern, "", text)
+            .replace("\u000a", " ")     # line feed
             .replace("\u00a0", " ")     # nbsp (no-break space)
             .replace("\u00ad", "")      # soft hyphen (for syllables)
             .replace("\u00bd", "1/2")   # vulgar fraction one half
@@ -32,8 +34,9 @@ def clean(text: str) -> str:
             .replace("\u2013", "-")     # en dash
             .replace("\u2018", "'")     # left single quotation mark
             .replace("\u2019", "'")     # right single quotation mark
-            .replace("\u201c", '"')     # left double quotation mark
-            .replace("\u201d", '"')     # right double quotation mark
+            .replace("\u201c", "")      # left double quotation mark         -- removed!
+            .replace("\u201d", "")      # right double quotation mark        -- removed!
+            .replace('"', "")           # remove quotes!
             .replace("\u2022", "")      # bullet point
             .replace("\u2044", "/")     # fraction slash
             .replace("\u2212", "-")     # minus sign

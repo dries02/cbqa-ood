@@ -1,6 +1,6 @@
 # Reference: https://github.com/facebookresearch/DPR/blob/main/dpr/data/download_data.py
 
-datasets=("webquestions" "triviaqa" "nq")
+datasets=("webquestions" "nq")
 
 for dataset in "${datasets[@]}"; do
   mkdir -p "data/$dataset"

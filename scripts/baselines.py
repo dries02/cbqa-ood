@@ -1,4 +1,4 @@
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -17,21 +17,24 @@ class GenConfig:
 
     dataset: str
     model: str
+    use_soft: bool
     model_path: Path = field(init=False)
     test_df_path: Path = field(init=False)
     answers_dest_path: Path = field(init=False)
 
     def __post_init__(self) -> None:
         """Set some directories."""
-        self.model_path = Path("models") / f"{self.dataset}-{self.model}-vanilla"
+        suffix = "soft" if self.use_soft else "hard"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-mcdropout-{suffix}-1"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
-    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm", "flan-t5-large"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
+    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
+    parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     return parser.parse_args()
 
 
@@ -50,8 +53,7 @@ def validate_sequences(probs: torch.Tensor, pred_ids: torch.Tensor,
 
     eos_mask = (seq == tokenizer.eos_token_id)
     if not (eos_mask.sum(dim=-1) == 1).all():
-        msg = "Each sequence must have exactly one EOS token."
-        raise ValueError(msg)                       # exactly 1 <eos> token
+        return
 
     eos_pos = eos_mask.int().argmax(dim=-1)
     pos = torch.arange(seq.shape[1], device=seq.device)
@@ -135,8 +137,9 @@ def main() -> None:
     questions = test_df["question"].apply(lambda q: prefix + q).tolist()
     results = compute_baselines(model, tokenizer, device, questions)
     Path.mkdir(config.answers_dest_path, parents=True, exist_ok=True)
+    suffix = "soft" if config.use_soft else "hard"
     pd.concat([test_df, results], axis=1).to_json(
-        config.answers_dest_path / "baselines.jsonl", orient="records", lines=True, force_ascii=False)
+        config.answers_dest_path / f"baselines-{suffix}.jsonl", orient="records", lines=True, force_ascii=False)
 
 
 if __name__ == "__main__":

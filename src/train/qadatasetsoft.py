@@ -45,7 +45,7 @@ class QADatasetTrainSoft(Dataset):
     """QA Dataset with pre-tokenized inputs and labels for training using soft labels."""
 
     def __init__(self, train_df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, *,
-                 remove_bos: bool, prefix: str, max_len_q: int = 32, max_len_a: int = 32, n_answers: int = 3) -> None:
+                 remove_bos: bool, prefix: str, max_len_q: int = 32, max_len_a: int = 32, n_answers: int = 5) -> None:
         """Pre-tokenize everything at construction."""
         super().__init__()
         questions = train_df["question"].apply(lambda q: prefix + q).tolist()
@@ -67,13 +67,13 @@ class QADatasetTrainSoft(Dataset):
 
             if remove_bos:
                 tokens = tokens[:, 1:]
-            tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding, does not affect soft labels
 
             root = _TrieNode()
             for ans in tokens.tolist():
                 root.add_answer(ans, tokenizer.eos_token_id)    # identify all prefixes
 
             answer_soft_labels = [root.traverse(ans, tokenizer.eos_token_id) for ans in tokens.tolist()]
+            tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding, does not affect soft labels
             hard_labels.append(tokens)
             soft_labels.append(answer_soft_labels)
 

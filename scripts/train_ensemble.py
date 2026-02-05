@@ -1,4 +1,5 @@
 from argparse import ArgumentParser, BooleanOptionalAction, Namespace
+from pathlib import Path
 
 import pandas as pd
 from torch.optim import AdamW, Optimizer
@@ -18,8 +19,8 @@ def parse_args() -> Namespace:
     parser.add_argument("--use_stochastic_labels", type=bool, default=False)
     parser.add_argument("--n_epochs", type=int, required=True)
     parser.add_argument("--batch_size", type=int, default=32)
-    parser.add_argument("--lr", type=float, default=1e-4)
-    parser.add_argument("--rho", type=float, default=-2.0)          # for flipout
+    parser.add_argument("--lr", type=float, default=1e-5)
+    parser.add_argument("--rho", type=float, default=-2.5)          # for flipout
     parser.add_argument("--patience", type=int, default=10)
     parser.add_argument("--dropout", type=float, default=0.1)
     return parser.parse_args()
@@ -94,17 +95,20 @@ def make_flipout(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokeni
 
 def main() -> None:
     """Entry point for training CBQA model. Also asks for command line arguments."""
-    config = TrainConfig(**vars(parse_args()))                  # fetch and unpack the __dict__
-    train_df = pd.read_json(config.train_path, lines=True)
-    dev_df = pd.read_json(config.dev_path, lines=True)
+    for n in range(1, 5):
+        config = TrainConfig(**vars(parse_args()))                  # fetch and unpack the __dict__
+        suffix = "soft" if config.use_soft_labels else "hard"
 
-    methods = {"mcdropout": make_vanilla, "flipout": make_flipout}
+        config.output_dir = Path("models") / f"{config.dataset}-{config.model}-{config.method}-{suffix}-{n}"
+        train_df = pd.read_json(config.train_path, lines=True)
+        dev_df = pd.read_json(config.dev_path, lines=True)
 
-    model, tokenizer, optimizer = methods[config.method](config)
+        methods = {"mcdropout": make_vanilla, "flipout": make_flipout}
 
-    trainer = Trainer(model, tokenizer, optimizer, train_df, dev_df, config)
-    trainer.train()
+        model, tokenizer, optimizer = methods[config.method](config)
 
+        trainer = Trainer(model, tokenizer, optimizer, train_df, dev_df, config)
+        trainer.train()
 
 if __name__ == "__main__":
     main()

@@ -20,6 +20,17 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
             if "lm_head" not in n
         ]
 
+    def fetch_kl(self) -> torch.Tensor:
+        kls = [self.lm_head.last_kl]
+        for blk in self.decoder.block:
+            dense = blk.layer[2].DenseReluDense
+            if hasattr(dense.wi, "last_kl"):
+                kls.append(dense.wi.last_kl)
+            if hasattr(dense.wo, "last_kl"):
+                kls.append(dense.wo.last_kl)
+
+        return torch.stack(kls).sum()
+
     @override
     def forward(  # noqa: C901, PLR0912
         self,
@@ -118,7 +129,7 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
             # See https://github.com/tensorflow/mesh/blob/fa19d69eafc9a482aff0b59ddd96b025c0cb207d/mesh_tensorflow/transformer/transformer.py#L586
             sequence_output = sequence_output * (self.model_dim**-0.5)
 
-        lm_logits, kl = self.lm_head(sequence_output)                                # added unpacking
+        lm_logits = self.lm_head(sequence_output)
 
         loss = None
         if labels is not None:
@@ -141,5 +152,5 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
             encoder_last_hidden_state=encoder_outputs.last_hidden_state,
             encoder_hidden_states=encoder_outputs.hidden_states,
             encoder_attentions=encoder_outputs.attentions,
-            kl=kl,                                                                  # added KL divergence
+            kl=self.fetch_kl(),                                                                  # added KL divergence
         )
