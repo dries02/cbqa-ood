@@ -61,7 +61,7 @@ def _f1_distance_matrix(texts):
 # ------------------------------------------------------------------
 def f1_rms_uncertainty(strings: list[str]) -> float:
     if all(not s for s in strings):
-        return 1
+        return 1.0
 
     D = _f1_distance_matrix(strings)
     T = D.shape[0]

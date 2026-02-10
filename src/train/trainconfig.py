@@ -28,7 +28,7 @@ class TrainConfig:
     n_epochs: int
     batch_size: int
     lr: float
-    patience: int
+    # patience: int
     dropout: float
     dataset: str
     method: str

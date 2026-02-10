@@ -25,7 +25,7 @@ class GenConfig:
     def __post_init__(self) -> None:
         """Set some directories."""
         suffix = "soft" if self.use_soft else "hard"
-        self.model_path = Path("models") / f"{self.dataset}-{self.model}-mcdropout-{suffix}-1"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-mcdropout-{suffix}-0"
         self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
@@ -61,11 +61,6 @@ def validate_sequences(probs: torch.Tensor, pred_ids: torch.Tensor,
     if after_eos.any() and not (seq[after_eos] == tokenizer.pad_token_id).all():
         msg = "Non-PAD tokens found after EOS."
         raise ValueError(msg)                       # <pad> only after <eos>
-
-    # for forbidden_token_id in (tokenizer.bos_token_id, tokenizer.unk_token_id, tokenizer.mask_token_id):
-    #     if (seq == forbidden_token_id).any():
-    #         msg = f"Found forbidden token: {forbidden_token_id}."
-    #         raise ValueError(msg)                   # no <bos>, <unk>, <mask>
 
 
 def compute_uncertainties(probs: torch.Tensor, pred_ids: torch.Tensor,

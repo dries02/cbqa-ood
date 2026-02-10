@@ -3,7 +3,7 @@ import torch
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, get_linear_schedule_with_warmup
 
 from src.eval.eval_model import evaluate
 from src.train.qadataset import QADatasetEval, QADatasetTrain
@@ -41,6 +41,11 @@ class Trainer:
                                            use_stochastic_labels=config.use_stochastic_labels)
             self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
 
+        total_steps = len(self.train_data) * config.n_epochs
+        warmup_steps = int(0.1 * total_steps)
+        self.scheduler = get_linear_schedule_with_warmup(
+            optimizer, num_warmup_steps=warmup_steps, num_training_steps=total_steps)
+
         dev_dataset = QADatasetEval(dev_df, tokenizer, config.prefix)
         self.dev_data = DataLoader(
             dev_dataset, shuffle=False, batch_size=128, collate_fn=QADatasetEval.collate_fn)
@@ -48,7 +53,7 @@ class Trainer:
     def train(self) -> None:
         """Train the model."""
         best_em = 0
-        epochs_no_improvement = 0
+        # epochs_no_improvement = 0
 
         for epoch in tqdm(range(1, self.config.n_epochs+1), desc="Epochs", position=0):
             running_loss = 0
@@ -67,6 +72,7 @@ class Trainer:
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)   # no explosions
                 self.optimizer.step()
+                self.scheduler.step()
 
                 running_loss += loss.item()
                 avg_so_far = running_loss / idx                                 # batches done so far
@@ -77,14 +83,14 @@ class Trainer:
 
                     if em_count > best_em:                                      # found better, save immediately
                         best_em = em_count
-                        epochs_no_improvement = 0
+                        # epochs_no_improvement = 0
                         self.save()
-                    elif epochs_no_improvement + 1 == self.config.patience:     # patience ran out, stop early
-                        print(f"\nEarly stopping at epoch {epoch}."
-                              f"Best EM: {best_em} at epoch {epoch - self.config.patience}.")
-                        return
-                    else:
-                        epochs_no_improvement += 1
+                    # elif epochs_no_improvement + 1 == self.config.patience:     # patience ran out, stop early
+                    #     print(f"\nEarly stopping at epoch {epoch}."
+                    #           f"Best EM: {best_em} at epoch {epoch - self.config.patience}.")
+                    #     return
+                    # else:
+                    #     epochs_no_improvement += 1
                 else:
                     loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM="-")
 

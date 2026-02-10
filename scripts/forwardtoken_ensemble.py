@@ -15,7 +15,7 @@ MAX_ANS_LEN = 32
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
     parser.add_argument("--model", type=str, choices=["t5-large-ssm"], required=True)
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_ensemble", type=int, default=5)
