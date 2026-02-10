@@ -10,23 +10,51 @@ from src.train.linearflipoutadapter import LinearFlipoutAdapter
 
 
 class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
-    """Implements T5 with a Bayesian output layer using flipout."""
+    """Implements T5 with LinearFlipout layers."""
 
     @override
     @classmethod
-    def from_base_pretrained(cls, pretrained_model_name_or_path: str, rho: float = -3) -> Self:
+    def from_base_pretrained(cls, pretrained_model_name_or_path: str, rho: float = -3.0) -> Self:
         """Load a base model by using pretrained output weights as prior and posterior."""
         model = super().from_pretrained(pretrained_model_name_or_path)
 
         model.lm_head = LinearFlipoutAdapter(model.lm_head, rho=rho)
-        FlipoutSeq2SeqT5.enable_flipout_last_n_decoder_ffn(model, n=4, rho=rho)
+
+        cls._enable_flipout_last_n_encoder(model, n=3, rho=rho)
+        cls._enable_flipout_last_n_decoder(model, n=3, rho=rho)
 
         return model
 
     @staticmethod
-    def enable_flipout_last_n_decoder_ffn(model, n: int, rho: float) -> None:
+    def _enable_flipout_last_n_encoder(model: "FlipoutSeq2SeqT5", n: int, rho: float) -> None:
+        """Enable Flipout in the last `n` encoder blocks."""
+        for blk in model.encoder.block[-n:]:
+            self_attention = blk.layer[0].SelfAttention
+            self_attention.q = LinearFlipoutAdapter(self_attention.q, rho=rho)
+            self_attention.k = LinearFlipoutAdapter(self_attention.k, rho=rho)
+            self_attention.v = LinearFlipoutAdapter(self_attention.v, rho=rho)
+            self_attention.o = LinearFlipoutAdapter(self_attention.o, rho=rho)
 
-        for blk in model.decoder.block[:-n]:
+            dense = blk.layer[1].DenseReluDense
+            dense.wi = LinearFlipoutAdapter(dense.wi, rho=rho)
+            dense.wo = LinearFlipoutAdapter(dense.wo, rho=rho)
+
+    @staticmethod
+    def _enable_flipout_last_n_decoder(model: "FlipoutSeq2SeqT5", n: int, rho: float) -> None:
+        """Enable Flipout in the last `n` decoder blocks."""
+        for blk in model.decoder.block[-n:]:
+            self_attention = blk.layer[0].SelfAttention
+            self_attention.q = LinearFlipoutAdapter(self_attention.q, rho=rho)
+            self_attention.k = LinearFlipoutAdapter(self_attention.k, rho=rho)
+            self_attention.v = LinearFlipoutAdapter(self_attention.v, rho=rho)
+            self_attention.o = LinearFlipoutAdapter(self_attention.o, rho=rho)
+
+            enc_dec_attention = blk.layer[1].EncDecAttention
+            enc_dec_attention.q = LinearFlipoutAdapter(enc_dec_attention.q, rho=rho)
+            enc_dec_attention.k = LinearFlipoutAdapter(enc_dec_attention.k, rho=rho)
+            enc_dec_attention.v = LinearFlipoutAdapter(enc_dec_attention.v, rho=rho)
+            enc_dec_attention.o = LinearFlipoutAdapter(enc_dec_attention.o, rho=rho)
+
             dense = blk.layer[2].DenseReluDense
             dense.wi = LinearFlipoutAdapter(dense.wi, rho=rho)
             dense.wo = LinearFlipoutAdapter(dense.wo, rho=rho)
@@ -57,16 +85,3 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
                 dense.wo.flip.rho_weight.copy_(state_dict[f"decoder.block.{layer}.layer.2.DenseReluDense.wo.flip.rho_weight"])
 
         return model
-
-
-    @override
-    def fetch_kl(self) -> torch.Tensor:
-        kls = [self.lm_head.last_kl]
-        for blk in self.decoder.block:
-            dense = blk.layer[2].DenseReluDense
-            if hasattr(dense.wi, "last_kl"):
-                kls.append(dense.wi.last_kl)
-            if hasattr(dense.wo, "last_kl"):
-                kls.append(dense.wo.last_kl)
-
-        return torch.stack(kls).sum()
