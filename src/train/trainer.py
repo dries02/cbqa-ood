@@ -41,6 +41,8 @@ class Trainer:
                                            use_stochastic_labels=config.use_stochastic_labels)
             self.train_data = DataLoader(train_dataset, shuffle=True, batch_size=config.batch_size)
 
+        self.total_valid = sum((lab != -100).sum().item() for lab in train_dataset.labels)
+
         total_steps = len(self.train_data) * config.n_epochs
         warmup_steps = int(0.1 * total_steps)
         self.scheduler = get_linear_schedule_with_warmup(
@@ -62,11 +64,11 @@ class Trainer:
             for idx, batch in enumerate(loop, start=1):
                 batch_gpu = {k: v.to(self.device) for k, v in batch.items() if k != "soft_labels"}
                 outputs = self.model(**batch_gpu)
-
                                                                                 # outputs.loss contains CE
                 loss = compute_kl_soft_loss(outputs, batch, batch_gpu) if self.use_soft_labels else outputs.loss
                 if hasattr(outputs, "kl"):
-                    loss += outputs.kl / self.train_size                        # ELBO = CE + 1/N KL
+                    # print(batch["labels"])
+                    loss += 0.00001 * outputs.kl / self.total_valid                        # ELBO = CE + 1/N KL
 
                 self.optimizer.zero_grad()                                      # clear out old gradients
                 loss.backward()

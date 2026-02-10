@@ -87,7 +87,13 @@ def make_vanilla(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokeni
 
 
 def make_flipout(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokenizer]:
-    model = config.flipout_model.from_base_pretrained(config.hf_name, rho=config.rho).train()
+    model_config: AutoConfig = AutoConfig.from_pretrained(config.hf_name)
+    if hasattr(model_config, "dropout_rate"):       # T5
+        model_config.dropout_rate = config.dropout
+    if hasattr(model_config, "dropout"):            # BART
+        model_config.dropout = config.dropout
+
+    model = config.flipout_model.from_base_pretrained(config.hf_name, config=model_config, rho=config.rho).train()
     update_gen_config(model)
     tokenizer = AutoTokenizer.from_pretrained(config.hf_name)
 

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Self
 
 import torch
-from transformers import PreTrainedModel
+from transformers import PretrainedConfig, PreTrainedModel
 from transformers.modeling_outputs import Seq2SeqLMOutput
 
 from src.train.linearflipoutadapter import LinearFlipoutAdapter
@@ -21,13 +21,13 @@ class FlipoutSeq2SeqBase(PreTrainedModel, ABC):
 
     @classmethod
     @abstractmethod
-    def from_base_pretrained(cls, pretrained_model_name_or_path: str, rho: float = -3.0) -> Self:
+    def from_base_pretrained(
+        cls, pretrained_model_name_or_path: str, config: PretrainedConfig, rho: float = -3.0) -> Self:
         """Load a base model by using pretrained output weights as prior and posterior."""
 
     def _fetch_kl(self) -> torch.Tensor:
-            # slightly inefficient and unsafe but OK. assumes forward pass has been made, hence private member.
-            # the benefit is that this is quite agnostic about the architecture
-        kls: list[torch.Tensor] = [layer.last_kl for layer in self.modules() if isinstance(layer, LinearFlipoutAdapter)]
+            # slightly inefficient but loose coupling to model architecture
+        kls = [layer.kl_loss() for layer in self.modules() if isinstance(layer, LinearFlipoutAdapter)]
         if not kls:
             msg = "No Flipout layers found."
             raise ValueError(msg)
