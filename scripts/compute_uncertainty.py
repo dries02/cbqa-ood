@@ -12,7 +12,7 @@ from src.eval.seqmethods import variation_ratio, vote_entropy
 def parse_args() -> Namespace:
     parser = ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
-    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout", "ensemble5"], required=True)
     parser.add_argument(
         "--uq_method", type=str, choices=["f1", "bertscore", "variationratio", "voteentropy"], required=True)
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
