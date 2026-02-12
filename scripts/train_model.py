@@ -33,8 +33,8 @@ def make_optimizer(model: AutoModelForSeq2SeqLM, config: AutoConfig) -> Optimize
         "layer_norm",                   # layer normalization
         "relative_attention_bias",      # positional embeddings
         "shared",                       # embedding
-        "rho_weight",                   # ...
-        "mu_weight",                    # ...
+        "mu_weight",                    # Flipout mean
+        "rho_weight",                   # Flipout sigma
         ]
 
     for name, p in model.named_parameters():

@@ -15,9 +15,9 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
 
     @classmethod
     def _replace_flipout(cls, parent: nn.Module, rho: float) -> None:
-        """Recursively replace all Linear layers with LinearFlipout layers."""
+        """Recursively replace all hidden Linear layers with LinearFlipout layers."""
         for name, child in parent.named_children():
-            if isinstance(child, nn.Linear):
+            if isinstance(child, nn.Linear) and name != "lm_head":
                 setattr(parent, name, LinearFlipoutAdapter(child, rho))
             else:
                 cls._replace_flipout(child, rho)
@@ -25,7 +25,7 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
     @override
     @classmethod
     def from_base_pretrained(
-        cls, pretrained_model_name_or_path: str, config: PretrainedConfig, rho: float = -3.0,
+        cls, pretrained_model_name_or_path: str, config: PretrainedConfig, rho: float,
     ) -> Self:
         """Load a base model by using pretrained output weights as prior and posterior."""
         model = super().from_pretrained(pretrained_model_name_or_path, config=config)
@@ -39,15 +39,10 @@ class FlipoutSeq2SeqT5(FlipoutSeq2SeqBase, T5ForConditionalGeneration):
         """Load a previously trained Flipout model."""
         model = super().from_pretrained(pretrained_model_name_or_path)      # will give a warning
                                                                             # mu and rho are not loaded immediately
-        model.lm_head = LinearFlipoutAdapter(model.lm_head)
-
         state_dict_path = Path(pretrained_model_name_or_path) / "model.safetensors"
         state_dict = load_file(state_dict_path)
 
         with torch.no_grad():                                               # load manually
-            model.lm_head.flip.mu_weight.copy_(state_dict["lm_head.flip.mu_weight"])
-            model.lm_head.flip.rho_weight.copy_(state_dict["lm_head.flip.rho_weight"])
-
             for layer in range(20, 24):
                 dense = model.decoder.block[layer].layer[2].DenseReluDense
                 dense.wi = LinearFlipoutAdapter(dense.wi)

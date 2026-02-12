@@ -22,7 +22,7 @@ class FlipoutSeq2SeqBase(PreTrainedModel, ABC):
     @classmethod
     @abstractmethod
     def from_base_pretrained(
-        cls, pretrained_model_name_or_path: str, config: PretrainedConfig, rho: float = -3.0) -> Self:
+        cls, pretrained_model_name_or_path: str, config: PretrainedConfig, rho: float) -> Self:
         """Load a base model by using pretrained output weights as prior and posterior."""
 
     def _fetch_kl(self) -> torch.Tensor:
@@ -32,7 +32,7 @@ class FlipoutSeq2SeqBase(PreTrainedModel, ABC):
             msg = "No Flipout layers found."
             raise ValueError(msg)
 
-        return torch.stack(kls).sum()
+        return torch.stack(kls).mean()
 
     def forward(self, *args, **kwargs) -> Seq2SeqFlipoutLMOutput:
         """Forward pass. Unsafe if `return_dict` is passed."""
