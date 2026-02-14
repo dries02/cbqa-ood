@@ -77,7 +77,7 @@ class Trainer:
                 avg_so_far = running_loss / idx                                 # batches done so far
 
                 if idx == len(self.train_data):
-                    em_count = evaluate(self.model, self.tokenizer, self.dev_data)
+                    em_count = evaluate(self.model, self.tokenizer, self.dev_data, self.device)
                     loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM=str(em_count))
 
                     if em_count > best_em:                                      # found better, save immediately

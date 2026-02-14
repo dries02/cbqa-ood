@@ -6,7 +6,7 @@ import pandas as pd
 
 from src.eval.f1_rms import f1_rms_uncertainty
 from src.eval.sbertdemo import frob
-from src.eval.seqmethods import variation_ratio, vote_entropy
+from src.eval.utils import variation_ratio, vote_entropy
 
 
 def parse_args() -> Namespace:
