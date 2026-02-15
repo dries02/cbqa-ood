@@ -49,7 +49,7 @@ def _f1_distance_matrix(texts) -> np.ndarray:
     return 1.0 - f1
 
 def f1_rms_uncertainty(strings: list[str]) -> float:
-    strings = map(normalize_answer, strings)
+    strings = list(map(normalize_answer, strings))
     if all(not s for s in strings):
         return 1.0
 

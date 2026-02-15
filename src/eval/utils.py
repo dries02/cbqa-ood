@@ -2,8 +2,12 @@ import math
 import re
 import string
 from collections import Counter
+from dataclasses import dataclass
+from functools import cache
 
 import numpy as np
+import torch
+from transformers import AutoModelForSequenceClassification, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
 
 # source: https://github.com/facebookresearch/QA-Overlap/blob/main/evaluate.py
 articles_pattern = re.compile(r"\b(a|an|the)\b")
@@ -58,17 +62,71 @@ def f1(pred: str, gold_answers: list[str]) -> float:
     return max(_f1_pair(pred, gt) for gt in gold_answers)
 
 
-def variation_ratio(answers: list[str]) -> float:
+def variation_ratio(preds: list[str]) -> float:
     """Compute the variation ratio."""
-    ans_counter = Counter(map(_normalize_answer, answers))
+    ans_counter = Counter(map(_normalize_answer, preds))
     mode = ans_counter.most_common(1)[0][1]
-    return 1 - mode / len(answers)
+    return 1 - mode / len(preds)
 
 
-def vote_entropy(answers: list[str]) -> float:
+def vote_entropy(preds: list[str]) -> float:
     """Compute the vote entropy."""
-    ans_counter = Counter(map(_normalize_answer, answers))
-    probs = (p / len(answers) for p in ans_counter.values())
+    ans_counter = Counter(map(_normalize_answer, preds))
+    probs = (p / len(preds) for p in ans_counter.values())
+    return -sum(p * math.log(p) for p in probs)
+
+
+@dataclass(frozen=True)
+class NLIResources:
+    """Contains a model, tokenizer and device for NLI inference."""
+
+    model: PreTrainedModel
+    tokenizer: PreTrainedTokenizerBase
+    device: torch.device
+    contradict_idx: int         # == 0
+    neutral_idx: int            # == 1
+    entail_idx: int             # == 2
+
+    def entails(self, lhs: str, rhs: str) -> bool:
+        """Check whether lhs entails rhs."""
+        if lhs == rhs:
+            return True
+
+        inputs = self.tokenizer(lhs, rhs, return_tensors="pt").to(self.device)
+        with torch.no_grad():
+            pred_logits = self.model(**inputs).logits
+
+        pred = pred_logits.argmax().item()      # might prefer threshold
+        return pred == self.entail_idx
+
+
+def semantic_entropy(question: str, answers: list[str], nli: NLIResources) -> float:
+    """Compute semantic entropy based on Kuhn et al. (https://arxiv.org/pdf/2302.09664)."""
+    @cache
+    def entails(lhs: str, rhs: str) -> bool:
+        return nli.entails(lhs, rhs)
+
+    def is_entailment(ans1: str, ans2: str) -> bool:
+        lhs = question + " " + ans1
+        rhs = question + " " + ans2
+        return entails(lhs, rhs) and entails(rhs, lhs)
+
+    def entailment_clustering(answers: list[str]) -> list[list[str]]:
+        clusters = [[answers[0]]]
+        for answer in answers[1:]:
+            for cluster in clusters:
+                if is_entailment(answer, cluster[0]):
+                    cluster.append(answer)
+                    break
+            else:
+                clusters.append([answer])
+
+        return clusters
+
+    clusters = entailment_clustering(answers)
+    cluster_sizes = list(map(len, clusters))
+    n_clusters = sum(cluster_sizes)
+    probs = (c / n_clusters for c in cluster_sizes)
     return -sum(p * math.log(p) for p in probs)
 
 
@@ -97,16 +155,31 @@ def compute_e_aurc(uncertainty: list[float], correctness: list[float]) -> float:
     return compute_aurc(uncertainty, correctness) - compute_aurc(oracle_uncertainty, correctness)
 
 
+def _main():
+    import pandas as pd
+
+    df = pd.read_json("results/webquestions/mcdropout-hard.jsonl", lines=True).head(200)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model = AutoModelForSequenceClassification.from_pretrained("microsoft/deberta-large-mnli").to(device)
+    tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-large-mnli")
+    contradict_idx = model.config.label2id["CONTRADICTION"]
+    neutral_idx = model.config.label2id["NEUTRAL"]
+    entail_idx = model.config.label2id["ENTAILMENT"]
+
+    nli = NLIResources(model, tokenizer, device, contradict_idx, neutral_idx, entail_idx)
+
+    for _, row in df.iterrows():
+        question = row["question"]
+        preds = row["predictions"]
+        maj_pred = majority_vote(preds)
+        print("correct" if exact_match(maj_pred, row["answers"]) else "incorrect")
+
+        # print("variation ratio:", variation_ratio(preds))
+        print("vote entropy:", vote_entropy(preds))
+        se = semantic_entropy(question, preds, nli)
+        print("semantic entropy: ", se)
+        print()
+
+
 if __name__ == "__main__":
-    sample_answers = ["foo", "bar", "baz", "foo"]
-    print("variation ratio:", variation_ratio(sample_answers))
-    print("vote entropy:", vote_entropy(sample_answers))
-
-    pred = "foo foo bar"
-    gold_answers = ["foo foo foo bar", "foo bar bar bar"]
-    print("f1:", f1(pred, gold_answers))
-
-    np.random.seed(42)
-    correctness = np.random.random(size=1000)
-    uncertainty = np.random.random(size=1000)
-    print(compute_aurc(correctness, uncertainty))
+    _main()
