@@ -96,30 +96,30 @@ class NLIResources:
         with torch.no_grad():
             pred_logits = self.model(**inputs).logits
 
-        pred = pred_logits.argmax().item()      # might prefer threshold
-        return pred == self.entail_idx
+        pred = pred_logits.argmax().item()      # might prefer thresholded?
+        return pred == self.entail_idx          # neutral seems too lenient
 
 
 def semantic_entropy(question: str, answers: list[str], nli: NLIResources) -> float:
     """Compute semantic entropy based on Kuhn et al. (https://arxiv.org/pdf/2302.09664)."""
-    @cache
+    @cache                                  # cache of inner function is cleared when semantic_entropy returns
     def entails(lhs: str, rhs: str) -> bool:
         return nli.entails(lhs, rhs)
 
     def is_entailment(ans1: str, ans2: str) -> bool:
         lhs = question + " " + ans1
         rhs = question + " " + ans2
-        return entails(lhs, rhs) and entails(rhs, lhs)
+        return entails(lhs, rhs) and entails(rhs, lhs)              # bidirectional entailment
 
-    def entailment_clustering(answers: list[str]) -> list[list[str]]:
+    def entailment_clustering(answers: list[str]) -> list[list[str]]:       # see Algorithm 1 on p.15
         clusters = [[answers[0]]]
         for answer in answers[1:]:
-            for cluster in clusters:
-                if is_entailment(answer, cluster[0]):
+            for cluster in clusters:                        # compare with existing clusters
+                if is_entailment(answer, cluster[0]):       # use first sequence as reference... maybe all?
                     cluster.append(answer)
-                    break
-            else:
-                clusters.append([answer])
+                    break                                   # caveat: assume transitivity...
+            else:                                           # semantically distinct
+                clusters.append([answer])                   # new semantic class
 
         return clusters
 

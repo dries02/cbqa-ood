@@ -1,4 +1,3 @@
-from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 from pathlib import Path
 
 import numpy as np
@@ -12,14 +11,13 @@ from src.train.trainconfig import MODEL_CONFIGS
 MAX_Q_LEN = 32
 MAX_ANS_LEN = 32
 
-
-def parse_args() -> Namespace:
-    parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
-    parser.add_argument("--model", type=str, choices=["t5-large-ssm"], required=True)
-    parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
-    parser.add_argument("--n_ensemble", type=int, default=5)
-    return parser.parse_args()
+from dataclasses import dataclass
+@dataclass
+class Args:
+    dataset: str
+    model = "t5-large-ssm"
+    use_soft = False
+    n_ensemble = 5
 
 
 @torch.no_grad()
@@ -34,9 +32,11 @@ def generate_answer_ensemble(
 
     decoder_input_ids = torch.tensor([[models[0].config.decoder_start_token_id]], device=device)
 
-    token_entropies = []    # TU = EU + AU
-    token_mis = []          # EU
-    token_aus = []          # AU
+    token_entropies = []
+    token_mis = []
+
+    print()
+    print(question)
 
     for _ in range(MAX_ANS_LEN):
         all_probs = []
@@ -53,40 +53,36 @@ def generate_answer_ensemble(
         entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()
 
         # Expected entropy: E[H[p]]
-        aleatoric = -(all_probs * torch.log(all_probs + 1e-10)).sum(dim=-1).mean()
+        per_model_entropy = -(all_probs * torch.log(all_probs + 1e-10)).sum(dim=-1)
 
-        # MI := Total - Expected
-        mutual_info = entropy - aleatoric
+        # MI = Total - Expected
+        mutual_info = entropy - per_model_entropy.mean()
 
-        token_entropies.append(entropy.item())  # TU
-        token_mis.append(mutual_info.item())    # EU
-        token_aus.append(aleatoric.item())      # AU
+        token_entropies.append(entropy.item())
+        token_mis.append(mutual_info.item())
 
         # Next token from mean probs
         next_token = mean_probs.argmax()
+
+        print(f"predicting: {tokenizer.decode(next_token)}({next_token.item()}) with entropy {entropy.item():.3f}, MI {mutual_info.item():.3f}")
+
         decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
         if next_token == tokenizer.eos_token_id:
             break
 
-    idx = np.argmax(token_entropies)        # where is TU maximal? ensure TU = AU + EU with alignment
-
-                        # TODO FIX UNSAFE RETURN
     return {
         "prediction": tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True),
-
         "mean_mi": np.mean(token_mis),
-        "mean_au": np.mean(token_aus),
+        "max_mi": np.max(token_mis),
         "mean_entropy": np.mean(token_entropies),
-
-        "max_au": token_aus[idx],
-        "max_mi": token_mis[idx],
-        "max_entropy": token_entropies[idx],
+        "max_entropy": np.max(token_entropies),
     }
 
 
 def main() -> None:
-    args = parse_args()
+    dataset = input("Please specify dataset (nq/webquestions) ")
+    args = Args(dataset)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
 
@@ -108,17 +104,18 @@ def main() -> None:
     print(f"Models loaded. GPU memory: {torch.cuda.memory_allocated()/1e9:.1f}GB")
 
     tokenizer = AutoTokenizer.from_pretrained(model_paths[0])
-    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
+    # test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True).head()
     prefix = MODEL_CONFIGS[args.model]["prefix"]
 
     tqdm.pandas()
-                        # TODO FIX UNSAFE KEYS
-    test_df[["prediction", "mean_mi", "mean_au", "mean_entropy", "max_au", "max_mi", "max_entropy"]] = test_df["question"].progress_apply(
-        lambda q: pd.Series(generate_answer_ensemble(models, tokenizer, prefix + q, device)))
 
-    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-token.jsonl"
-    results_path.parent.mkdir(parents=True, exist_ok=True)
-    test_df.to_json(results_path, orient="records", lines=True)
+    while True:
+        question = input("? ")
+        if question == "q":
+            break
+
+        generate_answer_ensemble(models, tokenizer, prefix + question, device)
+    # test_df["question"].progress_apply(lambda q: pd.Series(generate_answer_ensemble(models, tokenizer, prefix + q, device)))
 
 
 if __name__ == "__main__":
