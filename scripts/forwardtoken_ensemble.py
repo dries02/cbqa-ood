@@ -1,12 +1,13 @@
 from argparse import ArgumentParser, BooleanOptionalAction, Namespace
+from collections import defaultdict
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
 
+from scripts.forwardtoken import ResultsTracker
 from src.train.trainconfig import MODEL_CONFIGS
 
 MAX_Q_LEN = 32
@@ -23,66 +24,51 @@ def parse_args() -> Namespace:
 
 
 @torch.no_grad()
-def generate_answer_ensemble(
-        models: list[AutoModelForSeq2SeqLM],
-        tokenizer: AutoTokenizer,
-        question: str,
-        device: torch.device) -> dict:
-
+def generate_answer_ensemble(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBase,
+                             question: str, device: torch.device) -> dict[str, float | str]:
     tok_q = tokenizer(
         question, max_length=MAX_Q_LEN, truncation=True, padding="max_length", return_tensors="pt").to(device)
 
     decoder_input_ids = torch.tensor([[models[0].config.decoder_start_token_id]], device=device)
 
-    token_entropies = []    # TU = EU + AU
-    token_mis = []          # EU
-    token_aus = []          # AU
+    tracker = ResultsTracker()
 
     for _ in range(MAX_ANS_LEN):
         all_probs = []
 
         for model in models:
-            logits = model(**tok_q, decoder_input_ids=decoder_input_ids).logits[:, -1, :]  # (1, vocab)
-            probs = torch.softmax(logits, dim=-1).squeeze(0)  # (vocab,)
+            logits = model(**tok_q, decoder_input_ids=decoder_input_ids).logits[:, -1, :]   # (1, vocab)
+            probs = torch.softmax(logits, dim=-1).squeeze(0)    # (vocab,)
             all_probs.append(probs)
 
-        all_probs = torch.stack(all_probs)  # (n_ensemble, vocab)
+        all_probs = torch.stack(all_probs)                      # (n_ensemble, vocab)
 
-        # Total entropy: H[E[p]]
         mean_probs = all_probs.mean(dim=0)
-        entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()
+        pred_entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()          # TU := H[E[p]]
 
-        # Expected entropy: E[H[p]]
-        aleatoric = -(all_probs * torch.log(all_probs + 1e-10)).sum(dim=-1).mean()
+        aleatoric = -(all_probs * torch.log(all_probs + 1e-10)).sum(dim=-1).mean()  # AU := E[H[p]]
 
-        # MI := Total - Expected
-        mutual_info = entropy - aleatoric
+        tracker.add_token_entropies(pred_entropy.item(), aleatoric.item())
 
-        token_entropies.append(entropy.item())  # TU
-        token_mis.append(mutual_info.item())    # EU
-        token_aus.append(aleatoric.item())      # AU
-
-        # Next token from mean probs
-        next_token = mean_probs.argmax()
+        next_token = mean_probs.argmax()          # Next token from mean probs
         decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
-        if next_token == tokenizer.eos_token_id:
+        if next_token.item() == tokenizer.eos_token_id:
             break
 
-    idx = np.argmax(token_entropies)        # where is TU maximal? ensure TU = AU + EU with alignment
+    tracker.prediction = tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True)
+    return tracker.summary()
 
-                        # TODO FIX UNSAFE RETURN
-    return {
-        "prediction": tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True),
 
-        "mean_mi": np.mean(token_mis),
-        "mean_au": np.mean(token_aus),
-        "mean_entropy": np.mean(token_entropies),
+def get_results(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBase,
+                questions: list[str], prefix: str, device: torch.device) -> pd.DataFrame:
+    all_results = defaultdict(list)
+    for question in tqdm(questions):
+        row = generate_answer_ensemble(models, tokenizer, prefix + question, device)
+        for method, result in row.items():
+            all_results[method].append(result)
 
-        "max_au": token_aus[idx],
-        "max_mi": token_mis[idx],
-        "max_entropy": token_entropies[idx],
-    }
+    return pd.DataFrame(all_results)
 
 
 def main() -> None:
@@ -91,7 +77,7 @@ def main() -> None:
     suffix = "soft" if args.use_soft else "hard"
 
     model_paths = [
-        Path("models") / f"{args.dataset}-{args.model}-mcdropout-{suffix}-{i}"
+        Path("models") / f"{args.dataset}-{args.model}-mcdropout-{suffix}-0.1-{i}"
         for i in range(args.n_ensemble)
     ]
 
@@ -111,12 +97,10 @@ def main() -> None:
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
     prefix = MODEL_CONFIGS[args.model]["prefix"]
 
-    tqdm.pandas()
-                        # TODO FIX UNSAFE KEYS
-    test_df[["prediction", "mean_mi", "mean_au", "mean_entropy", "max_au", "max_mi", "max_entropy"]] = test_df["question"].progress_apply(
-        lambda q: pd.Series(generate_answer_ensemble(models, tokenizer, prefix + q, device)))
+    results = get_results(models, tokenizer, test_df["question"].to_list(), prefix, device)
+    test_df = test_df.join(results)
 
-    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-token.jsonl"
+    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-0.1-token.jsonl"
     results_path.parent.mkdir(parents=True, exist_ok=True)
     test_df.to_json(results_path, orient="records", lines=True)
 

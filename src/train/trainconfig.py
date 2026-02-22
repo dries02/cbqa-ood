@@ -49,7 +49,7 @@ class TrainConfig:
         """Set some directories."""
         suffix = "soft" if self.use_soft_labels else "hard"
         self.output_dir = Path("models") / f"{self.dataset}-{self.model}-{self.method}-{suffix}-0"
-        self.train_path = Path("data") / self.dataset / f"{self.dataset}-train.jsonl"
+        self.train_path = Path("data") / self.dataset / f"{self.dataset}-train-0.1.jsonl"
         self.dev_path = Path("data") / self.dataset / f"{self.dataset}-dev.jsonl"
         for key in MODEL_CONFIGS[self.model]:
             setattr(self, key, MODEL_CONFIGS[self.model][key])

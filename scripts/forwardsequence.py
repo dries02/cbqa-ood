@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
 
 from src.train.trainconfig import MODEL_CONFIGS
 
@@ -38,12 +38,12 @@ def parse_args() -> Namespace:
     parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
     parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
-    parser.add_argument("--n_reps", type=int, default=30)
+    parser.add_argument("--n_reps", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=64)
     return parser.parse_args()
 
 
-def load_model(method_type: str, path: Path, device: torch.device, config: GenConfig) -> AutoModelForSeq2SeqLM:
+def load_model(method_type: str, path: Path, device: torch.device, config: GenConfig) -> PreTrainedModel:
     if method_type == "mcdropout":
         return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
     if method_type == "flipout":
@@ -54,7 +54,7 @@ def load_model(method_type: str, path: Path, device: torch.device, config: GenCo
     raise ValueError(msg)
 
 
-def generate_predictions_batched(model: AutoModelForSeq2SeqLM, tokenizer: AutoTokenizer, questions: list[str],
+def generate_predictions_batched(model: PreTrainedModel, tokenizer: PreTrainedTokenizerBase, questions: list[str],
                                  device: torch.device, n_reps: int, batch_size: int) -> list[list[str]]:
     """Generate predictions in batches."""
     all_predictions = []

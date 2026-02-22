@@ -32,9 +32,6 @@ def generate_answer_ensemble(
 
     decoder_input_ids = torch.tensor([[models[0].config.decoder_start_token_id]], device=device)
 
-    token_entropies = []
-    token_mis = []
-
     print()
     print(question)
 
@@ -50,34 +47,31 @@ def generate_answer_ensemble(
 
         # Total entropy: H[E[p]]
         mean_probs = all_probs.mean(dim=0)
-        entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()
+        total = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()
 
         # Expected entropy: E[H[p]]
         per_model_entropy = -(all_probs * torch.log(all_probs + 1e-10)).sum(dim=-1)
+        aleatoric = per_model_entropy.mean()
 
-        # MI = Total - Expected
-        mutual_info = entropy - per_model_entropy.mean()
-
-        token_entropies.append(entropy.item())
-        token_mis.append(mutual_info.item())
+        # MI := Total - Expected
+        epistemic = total - aleatoric
 
         # Next token from mean probs
         next_token = mean_probs.argmax()
 
-        print(f"predicting: {tokenizer.decode(next_token)}({next_token.item()}) with entropy {entropy.item():.3f}, MI {mutual_info.item():.3f}")
+        k = 3
+        topk_vals, topk_ids = torch.topk(mean_probs, k)
+        for val, idx in zip(topk_vals, topk_ids, strict=True):
+            print(f"{tokenizer.decode(idx)} with probability {val}")
+
+        print(f"predicting: {tokenizer.decode(next_token)}({next_token.item()})"
+              f" with TU {total.item():.3f}, EU {epistemic.item():.3f}, AU {aleatoric.item():.3f}")
+
 
         decoder_input_ids = torch.cat([decoder_input_ids, next_token.view(1, 1)], dim=1)
 
         if next_token == tokenizer.eos_token_id:
             break
-
-    return {
-        "prediction": tokenizer.decode(decoder_input_ids[0], skip_special_tokens=True),
-        "mean_mi": np.mean(token_mis),
-        "max_mi": np.max(token_mis),
-        "mean_entropy": np.mean(token_entropies),
-        "max_entropy": np.max(token_entropies),
-    }
 
 
 def main() -> None:
@@ -87,7 +81,7 @@ def main() -> None:
     suffix = "soft" if args.use_soft else "hard"
 
     model_paths = [
-        Path("models") / f"{args.dataset}-{args.model}-mcdropout-{suffix}-{i}"
+        Path("models") / f"{args.dataset}-{args.model}-mcdropout-{suffix}-0.1-{i}"
         for i in range(args.n_ensemble)
     ]
 

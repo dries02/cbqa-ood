@@ -35,7 +35,7 @@ def make_optimizer(model: AutoModelForSeq2SeqLM, config: AutoConfig) -> Optimize
         "shared",                       # embedding
         "mu_weight",                    # Flipout mean
         "rho_weight",                   # Flipout sigma
-        ]
+    ]
 
     for name, p in model.named_parameters():
         if not p.requires_grad:
