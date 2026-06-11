@@ -4,8 +4,9 @@ from pathlib import Path
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import PreTrainedModel, PreTrainedTokenizerBase
 
+from src.eval.loadmodel import load_ensemble, load_tokenizer
 from src.train.trainconfig import MODEL_CONFIGS
 
 MAX_Q_LEN = 32
@@ -22,7 +23,7 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
-def generate_predictions_batched(models: list[AutoModelForSeq2SeqLM], tokenizer: AutoTokenizer, questions: list[str],
+def generate_predictions_batched(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBase, questions: list[str],
                                  device: torch.device, batch_size: int) -> list[list[str]]:
     """Generate predictions in batches."""
     all_predictions = []
@@ -50,30 +51,16 @@ def main() -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
 
-    model_paths = [
-        Path("models") / f"{args.dataset}-{args.model}-mcdropout-{suffix}-{i}"
-        for i in range(args.n_ensemble)
-    ]
-
-    for path in model_paths:
-        if not path.exists():
-            msg = f"Model not found: {path}"
-            raise FileNotFoundError(msg)
-
-    print(f"Loading {args.n_ensemble} models...")
-    models = [
-        AutoModelForSeq2SeqLM.from_pretrained(path).eval().to(device)
-        for path in model_paths
-    ]
-    print(f"Models loaded. GPU memory: {torch.cuda.memory_allocated()/1e9:.1f}GB")
-
-    tokenizer = AutoTokenizer.from_pretrained(model_paths[0])
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
     prefix = MODEL_CONFIGS[args.model]["prefix"]
 
     tqdm.pandas()
     prefix = MODEL_CONFIGS[args.model]["prefix"]
     questions = test_df["question"].apply(lambda q: prefix + q).tolist()
+
+    fraction = 1.0
+    models = load_ensemble(args.dataset, args.model, suffix, args.n_ensemble, fraction, device)
+    tokenizer = load_tokenizer(args.dataset, args.model, suffix)
 
     test_df["predictions"] = generate_predictions_batched(models, tokenizer, questions, device, args.batch_size)
 

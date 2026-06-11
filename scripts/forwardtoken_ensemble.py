@@ -5,9 +5,10 @@ from pathlib import Path
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
+from transformers import PreTrainedModel, PreTrainedTokenizerBase
 
 from scripts.forwardtoken import ResultsTracker
+from src.eval.loadmodel import load_ensemble, load_tokenizer
 from src.train.trainconfig import MODEL_CONFIGS
 
 MAX_Q_LEN = 32
@@ -73,30 +74,17 @@ def get_results(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBas
 
 def main() -> None:
     args = parse_args()
+
+    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
+    fraction = 1.0
 
-    model_paths = [
-        Path("models") / f"{args.dataset}-{args.model}-mcdropout-{suffix}-0.1-{i}"
-        for i in range(args.n_ensemble)
-    ]
+    models = load_ensemble(args.dataset, args.model, suffix, args.n_ensemble, fraction, device)
+    tokenizer = load_tokenizer(args.dataset, args.model, suffix)
 
-    for path in model_paths:
-        if not path.exists():
-            msg = f"Model not found: {path}"
-            raise FileNotFoundError(msg)
-
-    print(f"Loading {args.n_ensemble} models...")
-    models = [
-        AutoModelForSeq2SeqLM.from_pretrained(path).eval().to(device)
-        for path in model_paths
-    ]
-    print(f"Models loaded. GPU memory: {torch.cuda.memory_allocated()/1e9:.1f}GB")
-
-    tokenizer = AutoTokenizer.from_pretrained(model_paths[0])
-    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
     prefix = MODEL_CONFIGS[args.model]["prefix"]
-
     results = get_results(models, tokenizer, test_df["question"].to_list(), prefix, device)
     test_df = test_df.join(results)
 

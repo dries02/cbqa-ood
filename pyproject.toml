@@ -16,6 +16,7 @@ dependencies = [
     "pandas>=2.2.3",
     "seaborn>=0.13.2",
     "sentencepiece>=0.2.0",
+    "statsmodels>=0.14.6",
     "tensorflow-probability>=0.25.0",
     "torch>=2.7.0",
     "transformers>=4.51.1",

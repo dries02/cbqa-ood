@@ -6,6 +6,7 @@ uv run src/datautils/fetchdata.py       # fetch Natural Questions
 
 
 # clean unicode stuff
+# datasets=("webquestions" "nq" "triviaqa")
 datasets=("webquestions" "nq")
 splits=(train dev test)
 for dataset in "${datasets[@]}"; do

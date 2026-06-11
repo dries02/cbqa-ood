@@ -5,8 +5,9 @@ from pathlib import Path
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
+from transformers import PreTrainedModel, PreTrainedTokenizerBase
 
+from src.eval.loadmodel import load_stochastic_model, load_tokenizer
 from src.train.trainconfig import MODEL_CONFIGS
 
 
@@ -43,17 +44,6 @@ def parse_args() -> Namespace:
     return parser.parse_args()
 
 
-def load_model(method_type: str, path: Path, device: torch.device, config: GenConfig) -> PreTrainedModel:
-    if method_type == "mcdropout":
-        return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
-    if method_type == "flipout":
-        model = MODEL_CONFIGS[config.model]["flipout_model"].from_pretrained(path).eval().to(device)
-        model.lm_head.train()
-        return model
-    msg = f"Unknown model type: {method_type}"
-    raise ValueError(msg)
-
-
 def generate_predictions_batched(model: PreTrainedModel, tokenizer: PreTrainedTokenizerBase, questions: list[str],
                                  device: torch.device, n_reps: int, batch_size: int) -> list[list[str]]:
     """Generate predictions in batches."""
@@ -67,7 +57,7 @@ def generate_predictions_batched(model: PreTrainedModel, tokenizer: PreTrainedTo
         batch_preds = []
         with torch.no_grad():
             for _ in range(n_reps):
-                out_ids = model.generate(**tok_qs)
+                out_ids = model.generate(**tok_qs)          # TODO: optimize with num_return_sequences??
                 preds = tokenizer.batch_decode(out_ids, skip_special_tokens=True)
                 batch_preds.append(preds)                   # X_ij is i-th answer to j-th question
 
@@ -80,10 +70,14 @@ def generate_predictions_batched(model: PreTrainedModel, tokenizer: PreTrainedTo
 def main() -> None:
     """Driver to make many forward passes for a stochastic model."""
     config = GenConfig(**vars(parse_args()))
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = load_model(config.method, config.model_path, device, config)
-    tokenizer = AutoTokenizer.from_pretrained(config.model_path)
+
     test_df = pd.read_json(config.test_df_path, lines=True)
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    suffix = "soft" if config.use_soft else "hard"
+    model = load_stochastic_model(config.method, config.model_path, device, config.model)
+    tokenizer = load_tokenizer(config.dataset, config.model, suffix)
 
     prefix = MODEL_CONFIGS[config.model]["prefix"]
     questions = test_df["question"].apply(lambda q: prefix + q).tolist()

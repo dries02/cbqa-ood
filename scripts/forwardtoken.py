@@ -7,8 +7,9 @@ import numpy as np
 import pandas as pd
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
+from transformers import PreTrainedModel, PreTrainedTokenizerBase
 
+from src.eval.loadmodel import load_stochastic_model, load_tokenizer
 from src.train.trainconfig import MODEL_CONFIGS
 
 MAX_Q_LEN = 32
@@ -51,18 +52,6 @@ def parse_args() -> Namespace:
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_reps", type=int, default=30)
     return parser.parse_args()
-
-
-def load_model(method_type: str, model_type: str, path: Path, device: torch.device) -> PreTrainedModel:
-    if method_type == "mcdropout":
-        return AutoModelForSeq2SeqLM.from_pretrained(path).train().to(device)
-    if method_type == "flipout":
-        model = MODEL_CONFIGS[model_type]["flipout_model"].from_pretrained(path).eval().to(device)
-        model.lm_head.train()
-        return model
-
-    msg = f"Unknown model type: {method_type}"
-    raise ValueError(msg)
 
 
 @torch.no_grad()
@@ -119,18 +108,14 @@ def main() -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
     model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}-{suffix}-0"
-    model = load_model(args.method, args.model, model_path, device)
+    model = load_stochastic_model(args.method, args.model, model_path, device)
 
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    tokenizer = load_tokenizer(args.dataset, args.model, suffix)
     test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
     prefix = MODEL_CONFIGS[args.model]["prefix"]
 
     results = get_results(model, tokenizer, test_df["question"].to_list(), prefix, device, args.n_reps)
     test_df = test_df.join(results)
-
-    # tqdm.pandas()
-    # test_df[["prediction", "mean_mi", "max_mi", "mean_entropy", "max_entropy"]] = test_df["question"].progress_apply(
-    #     lambda q: pd.Series(generate_answer(model, tokenizer, prefix + q, device, args.n_reps)))
 
     results_path = Path("results") / args.dataset / f"{args.method}-{suffix}-token.jsonl"
     test_df.to_json(results_path, orient="records", lines=True)
