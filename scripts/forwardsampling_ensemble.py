@@ -74,20 +74,20 @@ def get_results(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBas
 def main() -> None:
     args = parse_args()
     test_df_path = Path("data") / args.dataset / f"{args.dataset}-test.jsonl"
-    test_df = pd.read_json(test_df_path, lines=True).head(50)
+    test_df = pd.read_json(test_df_path, lines=True)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
 
     models = load_ensemble(args.dataset, args.model_type, suffix, args.n_ensemble, args.fraction, device)
     tokenizer = load_tokenizer(args.dataset, args.model_type, args.fraction, suffix)
-    prefix = MODEL_CONFIGS[args.model]["prefix"]
+    prefix = MODEL_CONFIGS[args.model_type]["prefix"]
 
     results = get_results(models, tokenizer, test_df["question"].to_list(), prefix, device, args)
 
     test_df = test_df.join(results)
 
-    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-sampling.jsonl"
+    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-{args.fraction}-sampling.jsonl"
     test_df.to_json(results_path, orient="records", lines=True)
 
 
