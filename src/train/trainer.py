@@ -3,7 +3,7 @@ import torch
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, get_linear_schedule_with_warmup
+from transformers import PreTrainedModel, PreTrainedTokenizerBase, get_linear_schedule_with_warmup
 
 from src.eval.eval_model import evaluate
 from src.train.qadataset import QADatasetEval, QADatasetTrain
@@ -16,8 +16,8 @@ class Trainer:
 
     def __init__(
         self,
-        model: AutoModelForSeq2SeqLM,
-        tokenizer: AutoTokenizer,
+        model: PreTrainedModel,
+        tokenizer: PreTrainedTokenizerBase,
         optimizer: Optimizer,
         train_df: pd.DataFrame,
         dev_df: pd.DataFrame,
@@ -52,7 +52,8 @@ class Trainer:
 
     def train(self) -> None:
         """Train the model."""
-        best_em = 0
+        # best_loss = float("inf")
+        # best_em = 0
         # epochs_no_improvement = 0
 
         for epoch in tqdm(range(1, self.config.n_epochs+1), desc="Epochs", position=0):
@@ -77,24 +78,31 @@ class Trainer:
                 avg_so_far = running_loss / idx                                 # batches done so far
 
                 if idx == len(self.train_data):
-                    em_count = evaluate(self.model, self.tokenizer, self.dev_data, self.device)
-                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM=str(em_count))
+                    results = evaluate(self.model, self.tokenizer, self.dev_data, self.device)
+                    em = results["em"]
+                    # val_loss = results["loss"]
+                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", dev_EM=str(em))
 
-                    if em_count > best_em:                                      # found better, save immediately
-                        best_em = em_count
+                    # if val_loss < best_loss:                                      # found better, save immediately
+                    # if em > best_em:
+                        # best_em = em
+                        # best_loss = val_loss
                         # epochs_no_improvement = 0
-                        self.save()
+                        # self.save()
                     # elif epochs_no_improvement + 1 == self.config.patience:     # patience ran out, stop early
                     #     print(f"\nEarly stopping at epoch {epoch}."
-                    #           f"Best EM: {best_em} at epoch {epoch - self.config.patience}.")
+                    #           f"Best loss: {best_loss:.3f} at epoch {epoch - self.config.patience}.")
                     #     return
                     # else:
                     #     epochs_no_improvement += 1
                 else:
-                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", EM="-")
+                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", dev_EM="-")
+
+        self.save()
 
     def save(self) -> None:
         """Save the model."""
+        # return
         if self.config.output_dir is not None:
             self.model.save_pretrained(self.config.output_dir)
             self.tokenizer.save_pretrained(self.config.output_dir)

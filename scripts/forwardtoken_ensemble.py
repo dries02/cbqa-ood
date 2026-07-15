@@ -21,6 +21,7 @@ def parse_args() -> Namespace:
     parser.add_argument("--model", type=str, choices=["t5-large-ssm"], required=True)
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_ensemble", type=int, default=5)
+    parser.add_argument("--fraction", type=float, default=1.0)
     return parser.parse_args()
 
 
@@ -75,20 +76,20 @@ def get_results(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBas
 def main() -> None:
     args = parse_args()
 
-    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
+    test_path = Path("data") / args.dataset / f"{args.dataset}-test-1.0-clean.jsonl"
+    test_df = pd.read_json(test_path, lines=True)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
-    fraction = 1.0
 
-    models = load_ensemble(args.dataset, args.model, suffix, args.n_ensemble, fraction, device)
-    tokenizer = load_tokenizer(args.dataset, args.model, suffix)
+    models = load_ensemble(args.dataset, args.model, suffix, args.n_ensemble, args.fraction, device)
+    tokenizer = load_tokenizer(args.dataset, args.model, args.fraction, suffix)
 
     prefix = MODEL_CONFIGS[args.model]["prefix"]
     results = get_results(models, tokenizer, test_df["question"].to_list(), prefix, device)
     test_df = test_df.join(results)
 
-    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-0.1-token.jsonl"
+    results_path = Path("results") / args.dataset / f"ensemble{args.n_ensemble}-{suffix}-{args.fraction}-token.jsonl"
     results_path.parent.mkdir(parents=True, exist_ok=True)
     test_df.to_json(results_path, orient="records", lines=True)
 

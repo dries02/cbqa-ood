@@ -73,7 +73,7 @@ def get_results(models: list[PreTrainedModel], tokenizer: PreTrainedTokenizerBas
 
 def main() -> None:
     args = parse_args()
-    test_df_path = Path("data") / args.dataset / f"{args.dataset}-test.jsonl"
+    test_df_path = Path("data") / args.dataset / f"{args.dataset}-test-1.0-clean.jsonl"
     test_df = pd.read_json(test_df_path, lines=True)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

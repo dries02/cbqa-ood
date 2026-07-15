@@ -62,10 +62,25 @@ class QADatasetEval(Dataset):
     def __init__(self, df: pd.DataFrame, tokenizer: PreTrainedTokenizerBase, prefix: str, max_len_q: int = 32) -> None:
         """Pre-tokenize everything at initialization."""
         super().__init__()
+
         questions = df["question"].apply(lambda q: prefix + q).tolist()
         self.encodings_q = tokenizer(
             questions, max_length=max_len_q, truncation=True, padding="max_length", return_tensors="pt")
+
         self.labels = df["answers"]
+        def tokenize_labels(answers: list[str], tokenizer: PreTrainedTokenizerBase, max_len: int) -> torch.Tensor:
+            tokens = tokenizer(
+                answers, max_length=max_len, truncation=True,
+                padding="max_length", return_tensors="pt",
+            ).input_ids
+
+            tokens[tokens == tokenizer.pad_token_id] = -100     # Mask padding
+            return tokens
+
+        self.tokenized_labels = [
+            tokenize_labels(answers[0], tokenizer, max_len=max_len_q)
+            for answers in self.labels
+        ]
 
     def __len__(self) -> int:
         """Count number of samples in dataset."""
@@ -76,7 +91,8 @@ class QADatasetEval(Dataset):
         return {
             "input_ids": self.encodings_q["input_ids"][idx],
             "attention_mask": self.encodings_q["attention_mask"][idx],
-            "labels": self.labels.iloc[idx],                            # safe indexing
+            "all_labels": self.labels.iloc[idx],                            # safe indexing
+            "labels": self.tokenized_labels[idx],
         }
 
         # input is a list of dicts of size "batch_size", where each dict comes from __getitem__.
@@ -86,5 +102,6 @@ class QADatasetEval(Dataset):
         return {
             "input_ids":      torch.stack([ex["input_ids"]      for ex in batch], 0),
             "attention_mask": torch.stack([ex["attention_mask"] for ex in batch], 0),
-            "labels":         [ex["labels"]                     for ex in batch],
+            "labels":         torch.stack([ex["labels"]         for ex in batch], 0),
+            "all_labels":     [ex["all_labels"]                 for ex in batch],
         }

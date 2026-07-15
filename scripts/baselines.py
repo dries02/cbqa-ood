@@ -25,8 +25,8 @@ class GenConfig:
     def __post_init__(self) -> None:
         """Set some directories."""
         suffix = "soft" if self.use_soft else "hard"
-        self.model_path = Path("models") / f"{self.dataset}-{self.model}-mcdropout-{suffix}-0"
-        self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
+        self.model_path = Path("models") / f"{self.dataset}-{self.model}-mcdropout-{suffix}-1.0-0"
+        self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test-1.0-clean.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
 

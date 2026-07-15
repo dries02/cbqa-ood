@@ -50,6 +50,7 @@ def clean(text: str) -> str:
             .replace("\u200e", "")      # lrm (left-to-right mark)
             .replace("\u2011", "-")     # non-breaking hyphen
             .replace("\u2013", "-")     # en dash
+            .replace("\u2014", "-")     # em dash
             .replace("\u2018", "'")     # left single quotation mark
             .replace("\u2019", "'")     # right single quotation mark
             .replace("\u201c", "")      # left double quotation mark         -- removed!
@@ -111,7 +112,7 @@ def main() -> None:
     # if args.dataset == "triviaqa" and args.split == "train":
     #     raw_df["answers"] = raw_df["answers"].apply(clean_experimental)
 
-    clean_df_path = Path("data") / args.dataset / f"{args.dataset}-{args.split}-clean.jsonl"
+    clean_df_path = Path("data") / args.dataset / f"{args.dataset}-{args.split}-1.0-clean.jsonl"
     raw_df.to_json(clean_df_path, orient="records", lines=True)
 
     # for c in sorted(all_chars):

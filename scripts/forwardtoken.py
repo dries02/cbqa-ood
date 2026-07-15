@@ -47,10 +47,11 @@ class ResultsTracker:
 def parse_args() -> Namespace:
     parser = ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
-    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
-    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--model", type=str, choices=["t5-large-ssm"], default="t5-large-ssm")
+    parser.add_argument("--method", type=str, choices=["mcdropout"], default="mcdropout")
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_reps", type=int, default=30)
+    parser.add_argument("--fraction", type=float, choices=[1.0], required=True)
     return parser.parse_args()
 
 
@@ -69,9 +70,7 @@ def generate_answer(
     for _ in range(MAX_ANS_LEN):
         decoder_batched = decoder_input_ids.repeat(n_reps, 1)  # (n_reps, seq_len)
         all_logits = model(**tok_q_batched, decoder_input_ids=decoder_batched).logits[:, -1, :]  # (n_reps, vocab)
-
         all_probs = torch.softmax(all_logits, dim=-1)
-        mean_probs = all_probs.mean(dim=0)
 
         mean_probs = all_probs.mean(dim=0)
         pred_entropy = -(mean_probs * torch.log(mean_probs + 1e-10)).sum()          # TU := H[E[p]]
@@ -107,17 +106,21 @@ def main() -> None:
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     suffix = "soft" if args.use_soft else "hard"
-    model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}-{suffix}-0"
-    model = load_stochastic_model(args.method, args.model, model_path, device)
+    model_path = Path("models") / f"{args.dataset}-{args.model}-{args.method}-{suffix}-{args.fraction}-0"
 
-    tokenizer = load_tokenizer(args.dataset, args.model, suffix)
-    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test.jsonl", lines=True)
+    if not model_path.exists():
+        raise FileNotFoundError(model_path)
+
+    model = load_stochastic_model(args.method, model_path, device, args.model)
+
+    tokenizer = load_tokenizer(args.dataset, args.model, args.fraction, suffix)
+    test_df = pd.read_json(f"data/{args.dataset}/{args.dataset}-test-1.0-clean.jsonl", lines=True)
     prefix = MODEL_CONFIGS[args.model]["prefix"]
 
     results = get_results(model, tokenizer, test_df["question"].to_list(), prefix, device, args.n_reps)
     test_df = test_df.join(results)
 
-    results_path = Path("results") / args.dataset / f"{args.method}-{suffix}-token.jsonl"
+    results_path = Path("results") / args.dataset / f"{args.method}-{suffix}-{args.fraction}-token.jsonl"
     test_df.to_json(results_path, orient="records", lines=True)
 
 

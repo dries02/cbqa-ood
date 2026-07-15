@@ -13,7 +13,7 @@ def main() -> None:
         config = TrainConfig(**vars(parse_args()))                  # fetch and unpack the __dict__
         suffix = "soft" if config.use_soft_labels else "hard"
 
-        config.output_dir = Path("models") / f"{config.dataset}-{config.model}-{config.method}-{suffix}-0.1-{n}"
+        config.output_dir = Path("models") / f"{config.dataset}-{config.model}-{config.method}-{suffix}-{config.fraction}-{n}"
         train_df = pd.read_json(config.train_path, lines=True)
         dev_df = pd.read_json(config.dev_path, lines=True)
 

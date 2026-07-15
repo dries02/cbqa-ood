@@ -2,7 +2,7 @@ from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 
 import pandas as pd
 from torch.optim import AdamW, Optimizer
-from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer
+from transformers import AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
 
 from src.train.trainconfig import TrainConfig
 from src.train.trainer import Trainer
@@ -16,16 +16,17 @@ def parse_args() -> Namespace:
     parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
     parser.add_argument("--use_soft_labels", action=BooleanOptionalAction, required=True)
     parser.add_argument("--use_stochastic_labels", type=bool, default=False)
-    parser.add_argument("--n_epochs", type=int, default=25)
+    parser.add_argument("--n_epochs", type=int, default=10)
     parser.add_argument("--batch_size", type=int, default=64)
-    parser.add_argument("--lr", type=float, default=3e-4)
+    parser.add_argument("--lr", type=float, default=1e-4)
     parser.add_argument("--rho", type=float, default=-2.0)          # for flipout
-    # parser.add_argument("--patience", type=int, default=10)
+    parser.add_argument("--patience", type=int, default=5)
     parser.add_argument("--dropout", type=float, default=0.1)
+    parser.add_argument("--fraction", type=float, choices=[1.0], required=True)
     return parser.parse_args()
 
 
-def make_optimizer(model: AutoModelForSeq2SeqLM, config: AutoConfig) -> Optimizer:
+def make_optimizer(model: PreTrainedModel, config: AutoConfig) -> Optimizer:
     """Create an optimizer while carefully choosing where weight decay should be applied."""
     yes_decay = []
     no_decay = []
@@ -53,7 +54,7 @@ def make_optimizer(model: AutoModelForSeq2SeqLM, config: AutoConfig) -> Optimize
         ])
 
 
-def update_gen_config(model: AutoModelForSeq2SeqLM) -> None:
+def update_gen_config(model: PreTrainedModel) -> None:
     """Update default BART settings for sequence generation. Handling answer length, greedy decoding, and `<bos>`."""
     gen_kwargs = {
         "min_new_tokens": 1,            # prevent empty sequences
@@ -72,7 +73,7 @@ def update_gen_config(model: AutoModelForSeq2SeqLM) -> None:
         setattr(model.generation_config, key, value)
 
 
-def make_vanilla(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokenizer]:
+def make_vanilla(config: TrainConfig) -> tuple[PreTrainedModel, PreTrainedTokenizerBase]:
     model_config: AutoConfig = AutoConfig.from_pretrained(config.hf_name)
     if hasattr(model_config, "dropout_rate"):       # T5
         model_config.dropout_rate = config.dropout
@@ -86,7 +87,7 @@ def make_vanilla(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokeni
     return model, tokenizer
 
 
-def make_flipout(config: TrainConfig) -> tuple[AutoModelForSeq2SeqLM, AutoTokenizer]:
+def make_flipout(config: TrainConfig) -> tuple[PreTrainedModel, PreTrainedTokenizerBase]:
     model_config: AutoConfig = AutoConfig.from_pretrained(config.hf_name)
     if hasattr(model_config, "dropout_rate"):       # T5
         model_config.dropout_rate = config.dropout
