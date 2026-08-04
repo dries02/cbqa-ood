@@ -9,8 +9,9 @@ import regex as re
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
-    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions", "triviaqa"], required=True)
+    parser.add_argument("--dataset", type=str, choices=["nq", "webquestions"], required=True)
     parser.add_argument("--split", type=str, choices=["train", "dev", "test"], required=True)
+    parser.add_argument("--fraction", type=str, default="1.0")
     return parser.parse_args()
 
 
@@ -20,10 +21,18 @@ def decode_escaped_utf8(text: str) -> str:
         lambda m: bytes.fromhex(m.group(1)).decode("utf-8", errors="ignore"),
         text)
 
+preposition_pattern = re.compile(r"^(from|in|at|on|by|with|of|to|for|as|into|through|about)\s+")
+
+
+def normalize_reference(answer: str) -> str:
+    answer = answer.lower()
+    answer = re.sub(r"\b(a|an|the)\b", " ", answer)
+    answer = re.sub(preposition_pattern, " ", answer)
+    return " ".join(answer.split())
 
 # all_chars = set()
 pattern = re.compile(r"\[\d+\]")       # Wikipedia reference tokens
-# pattern2 = re.compile(r"\(.*?\)")      # usually clarification or disambiguation etc
+pattern2 = re.compile(r"\(.*?\)")      # usually clarification or disambiguation etc
 
 def clean(text: str) -> str:
     """Clean text by replacing unicode characters."""
@@ -67,52 +76,50 @@ def clean(text: str) -> str:
     )
 
 
-# def clean_experimental(raw_answers: list[str]) -> list[str]:
-#     answers = []
-#     seen = set()
+def clean_experimental(raw_answers: list[str]) -> list[str]:
+    answers = []
+    seen = set()
 
-#     for raw_answer in raw_answers:
-#         if not any(c.isascii() and (c.isalpha() or c.isdigit()) for c in raw_answer):  # foreign language?
-#             continue
+    for raw_answer in raw_answers:
+        answer = re.sub(pattern2, "", raw_answer)       # remove "(xxx)", Wikipedia artefact
+        # answer = answer.replace("0's", "0s")            # probably ungrammatical decade
+        # answer = answer.replace("\\", " ")              # no backslashes, likely latex artefact
 
-#         answer = re.sub(pattern2, "", raw_answer)       # remove "(xxx)", Wikipedia artefact
-#         answer = answer.replace("0's", "0s")            # probably ungrammatical decade
-#         answer = answer.replace("\\", " ")              # no backslashes, likely latex artefact
+        # if "UN/LOCODE" in answer:
+        #     continue                                # United Nations Code for Trade and Transport Locations
 
-#         if "UN/LOCODE" in answer:
-#             continue                                # United Nations Code for Trade and Transport Locations
+        # if "ATCvet code" in answer or "ATC code" in answer:
+        #     continue                                # pharmacy code
 
-#         if "ATCvet code" in answer or "ATC code" in answer:
-#             continue                                # pharmacy code
+        # if re.match(r"ISO \d+", answer):            # skip ISO country codes (redirect pages)
+        #     continue
 
-#         if re.match(r"ISO \d+", answer):            # skip ISO country codes (redirect pages)
-#             continue
+        answer = answer.strip("'").strip()
+        answer = " ".join(answer.split())           # normalize whitespace
 
-#         answer = answer.strip("'").strip()
-#         answer = " ".join(answer.split())           # normalize whitespace
+        if answer and normalize_reference(answer) not in seen:
+            seen.add(normalize_reference(answer))
+            answers.append(answer)                                  # no duplicates
 
-#         if answer and answer.lower() not in seen:
-#             seen.add(answer.lower())
-#             answers.append(answer)                                  # no duplicates
+    if not answers:
+        print(f"There are no valid answers... {raw_answers}")
+        return raw_answers
 
-#     if not answers:
-#         msg = f"There are no valid answers... {raw_answers}"
-#         raise ValueError(msg)
-
-#     return answers
+    return answers
 
 
 def main() -> None:
     args = parse_args()
-    raw_df_path = Path("data") / args.dataset / f"{args.dataset}-{args.split}.jsonl"
+    suffix = f"-{args.fraction}" if args.fraction != "1.0" else ""
+    raw_df_path = Path("data") / args.dataset / f"{args.dataset}-{args.split}{suffix}.jsonl"
     raw_df = pd.read_json(raw_df_path, lines=True)
     raw_df["question"] = raw_df["question"].apply(clean)
     raw_df["answers"] = raw_df["answers"].apply(lambda x: [clean(a) for a in x])
 
     # if args.dataset == "triviaqa" and args.split == "train":
-    #     raw_df["answers"] = raw_df["answers"].apply(clean_experimental)
+    raw_df["answers"] = raw_df["answers"].apply(clean_experimental)
 
-    clean_df_path = Path("data") / args.dataset / f"{args.dataset}-{args.split}-1.0-clean.jsonl"
+    clean_df_path = Path("data") / args.dataset / f"{args.dataset}-{args.split}-{args.fraction}-clean.jsonl"
     raw_df.to_json(clean_df_path, orient="records", lines=True)
 
     # for c in sorted(all_chars):

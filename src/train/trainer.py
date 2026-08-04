@@ -75,13 +75,13 @@ class Trainer:
                 self.scheduler.step()
 
                 running_loss += loss.item()
-                avg_so_far = running_loss / idx                                 # batches done so far
+                # avg_so_far = running_loss / idx                                 # batches done so far
 
-                if idx == len(self.train_data):
-                    results = evaluate(self.model, self.tokenizer, self.dev_data, self.device)
-                    em = results["em"]
+                # if idx == len(self.train_data):
+                    # results = evaluate(self.model, self.tokenizer, self.dev_data, self.device)
+                    # em = results["em"]
                     # val_loss = results["loss"]
-                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", dev_EM=str(em))
+                    # loop.set_postfix(train_loss=f"{avg_so_far:.4f}", dev_EM=str(em))
 
                     # if val_loss < best_loss:                                      # found better, save immediately
                     # if em > best_em:
@@ -95,8 +95,8 @@ class Trainer:
                     #     return
                     # else:
                     #     epochs_no_improvement += 1
-                else:
-                    loop.set_postfix(train_loss=f"{avg_so_far:.4f}", dev_EM="-")
+                # else:
+                    # loop.set_postfix(train_loss=f"{avg_so_far:.4f}", dev_EM="-")
 
         self.save()
 

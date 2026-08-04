@@ -51,7 +51,7 @@ def parse_args() -> Namespace:
     parser.add_argument("--method", type=str, choices=["mcdropout"], default="mcdropout")
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_reps", type=int, default=30)
-    parser.add_argument("--fraction", type=float, choices=[1.0], required=True)
+    parser.add_argument("--fraction", type=float, default=1.0)
     return parser.parse_args()
 
 

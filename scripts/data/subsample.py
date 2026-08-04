@@ -7,7 +7,7 @@ import pandas as pd
 def parse_args() -> Namespace:
     parser = ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=("webquestions", "nq"), required=True)
-    parser.add_argument("--frac", type=float, choices=(0.01, 0.05, 0.1, 0.25, 0.5, 0.75), required=True)
+    parser.add_argument("--frac", type=float, choices=(0.01, 0.05, 0.1, 0.25, 0.3, 0.5, 0.75), required=True)
     return parser.parse_args()
 
 

@@ -12,8 +12,8 @@ def parse_args() -> Namespace:
     """Create a parser."""
     parser = ArgumentParser(description="Train a model.")
     parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
-    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
-    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--model", type=str, choices=["t5-large-ssm"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout"], required=True)
     parser.add_argument("--use_soft_labels", action=BooleanOptionalAction, required=True)
     parser.add_argument("--use_stochastic_labels", type=bool, default=False)
     parser.add_argument("--n_epochs", type=int, default=10)
@@ -22,7 +22,7 @@ def parse_args() -> Namespace:
     parser.add_argument("--rho", type=float, default=-2.0)          # for flipout
     parser.add_argument("--patience", type=int, default=5)
     parser.add_argument("--dropout", type=float, default=0.1)
-    parser.add_argument("--fraction", type=float, choices=[1.0], required=True)
+    parser.add_argument("--fraction", type=float, choices=[0.01, 0.1, 0.3, 1.0], required=True)
     return parser.parse_args()
 
 

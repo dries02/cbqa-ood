@@ -29,15 +29,15 @@ class GenConfig:
         """Set some directories."""
         suffix = "soft" if self.use_soft else "hard"
         self.model_path = Path("models") / f"{self.dataset}-{self.model}-{self.method}-{suffix}-0"
-        self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test.jsonl"
+        self.test_df_path = Path("data") / self.dataset / f"{self.dataset}-test-clean.jsonl"
         self.answers_dest_path = Path("results") / self.dataset
 
 
 def parse_args() -> Namespace:
     parser = ArgumentParser()
     parser.add_argument("--dataset", type=str, choices=["webquestions", "nq"], required=True)
-    parser.add_argument("--model", type=str, choices=["bart-large", "t5-large-ssm"], required=True)
-    parser.add_argument("--method", type=str, choices=["mcdropout", "flipout"], required=True)
+    parser.add_argument("--model", type=str, choices=["t5-large-ssm"], required=True)
+    parser.add_argument("--method", type=str, choices=["mcdropout"], required=True)
     parser.add_argument("--use_soft", action=BooleanOptionalAction, required=True)
     parser.add_argument("--n_reps", type=int, default=50)
     parser.add_argument("--batch_size", type=int, default=64)
