@@ -183,23 +183,12 @@ def risk_coverage_curve(uncertainty: list[float], correctness: list[float]) -> t
 
     return coverages, avg_risks
 
-# def risk_coverage_curve(uncertainty: list[float], correctness: list[float]) -> tuple[list[float], list[float]]:
-#     """Compute risk at each coverage level."""
-#     order = np.argsort(uncertainty, kind="mergesort")  # stable for ties
-#     sorted_correct = correctness[order]
-
-#     n = sorted_correct.size
-#     k = np.arange(1, n + 1, dtype=np.float32)
-
-#     coverages = k / n
-#     risks = 1.0 - (np.cumsum(sorted_correct) / k)       # risk_k = 1 - mean(correct among top-k)
-#     return coverages, risks
 
 
 def compute_aurc(uncertainty: list[float], correctness: list[float]) -> float:
     """Compute the Area Under the Risk-Coverage curve."""
-    coverages, risks = risk_coverage_curve(uncertainty, correctness)
-    return np.trapezoid(risks, coverages)               # integration over coverage in [0,1]
+    _, risks = risk_coverage_curve(uncertainty, correctness)
+    return float(np.mean(risks))               # integration over coverage in [0,1]
 
 
 def compute_e_aurc(uncertainty: list[float], correctness: list[float]) -> float:
@@ -208,32 +197,7 @@ def compute_e_aurc(uncertainty: list[float], correctness: list[float]) -> float:
     return compute_aurc(uncertainty, correctness) - compute_aurc(oracle_uncertainty, correctness)
 
 
-def _main():
-    pass
-    # import pandas as pd
-
-    # df = pd.read_json("results/webquestions/mcdropout-hard.jsonl", lines=True).head(200)
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # model = AutoModelForSequenceClassification.from_pretrained("microsoft/deberta-large-mnli").to(device)
-    # tokenizer = AutoTokenizer.from_pretrained("microsoft/deberta-large-mnli")
-    # contradict_idx = model.config.label2id["CONTRADICTION"]
-    # neutral_idx = model.config.label2id["NEUTRAL"]
-    # entail_idx = model.config.label2id["ENTAILMENT"]
-
-    # nli = NLIResources(model, tokenizer, device, contradict_idx, neutral_idx, entail_idx)
-
-    # for _, row in df.iterrows():
-    #     question = row["question"]
-    #     preds = row["predictions"]
-    #     maj_pred = majority_vote(preds)
-    #     print("correct" if exact_match(maj_pred, row["answers"]) else "incorrect")
-
-    #     # print("variation ratio:", variation_ratio(preds))
-    #     print("vote entropy:", vote_entropy(preds))
-    #     se = semantic_entropy(question, preds, nli)
-    #     print("semantic entropy: ", se)
-    #     print()
-
-
-if __name__ == "__main__":
-    _main()
+def compute_augrc(uncertainty: list[float], correctness: list[float]) -> float:
+    """Compute the Area Under the Generalized Risk Coverage curve."""
+    coverages, risks = risk_coverage_curve(uncertainty, correctness)
+    return float(np.mean(coverages * risks))
